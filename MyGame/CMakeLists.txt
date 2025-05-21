@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.27)
-project(2025_I2P2_TowerDefense)
+project(FinalProject)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -12,15 +12,9 @@ file(COPY Resource/images DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY Resource DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY allegro_monolith-5.2.dll DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-add_executable(2025_I2P2_TowerDefense
-    Bullet/Bullet.cpp
-    Bullet/Bullet.hpp
-    Bullet/FireBullet.cpp
-    Bullet/FireBullet.hpp
-    Bullet/LaserBullet.cpp
-    Bullet/LaserBullet.hpp
-
-    
+add_executable(FinalProject
+    # Bullet/Bullet.cpp
+    # Bullet/Bullet.hpp
 
     Engine/Allegro5Exception.cpp
     Engine/Allegro5Exception.hpp
@@ -46,33 +40,28 @@ add_executable(2025_I2P2_TowerDefense
     Engine/Resources.hpp
     Engine/Sprite.cpp
     Engine/Sprite.hpp
-    
-     
+
     Scene/LogScene.cpp
     Scene/LogScene.hpp
-    Scene/MapScene.cpp
-    Scene/MapScene.hpp
-    Scene/PersonalScene.cpp
-    Scene/PersonalScene.hpp
-    Scene/PlayScene.cpp
-    Scene/PlayScene.hpp
-    Scene/ResultScene.cpp
-    Scene/ResultScene.hpp
-    Scene/ScoreBoardScene.cpp
-    Scene/ScoreBoardScene.hpp
-    Scene/SettingsScene.cpp
-    Scene/SettingsScene.hpp
-    Scene/StoryScene.cpp
-    Scene/StoryScene.hpp
+    # Scene/MapScene.cpp
+    # Scene/MapScene.hpp
+    # Scene/PersonalScene.cpp
+    # Scene/PersonalScene.hpp
+    # Scene/PlayScene.cpp
+    # Scene/PlayScene.hpp
+    # Scene/ResultScene.cpp
+    # Scene/ResultScene.hpp
+    # Scene/ScoreBoardScene.cpp
+    # Scene/ScoreBoardScene.hpp
+    # Scene/SettingsScene.cpp
+    # Scene/SettingsScene.hpp
+    # Scene/StoryScene.cpp
+    # Scene/StoryScene.hpp
 
-    
-
-    UI/Animation/DirtyEffect.cpp
-    UI/Animation/DirtyEffect.hpp
-    UI/Animation/ExplosionEffect.cpp
-    UI/Animation/ExplosionEffect.hpp
-    UI/Animation/Plane.cpp
-    UI/Animation/Plane.hpp
+    # UI/Animation/DirtyEffect.cpp
+    # UI/Animation/DirtyEffect.hpp
+    # UI/Animation/ExplosionEffect.cpp
+    # UI/Animation/ExplosionEffect.hpp
 
     UI/Component/Image.cpp
     UI/Component/Image.hpp
@@ -87,16 +76,16 @@ add_executable(2025_I2P2_TowerDefense
 )
 
 IF (WIN32)
-    target_include_directories(2025_I2P2_TowerDefense PUBLIC C:/allegro/include)
-    target_link_directories(2025_I2P2_TowerDefense PUBLIC C:/allegro/lib)
-    target_compile_options(2025_I2P2_TowerDefense PUBLIC ${ALLEGRO5_CFLAGS_OTHER})
-    target_link_libraries(2025_I2P2_TowerDefense liballegro_monolith)
+    target_include_directories(FinalProject PUBLIC C:/allegro/include)
+    target_link_directories(FinalProject PUBLIC C:/allegro/lib)
+    target_compile_options(FinalProject PUBLIC ${ALLEGRO5_CFLAGS_OTHER})
+    target_link_libraries(FinalProject liballegro_monolith)
 ELSE()
     find_package(PkgConfig)
     pkg_check_modules(ALLEGRO5 REQUIRED allegro-5 allegro_main-5 allegro_font-5 allegro_dialog-5 allegro_primitives-5 allegro_image-5 allegro_ttf-5 allegro_audio-5 allegro_acodec-5)
-    target_include_directories(2025_I2P2_TowerDefense PUBLIC lib)
-    target_include_directories(2025_I2P2_TowerDefense PUBLIC ${ALLEGRO5_INCLUDE_DIRS})
-    target_compile_options(2025_I2P2_TowerDefense PUBLIC ${ALLEGRO5_CFLAGS_OTHER})
-    target_link_libraries(2025_I2P2_TowerDefense ${ALLEGRO5_LIBRARIES})
-    target_link_directories(2025_I2P2_TowerDefense PUBLIC ${ALLEGRO5_LIBRARY_DIRS})
+    target_include_directories(FinalProject PUBLIC lib)
+    target_include_directories(FinalProject PUBLIC ${ALLEGRO5_INCLUDE_DIRS})
+    target_compile_options(FinalProject PUBLIC ${ALLEGRO5_CFLAGS_OTHER})
+    target_link_libraries(FinalProject ${ALLEGRO5_LIBRARIES})
+    target_link_directories(FinalProject ${ALLEGRO5_LIBRARY_DIRS})
 ENDIF()

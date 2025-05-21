@@ -20,17 +20,7 @@ add_executable(2025_I2P2_TowerDefense
     Bullet/LaserBullet.cpp
     Bullet/LaserBullet.hpp
 
-    # TODO HACKATHON-3 (3/3): Add the new enemy source files here
-    Enemy/Enemy.cpp
-    Enemy/Enemy.hpp
-    Enemy/FlyEnemy.cpp
-    Enemy/FlyEnemy.hpp
-    Enemy/PlaneEnemy.cpp
-    Enemy/PlaneEnemy.hpp
-    Enemy/SoldierEnemy.cpp
-    Enemy/SoldierEnemy.hpp
-    Enemy/TankEnemy.cpp
-    Enemy/TankEnemy.hpp
+    
 
     Engine/Allegro5Exception.cpp
     Engine/Allegro5Exception.hpp
@@ -57,38 +47,25 @@ add_executable(2025_I2P2_TowerDefense
     Engine/Sprite.cpp
     Engine/Sprite.hpp
     
-    # TODO HACKATHON-2 (3/3): Add the new scene source files here 
+     
     Scene/LogScene.cpp
     Scene/LogScene.hpp
-    Scene/LoseScene.cpp
-    Scene/LoseScene.hpp
+    Scene/MapScene.cpp
+    Scene/MapScene.hpp
+    Scene/PersonalScene.cpp
+    Scene/PersonalScene.hpp
     Scene/PlayScene.cpp
     Scene/PlayScene.hpp
-    Scene/ScoreBoardScene1.cpp
-    Scene/ScoreBoardScene1.hpp
-    Scene/ScoreBoardScene2.cpp
-    Scene/ScoreBoardScene2.hpp
+    Scene/ResultScene.cpp
+    Scene/ResultScene.hpp
+    Scene/ScoreBoardScene.cpp
+    Scene/ScoreBoardScene.hpp
     Scene/SettingsScene.cpp
     Scene/SettingsScene.hpp
-    Scene/StageSelectScene.cpp
-    Scene/StageSelectScene.hpp
-    Scene/StartScene.cpp
-    Scene/StartScene.h
-    Scene/WinScene.cpp
-    Scene/WinScene.hpp
+    Scene/StoryScene.cpp
+    Scene/StoryScene.hpp
 
-    Turret/LaserTurret.cpp
-    Turret/LaserTurret.hpp
-    Turret/MachineGunTurret.cpp
-    Turret/MachineGunTurret.hpp
-    Turret/FireTurret.cpp
-    Turret/FireTurret.hpp
-    Turret/ShortTurret.cpp
-    Turret/ShortTurret.hpp
-    Turret/Turret.cpp
-    Turret/Turret.hpp
-    Turret/TurretButton.cpp
-    Turret/TurretButton.hpp
+    
 
     UI/Animation/DirtyEffect.cpp
     UI/Animation/DirtyEffect.hpp

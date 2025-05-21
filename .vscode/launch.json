@@ -9,10 +9,10 @@
             "name": "(Windows) Launch",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "C:\\Users\\annys\\Downloads\\enet-master\\build\\Debug\\EnetTest.exe",
+            "program": "C:\\Users\\annys\\Downloads\\FinalProject\\build\\Debug\\EnetTest.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "C:\\Users\\annys\\Downloads\\enet-master",
+            "cwd": "C:\\Users\\annys\\Downloads\\FinalProject",
             "environment": [],
             "console": "externalTerminal"
         }

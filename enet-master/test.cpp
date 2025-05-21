@@ -6,6 +6,6 @@ int main(){
     enet_deinitialize();
     return 0;
   }
-  std::cerr<<"ENet intitiallize \n";
+  std::cerr<<"ENet intitialize failed\n";
   return 1;
 }

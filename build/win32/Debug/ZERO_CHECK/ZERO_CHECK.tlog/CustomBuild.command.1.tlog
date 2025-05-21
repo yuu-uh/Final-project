@@ -1,0 +1,10 @@
+^C:\USERS\ANNYS\DOWNLOADS\ENET-MASTER\BUILD\CMAKEFILES\42CEA7B8B6B00C952AF40873CB2621B2\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/annys/Downloads/enet-master/enet-master -BC:/Users/annys/Downloads/enet-master/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/annys/Downloads/enet-master/build/enet.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

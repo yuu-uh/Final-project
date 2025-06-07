@@ -416,6 +416,30 @@ Engine/Sprite.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Engine/Sprite.cpp.s
 .PHONY : Engine/Sprite.cpp.s
 
+Items/Item.obj: Items/Item.cpp.obj
+.PHONY : Items/Item.obj
+
+# target to build an object file
+Items/Item.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Items/Item.cpp.obj
+.PHONY : Items/Item.cpp.obj
+
+Items/Item.i: Items/Item.cpp.i
+.PHONY : Items/Item.i
+
+# target to preprocess a source file
+Items/Item.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Items/Item.cpp.i
+.PHONY : Items/Item.cpp.i
+
+Items/Item.s: Items/Item.cpp.s
+.PHONY : Items/Item.s
+
+# target to generate assembly for a file
+Items/Item.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Items/Item.cpp.s
+.PHONY : Items/Item.cpp.s
+
 Player/Player.obj: Player/Player.cpp.obj
 .PHONY : Player/Player.obj
 
@@ -677,6 +701,9 @@ help:
 	@echo ... Engine/Sprite.obj
 	@echo ... Engine/Sprite.i
 	@echo ... Engine/Sprite.s
+	@echo ... Items/Item.obj
+	@echo ... Items/Item.i
+	@echo ... Items/Item.s
 	@echo ... Player/Player.obj
 	@echo ... Player/Player.i
 	@echo ... Player/Player.s

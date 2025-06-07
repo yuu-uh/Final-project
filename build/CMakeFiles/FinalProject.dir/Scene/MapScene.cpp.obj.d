@@ -912,4 +912,5 @@ CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/MapScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/ImageButton.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Slider.hpp
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Slider.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp

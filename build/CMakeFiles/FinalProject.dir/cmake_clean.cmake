@@ -23,6 +23,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/FinalProject.dir/Engine/Resources.cpp.obj.d"
   "CMakeFiles/FinalProject.dir/Engine/Sprite.cpp.obj"
   "CMakeFiles/FinalProject.dir/Engine/Sprite.cpp.obj.d"
+  "CMakeFiles/FinalProject.dir/Items/Item.cpp.obj"
+  "CMakeFiles/FinalProject.dir/Items/Item.cpp.obj.d"
   "CMakeFiles/FinalProject.dir/Player/Player.cpp.obj"
   "CMakeFiles/FinalProject.dir/Player/Player.cpp.obj.d"
   "CMakeFiles/FinalProject.dir/Scene/LogScene.cpp.obj"

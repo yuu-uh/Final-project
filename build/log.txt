@@ -13,5 +13,12 @@
 [INFO] Game start event loop
 [INFO] Loaded Resource<image>: Resource/images/mapScene/grass.png scaled to 64x64
 [INFO] Loaded Resource<image>: Resource/images/mapScene/stone.png scaled to 64x64
-[INFO] Loaded Resource<image>: Resource/images/mapScene/Engineer.png scaled to 200x200
+[INFO] Loaded Resource<image>: Resource/images/mapScene/ninja.png scaled to 30x30
+[INFO] Loaded Resource<image>: Resource/images/mapScene/master.png scaled to 30x30
+[INFO] Loaded Resource<image>: Resource/images/mapScene/slime.png scaled to 30x30
+[INFO] Loaded Resource<image>: Resource/images/mapScene/vikin.png scaled to 30x30
+[INFO] Loaded Resource<image>: Resource/images/mapScene/dragen.png scaled to 30x30
+[INFO] Loaded Resource<image>: Resource/images/mapScene/shooter.png scaled to 30x30
+[INFO] Loaded Resource<image>: Resource/images/mapScene/magician.png scaled to 30x30
+[INFO] Loaded Resource<image>: Resource/images/mapScene/player1_front01.png scaled to 80x80
 [INFO] Changed to map scene

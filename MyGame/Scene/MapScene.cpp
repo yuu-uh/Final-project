@@ -52,7 +52,7 @@ void MapScene::Initialize() {
     }
     Engine::Point startPos{ 216, 216 };      
     float moveSpeed = 200.0f;     
-    player = new Player("mapScene/Engineer.png", startPos, moveSpeed, 16, 16);
+    player = new Player("mapScene/player1_front01.png", startPos, moveSpeed, 16, 16);
     AddNewObject(player);
 }
 void MapScene::Update(float deltaTime) {
@@ -137,7 +137,7 @@ void MapScene::UIBtnClicked(int id) {
     
 }
 
-bool MapScene::CheckSpaceValid(int x, int y) {
-    return true;
-}
+//bool MapScene::CheckSpaceValid(int x, int y) {
+//    return true;
+//}
 

@@ -14,7 +14,7 @@ Player::Player(const std::string &imagePath,
           imagePath,
           static_cast<float>(startPos.x),
           static_cast<float>(startPos.y),
-          200, 200
+          80, 80
       ),
       speed(moveSpeed)
 {
@@ -40,7 +40,7 @@ void Player::Update(float deltaTime) {
 bool Player::CheckCollision(const Engine::Point &newPos) {
     int gx = static_cast<int>(newPos.x) / MapScene::BlockSize;
     int gy = static_cast<int>(newPos.y) / MapScene::BlockSize;
-    return !playScene->CheckSpaceValid(gx, gy);
+    //return !playScene->CheckSpaceValid(gx, gy);
 }
 
 Engine::Point Player::ReadInput() {

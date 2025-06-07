@@ -41,7 +41,7 @@ void MapScene::Initialize() {
     AddNewControlObject(UIInventoryGroup = new Group());
     ReadMap();
 
-    for(int i=0; i<7; i++){
+    for(int i=0; i<6; i++){
         int x = rand() % MapWidth;
         int y = rand() % MapHeight;
         // while (mapState[y][x] != TILE_FLOOR) {
@@ -188,16 +188,18 @@ void MapScene::ReadMap() {
 void MapScene::PickupItem(Item* item) {
     inventory.push_back(item);
 
-    const int panelX0 = 1280;
-    const int pad     = 8;
-    const int iconW   = 32, iconH = 32;
+    //const int panelX0 = 1280;
+    const int panelX0 = 1300;
+    const int panelY0 = 320;
+    const int pad     = 30;
+    const int iconW   = 100, iconH = 100;
     const int cols    = 320 / (iconW + pad);
 
     int idx = (int)inventory.size() - 1;  
     int col = idx % cols;
     int row = idx / cols;
     float x = panelX0 + pad + col * (iconW + pad);
-    float y = pad           + row * (iconH + pad);
+    float y = panelY0 + pad + row * (iconH + pad);
 
     auto icon = new Engine::Image(
         item->getBitmap(), 

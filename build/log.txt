@@ -12,6 +12,7 @@
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 32
 [INFO] Game initialized
 [INFO] Game start event loop
+[INFO] Changed to personal scene
 [INFO] Game Terminating...
 [INFO] Game terminated
 [INFO] Game end

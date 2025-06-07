@@ -64,35 +64,8 @@ void MapScene::Terminate() {
 void MapScene::Draw() const{
     IScene::Draw();
 }
-void MapScene::OnMouseDown(int button, int mx, int my) {
-    
-}
-void MapScene::OnMouseMove(int mx, int my) {
-    const int x = mx / BlockSize;
-    const int y = my / BlockSize;
-    if (x < 0 || x >= MapWidth || y < 0 || y >= MapHeight) {
-        imgTarget->Visible = false;
-        return;
-    }
-    imgTarget->Visible = true;
-    imgTarget->Position.x = x * BlockSize;
-    imgTarget->Position.y = y * BlockSize;
-}
-void MapScene::OnMouseUp(int button, int mx, int my) {
-    IScene::OnMouseUp(button, mx, my);
-    if (!imgTarget->Visible)
-        return;
-    const int x = mx / BlockSize;
-    const int y = my / BlockSize;
-    if (button & 1) {
-        if (mapState[y][x] != TILE_OCCUPIED) {
-        
-        }
-    }
-}
 void MapScene::OnKeyDown(int keyCode) {
     IScene::OnKeyDown(keyCode);
-    
 }
 void MapScene::ReadMap() {
     std::string filename = std::string("Resource/Map.txt");

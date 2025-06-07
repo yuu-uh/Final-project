@@ -78,6 +78,8 @@ add_executable(FinalProject
     Items/Item.hpp
     Items/Item.cpp
     
+    #Soldier/Soldier.hpp
+    #Soldier/Soldier.cpp
     main.cpp
 )
 

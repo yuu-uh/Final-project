@@ -22,7 +22,7 @@ void Item::Pick(){
     if(picked) return;
     picked = true;
     Visible = false;
-    getMapScene()->PickupItem(this);
+    getMapScene()->PickupItem(this, this->type);
 }
 
 void Item::Update(float deltaTime) {

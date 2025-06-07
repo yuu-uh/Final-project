@@ -26,7 +26,7 @@
 
 const int MapScene::MapWidth = 25, MapScene::MapHeight = 20;
 const int MapScene::BlockSize = 64;
-const std::vector<std::string> MapScene::itemImg = {"ninja", "master", "slime", "vikin", "dragen", "shooter", "magician"};
+const std::vector<std::string> MapScene::itemImg = {"ninja", "master", "slime", "vikin", "dragen", "shooter"};
 
 void MapScene::Initialize() {
     int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
@@ -84,10 +84,9 @@ void MapScene::Update(float deltaTime) {
         auto item = dynamic_cast<Item*>(it);
         if (!item) continue; // Skip if not an Item
 
-        if (Engine::Collider::IsCircleOverlap(
+        if (!item->item_picked() && Engine::Collider::IsCircleOverlap(
         item->Position, item->CollisionRadius, player->Position, player->CollisionRadius)) {
-        
-            item->Pick();  // Assuming Touch() is defined in Item.
+         // Assuming Touch() is defined in Item.
             if (!item->item_picked()) {
                 item->Pick(); // or some value
             }
@@ -197,7 +196,7 @@ void MapScene::ReadMap() {
         }
     }
 }
-void MapScene::PickupItem(Item* item) {
+void MapScene::PickupItem(Item* item, std::string itemType) {
     inventory.push_back(item);
 
     const int panelX0 = 1300;
@@ -206,18 +205,31 @@ void MapScene::PickupItem(Item* item) {
     const int iconW   = 100, iconH = 100;
     const int cols    = 320 / (iconW + pad);
 
+    if(inventoryCount.count(itemType)){
+        inventoryCount[itemType].first += 1;
+        int newCount = inventoryCount[itemType].first;
+        inventoryCount[itemType].second->Text = "x" + std::to_string(newCount);
+        return;
+    }
+
     int idx = (int)inventory.size() - 1;  
     int col = idx % cols;
     int row = idx / cols;
     float x = panelX0 + pad + col * (iconW + pad);
     float y = panelY0 + pad + row * (iconH + pad);
 
-    auto icon = new Engine::Image(
-        item->getBitmap(), 
-        x, y,
-        iconW, iconH
-    );
+
+    Engine::Image* icon = new Engine::Image(item->getBitmap(), x, y, iconW, iconH);
     UIInventoryGroup->AddNewObject(icon);
+    inventoryIcons[itemType] = icon;
+
+    // Add label for count
+    Engine::Label* countLabel = new Engine::Label("x1", "pirulen.ttf", 24,
+        x + iconW - 10, y + iconH - 10, 255, 255, 255, 255, 1.0, 1.0);
+    UIInventoryGroup->AddNewObject(countLabel);
+
+    // Add to map
+    inventoryCount[itemType] = std::make_pair(1, countLabel);
 }
 
 
@@ -239,6 +251,7 @@ void MapScene::ConstructUI() {
         iconW, iconH
         );
         UIInventoryGroup->AddNewObject(empty);
+        slotImage.push_back(empty);
     }
 }
 void MapScene::UIBtnClicked(int id) {

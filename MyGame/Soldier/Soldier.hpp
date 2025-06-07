@@ -1,5 +1,5 @@
-#ifndef ENEMY_HPP
-#define ENEMY_HPP
+#ifndef SOLDIER_HPP
+#define SOLDIER_HPP
 #include <list>
 #include <string>
 #include <vector>
@@ -11,20 +11,24 @@ class Bullet;
 class PlayScene;
 class Turret;
 
-class Enemy : public Engine::Sprite {
+enum State{
+    walking, attacking
+};
+
+class Soldier : public Engine::Sprite {
 protected:
     std::vector<Engine::Point> path;
     float speed;
     float hp;
+    float dmg;
     int money;
     PlayScene *getPlayScene();
-    virtual void OnExplode();
+    virtual void die();
+    State state;
 
 public:
     float reachEndTime;
-    std::list<Turret *> lockedTurrets;
-    std::list<Bullet *> lockedBullets;
-    Enemy(std::string img, float x, float y, float radius, float speed, float hp, int money);
+    Soldier(std::string img, float x, float y, float radius, float speed, float hp, int money);
     void Hit(float damage);
     void UpdatePath(const std::vector<std::vector<int>> &mapDistance);
     virtual void Update(float deltaTime) override;

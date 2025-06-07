@@ -6,7 +6,7 @@
 #include "Engine/Sprite.hpp"
 #include "UI/Component/Image.hpp"
 
-Item::Item(std::string img, float x, float y, std::string t):Sprite(img, x, y, 30, 30), type(t), picked(false){
+Item::Item(std::string img, float x, float y, std::string t):Sprite(img, x, y, 30, 30), image_name(img), type(t), picked(false){
     CollisionRadius = 5;
 }
 void Item::Picked(float damage){
@@ -20,8 +20,8 @@ bool Item::item_picked(){
     return picked;
 }
 
-const std::shared_ptr<ALLEGRO_BITMAP> &Item::getBitmap(){
-    return bmp;
+const std::string Item::getBitmap(){
+    return image_name;
  }
 
 

@@ -8,74 +8,85 @@
 #include "Engine/Point.hpp"
 #include "Engine/Resources.hpp"
 #include "PlayScene.hpp"
-#include "StageSelectScene.hpp"
+#include "StoryScene.hpp"
 #include "UI/Component/ImageButton.hpp"
 #include "UI/Component/Label.hpp"
 #include "UI/Component/Slider.hpp"
 
-void StageSelectScene::Initialize() {
+void StoryScene::Initialize() {
+    cur_line = 0, text_idx = 0, auto_timer = 0, text_timer = 0;
+    auto_mode = false;
     int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
     int halfW = w / 2;
     int halfH = h / 2;
+
+    lines = {"Somewhere beyond the veil of this world lies the Mirror Realm.",
+        "There, every soul has a reflection—equal in skill, opposite in heart.",
+        "You have been summoned... not by choice, but by fate.",
+        "To return, you must face your mirror and win—not just with strength, but with clarity.",
+        "Before the duel, you and your rival will scavenge the same battleground for equipment.",
+        "Only one will emerge... or perhaps, both will change forever." 
+    };
+
     Engine::ImageButton *btn;
 
     btn = new Engine::ImageButton("stage-select/dirt.png", "stage-select/floor.png", halfW - 200, halfH / 2 - 50, 400, 100);
-    btn->SetOnClickCallback(std::bind(&StageSelectScene::PlayOnClick, this, 1));
+    btn->SetOnClickCallback(std::bind(&StoryScene::AutoOnClick, this, 1));
     AddNewControlObject(btn);
     AddNewObject(new Engine::Label("Stage 1", "pirulen.ttf", 48, halfW, halfH / 2, 0, 0, 0, 255, 0.5, 0.5));
     btn = new Engine::ImageButton("stage-select/dirt.png", "stage-select/floor.png", halfW - 200, halfH / 2 + 100, 400, 100);
-    btn->SetOnClickCallback(std::bind(&StageSelectScene::PlayOnClick, this, 2));
+    btn->SetOnClickCallback(std::bind(&StoryScene::TBOnClick, this, 2));
     AddNewControlObject(btn);
     AddNewObject(new Engine::Label("Stage 2", "pirulen.ttf", 48, halfW, halfH / 2 + 150, 0, 0, 0, 255, 0.5, 0.5));
-
-    btn = new Engine::ImageButton("stage-select/dirt.png", "stage-select/floor.png", halfW - 250, halfH * 3 / 2 - 180, 500, 100);
-    btn->SetOnClickCallback(std::bind(&StageSelectScene::scoreboard1OnClick, this));
-    AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("scoreboard", "pirulen.ttf", 48, halfW, halfH * 3 / 2-130, 0, 0, 0, 255, 0.5, 0.5));
-    btn = new Engine::ImageButton("stage-select/dirt.png", "stage-select/floor.png", halfW - 200, halfH * 3 / 2 - 50, 400, 100);
-    btn->SetOnClickCallback(std::bind(&StageSelectScene::BackOnClick, this, 1));
-    AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Back", "pirulen.ttf", 48, halfW, halfH * 3 / 2, 0, 0, 0, 255, 0.5, 0.5));
-
-
-   /* Slider *sliderBGM, *sliderSFX;
-    sliderBGM = new Slider(40 + halfW - 95, halfH - 50 - 2, 190, 4);
-    sliderBGM->SetOnValueChangedCallback(std::bind(&StageSelectScene::BGMSlideOnValueChanged, this, std::placeholders::_1));
-    AddNewControlObject(sliderBGM);
-    AddNewObject(new Engine::Label("BGM: ", "pirulen.ttf", 28, 40 + halfW - 60 - 95, halfH - 50, 255, 255, 255, 255, 0.5, 0.5));
-    sliderSFX = new Slider(40 + halfW - 95, halfH + 50 - 2, 190, 4);
-    sliderSFX->SetOnValueChangedCallback(std::bind(&StageSelectScene::SFXSlideOnValueChanged, this, std::placeholders::_1));
-    AddNewControlObject(sliderSFX);
-    AddNewObject(new Engine::Label("SFX: ", "pirulen.ttf", 28, 40 + halfW - 60 - 95, halfH + 50, 255, 255, 255, 255, 0.5, 0.5));
-    // Not safe if release resource while playing, however we only free while change scene, so it's fine.
-    bgmInstance = AudioHelper::PlaySample("select.ogg", true, AudioHelper::BGMVolume);
-    sliderBGM->SetValue(AudioHelper::BGMVolume);
-    sliderSFX->SetValue(AudioHelper::SFXVolume);*/
-
     // Not safe if release resource while playing, however we only free while change scene, so it's fine.
     bgmInstance = AudioHelper::PlaySample("select.ogg", true, AudioHelper::BGMVolume);
 }
-void StageSelectScene::Terminate() {
+void StoryScene::Terminate() {
     AudioHelper::StopSample(bgmInstance);
     bgmInstance = std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE>();
     IScene::Terminate();
 }
-void StageSelectScene::BackOnClick(int stage) {
-    Engine::GameEngine::GetInstance().ChangeScene("start");
+
+void StoryScene::Update(float deltaTime){
+    if(text_idx <= lines[cur_line].size()){
+        text_timer += deltaTime;
+        if(text_timer > 0.3){
+            show_text += lines[cur_line][text_idx];
+            text_timer = 0;
+        }
+    }
+    if(auto_mode){
+        auto_timer += deltaTime;
+        if(auto_timer >= 2.0){
+            advance_line();
+            auto_timer = 0;
+        }
+    }
+    if(cur_line >= lines.size()){
+        
+    }
 }
-void StageSelectScene::PlayOnClick(int stage) {
-    PlayScene *scene = dynamic_cast<PlayScene *>(Engine::GameEngine::GetInstance().GetScene("play"));
-    scene->MapId = stage;
-    Engine::GameEngine::GetInstance().ChangeScene("play");
+
+void StoryScene::Draw() const{
+    
+    
 }
-void StageSelectScene::scoreboard1OnClick() {
-    Engine::GameEngine::GetInstance().ChangeScene("scoreboard1");
+
+void StoryScene::advance_line() {
+    if (cur_line + 1 < lines.size()) {
+        cur_line++;
+        show_text = "";
+        text_idx = 0;
+    } else {
+        cur_line++;
+    }
 }
-void StageSelectScene::BGMSlideOnValueChanged(float value) {
-    AudioHelper::ChangeSampleVolume(bgmInstance, value);
-    AudioHelper::BGMVolume = value;
+
+void StoryScene::AutoOnClick(int stage) {
+    
 }
-void StageSelectScene::SFXSlideOnValueChanged(float value) {
-    AudioHelper::SFXVolume = value;
+void StoryScene::TBOnClick(int stage) {
+    
 }
+

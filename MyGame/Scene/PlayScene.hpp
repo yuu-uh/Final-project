@@ -36,6 +36,7 @@ private:
     std::vector<std::shared_ptr<Item>> worldItems;
     std::vector<std::string> inventoryImgs;
     std::vector<Item*> inventory;
+    
 
 protected:
     int lives;

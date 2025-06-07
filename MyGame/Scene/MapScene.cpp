@@ -80,6 +80,7 @@ void MapScene::Terminate() {
     IScene::Terminate();
 }
 void MapScene::Draw() const {
+    IScene::Draw();
 
     ALLEGRO_TRANSFORM oldX;
     al_copy_transform(&oldX, al_get_current_transform());

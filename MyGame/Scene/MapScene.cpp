@@ -18,9 +18,12 @@
 #include "UI/Component/ImageButton.hpp"
 #include "UI/Component/Label.hpp"
 #include "UI/Component/Slider.hpp"
+#include "Items/Item.hpp"
 
 const int MapScene::MapWidth = 20, MapScene::MapHeight = 13;
 const int MapScene::BlockSize = 64;
+const std::vector<std::string> MapScene::itemImg = {"ninja", "master", "slime", "vikin", "dragen", "shooter", "magician"};
+
 void MapScene::Initialize() {
     int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
@@ -30,10 +33,23 @@ void MapScene::Initialize() {
 
     AddNewObject(TileMapGroup = new Group());
     AddNewObject(GroundEffectGroup = new Group());
+    AddNewObject(ItemGroup = new Group);
     
     // Should support buttons.
     AddNewControlObject(UIGroup = new Group());
     ReadMap();
+
+    for(int i=0; i<7; i++){
+        int x = rand() % MapWidth;
+        int y = rand() % MapHeight;
+        // while (mapState[y][x] != TILE_FLOOR) {
+        //     x = rand() % MapWidth;
+        //     y = rand() % MapHeight;
+        // }
+        std::string img = "mapScene/"+itemImg[i]+".png";
+        Item* item = new Item(img, x * BlockSize, y * BlockSize, itemImg[i]);
+        ItemGroup->AddNewObject(item);
+    }
     Engine::Point startPos{ 216, 216 };      
     float moveSpeed = 200.0f;     
     player = new Player("mapScene/Engineer.png", startPos, moveSpeed, 16, 16);

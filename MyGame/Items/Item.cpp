@@ -1,16 +1,19 @@
-#include "Item.hpp"
-#include <allegro5/allegro5.h>
+#include <allegro5/allegro.h>
+#include <memory>
 
-Item::Item(std::string img, float x, float y, string t){
-    
+#include "Item.hpp"
+#include "Engine/Point.hpp"
+#include "Engine/Sprite.hpp"
+#include "UI/Component/Image.hpp"
+
+Item::Item(std::string img, float x, float y, std::string t):Sprite(img, x, y, 30, 30), type(t), picked(false){
+    CollisionRadius = 5;
 }
 void Item::Picked(float damage){
-
+    if(picked) return;
+    picked = true;
+    Visible = false;
+    
 }
-void Item::Update(float deltaTime) override{
 
-}
-void Item::Draw() const override{
-
-}
 

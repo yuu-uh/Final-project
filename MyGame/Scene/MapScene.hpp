@@ -31,6 +31,7 @@ private:
 
 public:
     static const std::vector<Engine::Point> directions;
+    static const std::vector<std::string> itemImg;
     static const int MapWidth, MapHeight;
     static const int BlockSize;
     static const float DangerTime;
@@ -44,6 +45,7 @@ public:
     Group *TileMapGroup;
     Group *GroundEffectGroup;
     Group *UIGroup;
+    Group *ItemGroup;
     Engine::Image *imgTarget;
     std::vector<std::vector<TileType>> mapState;
     std::vector<std::vector<int>> mapDistance;
@@ -61,6 +63,7 @@ public:
     void ReadMap();
     void ConstructUI();
     void UIBtnClicked(int id);
-    bool CheckSpaceValid(int x, int y);
+    // bool CheckSpaceValid(int x, int y);
 };
+
 #endif   

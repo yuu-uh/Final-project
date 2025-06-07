@@ -7,6 +7,7 @@
 #include <tuple>
 #include <sstream>
 #include <fstream>
+#include <iomanip>
 
 #include "Engine/AudioHelper.hpp"
 #include "Engine/GameEngine.hpp"
@@ -32,14 +33,24 @@ void MapScene::Initialize() {
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
     int halfW = w / 2;
     int halfH = h / 2;
-    timer = 180.0f;
-
     AddNewObject(TileMapGroup = new Group());
     AddNewObject(GroundEffectGroup = new Group());
     AddNewObject(ItemGroup = new Group);
     AddNewControlObject(UIGroup = new Group());
     AddNewControlObject(UIInventoryGroup = new Group());
     ReadMap();
+
+    timer = 180.0f;
+    countdownLabel = new Engine::Label("03:00", "pirulen.ttf", 48,
+    Engine::GameEngine::GetInstance().GetScreenSize().x - 120,
+    Engine::GameEngine::GetInstance().GetScreenSize().y - 40, 255, 255, 255, 255, 0.5, 0.5);
+    UIGroup->AddNewObject(countdownLabel);
+
+    timer = 180.0f;
+    countdownLabel = new Engine::Label("03:00", "pirulen.ttf", 48,
+    Engine::GameEngine::GetInstance().GetScreenSize().x - 120,
+    Engine::GameEngine::GetInstance().GetScreenSize().y - 40, 255, 255, 255, 255, 0.5, 0.5);
+    UIGroup->AddNewObject(countdownLabel);
 
     for(int i=0; i<6; i++){
         int x = rand() % MapWidth;
@@ -75,7 +86,6 @@ void MapScene::Update(float deltaTime) {
     camX = std::clamp(targetX, 0.0f, MapWidth*BlockSize - viewW);
     camY = std::clamp(targetY, 0.0f, MapHeight*BlockSize - viewH);
 
-
     for (auto& it : ItemGroup->GetObjects()) {
         auto item = dynamic_cast<Item*>(it);
         if (!item) continue; // Skip if not an Item
@@ -89,6 +99,18 @@ void MapScene::Update(float deltaTime) {
             }
         }
     }
+
+    timer -= deltaTime;
+    if (timer <= 0) {
+        Engine::GameEngine::GetInstance().ChangeScene("log");
+        return;
+    }
+    int minutes = int(timer) / 60;
+    int seconds = int(timer) % 60;
+    std::ostringstream oss;
+    oss << std::setw(2) << std::setfill('0') << minutes
+        << ":" << std::setw(2) << std::setfill('0') << seconds;
+    countdownLabel->Text = oss.str();
 }
 void MapScene::Terminate() {
     IScene::Terminate();
@@ -137,11 +159,7 @@ void MapScene::Draw() const {
     player->Draw();
 
     al_use_transform(&oldX);
-    al_draw_filled_rectangle(
-        screenW - panelW, 0,
-        screenW, screenH,
-        al_map_rgb(0, 0, 0)
-    );
+    al_draw_filled_rectangle(screenW - panelW, 0, screenW, screenH, al_map_rgb(0, 0, 0));
 
     UIGroup->Draw();
     UIInventoryGroup->Draw();

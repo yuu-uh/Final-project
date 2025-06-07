@@ -27,12 +27,20 @@
 [INFO] Changed to map scene
 [INFO] Loaded Resource<image>: Resource/images/mapScene/grass.png
 [INFO] Loaded Resource<image>: Resource/images/mapScene/stone.png
+[INFO] Loaded Resource<image>: Resource/images/mapScene/shooter.png scaled to 32x32
+[INFO] Loaded Resource<image>: Resource/images/mapScene/magician.png scaled to 32x32
+[INFO] Loaded Resource<image>: Resource/images/mapScene/dragen.png scaled to 32x32
+[INFO] Loaded Resource<image>: Resource/images/mapScene/ninja.png scaled to 32x32
 [INFO] Game Terminating...
 [INFO] Game terminated
 [INFO] Game end
+[INFO] Destroyed Resource<image>: mapScene/magician.png?32x32
+[INFO] Destroyed Resource<image>: mapScene/ninja.png?32x32
+[INFO] Destroyed Resource<image>: mapScene/shooter.png?32x32
 [INFO] Destroyed Resource<image>: mapScene/grass.png
 [INFO] Destroyed Resource<image>: mapScene/item_empty.png?128x128
 [INFO] Destroyed Resource<image>: mapScene/shooter.png?30x30
+[INFO] Destroyed Resource<image>: mapScene/dragen.png?32x32
 [INFO] Destroyed Resource<image>: mapScene/vikin.png?30x30
 [INFO] Destroyed Resource<image>: mapScene/player1_front01.png?60x60
 [INFO] Destroyed Resource<image>: mapScene/master.png?30x30

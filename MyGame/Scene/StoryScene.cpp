@@ -8,37 +8,64 @@
 #include "Engine/Point.hpp"
 #include "Engine/Resources.hpp"
 #include "PlayScene.hpp"
-#include "StageSelectScene.hpp"
+#include "StoryScene.hpp"
 #include "UI/Component/ImageButton.hpp"
 #include "UI/Component/Label.hpp"
 #include "UI/Component/Slider.hpp"
 
-void StageSelectScene::Initialize() {
+void StoryScene::Initialize() {
+    cur_line = 0, text_idx = 0, auto_timer = 0, text_timer = 0;
+    auto_mode = false;
     int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
     int halfW = w / 2;
     int halfH = h / 2;
 }
-void StageSelectScene::Terminate() {
+void StoryScene::Terminate() {
     AudioHelper::StopSample(bgmInstance);
     bgmInstance = std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE>();
     IScene::Terminate();
 }
-void StageSelectScene::BackOnClick(int stage) {
-    Engine::GameEngine::GetInstance().ChangeScene("start");
+
+void StoryScene::Update(float deltaTime){
+    if(text_idx <= lines[cur_line].size()){
+        text_timer += deltaTime;
+        if(text_timer > 0.3){
+            show_text += lines[cur_line][text_idx];
+            text_timer = 0;
+        }
+    }
+    if(auto_mode){
+        auto_timer += deltaTime;
+        if(auto_timer >= 2.0){
+            advance_line();
+            auto_timer = 0;
+        }
+    }
+    if(cur_line >= lines.size()){
+        
+    }
 }
-void StageSelectScene::PlayOnClick(int stage) {
-    PlayScene *scene = dynamic_cast<PlayScene *>(Engine::GameEngine::GetInstance().GetScene("play"));
-    scene->MapId = stage;
-    Engine::GameEngine::GetInstance().ChangeScene("play");
+
+void StoryScene::Draw() const{
+    
+    
 }
-void StageSelectScene::scoreboard1OnClick() {
-    Engine::GameEngine::GetInstance().ChangeScene("scoreboard1");
+
+void StoryScene::advance_line() {
+    if (cur_line + 1 < lines.size()) {
+        cur_line++;
+        show_text = "";
+        text_idx = 0;
+    } else {
+        cur_line++;
+    }
 }
-void StageSelectScene::BGMSlideOnValueChanged(float value) {
-    AudioHelper::ChangeSampleVolume(bgmInstance, value);
-    AudioHelper::BGMVolume = value;
+
+void StoryScene::AutoOnClick(int stage) {
+    
 }
-void StageSelectScene::SFXSlideOnValueChanged(float value) {
-    AudioHelper::SFXVolume = value;
+void StoryScene::TBOnClick(int stage) {
+    
 }
+

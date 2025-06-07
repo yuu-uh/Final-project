@@ -75,7 +75,7 @@ void MapScene::Update(float deltaTime) {
 
     camX = std::clamp(targetX, 0.0f, MapWidth*BlockSize - viewW);
     camY = std::clamp(targetY, 0.0f, MapHeight*BlockSize - viewH);
-}
+
 
     for (auto& it : ItemGroup->GetObjects()) {
         auto item = dynamic_cast<Item*>(it);

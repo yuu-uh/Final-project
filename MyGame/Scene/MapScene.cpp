@@ -14,13 +14,14 @@
 #include "Engine/Resources.hpp"
 #include "Engine/LOG.hpp"
 #include "Player/Player.hpp"
+#include "Items/Item.hpp"
 #include "Scene/MapScene.hpp"
 #include "UI/Component/ImageButton.hpp"
 #include "UI/Component/Label.hpp"
 #include "UI/Component/Slider.hpp"
 #include "Items/Item.hpp"
 
-const int MapScene::MapWidth = 20, MapScene::MapHeight = 13;
+const int MapScene::MapWidth = 25, MapScene::MapHeight = 13;
 const int MapScene::BlockSize = 64;
 const std::vector<std::string> MapScene::itemImg = {"ninja", "master", "slime", "vikin", "dragen", "shooter", "magician"};
 
@@ -34,9 +35,8 @@ void MapScene::Initialize() {
     AddNewObject(TileMapGroup = new Group());
     AddNewObject(GroundEffectGroup = new Group());
     AddNewObject(ItemGroup = new Group);
-    
-    // Should support buttons.
     AddNewControlObject(UIGroup = new Group());
+    AddNewControlObject(UIInventoryGroup = new Group());
     ReadMap();
 
     for(int i=0; i<7; i++){
@@ -54,29 +54,55 @@ void MapScene::Initialize() {
     float moveSpeed = 200.0f;     
     player = new Player("mapScene/player1_front01.png", startPos, moveSpeed, 16, 16);
     AddNewObject(player);
+
+    ConstructUI();
 }
 void MapScene::Update(float deltaTime) {
     IScene::Update(deltaTime);
 
-    for (auto item : ItemGroup->GetObjects()) {
-        // if ( 
-        //     Engine::Collider::IsCircleOverlap(
-        //         item->Position + Engine::Point(item->GetWidth()/2, item->GetHeight()/2),
-        //         item->GetWidth()/2,
-        //         playerPos, BlockSize / 2)) {
-        //     item->Touch();
-        //     item->
-        // }
-    }
+    float screenW = Engine::GameEngine::GetInstance()
+                        .GetScreenSize().x;
+    float screenH = Engine::GameEngine::GetInstance()
+                        .GetScreenSize().y;
+
+    const float panelW = 320;              
+    const float viewW  = screenW - panelW;  
+    const float viewH  = screenH;           
+
+    float targetX = player->Position.x - viewW / 2.0f;
+    float targetY = player->Position.y - viewH / 2.0f;
+
+    camX = std::clamp(targetX, 0.0f, MapWidth*BlockSize - viewW);
+    camY = std::clamp(targetY, 0.0f, MapHeight*BlockSize - viewH);
 }
+
 void MapScene::Terminate() {
     IScene::Terminate();
 }
 void MapScene::Draw() const{
-    IScene::Draw();
+   // IScene::Draw();
+
+    ALLEGRO_TRANSFORM oldXform;
+    al_copy_transform(&oldXform, al_get_current_transform());
+
+    ALLEGRO_TRANSFORM cam;
+    al_identity_transform(&cam);
+    al_translate_transform(&cam, -camX, -camY);
+    al_use_transform(&cam);
+
+    TileMapGroup    ->Draw();
+    GroundEffectGroup->Draw();
+    ItemGroup        ->Draw();
+    player           ->Draw();
+
+    al_use_transform(&oldXform);
+
+    UIGroup         ->Draw();
+    UIInventoryGroup->Draw();
 }
 void MapScene::OnKeyDown(int keyCode) {
     IScene::OnKeyDown(keyCode);
+    UIInventoryGroup->Draw();  
 }
 void MapScene::ReadMap() {
     std::string filename = std::string("Resource/Map.txt");
@@ -113,15 +139,52 @@ void MapScene::ReadMap() {
         }
     }
 }
-void MapScene::ConstructUI() {
-    
+void MapScene::PickupItem(Item* item) {
+    inventory.push_back(item);
+
+    const int panelX0 = 1280;
+    const int pad     = 8;
+    const int iconW   = 32, iconH = 32;
+    const int cols    = 320 / (iconW + pad);
+
+    int idx = (int)inventory.size() - 1;  
+    int col = idx % cols;
+    int row = idx / cols;
+    float x = panelX0 + pad + col * (iconW + pad);
+    float y = pad           + row * (iconH + pad);
+
+    auto icon = new Engine::Image(
+        item->getBitmap(), 
+        x, y,
+        iconW, iconH
+    );
+    UIInventoryGroup->AddNewObject(icon);
 }
 
+
+void MapScene::ConstructUI() {
+    const int panelX0 = 1300;
+    const int panelY0 = 320;
+    const int pad     = 8;
+    const int iconW   = 128, iconH = 128;
+    const int cols    = (320) / (iconW + pad);
+
+    for (int idx = 0; idx < 6; idx++) {
+        int col = idx % cols;
+        int row = idx / cols;
+        float x = panelX0 + pad + col * (iconW + pad);
+        float y = panelY0 + pad + row * (iconH + pad);
+        auto empty = new Engine::Image(
+        "mapScene/item_empty.png",
+        x, y,
+        iconW, iconH
+        );
+        UIInventoryGroup->AddNewObject(empty);
+    }
+}
 void MapScene::UIBtnClicked(int id) {
     
 }
-
-
 
 //bool MapScene::CheckSpaceValid(int x, int y) {
 //    return true;

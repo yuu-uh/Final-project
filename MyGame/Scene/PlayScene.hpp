@@ -8,6 +8,7 @@
 
 #include "Engine/IScene.hpp"
 #include "Engine/Point.hpp"
+#include "Items/Item.hpp"
 
 class Turret;
 namespace Engine {
@@ -26,22 +27,23 @@ private:
     };
     ALLEGRO_SAMPLE_ID bgmId;
     std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE> deathBGMInstance;
+    float timer;
+    Engine::Label* countdownLabel;
+    Engine::Label* UILives;
+    std::vector<std::vector<bool>> mapData;
+    Engine::Image* MouseOnIcon = nullptr;
+    int MouseIdx = -1;
+    std::vector<std::shared_ptr<Item>> worldItems;
+    std::vector<std::string> inventoryImgs;
 
 protected:
     int lives;
-    int money;
-    int SpeedMult;
 
 public:
-    static bool DebugMode;
     static const std::vector<Engine::Point> directions;
+    static const std::vector<std::string> itemImg;
     static const int MapWidth, MapHeight;
     static const int BlockSize;
-    static const float DangerTime;
-    static const Engine::Point SpawnGridPoint;
-    static const Engine::Point EndGridPoint;
-    static const std::vector<int> code;
-    int MapId;
     float ticks;
     float deathCountDown;
     // Map tiles.
@@ -51,10 +53,10 @@ public:
     Group *BulletGroup;
     Group *TowerGroup;
     Group *EnemyGroup;
-    Group *EffectGroup;
     Group *UIGroup;
-    Engine::Label *UIMoney;
-    Engine::Label *UILives;
+    Group *ItemGroup;
+    Group *UIInventoryGroup;
+    Engine::Label *livelabel;
     Engine::Image *imgTarget;
     Engine::Sprite *dangerIndicator;
     Turret *preview;
@@ -71,13 +73,11 @@ public:
     void OnMouseDown(int button, int mx, int my) override;
     void OnMouseMove(int mx, int my) override;
     void OnMouseUp(int button, int mx, int my) override;
-    void OnKeyDown(int keyCode) override;
     void Hit();
     void ReadMap();
     void ConstructUI();
     void UIBtnClicked(int id);
     bool CheckSpaceValid(int x, int y);
-    std::vector<std::vector<int>> CalculateBFSDistance();
     // void ModifyReadMapTiles();
 };
 #endif   // PLAYSCENE_HPP

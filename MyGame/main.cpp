@@ -6,6 +6,7 @@
 #include "Scene/LogScene.hpp"
 #include "Scene/PersonalScene.hpp"
 #include "Scene/MapScene.hpp"
+#include "Scene/PlayScene.hpp"
 
 int main(int argc, char **argv) {
 	Engine::LOG::SetConfig(true);
@@ -14,7 +15,7 @@ int main(int argc, char **argv) {
     game.AddNewScene("log", new LogScene());
 	game.AddNewScene("map", new MapScene());
 	game.AddNewScene("personal", new PersonalScene());
-	// game.AddNewScene("play", new PlayScene());
+	game.AddNewScene("play", new PlayScene());
 	// game.AddNewScene("result", new ResultScene());
 	// game.AddNewScene("scoreboard", new ScoreBoardScene());
 	// game.AddNewScene("settings", new SettingsScene());

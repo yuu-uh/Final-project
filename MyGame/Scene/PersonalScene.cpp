@@ -40,7 +40,7 @@ void PersonalScene::Terminate() {
     IScene::Terminate();
 }
 void PersonalScene::MapOnClick() {
-    Engine::GameEngine::GetInstance().ChangeScene("map");
+    Engine::GameEngine::GetInstance().ChangeScene("play");
 }
 void PersonalScene::ScoreOnClick() {
     Engine::GameEngine::GetInstance().ChangeScene("score");

@@ -199,7 +199,6 @@ void MapScene::ReadMap() {
 void MapScene::PickupItem(Item* item, std::string itemType) {
     inventory.push_back(item);
 
-    //const int panelX0 = 1280;
     const int panelX0 = 1300;
     const int panelY0 = 320;
     const int pad     = 30;

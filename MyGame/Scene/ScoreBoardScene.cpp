@@ -30,7 +30,7 @@ void ScoreBoardScene1::Initialize() {
     int halfH = h / 2;
     Engine::ImageButton *btn;
     
-    AddNewObject(new Engine::Label("Score board 1", "pirulen.ttf", 48, halfW, 50, 10, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("Score board", "pirulen.ttf", 48, halfW, 50, 10, 255, 255, 255, 0.5, 0.5));
 
     std::ifstream fin("C:\\Users\\annys\\Downloads\\2025_I2P2_TowerDefense-main\\2025_I2P2_TowerDefense-main\\Resource\\scoreboard1.txt");
     std::vector<Entry> data;
@@ -73,7 +73,7 @@ void ScoreBoardScene1::Terminate() {
     IScene::Terminate();
 }
 void ScoreBoardScene1::BackOnClick(int stage) {
-    Engine::GameEngine::GetInstance().ChangeScene("stage-select");
+    Engine::GameEngine::GetInstance().ChangeScene("personal");
 }
 void ScoreBoardScene1::NextOnClick() {
     Engine::GameEngine::GetInstance().ChangeScene("scoreboard2");

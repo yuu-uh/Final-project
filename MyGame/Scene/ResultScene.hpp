@@ -3,7 +3,7 @@
 #include "Engine/IScene.hpp"
 #include <allegro5/allegro_audio.h>
 
-class WinScene final : public Engine::IScene {
+class ResultScene final : public Engine::IScene {
 private:
     float ticks;
     std::string playerName;        
@@ -12,13 +12,11 @@ private:
     int score;
 
 public:
-    explicit WinScene() = default;
+    explicit ResultScene() = default;
     void Initialize() override;
     void Terminate() override;
     void Update(float deltaTime) override;
     void BackOnClick(int stage);
-    virtual void OnKeyDown(int keyCode) override;
-    void SetScore(int s){ score = s; }
 };
 
 #endif   // WINSCENE_HPP

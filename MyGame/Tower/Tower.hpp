@@ -1,11 +1,10 @@
-#ifndef FireTurret_HPP
-#define FireTurret_HPP
-#include "Turret.hpp"
+#ifndef Tower_HPP
+#define Tower_HPP
+#include "Tower.hpp"
 
-class FireTurret : public Turret {
+class Tower{
 public:
-    static const int Price;
-    FireTurret(float x, float y);
+    Tower(float x, float y);
     void CreateBullet() override;
 };
 #endif   

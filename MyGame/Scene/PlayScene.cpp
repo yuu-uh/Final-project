@@ -7,31 +7,28 @@
 #include <queue>
 #include <string>
 #include <vector>
+#include <sstream>
 
-#include "Engine/Group.hpp"
-#include "Engine/LOG.hpp"
+#include "Engine/AudioHelper.hpp"
+#include "Engine/GameEngine.hpp"
+#include "Engine/IScene.hpp"
+#include "Engine/Point.hpp"
 #include "Engine/Resources.hpp"
+#include "Engine/LOG.hpp"
+#include "Engine/Collider.hpp"
 #include "PlayScene.hpp"
+#include "Items/Item.hpp"
 #include "UI/Animation/DirtyEffect.hpp"
-#include "UI/Animation/Plane.hpp"
 #include "UI/Component/Label.hpp"
 
-
-bool PlayScene::DebugMode = false;
 const std::vector<Engine::Point> PlayScene::directions = { Engine::Point(-1, 0), Engine::Point(0, -1), Engine::Point(1, 0), Engine::Point(0, 1) };
 const int PlayScene::MapWidth = 20, PlayScene::MapHeight = 13;
 const int PlayScene::BlockSize = 64;
-const float PlayScene::DangerTime = 7.61;
-const Engine::Point PlayScene::SpawnGridPoint = Engine::Point(-1, 0);
-const Engine::Point PlayScene::EndGridPoint = Engine::Point(MapWidth, MapHeight - 1);
-const std::vector<int> PlayScene::code = {
-    ALLEGRO_KEY_UP, ALLEGRO_KEY_UP, ALLEGRO_KEY_DOWN, ALLEGRO_KEY_DOWN,
-    ALLEGRO_KEY_LEFT, ALLEGRO_KEY_RIGHT, ALLEGRO_KEY_LEFT, ALLEGRO_KEY_RIGHT,
-    ALLEGRO_KEY_B, ALLEGRO_KEY_A, ALLEGRO_KEY_RSHIFT, ALLEGRO_KEY_ENTER
-};
 Engine::Point PlayScene::GetClientSize() {
     return Engine::Point(MapWidth * BlockSize, MapHeight * BlockSize);
 }
+const std::vector<std::string> PlayScene::itemImg = {"ninja", "master", "slime", "vikin", "dragen", "shooter", "magician"};
+
 void PlayScene::Initialize() {
     int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
@@ -49,6 +46,13 @@ void PlayScene::Initialize() {
     Engine::GameEngine::GetInstance().GetScreenSize().x - 120,
     Engine::GameEngine::GetInstance().GetScreenSize().y - 40, 255, 255, 255, 255, 0.5, 0.5);
     UIGroup->AddNewObject(countdownLabel);
+
+    livelabel = new Engine::Label(
+        std::string("Life ") + std::to_string(lives),
+        "pirulen.ttf", 48, 1400, 50, 255,255,255,255, 0.5,0.5);
+    UIGroup->AddNewObject(livelabel);
+
+    ConstructUI();
 }
 void PlayScene::Terminate() {
     AudioHelper::StopBGM(bgmId);
@@ -57,97 +61,106 @@ void PlayScene::Terminate() {
     IScene::Terminate();
 }
 void PlayScene::Update(float deltaTime) {
-    
+    IScene::Update(deltaTime);
+    timer -= deltaTime;
+    if (timer <= 0) {
+        Engine::GameEngine::GetInstance().ChangeScene("log");
+        return;
+    }
+    int minutes = int(timer) / 60;
+    int seconds = int(timer) % 60;
+    std::ostringstream oss;
+    oss << std::setw(2) << std::setfill('0') << minutes
+        << ":" << std::setw(2) << std::setfill('0') << seconds;
+    countdownLabel->Text = oss.str();
+}
+void PlayScene::ReadMap() {
+    std::ifstream fin("Resource/Play.txt");
+    mapData.assign(MapHeight, std::vector<bool>(MapWidth, false));
+    std::string line;
+    for (int y = 0; y < MapHeight; y++) {
+        if (!std::getline(fin, line) || (int)line.size() < MapWidth)
+            throw std::runtime_error("Map.txt 行长不够");
+        for (int x = 0; x < MapWidth; x++)
+            mapData[y][x] = (line[x] == '1');
+    }
 }
 void PlayScene::Draw() const {
     IScene::Draw();
 
-    float screenW = Engine::GameEngine::GetInstance().GetScreenSize().x;
-    float screenH = Engine::GameEngine::GetInstance().GetScreenSize().y;
-
-    for (int row = 0; row < 20; ++row) {
-        for (int col = 0; col < 13; ++col) {
-            TileType t = mapState[row][col];
-            const char* path = (t == TILE_FLOOR) ? "mapScene/stone.png" : "mapScene/grass.png";
-            float x = col * BlockSize;
-            float y = row * BlockSize;
-            ALLEGRO_BITMAP* bmp = Engine::Resources::GetInstance().GetBitmap(path).get();
+    for (int y = 0; y < MapHeight; y++) {
+        for (int x = 0; x < MapWidth; x++) {
+            const char* path = mapData[y][x]
+                ? "mapScene/stone.png"
+                : "mapScene/grass.png";
+            ALLEGRO_BITMAP* bmp = Engine::Resources::GetInstance()
+                                      .GetBitmap(path).get();
             al_draw_scaled_bitmap(
-                bmp, 0, 0,
-                al_get_bitmap_width(bmp), al_get_bitmap_height(bmp),
-                x, y,
-                BlockSize, BlockSize,
-                0
+                bmp, 0, 0, al_get_bitmap_width(bmp), al_get_bitmap_height(bmp),
+                x * BlockSize, y * BlockSize, BlockSize, BlockSize,0
             );
         }
     }
+    for (auto& it : worldItems) it->Draw();
+    if (MouseOnIcon) MouseOnIcon->Draw();
     UIGroup->Draw();
     UIInventoryGroup->Draw();
 }
 void PlayScene::OnMouseDown(int button, int mx, int my) {
-    if ((button & 1) && !imgTarget->Visible && preview) {
-        // Cancel turret construct.
-        UIGroup->RemoveObject(preview->GetObjectIterator());
-        preview = nullptr;
-    }
-    IScene::OnMouseDown(button, mx, my);
-}
-void PlayScene::OnMouseMove(int mx, int my) {
-    IScene::OnMouseMove(mx, my);
-    const int x = mx / BlockSize;
-    const int y = my / BlockSize;
-    if (!preview || x < 0 || x >= MapWidth || y < 0 || y >= MapHeight) {
-        imgTarget->Visible = false;
-        return;
-    }
-    imgTarget->Visible = true;
-    imgTarget->Position.x = x * BlockSize;
-    imgTarget->Position.y = y * BlockSize;
-}
-void PlayScene::OnMouseUp(int button, int mx, int my) {
-    IScene::OnMouseUp(button, mx, my);
-    if (!imgTarget->Visible)
-        return;
-    const int x = mx / BlockSize;
-    const int y = my / BlockSize;
-    if (button & 1) {
-        if (mapState[y][x] != TILE_OCCUPIED) {
-            if (!preview)
-                return;
-            // Check if valid.
-            if (!CheckSpaceValid(x, y)) {
-                Engine::Sprite *sprite;
-                GroundEffectGroup->AddNewObject(sprite = new DirtyEffect("play/target-invalid.png", 1, x * BlockSize + BlockSize / 2, y * BlockSize + BlockSize / 2));
-                sprite->Rotation = 0;
-                return;
-            }
-            // Purchase.
-            EarnMoney(-preview->GetPrice());
-            // Remove Preview.
-            preview->GetObjectIterator()->first = false;
-            UIGroup->RemoveObject(preview->GetObjectIterator());
-            // Construct real turret.
-            preview->Position.x = x * BlockSize + BlockSize / 2;
-            preview->Position.y = y * BlockSize + BlockSize / 2;
-            preview->Enabled = true;
-            preview->Preview = false;
-            preview->Tint = al_map_rgba(255, 255, 255, 255);
-            TowerGroup->AddNewObject(preview);
-            // To keep responding when paused.
-            preview->Update(0);
-            // Remove Preview.
-            preview = nullptr;
+    if (!(button & 1)) return;
 
-            mapState[y][x] = TILE_OCCUPIED;
-            OnMouseMove(mx, my);
+    float sw = Engine::GameEngine::GetInstance().GetScreenSize().x;
+    if (mx > sw - 320) {
+        int localX = mx - int(sw - 320);
+        int localY = my;
+        const int pad = 8, w = 48, h = 48, cols = 2;
+        int col = localX / (w + pad);
+        int row = localY / (h + pad);
+        int idx = row * cols + col;
+        if (idx >= 0 && idx < (int)inventoryImgs.size()) {
+            MouseIdx = idx;
+            MouseOnIcon = new Engine::Image(
+                "mapScene/" + inventoryImgs[idx] + ".png",
+                mx - w/2, my - h/2,
+                w, h
+            );
         }
     }
+}
+void PlayScene::OnMouseMove(int mx, int my) {
+   if (MouseOnIcon) {
+        MouseOnIcon->Position.x = mx - 24;
+        MouseOnIcon->Position.y = my - 24;
+    }
+}
+void PlayScene::OnMouseUp(int button, int mx, int my) {
+    if (!(button & 1) || !MouseOnIcon) return;
+
+    int gx = mx / BlockSize;
+    int gy = my / BlockSize;
+    bool canPlace = gx >= 0 && gx < MapWidth
+                 && gy >= 0 && gy < MapHeight
+                 && mapData[gy][gx];
+
+    if (canPlace) {
+        auto it = std::make_shared<Item>(
+            inventoryImgs[MouseIdx] + ".png",
+            gx * BlockSize,
+            gy * BlockSize,
+            inventoryImgs[MouseIdx]
+        );
+        worldItems.push_back(it);
+    }
+
+    delete MouseOnIcon;
+    MouseOnIcon = nullptr;
+    MouseIdx = -1;
 }
 void PlayScene::Hit() {
     lives--;
     UILives->Text = std::string("Life ") + std::to_string(lives);
     if (lives <= 0) {
-        Engine::GameEngine::GetInstance().ChangeScene("lose");
+        Engine::GameEngine::GetInstance().ChangeScene("result");
     }
 }
 void PlayScene::ConstructUI() {
@@ -162,90 +175,17 @@ void PlayScene::ConstructUI() {
         int row = idx / cols;
         float x = panelX0 + pad + col * (iconW + pad);
         float y = panelY0 + pad + row * (iconH + pad);
-        auto empty = new Engine::Image(
-        "mapScene/item_empty.png",
-        x, y,
-        iconW, iconH
-        );
+        auto empty = new Engine::Image("mapScene/item_picked.png", x, y,iconW, iconH);
         UIInventoryGroup->AddNewObject(empty);
     }
 }
 
 void PlayScene::UIBtnClicked(int id) {
-    if (preview)
-        UIGroup->RemoveObject(preview->GetObjectIterator());
-    if (id == 0 && money >= MachineGunTurret::Price)
-        preview = new MachineGunTurret(0, 0);
-    else if (id == 1 && money >= LaserTurret::Price)
-        preview = new LaserTurret(0, 0);
-    else if (id == 2 && money >= FireTurret::Price)
-        preview = new FireTurret(0, 0);
-    else if (id == 3 && money >= FireTurret::Price)
-        preview = new ShortTurret(0, 0);
-    if (!preview)
-        return;
-    preview->Position = Engine::GameEngine::GetInstance().GetMousePosition();
-    preview->Tint = al_map_rgba(255, 255, 255, 200);
-    preview->Enabled = false;
-    preview->Preview = true;
-    UIGroup->AddNewObject(preview);
-    OnMouseMove(Engine::GameEngine::GetInstance().GetMousePosition().x, Engine::GameEngine::GetInstance().GetMousePosition().y);
+    
 }
 
 bool PlayScene::CheckSpaceValid(int x, int y) {
     if (x < 0 || x >= MapWidth || y < 0 || y >= MapHeight)
         return false;
-    auto map00 = mapState[y][x];
-    mapState[y][x] = TILE_OCCUPIED;
-    std::vector<std::vector<int>> map = CalculateBFSDistance();
-    mapState[y][x] = map00;
-    if (map[0][0] == -1)
-        return false;
-    for (auto &it : EnemyGroup->GetObjects()) {
-        if (dynamic_cast<FlyEnemy*>(it)) continue;
-        Engine::Point pnt;
-        pnt.x = floor(it->Position.x / BlockSize);
-        pnt.y = floor(it->Position.y / BlockSize);
-        if (pnt.x < 0) pnt.x = 0;
-        if (pnt.x >= MapWidth) pnt.x = MapWidth - 1;
-        if (pnt.y < 0) pnt.y = 0;
-        if (pnt.y >= MapHeight) pnt.y = MapHeight - 1;
-        if (map[pnt.y][pnt.x] == -1)
-            return false;
-    }
-    // All enemy have path to exit.
-    mapState[y][x] = TILE_OCCUPIED;
-    mapDistance = map;
-    for (auto &it : EnemyGroup->GetObjects())
-        dynamic_cast<Enemy *>(it)->UpdatePath(mapDistance);
     return true;
-}
-std::vector<std::vector<int>> PlayScene::CalculateBFSDistance() {
-    // Reverse BFS to find path.
-    std::vector<std::vector<int>> map(MapHeight, std::vector<int>(std::vector<int>(MapWidth, -1)));
-    std::queue<Engine::Point> que;
-    // Push end point.
-    // BFS from end point.
-    if (mapState[MapHeight - 1][MapWidth - 1] != TILE_DIRT) return map;
-    map[MapHeight - 1][MapWidth - 1] = 0;
-    que.push(Engine::Point(MapWidth - 1, MapHeight - 1));
-    map[MapHeight - 1][MapWidth - 1] = 0;
-    while (!que.empty()) {
-        Engine::Point p = que.front();
-        que.pop();
-        int d = map[p.y][p.x];
-        for(auto &dir : directions){
-            int nx = p.x + dir.x;
-            int ny = p.y + dir.y;
-            if(nx < 0 || nx >= MapWidth || ny < 0 || ny >= MapHeight) continue;
-            if(map[ny][nx] != -1) continue;
-            if(mapState[ny][nx] != TILE_DIRT) continue;
-            map[ny][nx] = d+1;
-            que.push(Engine::Point(nx, ny));
-        }
-        // TODO PROJECT-1 (1/1): Implement a BFS starting from the most right-bottom block in the map.
-        //               For each step you should assign the corresponding distance to the most right-bottom block.
-        //               mapState[y][x] is TILE_DIRT if it is empty.
-    }
-    return map;
 }

@@ -33,6 +33,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj.d"
   "CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj"
   "CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj.d"
+  "CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.obj"
+  "CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.obj.d"
   "CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.obj"
   "CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.obj.d"
   "CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj"

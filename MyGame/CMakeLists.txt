@@ -50,8 +50,8 @@ add_executable(FinalProject
     Scene/MapScene.hpp
     Scene/PersonalScene.cpp
     Scene/PersonalScene.hpp
-    # Scene/PlayScene.cpp
-    # Scene/PlayScene.hpp
+    Scene/PlayScene.cpp
+    Scene/PlayScene.hpp
     # Scene/ResultScene.cpp
     # Scene/ResultScene.hpp
     # Scene/ScoreBoardScene.cpp

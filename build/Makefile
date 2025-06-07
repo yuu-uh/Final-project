@@ -536,6 +536,30 @@ Scene/PersonalScene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.s
 .PHONY : Scene/PersonalScene.cpp.s
 
+Scene/PlayScene.obj: Scene/PlayScene.cpp.obj
+.PHONY : Scene/PlayScene.obj
+
+# target to build an object file
+Scene/PlayScene.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.obj
+.PHONY : Scene/PlayScene.cpp.obj
+
+Scene/PlayScene.i: Scene/PlayScene.cpp.i
+.PHONY : Scene/PlayScene.i
+
+# target to preprocess a source file
+Scene/PlayScene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.i
+.PHONY : Scene/PlayScene.cpp.i
+
+Scene/PlayScene.s: Scene/PlayScene.cpp.s
+.PHONY : Scene/PlayScene.s
+
+# target to generate assembly for a file
+Scene/PlayScene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.s
+.PHONY : Scene/PlayScene.cpp.s
+
 UI/Component/Image.obj: UI/Component/Image.cpp.obj
 .PHONY : UI/Component/Image.obj
 
@@ -716,6 +740,9 @@ help:
 	@echo ... Scene/PersonalScene.obj
 	@echo ... Scene/PersonalScene.i
 	@echo ... Scene/PersonalScene.s
+	@echo ... Scene/PlayScene.obj
+	@echo ... Scene/PlayScene.i
+	@echo ... Scene/PlayScene.s
 	@echo ... UI/Component/Image.obj
 	@echo ... UI/Component/Image.i
 	@echo ... UI/Component/Image.s

@@ -22,7 +22,7 @@
 #include "UI/Component/Slider.hpp"
 #include "Items/Item.hpp"
 
-const int MapScene::MapWidth = 25, MapScene::MapHeight = 13;
+const int MapScene::MapWidth = 23, MapScene::MapHeight = 13;
 const int MapScene::BlockSize = 64;
 const std::vector<std::string> MapScene::itemImg = {"ninja", "master", "slime", "vikin", "dragen", "shooter", "magician"};
 
@@ -94,25 +94,49 @@ void MapScene::Update(float deltaTime) {
 void MapScene::Terminate() {
     IScene::Terminate();
 }
-void MapScene::Draw() const{
-   // IScene::Draw();
+void MapScene::Draw() const {
 
-    ALLEGRO_TRANSFORM oldXform;
-    al_copy_transform(&oldXform, al_get_current_transform());
+    ALLEGRO_TRANSFORM oldX;
+    al_copy_transform(&oldX, al_get_current_transform());
 
     ALLEGRO_TRANSFORM cam;
     al_identity_transform(&cam);
     al_translate_transform(&cam, -camX, -camY);
     al_use_transform(&cam);
 
-    TileMapGroup    ->Draw();
-    GroundEffectGroup->Draw();
-    ItemGroup        ->Draw();
-    player           ->Draw();
+    float screenW = Engine::GameEngine::GetInstance().GetScreenSize().x;
+    const float panelW = 320;
+    float viewW = screenW - panelW;
+    float viewH = Engine::GameEngine::GetInstance().GetScreenSize().y;
 
-    al_use_transform(&oldXform);
+    int colStart = std::max(0, int(camX / BlockSize));
+    int rowStart = std::max(0, int(camY / BlockSize));
+    int colEnd = std::min(MapWidth - 1, int((camX + viewW) / BlockSize) + 1);
+    int rowEnd = std::min(MapHeight - 1, int((camY + viewH) / BlockSize) + 1);
 
-    UIGroup         ->Draw();
+    for (int row = rowStart; row <= rowEnd; ++row) {
+        for (int col = colStart; col <= colEnd; ++col) {
+            TileType t = mapState[row][col];
+            const char* path = (t == TILE_FLOOR) ? "mapScene/stone.png" : "mapScene/grass.png";
+            float x = col * BlockSize;
+            float y = row * BlockSize;
+            ALLEGRO_BITMAP* bmp = Engine::Resources::GetInstance().GetBitmap(path).get();
+            al_draw_scaled_bitmap(
+                bmp, 0, 0,
+                al_get_bitmap_width(bmp), al_get_bitmap_height(bmp),
+                x, y,
+                BlockSize, BlockSize,
+                0
+            );
+        }
+    }
+
+    ItemGroup->Draw();
+    player->Draw();
+
+    al_use_transform(&oldX);
+
+    UIGroup->Draw();
     UIInventoryGroup->Draw();
 }
 void MapScene::OnKeyDown(int keyCode) {

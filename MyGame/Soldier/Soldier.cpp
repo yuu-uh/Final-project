@@ -68,6 +68,7 @@ void Soldier::UpdatePath(const std::vector<std::vector<int>> &mapDistance) {
                 continue;
             nextHops.emplace_back(x, y);
         }
+        
         // Choose arbitrary one.
         std::random_device dev;
         std::mt19937 rng(dev());

@@ -26,6 +26,7 @@ protected:
     PlayScene *getPlayScene();
     virtual void die();
     State state;
+    
 
 public:
     float reachEndTime;

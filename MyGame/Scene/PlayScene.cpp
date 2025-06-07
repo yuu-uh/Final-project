@@ -86,6 +86,7 @@ void PlayScene::Initialize() {
     UIGroup->AddNewObject(imgTarget);
     preview = nullptr;
 
+    
     ConstructUI();
 }
 void PlayScene::Terminate() {

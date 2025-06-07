@@ -27,7 +27,8 @@ private:
     };
     ALLEGRO_SAMPLE_ID bgmId;
     std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE> deathBGMInstance;
-    int remainTime;
+    float timer;
+    Engine::Label* countdownLabel;
     Player *player;
     std::vector<Item*> inventory;   
     float camX = 0, camY = 0; 

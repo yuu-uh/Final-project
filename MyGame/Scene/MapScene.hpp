@@ -8,6 +8,7 @@
 
 #include "Engine/IScene.hpp"
 #include "UI/Component/Label.hpp"
+#include "Player/Player.hpp"
 
 namespace Engine {
     class Group;
@@ -26,6 +27,7 @@ private:
     ALLEGRO_SAMPLE_ID bgmId;
     std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE> deathBGMInstance;
     int remainTime;
+    Player *player;  
 
 public:
     static const std::vector<Engine::Point> directions;

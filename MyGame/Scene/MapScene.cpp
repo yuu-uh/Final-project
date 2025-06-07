@@ -13,6 +13,7 @@
 #include "Engine/Point.hpp"
 #include "Engine/Resources.hpp"
 #include "Engine/LOG.hpp"
+#include "Player/Player.hpp"
 #include "Scene/MapScene.hpp"
 #include "UI/Component/ImageButton.hpp"
 #include "UI/Component/Label.hpp"
@@ -33,9 +34,13 @@ void MapScene::Initialize() {
     // Should support buttons.
     AddNewControlObject(UIGroup = new Group());
     ReadMap();
+    Engine::Point startPos{ 216, 216 };      
+    float moveSpeed = 200.0f;     
+    player = new Player("mapScene/Engineer.png", startPos, moveSpeed, 16, 16);
+    AddNewObject(player);
 }
 void MapScene::Update(float deltaTime) {
-    
+    IScene::Update(deltaTime);
 }
 void MapScene::Terminate() {
     IScene::Terminate();
@@ -47,7 +52,6 @@ void MapScene::OnMouseDown(int button, int mx, int my) {
     
 }
 void MapScene::OnMouseMove(int mx, int my) {
-    
     const int x = mx / BlockSize;
     const int y = my / BlockSize;
     if (x < 0 || x >= MapWidth || y < 0 || y >= MapHeight) {
@@ -118,6 +122,6 @@ void MapScene::UIBtnClicked(int id) {
 }
 
 bool MapScene::CheckSpaceValid(int x, int y) {
-    
+    return true;
 }
 

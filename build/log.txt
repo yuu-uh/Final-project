@@ -9,10 +9,9 @@
 [INFO] Loaded Resource<image>: Resource/images/stage-select/floor.png scaled to 400x100
 [INFO] Loaded Resource<image>: Resource/images/stage-select/floor.png
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 48
-[INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 32
 [INFO] Game initialized
 [INFO] Game start event loop
-[INFO] Changed to personal scene
 [INFO] Loaded Resource<image>: Resource/images/mapScene/grass.png scaled to 64x64
 [INFO] Loaded Resource<image>: Resource/images/mapScene/stone.png scaled to 64x64
+[INFO] Loaded Resource<image>: Resource/images/mapScene/Engineer.png scaled to 200x200
 [INFO] Changed to map scene

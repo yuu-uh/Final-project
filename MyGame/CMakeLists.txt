@@ -41,6 +41,9 @@ add_executable(FinalProject
     Engine/Sprite.cpp
     Engine/Sprite.hpp
 
+    Player/Player.cpp
+    Player/Player.hpp
+
     Scene/LogScene.cpp
     Scene/LogScene.hpp
     Scene/MapScene.cpp

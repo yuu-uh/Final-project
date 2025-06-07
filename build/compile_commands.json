@@ -73,6 +73,12 @@
 },
 {
   "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Player\\Player.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Player\\Player.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Player/Player.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
   "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Scene\\LogScene.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Scene\\LogScene.cpp",
   "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Scene/LogScene.cpp",
   "output": "CMakeFiles/FinalProject.dir/Scene/LogScene.cpp.obj"

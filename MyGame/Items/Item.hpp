@@ -14,13 +14,15 @@ protected:
     MapScene *getMapScene();
     std::string type;
     std::string image_name;
+    bool picked;
+    float float_timer;
+    
 public:
     Item(std::string img, float x, float y, std::string t);
-    void Picked(float damage);
+    void Pick();
     bool item_picked();
-    bool picked;
     const std::string getBitmap();
-    // void Update(float deltaTime) override;
+    void Update(float deltaTime) override;
     // void Draw() const override;
 };
 

@@ -13,6 +13,7 @@
 #include "Engine/Point.hpp"
 #include "Engine/Resources.hpp"
 #include "Engine/LOG.hpp"
+#include "Engine/Collider.hpp"
 #include "Player/Player.hpp"
 #include "Items/Item.hpp"
 #include "Scene/MapScene.hpp"
@@ -74,8 +75,22 @@ void MapScene::Update(float deltaTime) {
 
     camX = std::clamp(targetX, 0.0f, MapWidth*BlockSize - viewW);
     camY = std::clamp(targetY, 0.0f, MapHeight*BlockSize - viewH);
-}
 
+
+    for (auto& it : ItemGroup->GetObjects()) {
+        auto item = dynamic_cast<Item*>(it);
+        if (!item) continue; // Skip if not an Item
+
+        if (Engine::Collider::IsCircleOverlap(
+        item->Position, item->CollisionRadius, player->Position, player->CollisionRadius)) {
+        
+            item->Pick();  // Assuming Touch() is defined in Item.
+            if (!item->item_picked()) {
+                item->Pick(); // or some value
+            }
+        }
+    }
+}
 void MapScene::Terminate() {
     IScene::Terminate();
 }

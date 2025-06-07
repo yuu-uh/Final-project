@@ -96,7 +96,7 @@ void MapScene::Update(float deltaTime) {
 
     timer -= deltaTime;
     if (timer <= 0) {
-        Engine::GameEngine::GetInstance().ChangeScene("log");
+        Engine::GameEngine::GetInstance().ChangeScene("play");
         return;
     }
     int minutes = int(timer) / 60;

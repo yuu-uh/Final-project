@@ -854,6 +854,55 @@ CMakeFiles/FinalProject.dir/Player/Player.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Resources.hpp \
   C:/allegro/include/allegro5/allegro_audio.h \
   C:/allegro/include/allegro5/allegro_font.h \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/LOG.hpp \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/fstream \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/filesystem \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/copy_options.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/directory_entry.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/file_status.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/file_type.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/perms.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/file_time_type.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__chrono/file_clock.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/filesystem_error.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/path.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iomanip \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/istream \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/ostream \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/bitset \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/format \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/container_adaptor.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/range_default_formatter.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__chrono/statically_widen.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/range_formatter.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_context.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_arg_store.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_args.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__ranges/ref_view.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/queue \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/deque \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/stack \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_functions.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter_char.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/write_escaped.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/escaped_output_table.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter_floating_point.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__charconv/chars_format.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__charconv/to_chars_floating_point.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter_integer.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter_pointer.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter_string.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter_tuple.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/print \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/operations.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/perm_options.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/space_info.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/directory_iterator.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/directory_options.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/path_iterator.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/recursive_directory_iterator.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/u8path.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iostream \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/MapScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Group.hpp \

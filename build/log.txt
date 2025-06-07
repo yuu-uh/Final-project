@@ -21,6 +21,8 @@
 [INFO] Loaded Resource<image>: Resource/images/mapScene/shooter.png scaled to 30x30
 [INFO] Loaded Resource<image>: Resource/images/mapScene/magician.png scaled to 30x30
 [INFO] Loaded Resource<image>: Resource/images/mapScene/player1_front01.png scaled to 60x60
+[INFO] start to load animations
+[INFO] animation loaded
 [INFO] Loaded Resource<image>: Resource/images/mapScene/item_empty.png scaled to 128x128
 [INFO] Changed to map scene
 [INFO] Loaded Resource<image>: Resource/images/mapScene/grass.png

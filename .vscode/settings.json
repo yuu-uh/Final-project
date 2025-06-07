@@ -1,3 +1,7 @@
 {
-    "cmake.sourceDirectory": "C:/Users/annys/Downloads/FinalProject/MyGame"
+    "cmake.sourceDirectory": "C:/Users/annys/Downloads/FinalProject/MyGame",
+    "files.associations": {
+        "ios": "cpp",
+        "vector": "cpp"
+    }
 }

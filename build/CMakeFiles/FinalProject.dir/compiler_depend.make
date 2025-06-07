@@ -9978,6 +9978,7 @@ CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj: C:/Users/annys/Downloads/Fin
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/LOG.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/MapScene.hpp \
@@ -10795,6 +10796,7 @@ CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj: C:/Users/annys/Downloads/Fin
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iomanip \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/ios \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iosfwd \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iostream \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/istream \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iterator \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/limits \

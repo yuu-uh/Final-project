@@ -1,4 +1,5 @@
 #include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_primitives.h> 
 #include <functional>
 #include <memory>
 #include <string>
@@ -22,7 +23,7 @@
 #include "UI/Component/Slider.hpp"
 #include "Items/Item.hpp"
 
-const int MapScene::MapWidth = 23, MapScene::MapHeight = 13;
+const int MapScene::MapWidth = 25, MapScene::MapHeight = 20;
 const int MapScene::BlockSize = 64;
 const std::vector<std::string> MapScene::itemImg = {"ninja", "master", "slime", "vikin", "dragen", "shooter", "magician"};
 
@@ -61,10 +62,8 @@ void MapScene::Initialize() {
 void MapScene::Update(float deltaTime) {
     IScene::Update(deltaTime);
 
-    float screenW = Engine::GameEngine::GetInstance()
-                        .GetScreenSize().x;
-    float screenH = Engine::GameEngine::GetInstance()
-                        .GetScreenSize().y;
+    float screenW = Engine::GameEngine::GetInstance().GetScreenSize().x;
+    float screenH = Engine::GameEngine::GetInstance().GetScreenSize().y;
 
     const float panelW = 320;              
     const float viewW  = screenW - panelW;  
@@ -96,6 +95,7 @@ void MapScene::Terminate() {
 }
 void MapScene::Draw() const {
     IScene::Draw();
+    al_clear_to_color(al_map_rgb(0,0,0));
 
     ALLEGRO_TRANSFORM oldX;
     al_copy_transform(&oldX, al_get_current_transform());
@@ -106,6 +106,7 @@ void MapScene::Draw() const {
     al_use_transform(&cam);
 
     float screenW = Engine::GameEngine::GetInstance().GetScreenSize().x;
+    float screenH = Engine::GameEngine::GetInstance().GetScreenSize().y;
     const float panelW = 320;
     float viewW = screenW - panelW;
     float viewH = Engine::GameEngine::GetInstance().GetScreenSize().y;
@@ -136,6 +137,11 @@ void MapScene::Draw() const {
     player->Draw();
 
     al_use_transform(&oldX);
+    al_draw_filled_rectangle(
+        screenW - panelW, 0,
+        screenW, screenH,
+        al_map_rgb(0, 0, 0)
+    );
 
     UIGroup->Draw();
     UIInventoryGroup->Draw();

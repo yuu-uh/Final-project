@@ -102,6 +102,7 @@ CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj: \
   C:/allegro/include/allegro5/timer.h C:/allegro/include/allegro5/tls.h \
   C:/allegro/include/allegro5/alcompat.h \
   C:/allegro/include/allegro5/platform/alwin.h \
+  C:/allegro/include/allegro5/allegro_primitives.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/functional \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__algorithm/search.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__algorithm/comp.h \

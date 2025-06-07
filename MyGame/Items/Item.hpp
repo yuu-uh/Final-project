@@ -23,11 +23,8 @@ public:
     bool item_picked();
     const std::string getBitmap();
     void Update(float deltaTime) override;
+    bool Enabled = true;
+    bool Preview = false;
     // void Draw() const override;
 };
-
-
-
-
-
 #endif

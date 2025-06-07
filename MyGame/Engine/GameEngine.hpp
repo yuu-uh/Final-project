@@ -2,6 +2,7 @@
 #define GAMEENGINE_HPP
 #include <allegro5/allegro.h>
 #include <string>
+#include <vector>
 #include <unordered_map>
 
 #include "Point.hpp"
@@ -77,6 +78,7 @@ namespace Engine {
         void changeScene(const std::string &name);
 
     public:
+        std::vector<std::string> pickedItems;
         // Note: We'll ignore C++11's move constructor, move assignment operator in this project for simplicity.
         /// <summary>
         /// Copy constructor is deleted, no copying allowed.

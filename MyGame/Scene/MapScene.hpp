@@ -30,7 +30,6 @@ private:
     float timer;
     Engine::Label* countdownLabel;
     Player *player;
-    std::vector<Item*> inventory;   
     float camX = 0, camY = 0; 
 
 public:
@@ -69,6 +68,7 @@ public:
     void ConstructUI();
     void UIBtnClicked(int id);
     void PickupItem(Item* item, std::string itemType);
+    std::vector<Item*> inventory;
     // bool CheckSpaceValid(int x, int y);
 };
 

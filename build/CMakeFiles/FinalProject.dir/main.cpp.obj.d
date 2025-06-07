@@ -768,6 +768,59 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__bit/byteswap.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__bit/endian.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__bit/has_single_bit.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/vector \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__bit_reference \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_fwd.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter_bool.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/concepts.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_parse_context.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_error.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter_integral.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__charconv/to_chars_integral.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__charconv/tables.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__charconv/to_chars_base_10.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__charconv/to_chars_result.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__system_error/errc.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/cerrno \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__charconv/traits.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__type_traits/make_32_64_or_128_bit.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter_output.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/buffer.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_to_n_result.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/parser_std_format_spec.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_arg.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_string.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/unicode.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/extended_grapheme_cluster_table.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/width_estimation_table.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/array \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/locale \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__locale \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__mutex/once_flag.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__utility/no_destroy.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/clocale \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/locale.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/locale.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__support/win32/locale_win32.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/ios \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__system_error/error_category.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__system_error/error_code.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__system_error/error_condition.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__system_error/system_error.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/mutex \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__condition_variable/condition_variable.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__mutex/mutex.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__mutex/unique_lock.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__mutex/tag_types.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__mutex/lock_guard.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__thread/id.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/system_error \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/streambuf \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__locale_dir/locale_base_api/bsd_locale_defaults.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/cstdarg \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__memory/temp_value.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__split_buffer \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/unordered_map \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/is_transparent.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__hash_table \
@@ -776,13 +829,6 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/LOG.hpp \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/fstream \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__locale \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__mutex/once_flag.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__utility/no_destroy.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/clocale \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/locale.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/locale.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__support/win32/locale_win32.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/filesystem \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/copy_options.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/directory_entry.h \
@@ -796,54 +842,18 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iomanip \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/istream \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/ostream \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__system_error/error_code.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__system_error/errc.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/cerrno \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__system_error/error_category.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__system_error/error_condition.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/bitset \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__bit_reference \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/format \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/buffer.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/concepts.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_fwd.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_parse_context.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_error.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_to_n_result.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/container_adaptor.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/range_default_formatter.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__chrono/statically_widen.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/range_formatter.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_context.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_arg.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_arg_store.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_args.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/locale \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/ios \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__system_error/system_error.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/mutex \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__condition_variable/condition_variable.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__mutex/mutex.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__mutex/unique_lock.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__mutex/tag_types.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__mutex/lock_guard.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__thread/id.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/system_error \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/streambuf \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__locale_dir/locale_base_api/bsd_locale_defaults.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/cstdarg \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter_output.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/parser_std_format_spec.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_string.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/unicode.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/extended_grapheme_cluster_table.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/width_estimation_table.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__ranges/ref_view.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/queue \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/deque \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__memory/temp_value.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__split_buffer \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/functional \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/binary_negate.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/bind.h \
@@ -853,16 +863,6 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/binder1st.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/binder2nd.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/boyer_moore_searcher.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/array \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/vector \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter_bool.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter_integral.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__charconv/to_chars_integral.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__charconv/tables.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__charconv/to_chars_base_10.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__charconv/to_chars_result.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__charconv/traits.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__type_traits/make_32_64_or_128_bit.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/compose.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/default_searcher.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/function.h \

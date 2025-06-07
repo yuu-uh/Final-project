@@ -19,9 +19,9 @@ private:
     bool auto_mode;
     Group* bgGroup;
     Group* textGroup;
-    ALLEGRO_RECT 
+    //ALLEGRO_RECT 
 
-    bool mouse_in_rect(float x, float y, ALLEGRO_RECT r);
+    //bool mouse_in_rect(float x, float y, ALLEGRO_RECT r);
 
 public:
     explicit StoryScene() = default;

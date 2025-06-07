@@ -43,10 +43,10 @@ add_executable(FinalProject
 
     Scene/LogScene.cpp
     Scene/LogScene.hpp
-    # Scene/MapScene.cpp
-    # Scene/MapScene.hpp
-    # Scene/PersonalScene.cpp
-    # Scene/PersonalScene.hpp
+    Scene/MapScene.cpp
+    Scene/MapScene.hpp
+    Scene/PersonalScene.cpp
+    Scene/PersonalScene.hpp
     # Scene/PlayScene.cpp
     # Scene/PlayScene.hpp
     # Scene/ResultScene.cpp

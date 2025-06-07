@@ -1,5 +1,5 @@
-#ifndef STAGESELECTSCENE_HPP
-#define STAGESELECTSCENE_HPP
+#ifndef STORYSCENE_HPP
+#define STORYSCENE_HPP
 #include <allegro5/allegro_audio.h>
 #include <memory>
 

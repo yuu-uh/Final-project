@@ -855,6 +855,7 @@ CMakeFiles/FinalProject.dir/Scene/LogScene.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
   C:/allegro/include/allegro5/allegro_font.h \
+  C:/allegro/include/allegro5/allegro_image.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/fstream \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/filesystem \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/copy_options.h \
@@ -906,7 +907,7 @@ CMakeFiles/FinalProject.dir/Scene/LogScene.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/AudioHelper.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/GameEngine.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Resources.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/PersonalScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/LogScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/ImageButton.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \

@@ -1,5 +1,6 @@
 #include "LogScene.hpp"
 #include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_image.h> 
 #include <functional>
 #include <fstream>
 #include <memory>
@@ -13,7 +14,7 @@
 #include "Engine/Point.hpp"
 #include "Engine/Resources.hpp"
 #include "Engine/Group.hpp"
-#include "PlayScene.hpp"
+#include "Scene/PersonalScene.hpp"
 #include "Scene/LogScene.hpp"
 #include "UI/Component/ImageButton.hpp"
 #include "UI/Component/Label.hpp"
@@ -24,24 +25,25 @@ void LogScene::Initialize() {
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
     int halfW = w / 2;
     int halfH = h / 2;
+
+    AddNewObject(new Engine::Image("background/test.png" ,0, 0, w, h));
+
     Engine::ImageButton *btn;
+    AddNewObject(new Engine::Label("Log in to start", "pirulen.ttf", 100, halfW, halfH / 3 + 50, 255, 255, 255, 255, 0.5, 0.5));
 
-    AddNewObject(new Engine::Label("Log in to start", "pirulen.ttf", 120, halfW, halfH / 3 + 50, 10, 255, 255, 255, 0.5, 0.5));
-
-    btn = new Engine::ImageButton("stage-select/dirt.png", "stage-select/floor.png", halfW - 200, halfH / 2 + 200, 400, 100);
-    //btn->SetOnClickCallback(std::bind(&LogScene::PlayOnClick, this, 1));
+    btn = new Engine::ImageButton("stage-select/floor.png", "stage-select/floor.png", halfW, halfH/2+200, 400, 100);
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Name", "pirulen.ttf", 48, halfW-310, halfH / 2 + 250, 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("Name", "pirulen.ttf", 48, halfW-310, halfH/2+250, 255, 255, 255, 255, 0.5, 0.5));
     name.clear();
-    nameLabel = new Engine::Label("", "pirulen.ttf", 32, halfW, halfH / 2 + 250, 0, 0, 0, 255, 0.5, 0.5);
+    nameLabel = new Engine::Label("", "pirulen.ttf", 32, halfW+200, halfH/2+250, 0, 0, 0, 255, 0.5, 0.5);
     AddNewObject(nameLabel);
 
-    btn = new Engine::ImageButton("stage-select/dirt.png", "stage-select/floor.png", halfW - 200, halfH * 3 / 2 - 50, 400, 100);
+    btn = new Engine::ImageButton("stage-select/floor.png", "stage-select/floor.png", halfW, halfH * 3 / 2 - 50, 400, 100);
     //btn->SetOnClickCallback(std::bind(&LogScene::SettingsOnClick, this, 2));
     AddNewControlObject(btn);
     AddNewObject(new Engine::Label("Password", "pirulen.ttf", 48, halfW-400, halfH * 3 / 2, 255, 255, 255, 255, 0.5, 0.5));
     password.clear();
-    passwordLabel = new Engine::Label("", "pirulen.ttf", 32, halfW, halfH * 3 / 2, 0, 0, 0, 255, 0.5, 0.5);
+    passwordLabel = new Engine::Label("", "pirulen.ttf", 32, halfW+200, halfH * 3 / 2, 0, 0, 0, 255, 0.5, 0.5);
     AddNewObject(passwordLabel);
 }
 void LogScene::Terminate() {
@@ -69,7 +71,7 @@ void LogScene::OnKeyDown(int keyCode) {
     else if (keyCode == ALLEGRO_KEY_ENTER) {
         if (editingName) editingName = false;  
         else { 
-            std::ifstream fin("C:\\Users\\annys\\Downloads\\2025_I2P2_TowerDefense-main\\2025_I2P2_TowerDefense-main\\Resource\\Log.txt");
+            std::ifstream fin("C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Resource\\Log.txt");
             std::unordered_map<std::string, std::tuple<std::string,int,int>> accounts;
             std::string line;
             while (std::getline(fin, line)) {
@@ -80,7 +82,7 @@ void LogScene::OnKeyDown(int keyCode) {
             }
             fin.close();
 
-            std::ofstream fout("C:\\Users\\annys\\Downloads\\2025_I2P2_TowerDefense-main\\2025_I2P2_TowerDefense-main\\Resource\\Log.txt", std::ios::app);
+            std::ofstream fout("C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Resource\\Log.txt", std::ios::app);
             auto it = accounts.find(name);
             Engine::GameEngine::UserProfile up;
             if (it == accounts.end()){
@@ -101,7 +103,7 @@ void LogScene::OnKeyDown(int keyCode) {
             }
 
             Engine::GameEngine::GetInstance().SetCurrentUser(up);
-            Engine::GameEngine::GetInstance().ChangeScene("start");
+            Engine::GameEngine::GetInstance().ChangeScene("personal");
             return;  
         }
     }

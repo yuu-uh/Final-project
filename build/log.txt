@@ -4,9 +4,9 @@
 [INFO] There are total 2 supported mouse buttons
 [INFO] Allegro5 initialized
 [INFO] Game begin
-[INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 120
-[INFO] Loaded Resource<image>: Resource/images/stage-select/dirt.png scaled to 400x100
-[INFO] Loaded Resource<image>: Resource/images/stage-select/dirt.png
+[INFO] Loaded Resource<image>: Resource/images/background/test.png scaled to 1600x832
+[INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 100
+[INFO] Loaded Resource<image>: Resource/images/stage-select/floor.png scaled to 400x100
 [INFO] Loaded Resource<image>: Resource/images/stage-select/floor.png
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 48
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 32
@@ -15,10 +15,10 @@
 [INFO] Game Terminating...
 [INFO] Game terminated
 [INFO] Game end
+[INFO] Destroyed Resource<image>: stage-select/floor.png?400x100
 [INFO] Destroyed Resource<image>: stage-select/floor.png
-[INFO] Destroyed Resource<image>: stage-select/dirt.png?400x100
-[INFO] Destroyed Resource<image>: stage-select/dirt.png
+[INFO] Destroyed Resource<image>: background/test.png?1600x832
 [INFO] Destroyed Resource<image>: icon.png
 [INFO] Destroyed Resource<font>: pirulen.ttf?32
 [INFO] Destroyed Resource<font>: pirulen.ttf?48
-[INFO] Destroyed Resource<font>: pirulen.ttf?120
+[INFO] Destroyed Resource<font>: pirulen.ttf?100

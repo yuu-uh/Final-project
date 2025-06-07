@@ -7,7 +7,7 @@
 #include "UI/Component/Label.hpp"
 
 class LogScene final : public Engine::IScene {
-private:
+private: 
     Engine::Label* nameLabel;
     Engine::Label* passwordLabel;
     std::string name;

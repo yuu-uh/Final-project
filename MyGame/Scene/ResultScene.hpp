@@ -1,5 +1,5 @@
-#ifndef WINSCENE_HPP
-#define WINSCENE_HPP
+#ifndef RESULTSCENE_HPP
+#define RESULTSCENE_HPP
 #include "Engine/IScene.hpp"
 #include <allegro5/allegro_audio.h>
 

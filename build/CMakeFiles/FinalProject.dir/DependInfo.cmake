@@ -21,6 +21,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.cpp" "CMakeFiles/FinalProject.dir/Engine/Resources.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Engine/Resources.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.cpp" "CMakeFiles/FinalProject.dir/Engine/Sprite.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Engine/Sprite.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/Scene/LogScene.cpp" "CMakeFiles/FinalProject.dir/Scene/LogScene.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Scene/LogScene.cpp.obj.d"
+  "C:/Users/annys/Downloads/FinalProject/MyGame/Scene/MapScene.cpp" "CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj.d"
+  "C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PersonalScene.cpp" "CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.cpp" "CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/ImageButton.cpp" "CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Label.cpp" "CMakeFiles/FinalProject.dir/UI/Component/Label.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/UI/Component/Label.cpp.obj.d"

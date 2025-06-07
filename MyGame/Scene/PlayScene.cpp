@@ -8,32 +8,14 @@
 #include <string>
 #include <vector>
 
-#include "Enemy/Enemy.hpp"
-#include "Enemy/SoldierEnemy.hpp"
-#include "Enemy/PlaneEnemy.hpp"
-#include "Enemy/TankEnemy.hpp"
-#include "Enemy/FlyEnemy.hpp"
-#include "Engine/AudioHelper.hpp"
-#include "Engine/GameEngine.hpp"
 #include "Engine/Group.hpp"
 #include "Engine/LOG.hpp"
 #include "Engine/Resources.hpp"
 #include "PlayScene.hpp"
-#include "WinScene.hpp"
-#include "Turret/LaserTurret.hpp"
-#include "Turret/MachineGunTurret.hpp"
-#include "Turret/FireTurret.hpp"
-#include "Turret/ShortTurret.hpp"
-#include "Turret/TurretButton.hpp"
 #include "UI/Animation/DirtyEffect.hpp"
 #include "UI/Animation/Plane.hpp"
 #include "UI/Component/Label.hpp"
 
-// TODO HACKATHON-4 (1/3): Trace how the game handles keyboard input.
-// TODO HACKATHON-4 (2/3): Find the cheat code sequence in this file.
-// TODO HACKATHON-4 (3/3): When the cheat code is entered, a plane should be spawned and added to the scene.
-// TODO HACKATHON-5 (1/4): There's a bug in this file, which crashes the game when you win. Try to find it.
-// TODO HACKATHON-5 (2/4): The "LIFE" label are not updated when you lose a life. Try to fix it.
 
 bool PlayScene::DebugMode = false;
 const std::vector<Engine::Point> PlayScene::directions = { Engine::Point(-1, 0), Engine::Point(0, -1), Engine::Point(1, 0), Engine::Point(0, 1) };
@@ -56,9 +38,7 @@ void PlayScene::Initialize() {
     ticks = 0;
     deathCountDown = -1;
     lives = 10;
-    money = 150;
     SpeedMult = 1;
-    // Add groups from bottom to top.
     AddNewObject(TileMapGroup = new Group());
     AddNewObject(GroundEffectGroup = new Group());
     AddNewObject(DebugIndicatorGroup = new Group());
@@ -76,10 +56,8 @@ void PlayScene::Initialize() {
     imgTarget->Visible = false;
     preview = nullptr;
     UIGroup->AddNewObject(imgTarget);
-    // Preload Lose Scene
     deathBGMInstance = Engine::Resources::GetInstance().GetSampleInstance("astronomia.ogg");
     Engine::Resources::GetInstance().GetBitmap("lose/benjamin-happy.png");
-    // Start BGM.
     bgmId = AudioHelper::PlayBGM("play.ogg");
 }
 void PlayScene::Terminate() {
@@ -89,8 +67,6 @@ void PlayScene::Terminate() {
     IScene::Terminate();
 }
 void PlayScene::Update(float deltaTime) {
-    // If we use deltaTime directly, then we might have Bullet-through-paper problem.
-    // Reference: Bullet-Through-Paper
     if (SpeedMult == 0)
         deathCountDown = -1;
     else if (deathCountDown != -1)
@@ -139,17 +115,6 @@ void PlayScene::Update(float deltaTime) {
         ticks += deltaTime;
         if (enemyWaveData.empty()) {
             if (EnemyGroup->GetObjects().empty()) {
-                // Free resources.
-                /*delete TileMapGroup;
-                delete GroundEffectGroup;
-                delete DebugIndicatorGroup;
-                delete TowerGroup;
-                delete EnemyGroup;
-                delete BulletGroup;
-                delete EffectGroup;
-                delete UIGroup;
-                delete imgTarget;*/
-                // Win.
                 WinScene* win = static_cast<WinScene*>(Engine::GameEngine::GetInstance().GetScene("win"));
                 win->SetScore(GetMoney());
                 Engine::GameEngine::GetInstance().ChangeScene("win");
@@ -278,7 +243,6 @@ void PlayScene::OnKeyDown(int keyCode) {
 
     if(keyStrokes.size() == code.size()){
         bool match = true;
-        // KS is lists cannot use [i] so use it
         auto itKS = keyStrokes.begin();
         for(auto itCode = code.begin(); itCode != code.end(); itCode++, itKS++){
             if(*itKS != *itCode){
@@ -292,14 +256,7 @@ void PlayScene::OnKeyDown(int keyCode) {
         }
     }
 
-    if (keyCode == ALLEGRO_KEY_Q) {
-        // Hotkey for MachineGunTurret.
-        UIBtnClicked(0);
-    } else if (keyCode == ALLEGRO_KEY_W) {
-        // Hotkey for LaserTurret.
-        UIBtnClicked(1);
-    }
-    else if (keyCode >= ALLEGRO_KEY_0 && keyCode <= ALLEGRO_KEY_9) {
+    if (keyCode >= ALLEGRO_KEY_0 && keyCode <= ALLEGRO_KEY_9) {
         // Hotkey for Speed up.
         SpeedMult = keyCode - ALLEGRO_KEY_0;
     }
@@ -310,13 +267,6 @@ void PlayScene::Hit() {
     if (lives <= 0) {
         Engine::GameEngine::GetInstance().ChangeScene("lose");
     }
-}
-int PlayScene::GetMoney() const {
-    return money;
-}
-void PlayScene::EarnMoney(int money) {
-    this->money += money;
-    UIMoney->Text = std::string("$") + std::to_string(this->money);
 }
 void PlayScene::ReadMap() {
     std::string filename = std::string("Resource/map") + std::to_string(MapId) + ".txt";
@@ -353,18 +303,7 @@ void PlayScene::ReadMap() {
         }
     }
 }
-void PlayScene::ReadEnemyWave() {
-    std::string filename = std::string("Resource/enemy") + std::to_string(MapId) + ".txt";
-    // Read enemy file.
-    float type, wait, repeat;
-    enemyWaveData.clear();
-    std::ifstream fin(filename);
-    while (fin >> type && fin >> wait && fin >> repeat) {
-        for (int i = 0; i < repeat; i++)
-            enemyWaveData.emplace_back(type, wait);
-    }
-    fin.close();
-}
+
 void PlayScene::ConstructUI() {
     // Background
     UIGroup->AddNewObject(new Engine::Image("play/sand.png", 1280, 0, 320, 832));

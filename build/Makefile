@@ -440,6 +440,54 @@ Scene/LogScene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/LogScene.cpp.s
 .PHONY : Scene/LogScene.cpp.s
 
+Scene/MapScene.obj: Scene/MapScene.cpp.obj
+.PHONY : Scene/MapScene.obj
+
+# target to build an object file
+Scene/MapScene.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj
+.PHONY : Scene/MapScene.cpp.obj
+
+Scene/MapScene.i: Scene/MapScene.cpp.i
+.PHONY : Scene/MapScene.i
+
+# target to preprocess a source file
+Scene/MapScene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.i
+.PHONY : Scene/MapScene.cpp.i
+
+Scene/MapScene.s: Scene/MapScene.cpp.s
+.PHONY : Scene/MapScene.s
+
+# target to generate assembly for a file
+Scene/MapScene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.s
+.PHONY : Scene/MapScene.cpp.s
+
+Scene/PersonalScene.obj: Scene/PersonalScene.cpp.obj
+.PHONY : Scene/PersonalScene.obj
+
+# target to build an object file
+Scene/PersonalScene.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj
+.PHONY : Scene/PersonalScene.cpp.obj
+
+Scene/PersonalScene.i: Scene/PersonalScene.cpp.i
+.PHONY : Scene/PersonalScene.i
+
+# target to preprocess a source file
+Scene/PersonalScene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.i
+.PHONY : Scene/PersonalScene.cpp.i
+
+Scene/PersonalScene.s: Scene/PersonalScene.cpp.s
+.PHONY : Scene/PersonalScene.s
+
+# target to generate assembly for a file
+Scene/PersonalScene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.s
+.PHONY : Scene/PersonalScene.cpp.s
+
 UI/Component/Image.obj: UI/Component/Image.cpp.obj
 .PHONY : UI/Component/Image.obj
 
@@ -608,6 +656,12 @@ help:
 	@echo ... Scene/LogScene.obj
 	@echo ... Scene/LogScene.i
 	@echo ... Scene/LogScene.s
+	@echo ... Scene/MapScene.obj
+	@echo ... Scene/MapScene.i
+	@echo ... Scene/MapScene.s
+	@echo ... Scene/PersonalScene.obj
+	@echo ... Scene/PersonalScene.i
+	@echo ... Scene/PersonalScene.s
 	@echo ... UI/Component/Image.obj
 	@echo ... UI/Component/Image.i
 	@echo ... UI/Component/Image.s

@@ -905,4 +905,6 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
-  C:/allegro/include/allegro5/allegro_font.h
+  C:/allegro/include/allegro5/allegro_font.h \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PersonalScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/MapScene.hpp

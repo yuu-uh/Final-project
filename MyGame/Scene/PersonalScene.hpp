@@ -1,7 +1,3 @@
-//
-// Created by Hsuan on 2024/4/10.
-//
-
 #ifndef INC_2025_I2P2_TOWERDEFENSE_WITH_ANSWER_STARTSCENE_H
 #define INC_2025_I2P2_TOWERDEFENSE_WITH_ANSWER_STARTSCENE_H
 
@@ -14,5 +10,7 @@ public:
     explicit PersonalScene() = default;
     void Initialize() override;
     void Terminate() override;
+    void MapOnClick();
+    void ScoreOnClick();
 };
 #endif   // INC_2025_I2P2_TOWERDEFENSE_WITH_ANSWER_STARTSCENE_H

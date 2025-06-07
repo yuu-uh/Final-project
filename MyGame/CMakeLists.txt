@@ -71,6 +71,9 @@ add_executable(FinalProject
     UI/Component/Label.hpp
     UI/Component/Slider.cpp
     UI/Component/Slider.hpp
+
+    Items/Item.hpp
+    Items/Item.cpp
     
     main.cpp
 )

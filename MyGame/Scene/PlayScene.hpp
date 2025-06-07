@@ -35,6 +35,7 @@ private:
     int MouseIdx = -1;
     std::vector<std::shared_ptr<Item>> worldItems;
     std::vector<std::string> inventoryImgs;
+    std::vector<Item*> inventory;
 
 protected:
     int lives;
@@ -59,7 +60,7 @@ public:
     Engine::Label *livelabel;
     Engine::Image *imgTarget;
     Engine::Sprite *dangerIndicator;
-    Turret *preview;
+    Item *preview;
     std::vector<std::vector<TileType>> mapState;
     std::vector<std::vector<int>> mapDistance;
     std::list<std::pair<int, float>> enemyWaveData;
@@ -78,6 +79,7 @@ public:
     void ConstructUI();
     void UIBtnClicked(int id);
     bool CheckSpaceValid(int x, int y);
+    MapScene *getMapScene();
     // void ModifyReadMapTiles();
 };
 #endif   // PLAYSCENE_HPP

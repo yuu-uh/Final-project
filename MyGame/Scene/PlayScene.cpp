@@ -18,8 +18,8 @@
 #include "Engine/Collider.hpp"
 #include "PlayScene.hpp"
 #include "Items/Item.hpp"
-#include "UI/Animation/DirtyEffect.hpp"
 #include "UI/Component/Label.hpp"
+#include "Scene/MapScene.hpp"
 
 const std::vector<Engine::Point> PlayScene::directions = { Engine::Point(-1, 0), Engine::Point(0, -1), Engine::Point(1, 0), Engine::Point(0, 1) };
 const int PlayScene::MapWidth = 20, PlayScene::MapHeight = 13;
@@ -28,7 +28,6 @@ Engine::Point PlayScene::GetClientSize() {
     return Engine::Point(MapWidth * BlockSize, MapHeight * BlockSize);
 }
 const std::vector<std::string> PlayScene::itemImg = {"ninja", "master", "slime", "vikin", "dragen", "shooter", "magician"};
-
 void PlayScene::Initialize() {
     int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
@@ -41,6 +40,33 @@ void PlayScene::Initialize() {
     AddNewControlObject(UIInventoryGroup = new Group());
     ReadMap();
 
+    int panelX0 = 1300, panelY0 = 320;
+    const int pad     = 8;
+    const int iconW   = 128, iconH = 128;
+    const int cols    = 2;
+    for (int idx = 0; idx < 6; ++idx) {
+        int col = idx % cols;
+        int row = idx / cols;
+        float x = panelX0 + pad + col * (iconW + pad);
+        float y = panelY0 + pad + row * (iconH + pad);
+        UIInventoryGroup->AddNewObject(
+            new Engine::Image("mapScene/item_empty.png", x, y, iconW, iconH)
+        );
+    }
+
+    auto &picked = Engine::GameEngine::GetInstance().pickedItems;
+    for (size_t i = 0; i < picked.size() && i < 6; ++i) {
+        int col = i % cols;
+        int row = i / cols;
+        float x = panelX0 + pad + col * (iconW + pad);
+        float y = panelY0 + pad + row * (iconH + pad);
+
+        std::string path = "mapScene/" + picked[i] + ".png";
+        UIInventoryGroup->AddNewObject(
+            new Engine::Image(path, x, y, 100, 100)
+        );
+    }
+
     timer = 300.0f;
     countdownLabel = new Engine::Label("05:00", "pirulen.ttf", 48,
     Engine::GameEngine::GetInstance().GetScreenSize().x - 120,
@@ -51,6 +77,11 @@ void PlayScene::Initialize() {
         std::string("Life ") + std::to_string(lives),
         "pirulen.ttf", 48, 1400, 50, 255,255,255,255, 0.5,0.5);
     UIGroup->AddNewObject(livelabel);
+    
+    imgTarget = new Engine::Image("mapScene/ninja.png", 0, 0);
+    imgTarget->Visible = false;
+    UIGroup->AddNewObject(imgTarget);
+    preview = nullptr;
 
     ConstructUI();
 }
@@ -73,6 +104,11 @@ void PlayScene::Update(float deltaTime) {
     oss << std::setw(2) << std::setfill('0') << minutes
         << ":" << std::setw(2) << std::setfill('0') << seconds;
     countdownLabel->Text = oss.str();
+    if (preview) {
+        preview->Position = Engine::GameEngine::GetInstance().GetMousePosition();
+        // To keep responding when paused.
+        preview->Update(deltaTime);
+    }
 }
 void PlayScene::ReadMap() {
     std::ifstream fin("Resource/Play.txt");
@@ -90,9 +126,7 @@ void PlayScene::Draw() const {
 
     for (int y = 0; y < MapHeight; y++) {
         for (int x = 0; x < MapWidth; x++) {
-            const char* path = mapData[y][x]
-                ? "mapScene/stone.png"
-                : "mapScene/grass.png";
+            const char* path = mapData[y][x] ? "mapScene/stone.png" : "mapScene/grass.png";
             ALLEGRO_BITMAP* bmp = Engine::Resources::GetInstance()
                                       .GetBitmap(path).get();
             al_draw_scaled_bitmap(
@@ -102,59 +136,47 @@ void PlayScene::Draw() const {
         }
     }
     for (auto& it : worldItems) it->Draw();
-    if (MouseOnIcon) MouseOnIcon->Draw();
     UIGroup->Draw();
     UIInventoryGroup->Draw();
+    if (MouseOnIcon) MouseOnIcon->Draw();  
 }
 void PlayScene::OnMouseDown(int button, int mx, int my) {
-    if (!(button & 1)) return;
-
-    float sw = Engine::GameEngine::GetInstance().GetScreenSize().x;
-    if (mx > sw - 320) {
-        int localX = mx - int(sw - 320);
-        int localY = my;
-        const int pad = 8, w = 48, h = 48, cols = 2;
-        int col = localX / (w + pad);
-        int row = localY / (h + pad);
-        int idx = row * cols + col;
-        if (idx >= 0 && idx < (int)inventoryImgs.size()) {
-            MouseIdx = idx;
-            MouseOnIcon = new Engine::Image(
-                "mapScene/" + inventoryImgs[idx] + ".png",
-                mx - w/2, my - h/2,
-                w, h
-            );
-        }
+    IScene::OnMouseDown(button, mx, my);
+    if ((button & 1) && !imgTarget->Visible && preview) {
+        UIGroup->RemoveObject(preview->GetObjectIterator());
+        preview = nullptr;
     }
 }
 void PlayScene::OnMouseMove(int mx, int my) {
-   if (MouseOnIcon) {
-        MouseOnIcon->Position.x = mx - 24;
-        MouseOnIcon->Position.y = my - 24;
+    IScene::OnMouseMove(mx, my);
+    const int x = mx / BlockSize;
+    const int y = my / BlockSize;
+    if (!preview || x < 0 || x >= MapWidth || y < 0 || y >= MapHeight) {
+        imgTarget->Visible = false;
+        return;
     }
+    imgTarget->Visible = true;
+    imgTarget->Position.x = x * BlockSize;
+    imgTarget->Position.y = y * BlockSize;
 }
 void PlayScene::OnMouseUp(int button, int mx, int my) {
-    if (!(button & 1) || !MouseOnIcon) return;
-
-    int gx = mx / BlockSize;
-    int gy = my / BlockSize;
-    bool canPlace = gx >= 0 && gx < MapWidth
-                 && gy >= 0 && gy < MapHeight
-                 && mapData[gy][gx];
-
-    if (canPlace) {
-        auto it = std::make_shared<Item>(
-            inventoryImgs[MouseIdx] + ".png",
-            gx * BlockSize,
-            gy * BlockSize,
-            inventoryImgs[MouseIdx]
-        );
-        worldItems.push_back(it);
+    IScene::OnMouseUp(button, mx, my);
+    if (!imgTarget->Visible)
+        return;
+    const int x = mx / BlockSize;
+    const int y = my / BlockSize;
+    if (!imgTarget->Visible || !(button & 1) || !preview) return;
+    if (CheckSpaceValid(x,y)) {
+        preview->Preview = false;
+        preview->Tint    = al_map_rgba(255,255,255,255);
+        preview->Enabled = true;
+        UIGroup->RemoveObject(preview->GetObjectIterator());
+        preview->Position.x = x*BlockSize + BlockSize/2;
+        preview->Position.y = y*BlockSize + BlockSize/2;
+        ItemGroup->AddNewObject(preview);
     }
-
-    delete MouseOnIcon;
-    MouseOnIcon = nullptr;
-    MouseIdx = -1;
+    preview = nullptr;
+    imgTarget->Visible = false;
 }
 void PlayScene::Hit() {
     lives--;
@@ -164,20 +186,7 @@ void PlayScene::Hit() {
     }
 }
 void PlayScene::ConstructUI() {
-    const int panelX0 = 1300;
-    const int panelY0 = 320;
-    const int pad     = 8;
-    const int iconW   = 128, iconH = 128;
-    const int cols    = (320) / (iconW + pad);
 
-    for (int idx = 0; idx < 6; idx++) {
-        int col = idx % cols;
-        int row = idx / cols;
-        float x = panelX0 + pad + col * (iconW + pad);
-        float y = panelY0 + pad + row * (iconH + pad);
-        auto empty = new Engine::Image("mapScene/item_picked.png", x, y,iconW, iconH);
-        UIInventoryGroup->AddNewObject(empty);
-    }
 }
 
 void PlayScene::UIBtnClicked(int id) {

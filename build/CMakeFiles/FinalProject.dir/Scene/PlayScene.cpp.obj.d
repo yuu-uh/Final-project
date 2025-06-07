@@ -911,5 +911,6 @@ CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Sprite.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Animation/DirtyEffect.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/MapScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp

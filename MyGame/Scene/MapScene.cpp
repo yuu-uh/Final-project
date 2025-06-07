@@ -40,7 +40,7 @@ void MapScene::Initialize() {
     AddNewControlObject(UIInventoryGroup = new Group());
     ReadMap();
 
-    timer = 180.0f;
+    timer = 10.0f;
     countdownLabel = new Engine::Label("03:00", "pirulen.ttf", 48,
     Engine::GameEngine::GetInstance().GetScreenSize().x - 120,
     Engine::GameEngine::GetInstance().GetScreenSize().y - 40, 255, 255, 255, 255, 0.5, 0.5);
@@ -230,6 +230,7 @@ void MapScene::PickupItem(Item* item, std::string itemType) {
 
     // Add to map
     inventoryCount[itemType] = std::make_pair(1, countLabel);
+    Engine::GameEngine::GetInstance().pickedItems.push_back(itemType);
 }
 
 

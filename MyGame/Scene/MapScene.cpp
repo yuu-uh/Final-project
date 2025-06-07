@@ -13,6 +13,7 @@
 #include "Engine/Point.hpp"
 #include "Engine/Resources.hpp"
 #include "Engine/LOG.hpp"
+#include "Engine/Collider.hpp"
 #include "Player/Player.hpp"
 #include "Scene/MapScene.hpp"
 #include "UI/Component/ImageButton.hpp"
@@ -58,15 +59,18 @@ void MapScene::Initialize() {
 void MapScene::Update(float deltaTime) {
     IScene::Update(deltaTime);
 
-    for (auto item : ItemGroup->GetObjects()) {
-        // if ( 
-        //     Engine::Collider::IsCircleOverlap(
-        //         item->Position + Engine::Point(item->GetWidth()/2, item->GetHeight()/2),
-        //         item->GetWidth()/2,
-        //         playerPos, BlockSize / 2)) {
-        //     item->Touch();
-        //     item->
-        // }
+    for (auto& it : ItemGroup->GetObjects()) {
+        auto item = dynamic_cast<Item*>(it);
+        if (!item) continue; // Skip if not an Item
+
+        if (Engine::Collider::IsCircleOverlap(
+        item->Position, item->CollisionRadius, player->Position, player->CollisionRadius)) {
+        
+            item->Pick();  // Assuming Touch() is defined in Item.
+            if (!item->item_picked()) {
+                item->Pick(); // or some value
+            }
+        }
     }
 }
 void MapScene::Terminate() {

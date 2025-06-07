@@ -39,23 +39,25 @@ void MapScene::Initialize() {
     AddNewControlObject(UIGroup = new Group());
     AddNewControlObject(UIInventoryGroup = new Group());
     ReadMap();
-
-    timer = 180.0f;
+    
+    timer = 10.0f;
     countdownLabel = new Engine::Label("03:00", "pirulen.ttf", 48,
     Engine::GameEngine::GetInstance().GetScreenSize().x - 120,
     Engine::GameEngine::GetInstance().GetScreenSize().y - 40, 255, 255, 255, 255, 0.5, 0.5);
     UIGroup->AddNewObject(countdownLabel);
 
     for(int i=0; i<6; i++){
-        int x = rand() % MapWidth;
-        int y = rand() % MapHeight;
+        for(int j=0; j<5; j++){
+            int x = rand() % MapWidth;
+            int y = rand() % MapHeight;
         // while (mapState[y][x] != TILE_FLOOR) {
         //     x = rand() % MapWidth;
         //     y = rand() % MapHeight;
         // }
-        std::string img = "mapScene/"+itemImg[i]+".png";
-        Item* item = new Item(img, x * BlockSize, y * BlockSize, itemImg[i]);
-        ItemGroup->AddNewObject(item);
+            std::string img = "mapScene/"+itemImg[i]+".png";
+            Item* item = new Item(img, x * BlockSize, y * BlockSize, itemImg[i]);
+            ItemGroup->AddNewObject(item);
+        }
     }
     Engine::Point startPos{ 216, 216 };      
     float moveSpeed = 200.0f;     
@@ -212,7 +214,7 @@ void MapScene::PickupItem(Item* item, std::string itemType) {
         return;
     }
 
-    int idx = (int)inventory.size() - 1;  
+    int idx = (int)inventoryCount.size();  
     int col = idx % cols;
     int row = idx / cols;
     float x = panelX0 + pad + col * (iconW + pad);

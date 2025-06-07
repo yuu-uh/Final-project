@@ -13,25 +13,25 @@
 #include "Engine/IScene.hpp"
 #include "Engine/LOG.hpp"
 #include "Scene/PlayScene.hpp"
-#include "UI/Animation/DirtyEffect.hpp"
-#include "UI/Animation/ExplosionEffect.hpp"
+//#include "UI/Animation/DirtyEffect.hpp"
+//#include "UI/Animation/ExplosionEffect.hpp"
 
 
 PlayScene *Soldier::getPlayScene() {
     return dynamic_cast<PlayScene *>(Engine::GameEngine::GetInstance().GetActiveScene());
 }
 void Soldier::die() {
-    getPlayScene()->EffectGroup->AddNewObject(new ExplosionEffect(Position.x, Position.y));
+    //getPlayScene()->EffectGroup->AddNewObject(new ExplosionEffect(Position.x, Position.y));
     std::random_device dev;
     std::mt19937 rng(dev());
     std::uniform_int_distribution<std::mt19937::result_type> distId(1, 3);
     std::uniform_int_distribution<std::mt19937::result_type> dist(1, 20);
     for (int i = 0; i < 10; i++) {
         // Random add 10 dirty effects.
-        getPlayScene()->GroundEffectGroup->AddNewObject(new DirtyEffect("play/dirty-" + std::to_string(distId(rng)) + ".png", dist(rng), Position.x, Position.y));
+        //getPlayScene()->GroundEffectGroup->AddNewObject(new DirtyEffect("play/dirty-" + std::to_string(distId(rng)) + ".png", dist(rng), Position.x, Position.y));
     }
 }
-Soldier::Soldier(std::string img, float x, float y, float radius, float speed, float hp, int money) : Engine::Sprite(img, x, y), speed(speed), hp(hp), money(money) {
+Soldier::Soldier(std::string img, float x, float y, float radius, float speed, float hp, float damage) : Engine::Sprite(img, x, y, 60, 60, 0, 0, 0, 10, 10), speed(speed), hp(hp), dmg(damage) {
     CollisionRadius = radius;
     reachEndTime = 0;
 }
@@ -41,7 +41,7 @@ void Soldier::Hit(float damage) {
         die();
         // Remove all turret's reference to target.
 
-        getPlayScene()->EnemyGroup->RemoveObject(objectIterator);
+        getPlayScene()->SoldierGroup->RemoveObject(objectIterator);
         AudioHelper::PlayAudio("explosion.wav");
     }
 }
@@ -76,19 +76,31 @@ void Soldier::UpdatePath(const std::vector<std::vector<int>> &mapDistance) {
         path[num] = pos;
         num--;
     }
-    path[0] = PlayScene::EndGridPoint;
+    //path[0] = PlayScene::EndGridPoint;
 }
 void Soldier::Update(float deltaTime){
     // Pre-calculate the velocity.
-    if(state == walking){
-        Sprite::Update(deltaTime);
+    //Sprite::Update(deltaTime);
+
+    if(state != walking)
+        return;
+
+    Position.x -= speed * deltaTime;
+    float_timer += deltaTime;
+    Position.y += (std::sin(float_timer*4.0f) / 6); // oscillates ±5px
+
+
+    // If off-screen or reached the opponent's base (x <= 0), remove soldier.
+    if (Position.x < 0) {
+        getPlayScene()->SoldierGroup->RemoveObject(objectIterator);
+        // You might also reduce player HP here if needed.
     }
     
 }
 void Soldier::Draw() const {
     Sprite::Draw();
-    if (PlayScene::DebugMode) {
-        // Draw collision radius.
-        al_draw_circle(Position.x, Position.y, CollisionRadius, al_map_rgb(255, 0, 0), 2);
-    }
+    // if (PlayScene::DebugMode) {
+    //     // Draw collision radius.
+    //     al_draw_circle(Position.x, Position.y, CollisionRadius, al_map_rgb(255, 0, 0), 2);
+    // }
 }

@@ -30,7 +30,7 @@ private:
     float timer;
     Engine::Label* countdownLabel;
     Engine::Label* UILives;
-    std::vector<std::vector<bool>> mapData;
+    std::vector<std::vector<int>> mapData;
     Engine::Image* MouseOnIcon = nullptr;
     int MouseIdx = -1;
     std::vector<std::shared_ptr<Item>> worldItems;
@@ -49,10 +49,11 @@ public:
     // Map tiles.
     Group *TileMapGroup;
     Group *GroundEffectGroup;
+    Group *EffectGroup;
     Group *DebugIndicatorGroup;
     Group *BulletGroup;
     Group *TowerGroup;
-    Group *EnemyGroup;
+    Group *SoldierGroup;
     Group *UIGroup;
     Group *ItemGroup;
     Group *UIInventoryGroup;

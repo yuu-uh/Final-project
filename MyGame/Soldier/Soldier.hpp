@@ -21,6 +21,7 @@ protected:
     float speed;
     float hp;
     float dmg;
+    float float_timer;
     int money;
     PlayScene *getPlayScene();
     virtual void die();
@@ -28,7 +29,7 @@ protected:
 
 public:
     float reachEndTime;
-    Soldier(std::string img, float x, float y, float radius, float speed, float hp, int money);
+    Soldier(std::string img, float x, float y, float radius, float speed, float hp, float dmg);
     void Hit(float damage);
     void UpdatePath(const std::vector<std::vector<int>> &mapDistance);
     virtual void Update(float deltaTime) override;

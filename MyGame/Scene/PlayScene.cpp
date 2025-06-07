@@ -16,10 +16,12 @@
 #include "Engine/Resources.hpp"
 #include "Engine/LOG.hpp"
 #include "Engine/Collider.hpp"
+#include "Engine/Group.hpp"
 #include "PlayScene.hpp"
 #include "Items/Item.hpp"
 #include "UI/Animation/DirtyEffect.hpp"
 #include "UI/Component/Label.hpp"
+#include "Soldier/Soldier.hpp"
 
 const std::vector<Engine::Point> PlayScene::directions = { Engine::Point(-1, 0), Engine::Point(0, -1), Engine::Point(1, 0), Engine::Point(0, 1) };
 const int PlayScene::MapWidth = 20, PlayScene::MapHeight = 13;
@@ -37,6 +39,7 @@ void PlayScene::Initialize() {
     AddNewObject(TileMapGroup = new Group());
     AddNewObject(GroundEffectGroup = new Group());
     AddNewObject(ItemGroup = new Group);
+    AddNewObject(SoldierGroup = new Group());
     AddNewControlObject(UIGroup = new Group());
     AddNewControlObject(UIInventoryGroup = new Group());
     ReadMap();
@@ -73,28 +76,58 @@ void PlayScene::Update(float deltaTime) {
     oss << std::setw(2) << std::setfill('0') << minutes
         << ":" << std::setw(2) << std::setfill('0') << seconds;
     countdownLabel->Text = oss.str();
+    SoldierGroup->Update(deltaTime);
 }
 void PlayScene::ReadMap() {
     std::ifstream fin("Resource/Play.txt");
-    mapData.assign(MapHeight, std::vector<bool>(MapWidth, false));
+    mapData.assign(MapHeight, std::vector<int>(MapWidth, 0));
     std::string line;
     for (int y = 0; y < MapHeight; y++) {
         if (!std::getline(fin, line) || (int)line.size() < MapWidth)
             throw std::runtime_error("Map.txt 行长不够");
         for (int x = 0; x < MapWidth; x++)
-            mapData[y][x] = (line[x] == '1');
+            mapData[y][x] = line[x] - '0';
     }
 }
 void PlayScene::Draw() const {
     IScene::Draw();
-
     for (int y = 0; y < MapHeight; y++) {
         for (int x = 0; x < MapWidth; x++) {
-            const char* path = mapData[y][x]
-                ? "mapScene/stone.png"
-                : "mapScene/grass.png";
+            std::cout<<mapData[y][x];
+        }
+        std::cout<<std::endl;
+    }
+    for (int y = 0; y < MapHeight; y++) {
+        for (int x = 0; x < MapWidth; x++) {
+            // const char* path = mapData[y][x]
+            //     ? "mapScene/stone.png"
+            //     : "mapScene/grass.png";
+            const char* path = nullptr;
+            switch (mapData[y][x]){
+            case 0:
+                path = "mapScene/grass.png";
+                break;
+            case 1:
+                path = "mapScene/stone.png";
+                break;
+            case 2:
+                path = "mapScene/brick.png";
+                break;
+            case 3:
+                path = "mapScene/roof.png";
+                break;
+            default:
+                break;
+            }
+            if (!path) {
+                Engine::LOG(Engine::ERROR) << "Invalid map value: " << mapData[y][x];
+                continue; // Skip drawing this tile
+            }
             ALLEGRO_BITMAP* bmp = Engine::Resources::GetInstance()
                                       .GetBitmap(path).get();
+            if(!bmp){
+                Engine::LOG(Engine::INFO)<<"failed to load map bitmap";
+            }
             al_draw_scaled_bitmap(
                 bmp, 0, 0, al_get_bitmap_width(bmp), al_get_bitmap_height(bmp),
                 x * BlockSize, y * BlockSize, BlockSize, BlockSize,0
@@ -105,6 +138,7 @@ void PlayScene::Draw() const {
     if (MouseOnIcon) MouseOnIcon->Draw();
     UIGroup->Draw();
     UIInventoryGroup->Draw();
+    //SoldierGroup->Draw();
 }
 void PlayScene::OnMouseDown(int button, int mx, int my) {
     if (!(button & 1)) return;
@@ -140,7 +174,7 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
     int gy = my / BlockSize;
     bool canPlace = gx >= 0 && gx < MapWidth
                  && gy >= 0 && gy < MapHeight
-                 && mapData[gy][gx];
+                 && (mapData[gy][gx] == 1 || mapData[gy][gx] == 0);
 
     if (canPlace) {
         auto it = std::make_shared<Item>(

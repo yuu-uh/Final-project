@@ -168,6 +168,7 @@ void MapScene::OnKeyDown(int keyCode) {
 void MapScene::ReadMap() {
     std::string filename = std::string("Resource/Map.txt");
     // Read map file.
+    
     char c;
     std::vector<bool> mapData;
     std::ifstream fin(filename);

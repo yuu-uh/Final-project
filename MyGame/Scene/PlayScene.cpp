@@ -135,7 +135,6 @@ void PlayScene::Draw() const {
     }
     for (int y = 0; y < MapHeight; y++) {
         for (int x = 0; x < MapWidth; x++) {
-            const char* path = mapData[y][x] ? "mapScene/stone.png" : "mapScene/grass.png";
             // const char* path = mapData[y][x]
             //     ? "mapScene/stone.png"
             //     : "mapScene/grass.png";

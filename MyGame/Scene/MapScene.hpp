@@ -13,6 +13,7 @@ private:
 public:
     explicit MapScene() = default;
     void Initialize() override;
+    void ReadMap();
     void Update(float deltaTime) override;
     void Terminate() override;
 };

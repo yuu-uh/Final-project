@@ -16,4 +16,13 @@ void Item::Picked(float damage){
     
 }
 
+bool Item::item_picked(){
+    return picked;
+}
+
+const std::shared_ptr<ALLEGRO_BITMAP> &Item::getBitmap(){
+    return bmp;
+ }
+
+
 

@@ -57,6 +57,17 @@ void MapScene::Initialize() {
 }
 void MapScene::Update(float deltaTime) {
     IScene::Update(deltaTime);
+
+    for (auto item : ItemGroup->GetObjects()) {
+        // if ( 
+        //     Engine::Collider::IsCircleOverlap(
+        //         item->Position + Engine::Point(item->GetWidth()/2, item->GetHeight()/2),
+        //         item->GetWidth()/2,
+        //         playerPos, BlockSize / 2)) {
+        //     item->Touch();
+        //     item->
+        // }
+    }
 }
 void MapScene::Terminate() {
     IScene::Terminate();
@@ -109,6 +120,8 @@ void MapScene::ConstructUI() {
 void MapScene::UIBtnClicked(int id) {
     
 }
+
+
 
 //bool MapScene::CheckSpaceValid(int x, int y) {
 //    return true;

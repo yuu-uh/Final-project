@@ -34,6 +34,9 @@ private:
     float camX = 0, camY = 0; 
 
 public:
+    std::unordered_map<std::string, std::pair<int, Engine::Label*>> inventoryCount;
+    std::unordered_map<std::string, Engine::Image*> inventoryIcons;
+    std::vector<Engine::Image*> slotImage;
     static const std::vector<Engine::Point> directions;
     static const std::vector<std::string> itemImg;
     static const int MapWidth, MapHeight;
@@ -65,7 +68,7 @@ public:
     void ReadMap();
     void ConstructUI();
     void UIBtnClicked(int id);
-    void PickupItem(Item* item);
+    void PickupItem(Item* item, std::string itemType);
     // bool CheckSpaceValid(int x, int y);
 };
 

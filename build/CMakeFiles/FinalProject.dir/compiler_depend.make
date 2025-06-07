@@ -9055,13 +9055,23 @@ CMakeFiles/FinalProject.dir/Engine/Sprite.cpp.obj: C:/Users/annys/Downloads/Fina
   C:/llvm-mingw-20240417-msvcrt-x86_64/lib/clang/18/include/vadefs.h
 
 CMakeFiles/FinalProject.dir/Items/Item.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.cpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/GameEngine.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/MapScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Label.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.hpp \
   C:/allegro/include/allegro5/alcompat.h \
   C:/allegro/include/allegro5/allegro.h \
+  C:/allegro/include/allegro5/allegro_audio.h \
+  C:/allegro/include/allegro5/allegro_font.h \
   C:/allegro/include/allegro5/altime.h \
   C:/allegro/include/allegro5/base.h \
   C:/allegro/include/allegro5/bitmap.h \
@@ -19794,9 +19804,9 @@ C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp:
 
 C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp:
 
-C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.cpp:
-
 C:/Users/annys/Downloads/FinalProject/MyGame/Scene/MapScene.hpp:
+
+C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.cpp:
 
 C:/Users/annys/Downloads/FinalProject/MyGame/Scene/LogScene.cpp:
 

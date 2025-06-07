@@ -46,12 +46,6 @@ void MapScene::Initialize() {
     Engine::GameEngine::GetInstance().GetScreenSize().y - 40, 255, 255, 255, 255, 0.5, 0.5);
     UIGroup->AddNewObject(countdownLabel);
 
-    timer = 180.0f;
-    countdownLabel = new Engine::Label("03:00", "pirulen.ttf", 48,
-    Engine::GameEngine::GetInstance().GetScreenSize().x - 120,
-    Engine::GameEngine::GetInstance().GetScreenSize().y - 40, 255, 255, 255, 255, 0.5, 0.5);
-    UIGroup->AddNewObject(countdownLabel);
-
     for(int i=0; i<6; i++){
         int x = rand() % MapWidth;
         int y = rand() % MapHeight;

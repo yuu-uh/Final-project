@@ -21,10 +21,12 @@
 [INFO] Loaded Resource<image>: Resource/images/mapScene/shooter.png scaled to 30x30
 [INFO] Loaded Resource<image>: Resource/images/mapScene/magician.png scaled to 30x30
 [INFO] Loaded Resource<image>: Resource/images/mapScene/player1_front01.png scaled to 60x60
+[INFO] Loaded Resource<image>: Resource/images/mapScene/item_empty.png scaled to 128x128
 [INFO] Changed to map scene
 [INFO] Game Terminating...
 [INFO] Game terminated
 [INFO] Game end
+[INFO] Destroyed Resource<image>: mapScene/item_empty.png?128x128
 [INFO] Destroyed Resource<image>: mapScene/shooter.png?30x30
 [INFO] Destroyed Resource<image>: mapScene/vikin.png?30x30
 [INFO] Destroyed Resource<image>: mapScene/player1_front01.png?60x60

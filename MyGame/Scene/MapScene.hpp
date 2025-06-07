@@ -9,6 +9,7 @@
 #include "Engine/IScene.hpp"
 #include "UI/Component/Label.hpp"
 #include "Player/Player.hpp"
+#include "Items/Item.hpp"
 
 namespace Engine {
     class Group;
@@ -27,7 +28,9 @@ private:
     ALLEGRO_SAMPLE_ID bgmId;
     std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE> deathBGMInstance;
     int remainTime;
-    Player *player;  
+    Player *player;
+    std::vector<Item*> inventory;   
+    float camX = 0, camY = 0; 
 
 public:
     static const std::vector<Engine::Point> directions;
@@ -46,6 +49,7 @@ public:
     Group *GroundEffectGroup;
     Group *UIGroup;
     Group *ItemGroup;
+    Group *UIInventoryGroup;
     Engine::Image *imgTarget;
     std::vector<std::vector<TileType>> mapState;
     std::vector<std::vector<int>> mapDistance;
@@ -60,6 +64,7 @@ public:
     void ReadMap();
     void ConstructUI();
     void UIBtnClicked(int id);
+    void PickupItem(Item* item);
     // bool CheckSpaceValid(int x, int y);
 };
 

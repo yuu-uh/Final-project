@@ -910,4 +910,5 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/MapScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Sprite.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp

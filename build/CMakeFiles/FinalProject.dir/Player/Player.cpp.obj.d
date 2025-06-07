@@ -860,4 +860,5 @@ CMakeFiles/FinalProject.dir/Player/Player.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp \
   C:/allegro/include/allegro5/allegro_image.h

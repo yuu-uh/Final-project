@@ -362,6 +362,7 @@ CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj: \
   C:/allegro/include/allegro5/timer.h C:/allegro/include/allegro5/tls.h \
   C:/allegro/include/allegro5/alcompat.h \
   C:/allegro/include/allegro5/platform/alwin.h \
+  C:/allegro/include/allegro5/allegro_primitives.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/functional \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__algorithm/search.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__algorithm/comp.h \
@@ -1156,17 +1157,18 @@ CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/AudioHelper.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/GameEngine.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Point.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Resources.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
   C:/allegro/include/allegro5/allegro_font.h \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/list \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Resources.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/LOG.hpp \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iostream \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/PersonalScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/TextBox.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Group.hpp \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/list \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/ImageButton.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Slider.hpp

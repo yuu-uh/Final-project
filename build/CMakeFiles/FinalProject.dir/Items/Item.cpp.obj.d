@@ -852,12 +852,12 @@ CMakeFiles/FinalProject.dir/Items/Item.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/GameEngine.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
+  C:/allegro/include/allegro5/allegro_font.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/MapScene.hpp \
   C:/allegro/include/allegro5/allegro_audio.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Group.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
-  C:/allegro/include/allegro5/allegro_font.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp

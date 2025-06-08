@@ -59,6 +59,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/FinalProject.dir/UI/Component/Label.cpp.obj.d"
   "CMakeFiles/FinalProject.dir/UI/Component/Slider.cpp.obj"
   "CMakeFiles/FinalProject.dir/UI/Component/Slider.cpp.obj.d"
+  "CMakeFiles/FinalProject.dir/UI/Component/TextBox.cpp.obj"
+  "CMakeFiles/FinalProject.dir/UI/Component/TextBox.cpp.obj.d"
   "CMakeFiles/FinalProject.dir/main.cpp.obj"
   "CMakeFiles/FinalProject.dir/main.cpp.obj.d"
   "FinalProject.exe"

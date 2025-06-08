@@ -56,36 +56,26 @@ static std::string getLocalIP() {
 void PersonalScene::Initialize() {
     int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
-    int cx = w / 2;
-    int cy = h / 2;
+    int halfW = w / 2;
+    int halfH = h / 2;
     Engine::ImageButton* btn;
 
     AddNewObject(new Engine::Image("background/test.png", 0,0,w,h));
-    AddNewObject(new Engine::Label("Hello","pirulen.ttf",100,cx,cy/3+50,255,255,255,255,0.5,0.5));
+    AddNewObject(new Engine::Label("Hello","pirulen.ttf",100,halfW,halfH/3+50,255,255,255,255,0.5,0.5));
 
-    btn = new Engine::ImageButton("stage-select/floor.png","stage-select/floor.png",cx-200,cy/2+100,400,100);
+    btn = new Engine::ImageButton("stage-select/floor.png","stage-select/floor.png",halfW-200,halfH/2+100,400,100);
     btn->SetOnClickCallback(std::bind(&PersonalScene::HostGame, this));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Host Game","pirulen.ttf",48,cx,cy/2+150,255,255,255,255,0.5,0.5));
+    AddNewObject(new Engine::Label("Host Game","pirulen.ttf",48,halfW,halfH/2+150,255,255,255,255,0.5,0.5));
 
-    btn = new Engine::ImageButton("stage-select/floor.png","stage-select/floor.png",cx-200,cy/2+250,400,100);
+    btn = new Engine::ImageButton("stage-select/floor.png","stage-select/floor.png",halfW-200,halfH/2+250,400,100);
     btn->SetOnClickCallback(std::bind(&PersonalScene::JoinGame, this));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Join Game","pirulen.ttf",48,cx,cy/2+300,255,255,255,255,0.5,0.5));
+    AddNewObject(new Engine::Label("Join Game","pirulen.ttf",48,halfW,halfH/2+300,255,255,255,255,0.5,0.5));
 
-    btn = new Engine::ImageButton("stage-select/floor.png","stage-select/floor.png",cx-200,cy/2+400,400,100);
+    btn = new Engine::ImageButton("stage-select/floor.png","stage-select/floor.png",halfW-200,halfH/2+400,400,100);
     btn->SetOnClickCallback(std::bind(&PersonalScene::ScoreOnClick, this));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Score","pirulen.ttf",48,cx,cy/2+450,255,255,255,255,0.5,0.5));
-}
-
-void PersonalScene::Update(float dt) {
-    IScene::Update(dt);
-    if (waitConn) {
-        NetWork::Instance().Service(0);
-    }
-}
-
     AddNewObject(new Engine::Label("Score", "pirulen.ttf", 48, halfW, halfH/2+450, 255, 255, 255, 255, 0.5, 0.5));
 
     btn = new Engine::ImageButton("stage-select/floor.png", "stage-select/floor.png", halfW-200, halfH+450, 400, 100);
@@ -93,11 +83,16 @@ void PersonalScene::Update(float dt) {
     btn->SetOnClickCallback(std::bind(&PersonalScene::ConfirmJoin, this));
     AddNewObject(new Engine::Label("Connect", "pirulen.ttf", 48, halfW, halfH+500, 255, 255, 255, 255, 0.5, 0.5));
 
-
     IPEnter = new Engine::TextBox(halfW-350, halfH-100, 700, 100, 0.5, 0.5); 
     portEenter = new Engine::TextBox(halfW-350, halfH+200, 700, 100, 0.5, 0.5); 
     font = Engine::Resources::GetInstance().GetFont("pirulen.ttf", 48);
+}
 
+void PersonalScene::Update(float dt) {
+    IScene::Update(dt);
+    if (waitConn) {
+        NetWork::Instance().Service(0);
+    }
 }
 void PersonalScene::Draw() const{
     al_clear_to_color(al_map_rgb(0, 0, 0));
@@ -130,9 +125,6 @@ void PersonalScene::OnKeyDown(int keycode){
     }
 }
 
-void PersonalScene::Terminate() {
-    IScene::Terminate();
-}
 void PersonalScene::HostGame() {
     auto& net = NetWork::Instance();
     net.myId = 0;
@@ -174,6 +166,7 @@ void PersonalScene::JoinGame() {
             Engine::GameEngine::GetInstance().ChangeScene("map");
     });
     waitConn = true;
+    }
 }
 void PersonalScene::ScoreOnClick() {
     Engine::GameEngine::GetInstance().ChangeScene("score");

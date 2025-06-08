@@ -872,12 +872,14 @@ CMakeFiles/FinalProject.dir/Engine/GameEngine.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Allegro5Exception.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/GameEngine.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/list \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/list \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/LOG.hpp \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/fstream \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/filesystem \

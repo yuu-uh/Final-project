@@ -908,7 +908,8 @@ CMakeFiles/FinalProject.dir/Scene/LogScene.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/GameEngine.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Resources.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/PersonalScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/TextBox.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/LogScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/ImageButton.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Slider.hpp

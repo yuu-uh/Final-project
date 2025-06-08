@@ -847,11 +847,12 @@ CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj: \
   C:/allegro/include/allegro5/alcompat.h \
   C:/allegro/include/allegro5/platform/alwin.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Point.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Resources.hpp \
-  C:/allegro/include/allegro5/allegro_audio.h \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
   C:/allegro/include/allegro5/allegro_font.h \
-  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/list \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Resources.hpp \
+  C:/allegro/include/allegro5/allegro_audio.h \
+  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/ImageButton.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp

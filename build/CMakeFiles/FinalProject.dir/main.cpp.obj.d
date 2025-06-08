@@ -827,6 +827,31 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__iterator/ranges_iterator_traits.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__node_handle \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
+  C:/allegro/include/allegro5/allegro_font.h \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/list \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/functional \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/binary_negate.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/bind.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/bind_back.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/perfect_forward.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/bind_front.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/binder1st.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/binder2nd.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/boyer_moore_searcher.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/compose.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/default_searcher.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/function.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__memory/builtin_new_allocator.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__type_traits/strip_signature.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/mem_fn.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/mem_fun_ref.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/not_fn.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/pointer_to_binary_function.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/pointer_to_unary_function.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/unary_negate.h \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/LOG.hpp \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/fstream \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/filesystem \
@@ -854,26 +879,6 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__ranges/ref_view.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/queue \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/deque \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/functional \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/binary_negate.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/bind.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/bind_back.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/perfect_forward.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/bind_front.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/binder1st.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/binder2nd.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/boyer_moore_searcher.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/compose.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/default_searcher.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/function.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__memory/builtin_new_allocator.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__type_traits/strip_signature.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/mem_fn.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/mem_fun_ref.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/not_fn.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/pointer_to_binary_function.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/pointer_to_unary_function.h \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/unary_negate.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/stack \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/format_functions.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__format/formatter_char.h \
@@ -900,17 +905,13 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: \
   C:/allegro/include/allegro5/allegro_audio.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Group.hpp \
-  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/list \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Point.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
-  C:/allegro/include/allegro5/allegro_font.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PersonalScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/TextBox.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/MapScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Sprite.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/Soldier.hpp \

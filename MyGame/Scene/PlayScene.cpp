@@ -221,6 +221,8 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
         preview->Preview = false;
         preview->Tint = al_map_rgba(255, 255, 255, 255);
         
+        preview->direction = (NetWork::Instance().myId == 0) ? 1 : -1;
+
         // Assign unique ID and store
         uint32_t soldierId = nextSoldierId++;
         networkSoldiers[soldierId] = preview;
@@ -316,9 +318,15 @@ void PlayScene::CreateNetworkSoldier(uint8_t playerId, uint8_t soldierType, int 
         default: return;
     }
     
+    int realX = x;
+    int realY = y;
+
+    if (playerId != NetWork::Instance().myId) {
+        realX = PlayScene::MapWidth - 1 - x; // mirror horizontally
+    }
     // Position the soldier
-    soldier->Position.x = x * BlockSize + BlockSize / 2;
-    soldier->Position.y = y * BlockSize + BlockSize / 2;
+    soldier->Position.x = realX * BlockSize + BlockSize / 2;
+    soldier->Position.y = realY * BlockSize + BlockSize / 2;
     soldier->Enabled = true;
     soldier->Preview = false;
     
@@ -326,13 +334,15 @@ void PlayScene::CreateNetworkSoldier(uint8_t playerId, uint8_t soldierType, int 
     bool isEnemySoldier = (playerId != NetWork::Instance().myId);
     
     if (isEnemySoldier) {
-    soldier->direction = 1; // Move right to left for enemy
-    soldier->Tint = al_map_rgba(255, 100, 100, 255);
-    soldier->Rotation = 180;
-} else {
-    soldier->direction = -1; // Move left to right for your soldiers
-    soldier->Tint = al_map_rgba(255, 255, 255, 255);
-}
+        soldier->direction = (playerId == 0) ? 1 : -1;
+        soldier->Tint = al_map_rgba(255, 100, 100, 255);
+        //soldier->Rotation = 180;
+        
+    } else {
+        soldier->direction = (playerId == 0) ? 1 : -1;
+        soldier->Tint = al_map_rgba(255, 255, 255, 255);
+        //soldier->Rotation = 0;
+    }
     
     // Store and add to scene
     networkSoldiers[soldierId] = soldier;

@@ -16,6 +16,8 @@ private:
     Engine::TextBox* IPEnter = nullptr;
     Engine::TextBox* portEenter = nullptr;
     Engine::TextBox* focusedBox = nullptr;
+    bool hostMode   = false;     
+    std::string hostInfo; 
 
 public:
     explicit PersonalScene() = default;

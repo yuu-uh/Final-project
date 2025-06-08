@@ -18,6 +18,8 @@ public:
     void Update(float deltaTime) override;
     void Draw() const override;
     std::unordered_map<std::string, std::vector<ALLEGRO_BITMAP*>> animations;
+    uint8_t CurrentAction() const { return action; }
+    void SetAction(uint8_t a);
 
 protected:
     float speed;
@@ -26,6 +28,7 @@ protected:
     virtual void OnCollision(Engine::Sprite *other);
 
 private:
+    uint8_t action = 0;
     float animationTimer = 0.0f;
     float frameDuration = 0.15f; // seconds per frame
     int cur_frame = 0;

@@ -12842,6 +12842,7 @@ CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj: C:/Users/annys/Downloads/Fin
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/LOG.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Message.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/NetWork.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.hpp \
@@ -16127,10 +16128,12 @@ CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj: C:/Users/annys/Downloads/Fi
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Label.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp \
   C:/allegro/include/allegro5/alcompat.h \
   C:/allegro/include/allegro5/allegro.h \
   C:/allegro/include/allegro5/allegro_audio.h \
+  C:/allegro/include/allegro5/allegro_font.h \
   C:/allegro/include/allegro5/allegro_primitives.h \
   C:/allegro/include/allegro5/altime.h \
   C:/allegro/include/allegro5/base.h \
@@ -29869,6 +29872,8 @@ C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/TextBox.hpp:
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/sstream:
 
 C:/Users/annys/Downloads/FinalProject/MyGame/Scene/MapScene.cpp:
+
+C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Message.hpp:
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/in6addr.h:
 

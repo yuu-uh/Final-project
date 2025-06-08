@@ -44,7 +44,16 @@ Player::Player(const std::string &imagePath,
     Engine::LOG(Engine::INFO)<<"start to load animations";
     LoadAnimations();
 }
-
+void Player::SetAction(uint8_t a){
+    action = a;
+    switch (a) {
+        case 0: cur_dir = "front"; moving = false; break;
+        case 1: cur_dir = "back";  moving = true;  break;
+        case 2: cur_dir = "left";  moving = true;  break;
+        case 3: cur_dir = "right"; moving = true;  break;
+        default: cur_dir = "front"; moving = false; break;
+    }
+}
 void Player::Update(float deltaTime) {
     Engine::Point dir = ReadInput();
     if (dir.x || dir.y) {

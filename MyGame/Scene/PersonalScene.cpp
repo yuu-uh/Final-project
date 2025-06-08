@@ -95,6 +95,7 @@ void PersonalScene::Update(float dt) {
         auto& net = NetWork::Instance();
         net.Service(0);
         if (net.isConnected()) {
+            hostMode = false;
             Engine::LOG(Engine::INFO) << "NetWork::isConnected() == true, go to mapScene";
             Engine::GameEngine::GetInstance().ChangeScene("map");
         }
@@ -113,6 +114,17 @@ void PersonalScene::Draw() const{
         al_draw_text(font.get(), al_map_rgb(255, 255, 255), halfW, halfH+100, ALLEGRO_ALIGN_CENTER, "Port");
         IPEnter->Draw();
         portEenter->Draw();
+    }
+    if (hostMode) {
+        // dark translucent backdrop
+        al_draw_filled_rectangle(0,0,w,h, al_map_rgba(0,0,0,200));
+        // draw the info
+        ALLEGRO_FONT* f = font.get();
+        al_draw_text(f, al_map_rgb(255,255,255), halfW, halfH-20,
+                     ALLEGRO_ALIGN_CENTER, hostInfo.c_str());
+        al_draw_text(f, al_map_rgb(255,255,255), halfW, halfH+20,
+                     ALLEGRO_ALIGN_CENTER, "Waiting for client…");
+        return; // skip drawing the buttons underneath
     }
 }
 
@@ -156,6 +168,9 @@ void PersonalScene::HostGame() {
     }
     });
     waitConn = true;
+    hostMode = true;
+    hostInfo = "Your ID: " + std::to_string(net.myId)
+             + "   Port: " + std::to_string(1234);
 }
 
 void PersonalScene::JoinGame() {

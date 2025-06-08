@@ -5,6 +5,8 @@
 #include "Engine/Point.hpp"
 #include "Engine/Sprite.hpp"
 #include "Engine/GameEngine.hpp"
+#include "Engine/NetWork.hpp"
+#include "Engine/Message.hpp"
 #include "Scene/MapScene.hpp"
 #include "UI/Component/Image.hpp"
 
@@ -22,6 +24,21 @@ void Item::Pick(){
     if(picked) return;
     picked = true;
     Visible = false;
+
+    auto& net = NetWork::Instance();
+    PacketHeader hdr;
+    hdr.type   = MSG_PICK_ITEM;
+    hdr.length = sizeof(PickItem);
+
+    PickItem pi;
+    pi.playerId = net.myId;
+    pi.itemId   = this->id;
+
+    uint8_t buf[ sizeof(hdr) + sizeof(pi) ];
+    std::memcpy(buf, &hdr, sizeof(hdr));
+    std::memcpy(buf + sizeof(hdr), &pi, sizeof(pi));
+    net.Send(buf, sizeof(buf));
+
     getMapScene()->PickupItem(this, this->type);
 }
 

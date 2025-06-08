@@ -9,6 +9,7 @@
 #include <fstream>
 #include <iomanip>
 
+#include "Engine/Message.hpp"
 #include "Engine/AudioHelper.hpp"
 #include "Engine/GameEngine.hpp"
 #include "Engine/IScene.hpp"
@@ -41,41 +42,79 @@ void MapScene::Initialize() {
     AddNewControlObject(UIInventoryGroup = new Group());
     ReadMap();
     
-    timer = 10.0f;
+    timer = 30.0f;
 
-    timer = 10.0f;
     countdownLabel = new Engine::Label("03:00", "pirulen.ttf", 48,
     Engine::GameEngine::GetInstance().GetScreenSize().x - 120,
     Engine::GameEngine::GetInstance().GetScreenSize().y - 40, 255, 255, 255, 255, 0.5, 0.5);
     UIGroup->AddNewObject(countdownLabel);
-
+    
+    int nextId = 0;
     for(int i=0; i<6; i++){
         for(int j=0; j<5; j++){
             int x = rand() % MapWidth;
             int y = rand() % MapHeight;
-        // while (mapState[y][x] != TILE_FLOOR) {
-        //     x = rand() % MapWidth;
-        //     y = rand() % MapHeight;
-        // }
             std::string img = "mapScene/"+itemImg[i]+".png";
             Item* item = new Item(img, x * BlockSize, y * BlockSize, itemImg[i]);
+            item->id = nextId++;
+            allItems.push_back(item);
             ItemGroup->AddNewObject(item);
         }
     }
-    Engine::Point startPos{ 216, 216 };      
+    Engine::Point startPos1{ 216, 216 };   
+    Engine::Point startPos2{ 16, 16 };    
     float moveSpeed = 200.0f;     
-    player = new Player("mapScene/player1_front01.png", startPos, moveSpeed, 16, 16);
-    conPlayer  = new Player("mapScene/player1_front01.png", startPos, moveSpeed, 16, 16);
+    player = new Player("mapScene/player1_front01.png", startPos1, moveSpeed, 16, 16);
+    conPlayer  = new Player("mapScene/player1_front01.png", startPos2, moveSpeed, 16, 16);
     AddNewObject(player);
     AddNewObject(conPlayer);
+
     auto& net = NetWork::Instance();
+    net.SetReceiveCallback([this,&net](const ENetEvent& ev){
+    if (ev.type != ENET_EVENT_TYPE_RECEIVE) return;
+    auto const* data = ev.packet->data;
+    auto const* hdr  = reinterpret_cast<const PacketHeader*>(data);
+    auto const* body = data + sizeof(PacketHeader);
 
-    ConstructUI();
+    if (hdr->type == MSG_PLAYER_STATE && hdr->length == sizeof(PlayerState)) {
+        auto const* ps = reinterpret_cast<const PlayerState*>(body);
+        if (ps->playerId != net.myId) {
+            conPlayer->Position.x = ps->x;
+            conPlayer->Position.y = ps->y;
+            conPlayer->SetAction(ps->action);
+        }
+    }
+    else if (hdr->type == MSG_PICK_ITEM && hdr->length == sizeof(PickItem)) {
+        auto const* pi = reinterpret_cast<const PickItem*>(body);
+        for (auto* it : allItems) {
+            if (it->id == pi->itemId && !it->item_picked()) {
+                it->Pick();
+                break;
+            }
+        }
+    }
+    enet_packet_destroy(ev.packet);
+}); 
 }
-void MapScene::Update(float deltaTime) {
-    IScene::Update(deltaTime);
+void MapScene::Update(float dt) {
+    IScene::Update(dt);
+    auto& net = NetWork::Instance();
+    net.Service(0);
 
-    NetWork::Instance().Service(0);
+    PlayerState ps;
+    ps.playerId = net.myId;        
+    ps.x        = player->Position.x;
+    ps.y        = player->Position.y;
+    ps.action   = player->CurrentAction();
+
+    PacketHeader hdr;
+    hdr.type   = MSG_PLAYER_STATE;
+    hdr.length = sizeof(PlayerState);
+
+    uint8_t buf[sizeof(hdr) + sizeof(ps)];
+    std::memcpy(buf,                   &hdr, sizeof(hdr));
+    std::memcpy(buf + sizeof(hdr),     &ps,  sizeof(ps));
+    net.Send(buf, sizeof(buf), 0);
 
     float screenW = Engine::GameEngine::GetInstance().GetScreenSize().x;
     float screenH = Engine::GameEngine::GetInstance().GetScreenSize().y;
@@ -84,10 +123,8 @@ void MapScene::Update(float deltaTime) {
     const float viewH  = screenH;           
     float targetX = player->Position.x - viewW / 2.0f;
     float targetY = player->Position.y - viewH / 2.0f;
-
     camX = std::clamp(targetX, 0.0f, MapWidth*BlockSize - viewW);
     camY = std::clamp(targetY, 0.0f, MapHeight*BlockSize - viewH);
-
     for (auto& it : ItemGroup->GetObjects()) {
         auto item = dynamic_cast<Item*>(it);
         if (!item) continue; // Skip if not an Item
@@ -100,7 +137,7 @@ void MapScene::Update(float deltaTime) {
         }
     }
 
-    timer -= deltaTime;
+    timer -= dt;
     if (timer <= 0) {
         Engine::GameEngine::GetInstance().ChangeScene("play");
         return;
@@ -158,10 +195,8 @@ void MapScene::Draw() const {
     ItemGroup->Draw();
     player->Draw();
     conPlayer->Draw();
-
     al_use_transform(&oldX);
     al_draw_filled_rectangle(screenW - panelW, 0, screenW, screenH, al_map_rgb(0, 0, 0));
-
     UIGroup->Draw();
     UIInventoryGroup->Draw();
 }
@@ -171,7 +206,6 @@ void MapScene::OnKeyDown(int keyCode) {
 }
 void MapScene::ReadMap() {
     std::string filename = std::string("Resource/Map.txt");
-    // Read map file.
     
     char c;
     std::vector<bool> mapData;
@@ -189,10 +223,9 @@ void MapScene::ReadMap() {
         }
     }
     fin.close();
-    // Validate map data.
+
     if (static_cast<int>(mapData.size()) != MapWidth * MapHeight)
         throw std::ios_base::failure("Map data.");
-    // Store map in 2d array.
     mapState = std::vector<std::vector<TileType>>(MapHeight, std::vector<TileType>(MapWidth));
     for (int i = 0; i < MapHeight; i++) {
         for (int j = 0; j < MapWidth; j++) {

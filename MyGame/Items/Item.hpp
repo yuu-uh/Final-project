@@ -16,6 +16,7 @@ protected:
     std::string image_name;
     bool picked;
     float float_timer;
+    std::vector<Item*> allItems; 
     
 public:
     Item(std::string img, float x, float y, std::string t);
@@ -25,6 +26,7 @@ public:
     void Update(float deltaTime) override;
     bool Enabled = true;
     bool Preview = false;
+    int id = -1;
     // void Draw() const override;
 };
 #endif

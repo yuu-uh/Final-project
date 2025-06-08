@@ -32,6 +32,7 @@ private:
     Player *player;
     Player *conPlayer;
     float camX = 0, camY = 0; 
+    std::vector<Item*> allItems;
 
 public:
     std::unordered_map<std::string, std::pair<int, Engine::Label*>> inventoryCount;

@@ -39,7 +39,7 @@ void Item::Pick(){
     std::memcpy(buf + sizeof(hdr), &pi, sizeof(pi));
     net.Send(buf, sizeof(buf));
 
-    getMapScene()->PickupItem(this, this->type);
+    getMapScene()->AddToInventory(this, this->type);
 }
 
 void Item::Update(float deltaTime) {

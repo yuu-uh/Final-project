@@ -9,11 +9,8 @@ class MapScene;
 
 class Player : public Engine::Sprite {
 public:
-    explicit Player(const std::string &imagePath,
-                    const Engine::Point &startPos,
-                    float moveSpeed,
-                    int frameW = 16,
-                    int frameH = 16);
+    explicit Player(const std::string &imagePath, const Engine::Point &startPos, float moveSpeed,
+                    int frameW = 16, int frameH = 16, bool isLocal = true);
 
     void Update(float deltaTime) override;
     void Draw() const override;
@@ -28,6 +25,7 @@ protected:
     virtual void OnCollision(Engine::Sprite *other);
 
 private:
+    bool isLocal;
     uint8_t action = 0;
     float animationTimer = 0.0f;
     float frameDuration = 0.15f; // seconds per frame

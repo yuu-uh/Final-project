@@ -1170,4 +1170,6 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/protocol.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/list.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/callbacks.h \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/StoryScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/ImageButton.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/NetWork.hpp

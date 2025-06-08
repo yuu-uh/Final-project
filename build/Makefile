@@ -655,6 +655,30 @@ Scene/PlayScene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.s
 .PHONY : Scene/PlayScene.cpp.s
 
+Scene/StoryScene.obj: Scene/StoryScene.cpp.obj
+.PHONY : Scene/StoryScene.obj
+
+# target to build an object file
+Scene/StoryScene.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj
+.PHONY : Scene/StoryScene.cpp.obj
+
+Scene/StoryScene.i: Scene/StoryScene.cpp.i
+.PHONY : Scene/StoryScene.i
+
+# target to preprocess a source file
+Scene/StoryScene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.i
+.PHONY : Scene/StoryScene.cpp.i
+
+Scene/StoryScene.s: Scene/StoryScene.cpp.s
+.PHONY : Scene/StoryScene.s
+
+# target to generate assembly for a file
+Scene/StoryScene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.s
+.PHONY : Scene/StoryScene.cpp.s
+
 Soldier/Soldier.obj: Soldier/Soldier.cpp.obj
 .PHONY : Soldier/Soldier.obj
 
@@ -1039,6 +1063,9 @@ help:
 	@echo ... Scene/PlayScene.obj
 	@echo ... Scene/PlayScene.i
 	@echo ... Scene/PlayScene.s
+	@echo ... Scene/StoryScene.obj
+	@echo ... Scene/StoryScene.i
+	@echo ... Scene/StoryScene.s
 	@echo ... Soldier/Soldier.obj
 	@echo ... Soldier/Soldier.i
 	@echo ... Soldier/Soldier.s

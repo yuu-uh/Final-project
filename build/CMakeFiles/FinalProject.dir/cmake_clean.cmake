@@ -37,6 +37,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj.d"
   "CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.obj"
   "CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.obj.d"
+  "CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj"
+  "CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj.d"
   "CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj"
   "CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj.d"
   "CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj"

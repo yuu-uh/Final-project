@@ -24,18 +24,15 @@ void Player::LoadAnimations(){
     Engine::LOG(Engine::INFO)<<"animation loaded";
 }
 
-Player::Player(const std::string &imagePath,
-               const Engine::Point &startPos,
-               float moveSpeed,
-               int frameW,
-               int frameH)
+Player::Player(const std::string &imagePath, const Engine::Point &startPos, float moveSpeed,
+               int frameW, int frameH, bool isLocal)
     : Engine::Sprite(
           imagePath,
           static_cast<float>(startPos.x),
           static_cast<float>(startPos.y),
           60, 60
       ),
-      speed(moveSpeed)
+      speed(moveSpeed), isLocal(isLocal)
 {
     playScene = dynamic_cast<MapScene*>(
         Engine::GameEngine::GetInstance().GetScene("map")
@@ -55,7 +52,8 @@ void Player::SetAction(uint8_t a){
     }
 }
 void Player::Update(float deltaTime) {
-    Engine::Point dir = ReadInput();
+    Engine::Point dir{0, 0};
+    if(isLocal) dir = ReadInput();
     if (dir.x || dir.y) {
         Engine::Point np = Position;
         np.x += dir.x * speed * deltaTime;

@@ -69,7 +69,8 @@ public:
     void ReadMap();
     void ConstructUI();
     void UIBtnClicked(int id);
-    void PickupItem(Item* item, std::string itemType);
+    void PickupItem(Item* item);
+    void AddToInventory(Item* item, const std::string& itemType);
     std::vector<Item*> inventory;
     // bool CheckSpaceValid(int x, int y);
 };

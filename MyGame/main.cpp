@@ -7,6 +7,7 @@
 #include "Scene/PersonalScene.hpp"
 #include "Scene/MapScene.hpp"
 #include "Scene/PlayScene.hpp"
+#include "Scene/StoryScene.hpp"
 #include "Engine/NetWork.hpp"
 
 int main(int argc, char **argv) {
@@ -24,9 +25,9 @@ int main(int argc, char **argv) {
 	// game.AddNewScene("result", new ResultScene());
 	// game.AddNewScene("scoreboard", new ScoreBoardScene());
 	// game.AddNewScene("settings", new SettingsScene());
-	// game.AddNewScene("story", new StoryScene());
+	game.AddNewScene("story", new StoryScene());
 
     // TODO HACKATHON-1 (1/1): Change the start scene 
-	game.Start("personal", 60, 1600, 832);
+	game.Start("story", 60, 1600, 832);
 	return 0;
 }

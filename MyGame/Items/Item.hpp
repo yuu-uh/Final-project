@@ -27,6 +27,7 @@ public:
     bool Enabled = true;
     bool Preview = false;
     int id = -1;
+    std::string getType(){ return type; }
     // void Draw() const override;
 };
 #endif

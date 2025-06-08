@@ -31,11 +31,16 @@ void Soldier::die() {
         //getPlayScene()->GroundEffectGroup->AddNewObject(new DirtyEffect("play/dirty-" + std::to_string(distId(rng)) + ".png", dist(rng), Position.x, Position.y));
     }
 }
-Soldier::Soldier(std::string img, float x, float y, float radius, float speed, float hp, float damage) : Engine::Sprite(img, x, y, 60, 60, 0, 0, 0, 10, 10), speed(speed), hp(hp), dmg(damage) {
+
+Soldier::Soldier(std::string img, float x, float y, int dir, float radius, float speed, float hp, float damage) : Engine::Sprite(img, x, y, 60, 60, 0, 0, 0, 10, 10), speed(speed), hp(hp), dmg(damage) {
     CollisionRadius = radius;
     reachEndTime = 0;
+    direction = dir;
     state = walking;
+    PlayScene* scene = getPlayScene();
+    enemyGroup = (direction == 1) ? scene->EnemyGroup:scene->SoldierGroup;
 }
+
 void Soldier::Hit(float damage) {
     hp -= damage;
     if (hp <= 0) {
@@ -81,7 +86,6 @@ void Soldier::UpdatePath(const std::vector<std::vector<int>> &mapDistance) {
     //path[0] = PlayScene::EndGridPoint;
 }
 void Soldier::Update(float deltaTime){
-    // Pre-calculate the velocity.
     //Sprite::Update(deltaTime);
     if(state != walking)
         return;
@@ -96,6 +100,7 @@ void Soldier::Update(float deltaTime){
         getPlayScene()->SoldierGroup->RemoveObject(objectIterator);
         // You might also reduce player HP here if needed.
     }
+
     
 }
 void Soldier::Draw() const {

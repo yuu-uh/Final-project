@@ -49,7 +49,5 @@
 [INFO] Loaded Resource<image>: Resource/images/mapScene/roof.png
 [INFO] Loaded Resource<image>: Resource/images/mapScene/master.png scaled to 60x60
 [INFO] Loaded Resource<image>: Resource/images/mapScene/ninja.png scaled to 60x60
-[INFO] Loaded Resource<image>: Resource/images/mapScene/slime.png scaled to 60x60
-[INFO] Loaded Resource<image>: Resource/images/mapScene/shooter.png scaled to 60x60
 [INFO] Game Terminating...
 [INFO] stopped audio (bgm)

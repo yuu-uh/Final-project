@@ -11,7 +11,7 @@
 
 class Dragen : public Soldier {
 public:
-    Dragen(int x, int y);
+    Dragen(int x, int y, int dir);
     std::string soldierName() const override;
 };
 #endif   // ENEMY_HPP

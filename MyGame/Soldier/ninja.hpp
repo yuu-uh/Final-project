@@ -11,7 +11,7 @@
 
 class Ninja : public Soldier {
 public:
-    Ninja(int x, int y);
+    Ninja(int x, int y, int dir);
     std::string soldierName() const override;
 };
 #endif   // ENEMY_HPP

@@ -11,7 +11,7 @@
 
 class Vikin : public Soldier {
 public:
-    Vikin(int x, int y);
+    Vikin(int x, int y, int dir);
     std::string soldierName() const override;
 };
 

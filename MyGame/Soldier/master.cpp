@@ -2,8 +2,11 @@
 
 #include "master.hpp"
 
-Master::Master(int x, int y):
-Soldier("mapScene/master.png", x, y, 10, 50, 100, 10){};
+Master::Master(int x, int y, int dir):
+Soldier("mapScene/master.png", x, y, dir, 10, 50, 100, 10){
+    attackRadius = 50;
+    cooldown = 0.5f;
+};
 
 std::string Master::soldierName() const{
     return "master";

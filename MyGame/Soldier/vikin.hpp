@@ -12,5 +12,7 @@
 class Vikin : public Soldier {
 public:
     Vikin(int x, int y);
+    std::string soldierName() const override;
 };
+
 #endif   // ENEMY_HPP

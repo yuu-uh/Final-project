@@ -4,3 +4,7 @@
 
 Dragen::Dragen(int x, int y):
 Soldier("mapScene/dragen.png", x, y, 10, 50, 100, 10){};
+
+std::string Dragen::soldierName() const{
+    return "dragen";
+}

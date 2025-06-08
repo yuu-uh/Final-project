@@ -12,5 +12,6 @@
 class Master : public Soldier {
 public:
     Master(int x, int y);
+    std::string soldierName() const override;
 };
 #endif   // ENEMY_HPP

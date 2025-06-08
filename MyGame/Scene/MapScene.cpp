@@ -212,8 +212,10 @@ void MapScene::PickupItem(Item* item, std::string itemType) {
 
     if(inventoryCount.count(itemType)){
         inventoryCount[itemType].first += 1;
+        Engine::GameEngine::GetInstance().itemCount[itemType].first += 1;
         int newCount = inventoryCount[itemType].first;
         inventoryCount[itemType].second->Text = "x" + std::to_string(newCount);
+        Engine::GameEngine::GetInstance().itemCount[itemType].second->Text = "x" + std::to_string(newCount);
         return;
     }
 
@@ -235,6 +237,7 @@ void MapScene::PickupItem(Item* item, std::string itemType) {
 
     // Add to map
     inventoryCount[itemType] = std::make_pair(1, countLabel);
+    Engine::GameEngine::GetInstance().itemCount[itemType] = std::make_pair(1, countLabel);
     Engine::GameEngine::GetInstance().pickedItems.push_back(itemType);
 }
 

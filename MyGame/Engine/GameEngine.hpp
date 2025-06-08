@@ -6,6 +6,8 @@
 #include <unordered_map>
 
 #include "Point.hpp"
+#include "UI/Component/Label.hpp"
+
 
 /// <summary>
 /// All general classes are under this namespace for clarity.
@@ -79,6 +81,7 @@ namespace Engine {
 
     public:
         std::vector<std::string> pickedItems;
+        std::unordered_map<std::string, std::pair<int, Engine::Label*>> itemCount;
         // Note: We'll ignore C++11's move constructor, move assignment operator in this project for simplicity.
         /// <summary>
         /// Copy constructor is deleted, no copying allowed.

@@ -12,5 +12,6 @@
 class Slime : public Soldier {
 public:
     Slime(int x, int y);
+    std::string soldierName() const override;
 };
 #endif   // ENEMY_HPP

@@ -11,7 +11,7 @@ private:
     std::shared_ptr<ALLEGRO_FONT> font;
     bool host = false;
     bool waitConn = false;
-    std::string _peerIp = "192.168.101.233";
+    //std::string _peerIp = "192.168.101.233";
     bool join_mode = false;
     Engine::TextBox* IPEnter = nullptr;
     Engine::TextBox* portEenter = nullptr;

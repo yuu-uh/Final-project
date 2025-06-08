@@ -12,6 +12,7 @@
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 70
 [INFO] Game initialized
 [INFO] Game start event loop
+[INFO] 192.168.101.233: 1234
 [INFO] Game Terminating...
 [INFO] Game terminated
 [INFO] Game end

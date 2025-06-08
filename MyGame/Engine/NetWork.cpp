@@ -69,8 +69,17 @@ void NetWork::SetReceiveCallback(const std::function<void(const ENetEvent&)>& cb
 }
 
 bool NetWork::isConnected() const {
-    if (_role == Host)   return _host && _host->peerCount > 0;
-    if (_role == Client) return _peer && _peer->state == ENET_PEER_STATE_CONNECTED;
+    if (_role == Host) {
+        if (!_host) return false;
+        for (size_t i = 0; i < _host->peerCount; ++i) {
+            if (_host->peers[i].state == ENET_PEER_STATE_CONNECTED)
+                return true;
+        }
+        return false;
+    }
+    if (_role == Client) {
+        return _peer && _peer->state == ENET_PEER_STATE_CONNECTED;
+    }
     return false;
 }
 

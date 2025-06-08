@@ -92,7 +92,12 @@ void PersonalScene::Initialize() {
 void PersonalScene::Update(float dt) {
     IScene::Update(dt);
     if (waitConn) {
-        NetWork::Instance().Service(0);
+        auto& net = NetWork::Instance();
+        net.Service(0);
+        if (net.isConnected()) {
+            Engine::LOG(Engine::INFO) << "NetWork::isConnected() == true, go to  mapScene";
+            Engine::GameEngine::GetInstance().ChangeScene("map");
+        }
     }
 }
 void PersonalScene::Draw() const{
@@ -138,8 +143,18 @@ void PersonalScene::HostGame() {
     std::string ip = getLocalIP();
     Engine::LOG(Engine::INFO) << ip << ": " << 1234;
     net.SetReceiveCallback([this](const ENetEvent& e){
-        if(e.type==ENET_EVENT_TYPE_CONNECT)
-            Engine::GameEngine::GetInstance().ChangeScene("map");
+        Engine::LOG(Engine::INFO) << "ENet event type = " << e.type;
+        if (e.type == ENET_EVENT_TYPE_CONNECT) {
+            Engine::LOG(Engine::INFO) << "收到 ENET_EVENT_TYPE_CONNECT";
+        }
+        else if (e.type == ENET_EVENT_TYPE_DISCONNECT) {
+            Engine::LOG(Engine::INFO) << "收到 ENET_EVENT_TYPE_DISCONNECT";
+        }
+        else if (e.type == ENET_EVENT_TYPE_RECEIVE) {
+            Engine::LOG(Engine::INFO) << "收到数据, channel=" << e.channelID 
+                                    << " len=" << e.packet->dataLength;
+            enet_packet_destroy(e.packet);
+        }
     });
     waitConn = true;
 }
@@ -153,12 +168,14 @@ void PersonalScene::ConfirmJoin() {
     auto& net = NetWork::Instance();
     net.myId = 1;
     if (!net.Init()) return;
-    
+
     std::string ip = IPEnter->name;
     int port = std::stoi(portEenter->name);
 
+    std::cout << ip << " " << port << '\n';
+
     if (!net.ConnectToHost(ip, static_cast<enet_uint16>(port))) {
-        Engine::LOG(Engine::INFO) << "無法連線到 " << ip << ":" << port;
+        Engine::LOG(Engine::INFO) << "cannot connect " << ip << ":" << port;
         return;
     }
     net.SetReceiveCallback([this](const ENetEvent& e){

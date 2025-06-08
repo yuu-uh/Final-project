@@ -28,6 +28,8 @@ namespace Engine{
             name += static_cast<char>(keycode-ALLEGRO_KEY_A + 'A');
         }else if(keycode >= ALLEGRO_KEY_0 && keycode <= ALLEGRO_KEY_9){
             name += std::to_string(keycode - ALLEGRO_KEY_0);
+        }else if(keycode == ALLEGRO_KEY_FULLSTOP){
+            name += '.';
         }
     }
     

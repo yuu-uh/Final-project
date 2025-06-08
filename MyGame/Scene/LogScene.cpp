@@ -103,7 +103,7 @@ void LogScene::OnKeyDown(int keyCode) {
             }
 
             Engine::GameEngine::GetInstance().SetCurrentUser(up);
-            Engine::GameEngine::GetInstance().ChangeScene("personal");
+            Engine::GameEngine::GetInstance().ChangeScene("story");
             return;  
         }
     }

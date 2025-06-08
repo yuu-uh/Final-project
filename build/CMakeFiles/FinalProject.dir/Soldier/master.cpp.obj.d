@@ -708,7 +708,7 @@ CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj: \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__bit/byteswap.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__bit/endian.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__bit/has_single_bit.h \
-  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Master.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/master.hpp \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/list \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/functional \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/binary_negate.h \
@@ -812,4 +812,6 @@ CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/allegro/include/allegro5/bitmap.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp
+  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Group.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp

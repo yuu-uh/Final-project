@@ -42,11 +42,11 @@ void MapScene::Initialize() {
     AddNewControlObject(UIInventoryGroup = new Group());
     ReadMap();
     
+    UIGroup->AddNewObject(new Engine::Image("GUI/frame.png",1280, 5,320,320));
+    UIGroup->AddNewObject(new Engine::Image("GUI/inventory.png",1275, 320,325,377));
+    UIGroup->AddNewObject(new Engine::Image("GUI/button.png",1275, 700, 320, 108));
     timer = 30.0f;
-
-    countdownLabel = new Engine::Label("03:00", "pirulen.ttf", 48,
-    Engine::GameEngine::GetInstance().GetScreenSize().x - 120,
-    Engine::GameEngine::GetInstance().GetScreenSize().y - 40, 255, 255, 255, 255, 0.5, 0.5);
+    countdownLabel = new Engine::Label("03:00", "pirulen.ttf", 48, 1380, 730, 255, 255, 255, 255, 0.5, 0.5);
     UIGroup->AddNewObject(countdownLabel);
     
     int nextId = 0;
@@ -64,37 +64,37 @@ void MapScene::Initialize() {
     Engine::Point startPos1{ 216, 216 };   
     Engine::Point startPos2{ 16, 16 };    
     float moveSpeed = 200.0f;     
-    player = new Player("mapScene/player1_front01.png", startPos1, moveSpeed, 16, 16);
-    conPlayer  = new Player("mapScene/player1_front01.png", startPos2, moveSpeed, 16, 16);
+    player = new Player("mapScene/player1_front01.png", startPos1, moveSpeed, 16, 16, true);
+    conPlayer  = new Player("mapScene/player1_front01.png", startPos2, moveSpeed, 16, 16, false);
     AddNewObject(player);
     AddNewObject(conPlayer);
 
     auto& net = NetWork::Instance();
     net.SetReceiveCallback([this,&net](const ENetEvent& ev){
-    if (ev.type != ENET_EVENT_TYPE_RECEIVE) return;
-    auto const* data = ev.packet->data;
-    auto const* hdr  = reinterpret_cast<const PacketHeader*>(data);
-    auto const* body = data + sizeof(PacketHeader);
+        if (ev.type != ENET_EVENT_TYPE_RECEIVE) return;
+        auto const* data = ev.packet->data;
+        auto const* hdr  = reinterpret_cast<const PacketHeader*>(data);
+        auto const* body = data + sizeof(PacketHeader);
 
-    if (hdr->type == MSG_PLAYER_STATE && hdr->length == sizeof(PlayerState)) {
-        auto const* ps = reinterpret_cast<const PlayerState*>(body);
-        if (ps->playerId != net.myId) {
-            conPlayer->Position.x = ps->x;
-            conPlayer->Position.y = ps->y;
-            conPlayer->SetAction(ps->action);
-        }
-    }
-    else if (hdr->type == MSG_PICK_ITEM && hdr->length == sizeof(PickItem)) {
-        auto const* pi = reinterpret_cast<const PickItem*>(body);
-        for (auto* it : allItems) {
-            if (it->id == pi->itemId && !it->item_picked()) {
-                it->Pick();
-                break;
+        if (hdr->type == MSG_PLAYER_STATE && hdr->length == sizeof(PlayerState)) {
+            auto const* ps = reinterpret_cast<const PlayerState*>(body);
+            if (ps->playerId != net.myId) {
+                conPlayer->Position.x = ps->x;
+                conPlayer->Position.y = ps->y;
+                conPlayer->SetAction(ps->action);
             }
         }
-    }
-    enet_packet_destroy(ev.packet);
-}); 
+        else if (hdr->type == MSG_PICK_ITEM && hdr->length == sizeof(PickItem)) {
+            auto const* pi = reinterpret_cast<const PickItem*>(body);
+            for (auto* it : allItems) {
+                if (it->id == pi->itemId && !it->item_picked()) {
+                    it->Pick();
+                    break;
+                }
+            }
+        }
+        enet_packet_destroy(ev.packet);
+    }); 
 }
 void MapScene::Update(float dt) {
     IScene::Update(dt);
@@ -130,10 +130,15 @@ void MapScene::Update(float dt) {
         if (!item) continue; // Skip if not an Item
 
         if (!item->item_picked() && Engine::Collider::IsCircleOverlap(
-        item->Position, item->CollisionRadius, player->Position, player->CollisionRadius)) {
-            if (!item->item_picked()) {
-                item->Pick(); // or some value
-            }
+            item->Position, item->CollisionRadius, player->Position, player->CollisionRadius)) {
+            item->Pick();
+            PacketHeader hdr{ MSG_PICK_ITEM, sizeof(PickItem) };
+            PickItem pi{ uint8_t(net.myId), uint8_t(item->id) };
+            uint8_t buf[sizeof(hdr)+sizeof(pi)];
+            std::memcpy(buf, &hdr, sizeof(hdr));
+            std::memcpy(buf+sizeof(hdr), &pi, sizeof(pi));
+            net.Send(buf, sizeof(buf), 0);
+            AddToInventory(item, item->getType());
         }
     }
 
@@ -163,42 +168,64 @@ void MapScene::Draw() const {
     al_identity_transform(&cam);
     al_translate_transform(&cam, -camX, -camY);
     al_use_transform(&cam);
-
     float screenW = Engine::GameEngine::GetInstance().GetScreenSize().x;
     float screenH = Engine::GameEngine::GetInstance().GetScreenSize().y;
     const float panelW = 320;
     float viewW = screenW - panelW;
-    float viewH = Engine::GameEngine::GetInstance().GetScreenSize().y;
-
+    float viewH = screenH;
     int colStart = std::max(0, int(camX / BlockSize));
     int rowStart = std::max(0, int(camY / BlockSize));
-    int colEnd = std::min(MapWidth - 1, int((camX + viewW) / BlockSize) + 1);
-    int rowEnd = std::min(MapHeight - 1, int((camY + viewH) / BlockSize) + 1);
-
-    for (int row = rowStart; row <= rowEnd; ++row) {
-        for (int col = colStart; col <= colEnd; ++col) {
-            TileType t = mapState[row][col];
-            const char* path = (t == TILE_FLOOR) ? "mapScene/stone.png" : "mapScene/grass.png";
-            float x = col * BlockSize;
-            float y = row * BlockSize;
+    int colEnd   = std::min(MapWidth-1, int((camX + viewW) / BlockSize)+1);
+    int rowEnd   = std::min(MapHeight-1, int((camY + viewH) / BlockSize)+1);
+    for(int row = rowStart; row <= rowEnd; ++row){
+        for(int col = colStart; col <= colEnd; ++col){
+            const char* path = (mapState[row][col]==TILE_FLOOR)
+                              ? "mapScene/stone.png" : "mapScene/grass.png";
             ALLEGRO_BITMAP* bmp = Engine::Resources::GetInstance().GetBitmap(path).get();
             al_draw_scaled_bitmap(
-                bmp, 0, 0,
+                bmp, 0,0,
                 al_get_bitmap_width(bmp), al_get_bitmap_height(bmp),
-                x, y,
+                col*BlockSize, row*BlockSize,
                 BlockSize, BlockSize,
                 0
             );
         }
     }
-
     ItemGroup->Draw();
     player->Draw();
     conPlayer->Draw();
+
     al_use_transform(&oldX);
-    al_draw_filled_rectangle(screenW - panelW, 0, screenW, screenH, al_map_rgb(0, 0, 0));
+    // package
+    al_draw_filled_rectangle(screenW - panelW, 0, screenW, screenH, al_map_rgb(0,0,0));
     UIGroup->Draw();
     UIInventoryGroup->Draw();
+
+    // mini map
+    const float miniW = 290, miniH = 290;
+    const float miniX = screenW - miniW - 13, miniY = 21;
+    al_draw_filled_rectangle(miniX, miniY, miniX+miniW, miniY+miniH, al_map_rgba(0,0,0,200));
+    al_draw_rectangle(miniX, miniY, miniX+miniW, miniY+miniH, al_map_rgb(255,255,255), 2);
+
+    for(int row=0; row<MapHeight; ++row){
+        for(int col=0; col<MapWidth; ++col){
+            float cellW = miniW / MapWidth;
+            float cellH = miniH / MapHeight;
+            ALLEGRO_COLOR c = (mapState[row][col]==TILE_FLOOR)
+                              ? al_map_rgb(146, 218, 226) : al_map_rgb(118, 166, 53);
+            al_draw_filled_rectangle(miniX + col*cellW, miniY + row*cellH,miniX + (col+1)*cellW, miniY + (row+1)*cellH,c);
+        }
+    }
+    auto drawDot = [&](const Player* p, ALLEGRO_COLOR col){
+        float px = p->Position.x / (MapWidth*BlockSize);
+        float py = p->Position.y / (MapHeight*BlockSize);
+        al_draw_filled_circle(
+            miniX + px * miniW,
+            miniY + py * miniH, 4, col
+        );
+    };
+    drawDot(player,    al_map_rgb(255, 255, 0));
+    drawDot(conPlayer, al_map_rgb(255, 50, 50));
 }
 void MapScene::OnKeyDown(int keyCode) {
     IScene::OnKeyDown(keyCode);
@@ -238,44 +265,36 @@ void MapScene::ReadMap() {
         }
     }
 }
-void MapScene::PickupItem(Item* item, std::string itemType) {
+void MapScene::PickupItem(Item* item) {
+     item->Pick();
+ }
+void MapScene::AddToInventory(Item* item, const std::string& type) {
     inventory.push_back(item);
+    const int panelX0 = 1300, panelY0 = 320, pad = 30;
+    const int iconW = 100, iconH = 100;
+    int cols = 320 / (iconW + pad);
 
-    const int panelX0 = 1300;
-    const int panelY0 = 320;
-    const int pad     = 30;
-    const int iconW   = 100, iconH = 100;
-    const int cols    = 320 / (iconW + pad);
-
-    if(inventoryCount.count(itemType)){
-        inventoryCount[itemType].first += 1;
-        Engine::GameEngine::GetInstance().itemCount[itemType].first += 1;
-        int newCount = inventoryCount[itemType].first;
-        inventoryCount[itemType].second->Text = "x" + std::to_string(newCount);
-        Engine::GameEngine::GetInstance().itemCount[itemType].second->Text = "x" + std::to_string(newCount);
+    if (inventoryCount.count(type)) {
+        auto &p = inventoryCount[type];
+        p.first++;
+        p.second->Text = "x" + std::to_string(p.first);
         return;
     }
 
-    int idx = (int)inventoryCount.size();  
-    int col = idx % cols;
-    int row = idx / cols;
+    int idx = inventoryCount.size();
+    int col = idx % cols, row = idx / cols;
     float x = panelX0 + pad + col * (iconW + pad);
     float y = panelY0 + pad + row * (iconH + pad);
 
-
-    Engine::Image* icon = new Engine::Image(item->getBitmap(), x, y, iconW, iconH);
+    auto icon = new Engine::Image(item->getBitmap(), x, y, iconW, iconH);
     UIInventoryGroup->AddNewObject(icon);
-    inventoryIcons[itemType] = icon;
+    inventoryIcons[type] = icon;
 
-    // Add label for count
-    Engine::Label* countLabel = new Engine::Label("x1", "pirulen.ttf", 24,
-        x + iconW - 10, y + iconH - 10, 255, 255, 255, 255, 1.0, 1.0);
-    UIInventoryGroup->AddNewObject(countLabel);
+    auto label = new Engine::Label("x1", "pirulen.ttf", 24,
+        x + iconW - 10, y + iconH - 10, 255,255,255,255,1,1);
+    UIInventoryGroup->AddNewObject(label);
 
-    // Add to map
-    inventoryCount[itemType] = std::make_pair(1, countLabel);
-    Engine::GameEngine::GetInstance().itemCount[itemType] = std::make_pair(1, countLabel);
-    Engine::GameEngine::GetInstance().pickedItems.push_back(itemType);
+    inventoryCount[type] = {1, label};
 }
 
 

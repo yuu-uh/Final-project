@@ -109,6 +109,12 @@
 },
 {
   "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Scene\\StoryScene.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Scene\\StoryScene.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Scene/StoryScene.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
   "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\UI\\Component\\Image.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\UI\\Component\\Image.cpp",
   "file": "C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.cpp",
   "output": "CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.obj"

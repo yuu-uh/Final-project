@@ -18,4 +18,7 @@ namespace Engine {
     int Label::GetTextHeight() const {
         return al_get_font_line_height(font.get());
     }
+    void Label::SetText(const std::string &text) {
+        Text = text;
+    }
 }

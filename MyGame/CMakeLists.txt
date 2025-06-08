@@ -43,6 +43,7 @@ add_executable(FinalProject
     Engine/Resources.hpp
     Engine/Sprite.cpp
     Engine/Sprite.hpp
+    Engine/Message.hpp
     Engine/NetWork.cpp
     Engine/NetWork.hpp
 
@@ -63,8 +64,8 @@ add_executable(FinalProject
     # Scene/ScoreBoardScene.hpp
     # Scene/SettingsScene.cpp
     # Scene/SettingsScene.hpp
-    # Scene/StoryScene.cpp
-    # Scene/StoryScene.hpp
+    Scene/StoryScene.cpp
+    Scene/StoryScene.hpp
 
     # UI/Animation/DirtyEffect.cpp
     # UI/Animation/DirtyEffect.hpp

@@ -40,5 +40,6 @@ public:
     void Draw() const override;
     float getSpeed(){ return speed; }
     void setSpeed(float s){ speed = s; }
+    virtual std::string soldierName() const = 0;
 };
 #endif   // ENEMY_HPP

@@ -4,3 +4,7 @@
 
 Ninja::Ninja(int x, int y):
 Soldier("mapScene/ninja.png", x, y, 10, 50, 100, 10){};
+
+std::string Ninja::soldierName() const{
+    return "ninja";
+}

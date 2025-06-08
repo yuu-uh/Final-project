@@ -83,6 +83,8 @@ public:
     void UIBtnClicked(std::string type);
     bool CheckSpaceValid(int x, int y);
     MapScene *getMapScene();
+    std::unordered_map<std::string, std::pair<int, Engine::Label*>> LocalItemCount;
+
     // void ModifyReadMapTiles();
 };
 #endif   // PLAYSCENE_HPP

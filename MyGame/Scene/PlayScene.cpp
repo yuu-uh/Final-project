@@ -50,32 +50,32 @@ void PlayScene::Initialize() {
     AddNewControlObject(UIInventoryGroup = new Group());
     ReadMap();
 
-    int panelX0 = 1300, panelY0 = 320;
-    const int pad     = 8;
-    const int iconW   = 128, iconH = 128;
-    const int cols    = 2;
-    for (int idx = 0; idx < 6; ++idx) {
-        int col = idx % cols;
-        int row = idx / cols;
-        float x = panelX0 + pad + col * (iconW + pad);
-        float y = panelY0 + pad + row * (iconH + pad);
-        UIInventoryGroup->AddNewObject(
-            new Engine::Image("mapScene/item_empty.png", x, y, iconW, iconH)
-        );
-    }
+    // int panelX0 = 1300, panelY0 = 320;
+    // const int pad     = 8;
+    // const int iconW   = 128, iconH = 128;
+    // const int cols    = 2;
+    // for (int idx = 0; idx < 6; ++idx) {
+    //     int col = idx % cols;
+    //     int row = idx / cols;
+    //     float x = panelX0 + pad + col * (iconW + pad);
+    //     float y = panelY0 + pad + row * (iconH + pad);
+    //     UIInventoryGroup->AddNewObject(
+    //         new Engine::Image("mapScene/item_empty.png", x, y, iconW, iconH)
+    //     );
+    // }
 
-    auto &picked = Engine::GameEngine::GetInstance().pickedItems;
-    for (size_t i = 0; i < picked.size() && i < 6; ++i) {
-        int col = i % cols;
-        int row = i / cols;
-        float x = panelX0 + pad + col * (iconW + pad);
-        float y = panelY0 + pad + row * (iconH + pad);
+    // auto &picked = Engine::GameEngine::GetInstance().pickedItems;
+    // for (size_t i = 0; i < picked.size() && i < 6; ++i) {
+    //     int col = i % cols;
+    //     int row = i / cols;
+    //     float x = panelX0 + pad + col * (iconW + pad);
+    //     float y = panelY0 + pad + row * (iconH + pad);
 
-        std::string path = "mapScene/" + picked[i] + ".png";
-        UIInventoryGroup->AddNewObject(
-            new Engine::Image(path, x, y, 100, 100)
-        );
-    }
+    //     std::string path = "mapScene/" + picked[i] + ".png";
+    //     UIInventoryGroup->AddNewObject(
+    //         new Engine::Image(path, x, y, 100, 100)
+    //     );
+    // }
 
     ConstructUI();
 
@@ -251,11 +251,12 @@ void PlayScene::Hit() {
         Engine::GameEngine::GetInstance().ChangeScene("result");
     }
 }
+
 void PlayScene::ConstructUI() {
     int panelX0 = 1300, panelY0 = 320;
-    const int pad     = 8;
-    const int iconW   = 128, iconH = 128;
-    const int cols    = 2;
+    const int pad     = 30;
+    const int iconW   = 100, iconH = 100;
+    const int cols    = 320 / (iconW + pad);
     for (int idx = 0; idx < 6; ++idx) {
         int col = idx % cols;
         int row = idx / cols;
@@ -291,10 +292,32 @@ void PlayScene::ConstructUI() {
         btn->SetOnClickCallback(std::bind(&PlayScene::UIBtnClicked, this, picked[i]));
         UIGroup->AddNewControlObject(btn);
     }
+
+    auto& itemCountMap = Engine::GameEngine::GetInstance().itemCount;
+    for (size_t i = 0; i < picked.size() && i < 6; ++i) {
+        int col = i % cols;
+        int row = i / cols;
+        float x = panelX0 + pad + col * (iconW + pad);
+        float y = panelY0 + pad + row * (iconH + pad);
+        std::string itemType = picked[i];
+        if (itemCountMap.count(itemType)) {
+            int cnt = itemCountMap[itemType].first;
+            std::string text = "x" + std::to_string(itemCountMap[itemType].first);
+            Engine::Label* label = new Engine::Label(
+                text, "pirulen.ttf", 24,
+                x + 100 - 10, y + 100 - 10, 255, 255, 255, 255, 1.0, 1.0);
+            UIInventoryGroup->AddNewObject(label);
+            // If you want to track it for updating later:
+            LocalItemCount[itemType] = std::make_pair(cnt, label);
+        }
+    }
+
 }
 
 void PlayScene::UIBtnClicked(std::string type) {
     Soldier* next_preview = nullptr;
+    if(LocalItemCount[type].first <= 0)
+        return;
 
     if(type == "ninja"){
         next_preview = new Ninja(0, 0);

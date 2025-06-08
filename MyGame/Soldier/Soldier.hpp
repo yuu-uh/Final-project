@@ -26,10 +26,13 @@ protected:
     PlayScene *getPlayScene();
     virtual void die();
     State state;
+
     
 
 public:
     float reachEndTime;
+    bool Enabled = true;
+    bool Preview = false;
     Soldier(std::string img, float x, float y, float radius, float speed, float hp, float dmg);
     void Hit(float damage);
     void UpdatePath(const std::vector<std::vector<int>> &mapDistance);

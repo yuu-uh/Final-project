@@ -20,8 +20,15 @@
 #include "PlayScene.hpp"
 #include "Items/Item.hpp"
 #include "UI/Component/Label.hpp"
+#include "UI/Component/ImageButton.hpp"
 #include "Scene/MapScene.hpp"
 #include "Soldier/Soldier.hpp"
+#include "Soldier/ninja.hpp"
+#include "Soldier/master.hpp"
+#include "Soldier/dragen.hpp"
+#include "Soldier/shooter.hpp"
+#include "Soldier/slime.hpp"
+#include "Soldier/vikin.hpp"
 
 const std::vector<Engine::Point> PlayScene::directions = { Engine::Point(-1, 0), Engine::Point(0, -1), Engine::Point(1, 0), Engine::Point(0, 1) };
 const int PlayScene::MapWidth = 20, PlayScene::MapHeight = 13;
@@ -70,6 +77,8 @@ void PlayScene::Initialize() {
         );
     }
 
+    ConstructUI();
+
     timer = 300.0f;
     countdownLabel = new Engine::Label("05:00", "pirulen.ttf", 48,
     Engine::GameEngine::GetInstance().GetScreenSize().x - 120,
@@ -81,13 +90,12 @@ void PlayScene::Initialize() {
         "pirulen.ttf", 48, 1400, 50, 255,255,255,255, 0.5,0.5);
     UIGroup->AddNewObject(livelabel);
     
-    imgTarget = new Engine::Image("mapScene/ninja.png", 0, 0);
+    imgTarget = new Engine::Image("play/target.png", 0, 0);
     imgTarget->Visible = false;
     UIGroup->AddNewObject(imgTarget);
     preview = nullptr;
+    //SoldierGroup->AddNewObject(new Master(300, 300));
 
-    
-    ConstructUI();
 }
 void PlayScene::Terminate() {
     AudioHelper::StopBGM(bgmId);
@@ -114,6 +122,8 @@ void PlayScene::Update(float deltaTime) {
         preview->Update(deltaTime);
     }
     SoldierGroup->Update(deltaTime);
+    UIGroup->Update(deltaTime);
+    UIInventoryGroup->Update(deltaTime);
 }
 void PlayScene::ReadMap() {
     std::ifstream fin("Resource/Play.txt");
@@ -128,12 +138,6 @@ void PlayScene::ReadMap() {
 }
 void PlayScene::Draw() const {
     IScene::Draw();
-    for (int y = 0; y < MapHeight; y++) {
-        for (int x = 0; x < MapWidth; x++) {
-            std::cout<<mapData[y][x];
-        }
-        std::cout<<std::endl;
-    }
     for (int y = 0; y < MapHeight; y++) {
         for (int x = 0; x < MapWidth; x++) {
             // const char* path = mapData[y][x]
@@ -174,15 +178,17 @@ void PlayScene::Draw() const {
     for (auto& it : worldItems) it->Draw();
     UIGroup->Draw();
     UIInventoryGroup->Draw();
+    SoldierGroup->Draw();
     if (MouseOnIcon) MouseOnIcon->Draw();  
-    //SoldierGroup->Draw();
 }
 void PlayScene::OnMouseDown(int button, int mx, int my) {
-    IScene::OnMouseDown(button, mx, my);
     if ((button & 1) && !imgTarget->Visible && preview) {
         UIGroup->RemoveObject(preview->GetObjectIterator());
         preview = nullptr;
+    }else if(preview){
+        OnMouseMove(mx, my);
     }
+    IScene::OnMouseDown(button, mx, my);
 }
 void PlayScene::OnMouseMove(int mx, int my) {
     IScene::OnMouseMove(mx, my);
@@ -196,25 +202,48 @@ void PlayScene::OnMouseMove(int mx, int my) {
     imgTarget->Position.x = x * BlockSize;
     imgTarget->Position.y = y * BlockSize;
 }
+
 void PlayScene::OnMouseUp(int button, int mx, int my) {
     IScene::OnMouseUp(button, mx, my);
     if (!imgTarget->Visible)
         return;
     const int x = mx / BlockSize;
     const int y = my / BlockSize;
-    if (!imgTarget->Visible || !(button & 1) || !preview) return;
-    if (CheckSpaceValid(x,y)) {
-        preview->Preview = false;
-        preview->Tint    = al_map_rgba(255,255,255,255);
-        preview->Enabled = true;
-        UIGroup->RemoveObject(preview->GetObjectIterator());
-        preview->Position.x = x*BlockSize + BlockSize/2;
-        preview->Position.y = y*BlockSize + BlockSize/2;
-        ItemGroup->AddNewObject(preview);
+    if (button & 1) {
+        //if (mapState[y][x] != TILE_OCCUPIED) {
+            if (!preview)
+                return;
+            // Check if valid.
+            bool valid = false;
+            valid = CheckSpaceValid(x, y);
+            
+            if (!valid) {
+                Engine::Sprite *sprite;
+                //GroundEffectGroup->AddNewObject(sprite = new DirtyEffect("play/target-invalid.png", 1, x * BlockSize + BlockSize / 2, y * BlockSize + BlockSize / 2));
+                sprite->Rotation = 0;
+                return;
+            }
+            // Purchase.
+            // Remove Preview.
+            preview->GetObjectIterator()->first = false;
+            UIGroup->RemoveObject(preview->GetObjectIterator());
+            // Construct real turret.
+            preview->Position.x = x * BlockSize + BlockSize / 2;
+            preview->Position.y = y * BlockSize + BlockSize / 2;
+            preview->Enabled = true;
+            preview->Preview = false;
+            preview->Tint = al_map_rgba(255, 255, 255, 255);
+            SoldierGroup->AddNewObject(preview);
+            // To keep responding when paused.
+            preview->Update(0);
+            // Remove Preview.
+            preview = nullptr;
+            //mapState[y][x] = TILE_OCCUPIED;
+            OnMouseMove(mx, my);
+        //}
     }
-    preview = nullptr;
-    imgTarget->Visible = false;
 }
+
 void PlayScene::Hit() {
     lives--;
     UILives->Text = std::string("Life ") + std::to_string(lives);
@@ -223,11 +252,74 @@ void PlayScene::Hit() {
     }
 }
 void PlayScene::ConstructUI() {
+    int panelX0 = 1300, panelY0 = 320;
+    const int pad     = 8;
+    const int iconW   = 128, iconH = 128;
+    const int cols    = 2;
+    for (int idx = 0; idx < 6; ++idx) {
+        int col = idx % cols;
+        int row = idx / cols;
+        float x = panelX0 + pad + col * (iconW + pad);
+        float y = panelY0 + pad + row * (iconH + pad);
+        UIInventoryGroup->AddNewObject(
+            new Engine::Image("mapScene/item_empty.png", x, y, iconW, iconH)
+        );
+    }
 
+    auto &picked = Engine::GameEngine::GetInstance().pickedItems;
+    for (size_t i = 0; i < picked.size() && i < 6; ++i) {
+        int col = i % cols;
+        int row = i / cols;
+        float x = panelX0 + pad + col * (iconW + pad);
+        float y = panelY0 + pad + row * (iconH + pad);
+
+        std::string path = "mapScene/" + picked[i] + ".png";
+        UIInventoryGroup->AddNewObject(
+            new Engine::Image(path, x, y, 100, 100)
+        );
+    }
+
+    Engine::ImageButton* btn;
+    for (size_t i = 0; i < picked.size() && i < 6; ++i) {
+        int col = i % cols;
+        int row = i / cols;
+        float x = panelX0 + pad + col * (iconW + pad);
+        float y = panelY0 + pad + row * (iconH + pad);
+
+        std::string path = "mapScene/" + picked[i] + ".png";
+        btn = new Engine::ImageButton(path, path, x, y, 100, 100);
+        btn->SetOnClickCallback(std::bind(&PlayScene::UIBtnClicked, this, picked[i]));
+        UIGroup->AddNewControlObject(btn);
+    }
 }
 
-void PlayScene::UIBtnClicked(int id) {
-    
+void PlayScene::UIBtnClicked(std::string type) {
+    Soldier* next_preview = nullptr;
+
+    if(type == "ninja"){
+        next_preview = new Ninja(0, 0);
+    }else if(type == "vikin"){
+        next_preview = new Vikin(0, 0);
+    }else if(type == "master"){
+        next_preview = new Master(0, 0);
+    }else if(type == "shooter"){
+        next_preview = new Shooter(0, 0);
+    }else if(type == "slime"){
+        next_preview = new Slime(0, 0);
+    }else if(type == "dragen"){
+        next_preview  = new Dragen(0, 0);
+    }
+    if(!next_preview) return;
+
+    if(preview)
+        UIGroup->RemoveObject(preview->GetObjectIterator());
+    preview = next_preview;
+    preview->Position = Engine::GameEngine::GetInstance().GetMousePosition();
+    preview->Tint = al_map_rgba(255, 255, 255, 200);
+    preview->Enabled = false;
+    preview->Preview = true;
+    UIGroup->AddNewObject(preview);
+    OnMouseMove(Engine::GameEngine::GetInstance().GetMousePosition().x, Engine::GameEngine::GetInstance().GetMousePosition().y); 
 }
 
 bool PlayScene::CheckSpaceValid(int x, int y) {

@@ -9,6 +9,7 @@
 #include "Engine/IScene.hpp"
 #include "Engine/Point.hpp"
 #include "Items/Item.hpp"
+#include "Soldier/Soldier.hpp"
 
 class Turret;
 namespace Engine {
@@ -36,7 +37,7 @@ private:
     std::vector<std::shared_ptr<Item>> worldItems;
     std::vector<std::string> inventoryImgs;
     std::vector<Item*> inventory;
-    
+
 
 protected:
     int lives;
@@ -62,7 +63,7 @@ public:
     Engine::Label *livelabel;
     Engine::Image *imgTarget;
     Engine::Sprite *dangerIndicator;
-    Item *preview;
+    Soldier *preview;
     std::vector<std::vector<TileType>> mapState;
     std::vector<std::vector<int>> mapDistance;
     std::list<std::pair<int, float>> enemyWaveData;
@@ -79,7 +80,7 @@ public:
     void Hit();
     void ReadMap();
     void ConstructUI();
-    void UIBtnClicked(int id);
+    void UIBtnClicked(std::string type);
     bool CheckSpaceValid(int x, int y);
     MapScene *getMapScene();
     // void ModifyReadMapTiles();

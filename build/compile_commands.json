@@ -145,6 +145,42 @@
 },
 {
   "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Soldier\\vikin.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Soldier\\vikin.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/vikin.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Soldier\\master.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Soldier\\master.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/master.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Soldier\\ninja.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Soldier\\ninja.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/ninja.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Soldier\\shooter.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Soldier\\shooter.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/shooter.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Soldier\\slime.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Soldier\\slime.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/slime.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Soldier\\dragen.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Soldier\\dragen.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/dragen.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
   "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\main.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\main.cpp",
   "file": "C:/Users/annys/Downloads/FinalProject/MyGame/main.cpp",
   "output": "CMakeFiles/FinalProject.dir/main.cpp.obj"

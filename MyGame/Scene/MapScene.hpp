@@ -30,6 +30,7 @@ private:
     float timer;
     Engine::Label* countdownLabel;
     Player *player;
+    Player *conPlayer;
     float camX = 0, camY = 0; 
 
 public:

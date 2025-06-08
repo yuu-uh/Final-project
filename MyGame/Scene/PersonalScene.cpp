@@ -1,3 +1,15 @@
+#include <cstring>
+#ifdef _WIN32
+  #include <winsock2.h>
+  #include <ws2tcpip.h>
+  #pragma comment(lib, "Ws2_32.lib")
+#else
+  #include <sys/types.h>
+  #include <ifaddrs.h>
+  #include <netinet/in.h>
+  #include <arpa/inet.h>
+  #include <netdb.h>
+#endif
 #include <allegro5/allegro_audio.h>
 #include <functional>
 #include <memory>
@@ -18,82 +30,102 @@
 #include "UI/Component/Label.hpp"
 #include "UI/Component/Slider.hpp"
 
+static std::string getLocalIP() {
+#ifdef _WIN32
+    WSADATA wsa{0};
+    WSAStartup(MAKEWORD(2,2), &wsa);
+    char name[256];
+    gethostname(name, sizeof(name));
+    addrinfo hints{}, *res = nullptr;
+    hints.ai_family = AF_INET;
+    if (getaddrinfo(name, nullptr, &hints, &res) == 0 && res) {
+        sockaddr_in* sock = reinterpret_cast<sockaddr_in*>(res->ai_addr);
+        char buf[25];
+        inet_ntop(AF_INET, &sock->sin_addr, buf, sizeof(buf));
+        freeaddrinfo(res);
+        WSACleanup();
+        return buf;
+    }
+    WSACleanup();
+    return "127.0.0.1";
+#endif
+}
+
 void PersonalScene::Initialize() {
     int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
-    int halfW = w / 2;
-    int halfH = h / 2;
-    Engine::ImageButton *btn;
+    int cx = w / 2;
+    int cy = h / 2;
+    Engine::ImageButton* btn;
 
-    AddNewObject(new Engine::Image("background/test.png" ,0, 0, w, h));
-    AddNewObject(new Engine::Label("Hello", "pirulen.ttf", 100, halfW, halfH/3+50, 255, 255, 255, 255, 0.5, 0.5));
-    
-    btn = new Engine::ImageButton("stage-select/floor.png", "stage-select/floor.png", halfW-200, halfH/2+100, 400, 100);
-    AddNewControlObject(btn);
+    AddNewObject(new Engine::Image("background/test.png", 0,0,w,h));
+    AddNewObject(new Engine::Label("Hello","pirulen.ttf",100,cx,cy/3+50,255,255,255,255,0.5,0.5));
+
+    btn = new Engine::ImageButton("stage-select/floor.png","stage-select/floor.png",cx-200,cy/2+100,400,100);
     btn->SetOnClickCallback(std::bind(&PersonalScene::HostGame, this));
-    AddNewObject(new Engine::Label("Host Game", "pirulen.ttf", 48, halfW, halfH/2+150, 255, 255, 255, 255, 0.5, 0.5));
-
-    btn = new Engine::ImageButton("stage-select/floor.png", "stage-select/floor.png", halfW-200, halfH/2+250, 400, 100);
     AddNewControlObject(btn);
+    AddNewObject(new Engine::Label("Host Game","pirulen.ttf",48,cx,cy/2+150,255,255,255,255,0.5,0.5));
+
+    btn = new Engine::ImageButton("stage-select/floor.png","stage-select/floor.png",cx-200,cy/2+250,400,100);
     btn->SetOnClickCallback(std::bind(&PersonalScene::JoinGame, this));
-    AddNewObject(new Engine::Label("Join Game", "pirulen.ttf", 48, halfW, halfH/2+300, 255, 255, 255, 255, 0.5, 0.5));
-
-    btn = new Engine::ImageButton("stage-select/floor.png", "stage-select/floor.png", halfW-200, halfH/2+400, 400, 100);
     AddNewControlObject(btn);
+    AddNewObject(new Engine::Label("Join Game","pirulen.ttf",48,cx,cy/2+300,255,255,255,255,0.5,0.5));
+
+    btn = new Engine::ImageButton("stage-select/floor.png","stage-select/floor.png",cx-200,cy/2+400,400,100);
     btn->SetOnClickCallback(std::bind(&PersonalScene::ScoreOnClick, this));
-    AddNewObject(new Engine::Label("Score", "pirulen.ttf", 48, halfW, halfH/2+450, 255, 255, 255, 255, 0.5, 0.5));
+    AddNewControlObject(btn);
+    AddNewObject(new Engine::Label("Score","pirulen.ttf",48,cx,cy/2+450,255,255,255,255,0.5,0.5));
 }
-void PersonalScene::Terminate() {
-    IScene::Terminate();
+
+void PersonalScene::Update(float dt) {
+    IScene::Update(dt);
+    if (waitConn) {
+        NetWork::Instance().Service(0);
+    }
 }
+
 void PersonalScene::HostGame() {
     auto& net = NetWork::Instance();
+    net.myId = 0;
     if (!net.Init()) return;
-    if (host) {
-        if (!net.StartHost(1234, 1)) {   // port maxClient 
-            Engine::LOG(Engine::INFO) << "啟動 Host 失敗";
-            return;
-        }
-    } 
-    else {
-        if (!net.ConnectToHost(_peerIp, 1234)) {
-            Engine::LOG(Engine::INFO) << "無法連線";
-            return;
-        }
-    }
-    ENetHost* server = net.GetHost(); 
-    ENetAddress addr;
-    enet_socket_get_address(server->socket, &addr);
-    char ipstr[25];
-    enet_address_get_host_ip(&addr, ipstr, sizeof(ipstr));
-    Engine::LOG(Engine::INFO) << "Host IP: "  << std::string(ipstr) << " Port: 1234";
-
-    net.SetReceiveCallback([this](const ENetEvent& ev) {
-        // 收到對方資料時，塞到 PlayScene 或某個全域玩家狀態裡
-        // e.g. PlayScene::Instance().OnRemoteState(ev.packet->data, ev.packet->dataLength);
-    });
-    Engine::GameEngine::GetInstance().ChangeScene("map");
-}
-void PersonalScene::JoinGame(){
-    auto& net = NetWork::Instance();
-    if (!net.Init()) return;
-
-    std::string ip;
-    std::cout << "Enter Host IP: ";
-    std::cin  >> ip;
-    int port;
-    std::cout << "Enter Host Port: ";
-    std::cin  >> port;
-
-    if (!net.ConnectToHost(ip, static_cast<enet_uint16>(port))) {
-        Engine::LOG(Engine::INFO) << "無法連線到 " << ip << ":" << port;
+    host = true;
+    if (!net.StartHost(1234,1)) {
+        Engine::LOG(Engine::INFO) << "Host fail";
         return;
     }
-    net.SetReceiveCallback([this](const ENetEvent& ev) {
-       
+    std::string ip = getLocalIP();
+    Engine::LOG(Engine::INFO) << ip << ": " << 1234;
+    net.SetReceiveCallback([this](const ENetEvent& e){
+        if(e.type==ENET_EVENT_TYPE_CONNECT)
+            Engine::GameEngine::GetInstance().ChangeScene("map");
     });
-    Engine::GameEngine::GetInstance().ChangeScene("map");
+    waitConn = true;
 }
+
+void PersonalScene::JoinGame() {
+    auto& net = NetWork::Instance();
+    net.myId = 1;
+    if (!net.Init()) return;
+    std::string ip;
+    int p;
+    std::cout<<"IP:"; std::cin>>ip;
+    std::cout<<"Port:"; std::cin>>p;
+    if (!net.ConnectToHost(ip,(enet_uint16)p)) {
+        Engine::LOG(Engine::INFO)<<"Connect fail";
+        return;
+    }
+    net.SetReceiveCallback([this](const ENetEvent& e){
+        if(e.type==ENET_EVENT_TYPE_CONNECT)
+            Engine::GameEngine::GetInstance().ChangeScene("map");
+    });
+    waitConn = true;
+}
+
 void PersonalScene::ScoreOnClick() {
     Engine::GameEngine::GetInstance().ChangeScene("score");
+}
+
+void PersonalScene::Terminate() {
+    IScene::Terminate();
+    waitConn = false;
 }

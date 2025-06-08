@@ -8,11 +8,12 @@
 class PersonalScene final : public Engine::IScene {
 private:
     bool host = false;
-    std::string _peerIp = "192.168.101.233";
+    bool waitConn = false;
 public:
     explicit PersonalScene() = default;
     void Initialize() override;
     void Terminate() override;
+    void Update(float dt) override;
     void HostGame();
     void JoinGame();
     void ScoreOnClick();

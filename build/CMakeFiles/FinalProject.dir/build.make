@@ -428,11 +428,101 @@ CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.s"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\Soldier.cpp -o CMakeFiles\FinalProject.dir\Soldier\Soldier.cpp.s
 
+CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj: CMakeFiles/FinalProject.dir/flags.make
+CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
+CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/vikin.cpp
+CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj -MF CMakeFiles\FinalProject.dir\Soldier\vikin.cpp.obj.d -o CMakeFiles\FinalProject.dir\Soldier\vikin.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\vikin.cpp
+
+CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.i"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\vikin.cpp > CMakeFiles\FinalProject.dir\Soldier\vikin.cpp.i
+
+CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.s"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\vikin.cpp -o CMakeFiles\FinalProject.dir\Soldier\vikin.cpp.s
+
+CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj: CMakeFiles/FinalProject.dir/flags.make
+CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
+CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/master.cpp
+CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj -MF CMakeFiles\FinalProject.dir\Soldier\master.cpp.obj.d -o CMakeFiles\FinalProject.dir\Soldier\master.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\master.cpp
+
+CMakeFiles/FinalProject.dir/Soldier/master.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/FinalProject.dir/Soldier/master.cpp.i"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\master.cpp > CMakeFiles\FinalProject.dir\Soldier\master.cpp.i
+
+CMakeFiles/FinalProject.dir/Soldier/master.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FinalProject.dir/Soldier/master.cpp.s"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\master.cpp -o CMakeFiles\FinalProject.dir\Soldier\master.cpp.s
+
+CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj: CMakeFiles/FinalProject.dir/flags.make
+CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
+CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/ninja.cpp
+CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj -MF CMakeFiles\FinalProject.dir\Soldier\ninja.cpp.obj.d -o CMakeFiles\FinalProject.dir\Soldier\ninja.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\ninja.cpp
+
+CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.i"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\ninja.cpp > CMakeFiles\FinalProject.dir\Soldier\ninja.cpp.i
+
+CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.s"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\ninja.cpp -o CMakeFiles\FinalProject.dir\Soldier\ninja.cpp.s
+
+CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj: CMakeFiles/FinalProject.dir/flags.make
+CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
+CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/shooter.cpp
+CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj -MF CMakeFiles\FinalProject.dir\Soldier\shooter.cpp.obj.d -o CMakeFiles\FinalProject.dir\Soldier\shooter.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\shooter.cpp
+
+CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.i"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\shooter.cpp > CMakeFiles\FinalProject.dir\Soldier\shooter.cpp.i
+
+CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.s"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\shooter.cpp -o CMakeFiles\FinalProject.dir\Soldier\shooter.cpp.s
+
+CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj: CMakeFiles/FinalProject.dir/flags.make
+CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
+CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/slime.cpp
+CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj -MF CMakeFiles\FinalProject.dir\Soldier\slime.cpp.obj.d -o CMakeFiles\FinalProject.dir\Soldier\slime.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\slime.cpp
+
+CMakeFiles/FinalProject.dir/Soldier/slime.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/FinalProject.dir/Soldier/slime.cpp.i"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\slime.cpp > CMakeFiles\FinalProject.dir\Soldier\slime.cpp.i
+
+CMakeFiles/FinalProject.dir/Soldier/slime.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FinalProject.dir/Soldier/slime.cpp.s"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\slime.cpp -o CMakeFiles\FinalProject.dir\Soldier\slime.cpp.s
+
+CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj: CMakeFiles/FinalProject.dir/flags.make
+CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
+CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/dragen.cpp
+CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj -MF CMakeFiles\FinalProject.dir\Soldier\dragen.cpp.obj.d -o CMakeFiles\FinalProject.dir\Soldier\dragen.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\dragen.cpp
+
+CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.i"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\dragen.cpp > CMakeFiles\FinalProject.dir\Soldier\dragen.cpp.i
+
+CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.s"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\dragen.cpp -o CMakeFiles\FinalProject.dir\Soldier\dragen.cpp.s
+
 CMakeFiles/FinalProject.dir/main.cpp.obj: CMakeFiles/FinalProject.dir/flags.make
 CMakeFiles/FinalProject.dir/main.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/main.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/main.cpp
 CMakeFiles/FinalProject.dir/main.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/FinalProject.dir/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/FinalProject.dir/main.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/main.cpp.obj -MF CMakeFiles\FinalProject.dir\main.cpp.obj.d -o CMakeFiles\FinalProject.dir\main.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\main.cpp
 
 CMakeFiles/FinalProject.dir/main.cpp.i: cmake_force
@@ -469,6 +559,12 @@ FinalProject_OBJECTS = \
 "CMakeFiles/FinalProject.dir/UI/Component/Slider.cpp.obj" \
 "CMakeFiles/FinalProject.dir/Items/Item.cpp.obj" \
 "CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj" \
+"CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj" \
+"CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj" \
+"CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj" \
+"CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj" \
+"CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj" \
+"CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj" \
 "CMakeFiles/FinalProject.dir/main.cpp.obj"
 
 # External object files for target FinalProject
@@ -498,6 +594,12 @@ FinalProject.exe: CMakeFiles/FinalProject.dir/UI/Component/Label.cpp.obj
 FinalProject.exe: CMakeFiles/FinalProject.dir/UI/Component/Slider.cpp.obj
 FinalProject.exe: CMakeFiles/FinalProject.dir/Items/Item.cpp.obj
 FinalProject.exe: CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj
+FinalProject.exe: CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj
+FinalProject.exe: CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj
+FinalProject.exe: CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj
+FinalProject.exe: CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj
+FinalProject.exe: CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj
+FinalProject.exe: CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj
 FinalProject.exe: CMakeFiles/FinalProject.dir/main.cpp.obj
 FinalProject.exe: CMakeFiles/FinalProject.dir/build.make
 FinalProject.exe: enet-master/libenet.a
@@ -505,7 +607,7 @@ FinalProject.exe: enet-master/libenet.a
 FinalProject.exe: CMakeFiles/FinalProject.dir/linkLibs.rsp
 FinalProject.exe: CMakeFiles/FinalProject.dir/objects1.rsp
 FinalProject.exe: CMakeFiles/FinalProject.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Linking CXX executable FinalProject.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Linking CXX executable FinalProject.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\FinalProject.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

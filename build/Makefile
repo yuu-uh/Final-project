@@ -679,6 +679,150 @@ Soldier/Soldier.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.s
 .PHONY : Soldier/Soldier.cpp.s
 
+Soldier/dragen.obj: Soldier/dragen.cpp.obj
+.PHONY : Soldier/dragen.obj
+
+# target to build an object file
+Soldier/dragen.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj
+.PHONY : Soldier/dragen.cpp.obj
+
+Soldier/dragen.i: Soldier/dragen.cpp.i
+.PHONY : Soldier/dragen.i
+
+# target to preprocess a source file
+Soldier/dragen.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.i
+.PHONY : Soldier/dragen.cpp.i
+
+Soldier/dragen.s: Soldier/dragen.cpp.s
+.PHONY : Soldier/dragen.s
+
+# target to generate assembly for a file
+Soldier/dragen.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.s
+.PHONY : Soldier/dragen.cpp.s
+
+Soldier/master.obj: Soldier/master.cpp.obj
+.PHONY : Soldier/master.obj
+
+# target to build an object file
+Soldier/master.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj
+.PHONY : Soldier/master.cpp.obj
+
+Soldier/master.i: Soldier/master.cpp.i
+.PHONY : Soldier/master.i
+
+# target to preprocess a source file
+Soldier/master.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/master.cpp.i
+.PHONY : Soldier/master.cpp.i
+
+Soldier/master.s: Soldier/master.cpp.s
+.PHONY : Soldier/master.s
+
+# target to generate assembly for a file
+Soldier/master.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/master.cpp.s
+.PHONY : Soldier/master.cpp.s
+
+Soldier/ninja.obj: Soldier/ninja.cpp.obj
+.PHONY : Soldier/ninja.obj
+
+# target to build an object file
+Soldier/ninja.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj
+.PHONY : Soldier/ninja.cpp.obj
+
+Soldier/ninja.i: Soldier/ninja.cpp.i
+.PHONY : Soldier/ninja.i
+
+# target to preprocess a source file
+Soldier/ninja.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.i
+.PHONY : Soldier/ninja.cpp.i
+
+Soldier/ninja.s: Soldier/ninja.cpp.s
+.PHONY : Soldier/ninja.s
+
+# target to generate assembly for a file
+Soldier/ninja.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.s
+.PHONY : Soldier/ninja.cpp.s
+
+Soldier/shooter.obj: Soldier/shooter.cpp.obj
+.PHONY : Soldier/shooter.obj
+
+# target to build an object file
+Soldier/shooter.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj
+.PHONY : Soldier/shooter.cpp.obj
+
+Soldier/shooter.i: Soldier/shooter.cpp.i
+.PHONY : Soldier/shooter.i
+
+# target to preprocess a source file
+Soldier/shooter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.i
+.PHONY : Soldier/shooter.cpp.i
+
+Soldier/shooter.s: Soldier/shooter.cpp.s
+.PHONY : Soldier/shooter.s
+
+# target to generate assembly for a file
+Soldier/shooter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.s
+.PHONY : Soldier/shooter.cpp.s
+
+Soldier/slime.obj: Soldier/slime.cpp.obj
+.PHONY : Soldier/slime.obj
+
+# target to build an object file
+Soldier/slime.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj
+.PHONY : Soldier/slime.cpp.obj
+
+Soldier/slime.i: Soldier/slime.cpp.i
+.PHONY : Soldier/slime.i
+
+# target to preprocess a source file
+Soldier/slime.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/slime.cpp.i
+.PHONY : Soldier/slime.cpp.i
+
+Soldier/slime.s: Soldier/slime.cpp.s
+.PHONY : Soldier/slime.s
+
+# target to generate assembly for a file
+Soldier/slime.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/slime.cpp.s
+.PHONY : Soldier/slime.cpp.s
+
+Soldier/vikin.obj: Soldier/vikin.cpp.obj
+.PHONY : Soldier/vikin.obj
+
+# target to build an object file
+Soldier/vikin.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj
+.PHONY : Soldier/vikin.cpp.obj
+
+Soldier/vikin.i: Soldier/vikin.cpp.i
+.PHONY : Soldier/vikin.i
+
+# target to preprocess a source file
+Soldier/vikin.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.i
+.PHONY : Soldier/vikin.cpp.i
+
+Soldier/vikin.s: Soldier/vikin.cpp.s
+.PHONY : Soldier/vikin.s
+
+# target to generate assembly for a file
+Soldier/vikin.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.s
+.PHONY : Soldier/vikin.cpp.s
+
 UI/Component/Image.obj: UI/Component/Image.cpp.obj
 .PHONY : UI/Component/Image.obj
 
@@ -874,6 +1018,24 @@ help:
 	@echo ... Soldier/Soldier.obj
 	@echo ... Soldier/Soldier.i
 	@echo ... Soldier/Soldier.s
+	@echo ... Soldier/dragen.obj
+	@echo ... Soldier/dragen.i
+	@echo ... Soldier/dragen.s
+	@echo ... Soldier/master.obj
+	@echo ... Soldier/master.i
+	@echo ... Soldier/master.s
+	@echo ... Soldier/ninja.obj
+	@echo ... Soldier/ninja.i
+	@echo ... Soldier/ninja.s
+	@echo ... Soldier/shooter.obj
+	@echo ... Soldier/shooter.i
+	@echo ... Soldier/shooter.s
+	@echo ... Soldier/slime.obj
+	@echo ... Soldier/slime.i
+	@echo ... Soldier/slime.s
+	@echo ... Soldier/vikin.obj
+	@echo ... Soldier/vikin.i
+	@echo ... Soldier/vikin.s
 	@echo ... UI/Component/Image.obj
 	@echo ... UI/Component/Image.i
 	@echo ... UI/Component/Image.s

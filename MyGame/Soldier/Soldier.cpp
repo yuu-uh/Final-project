@@ -86,13 +86,14 @@ void Soldier::UpdatePath(const std::vector<std::vector<int>> &mapDistance) {
     //path[0] = PlayScene::EndGridPoint;
 }
 void Soldier::Update(float deltaTime){
-    //Sprite::Update(deltaTime);
-    if(state != walking)
-        return;
+    Sprite::Update(deltaTime);
 
-    Position.x -= speed * direction *deltaTime;
-    float_timer += deltaTime;
-    Position.y += (std::sin(float_timer*4.0f) / 6); // oscillates ±5px
+    if(state == walking){
+        Position.x -= speed * direction *deltaTime;
+        float_timer += deltaTime;
+        Position.y += (std::sin(float_timer*4.0f) / 6); // oscillates ±5px
+    }
+    
 
 
     // If off-screen or reached the opponent's base (x <= 0), remove soldier.

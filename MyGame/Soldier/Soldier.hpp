@@ -30,7 +30,7 @@ protected:
     PlayScene *getPlayScene();
     virtual void die();
     State state;
-    Engine::Group* enemyGroup;
+    Soldier* target = nullptr;
 
     
 

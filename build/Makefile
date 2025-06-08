@@ -84,6 +84,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	"C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	"C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\annys\Downloads\FinalProject\build\CMakeFiles C:\Users\annys\Downloads\FinalProject\build\\CMakeFiles\progress.marks
@@ -127,6 +172,32 @@ FinalProject: cmake_check_build_system
 FinalProject/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/build
 .PHONY : FinalProject/fast
+
+#=============================================================================
+# Target rules for targets named enet
+
+# Build rule for target.
+enet: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 enet
+.PHONY : enet
+
+# fast build rule for target.
+enet/fast:
+	$(MAKE) $(MAKESILENT) -f enet-master\CMakeFiles\enet.dir\build.make enet-master/CMakeFiles/enet.dir/build
+.PHONY : enet/fast
+
+#=============================================================================
+# Target rules for targets named EnetTest
+
+# Build rule for target.
+EnetTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 EnetTest
+.PHONY : EnetTest
+
+# fast build rule for target.
+EnetTest/fast:
+	$(MAKE) $(MAKESILENT) -f enet-master\CMakeFiles\EnetTest.dir\build.make enet-master/CMakeFiles/EnetTest.dir/build
+.PHONY : EnetTest/fast
 
 Engine/Allegro5Exception.obj: Engine/Allegro5Exception.cpp.obj
 .PHONY : Engine/Allegro5Exception.obj
@@ -344,6 +415,30 @@ Engine/LOG.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Engine/LOG.cpp.s
 .PHONY : Engine/LOG.cpp.s
 
+Engine/NetWork.obj: Engine/NetWork.cpp.obj
+.PHONY : Engine/NetWork.obj
+
+# target to build an object file
+Engine/NetWork.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Engine/NetWork.cpp.obj
+.PHONY : Engine/NetWork.cpp.obj
+
+Engine/NetWork.i: Engine/NetWork.cpp.i
+.PHONY : Engine/NetWork.i
+
+# target to preprocess a source file
+Engine/NetWork.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Engine/NetWork.cpp.i
+.PHONY : Engine/NetWork.cpp.i
+
+Engine/NetWork.s: Engine/NetWork.cpp.s
+.PHONY : Engine/NetWork.s
+
+# target to generate assembly for a file
+Engine/NetWork.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Engine/NetWork.cpp.s
+.PHONY : Engine/NetWork.cpp.s
+
 Engine/Point.obj: Engine/Point.cpp.obj
 .PHONY : Engine/Point.obj
 
@@ -560,6 +655,30 @@ Scene/PlayScene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.s
 .PHONY : Scene/PlayScene.cpp.s
 
+Soldier/Soldier.obj: Soldier/Soldier.cpp.obj
+.PHONY : Soldier/Soldier.obj
+
+# target to build an object file
+Soldier/Soldier.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj
+.PHONY : Soldier/Soldier.cpp.obj
+
+Soldier/Soldier.i: Soldier/Soldier.cpp.i
+.PHONY : Soldier/Soldier.i
+
+# target to preprocess a source file
+Soldier/Soldier.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.i
+.PHONY : Soldier/Soldier.cpp.i
+
+Soldier/Soldier.s: Soldier/Soldier.cpp.s
+.PHONY : Soldier/Soldier.s
+
+# target to generate assembly for a file
+Soldier/Soldier.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.s
+.PHONY : Soldier/Soldier.cpp.s
+
 UI/Component/Image.obj: UI/Component/Image.cpp.obj
 .PHONY : UI/Component/Image.obj
 
@@ -687,8 +806,14 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... edit_cache
+	@echo ... install
+	@echo ... install/local
+	@echo ... install/strip
+	@echo ... list_install_components
 	@echo ... rebuild_cache
+	@echo ... EnetTest
 	@echo ... FinalProject
+	@echo ... enet
 	@echo ... Engine/Allegro5Exception.obj
 	@echo ... Engine/Allegro5Exception.i
 	@echo ... Engine/Allegro5Exception.s
@@ -716,6 +841,9 @@ help:
 	@echo ... Engine/LOG.obj
 	@echo ... Engine/LOG.i
 	@echo ... Engine/LOG.s
+	@echo ... Engine/NetWork.obj
+	@echo ... Engine/NetWork.i
+	@echo ... Engine/NetWork.s
 	@echo ... Engine/Point.obj
 	@echo ... Engine/Point.i
 	@echo ... Engine/Point.s
@@ -743,6 +871,9 @@ help:
 	@echo ... Scene/PlayScene.obj
 	@echo ... Scene/PlayScene.i
 	@echo ... Scene/PlayScene.s
+	@echo ... Soldier/Soldier.obj
+	@echo ... Soldier/Soldier.i
+	@echo ... Soldier/Soldier.s
 	@echo ... UI/Component/Image.obj
 	@echo ... UI/Component/Image.i
 	@echo ... UI/Component/Image.s

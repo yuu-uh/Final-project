@@ -73,6 +73,12 @@
 },
 {
   "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Engine\\NetWork.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Engine\\NetWork.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Engine/NetWork.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Engine/NetWork.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
   "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Player\\Player.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Player\\Player.cpp",
   "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.cpp",
   "output": "CMakeFiles/FinalProject.dir/Player/Player.cpp.obj"
@@ -133,8 +139,74 @@
 },
 {
   "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Soldier\\Soldier.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Soldier\\Soldier.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
   "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\main.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\main.cpp",
   "file": "C:/Users/annys/Downloads/FinalProject/MyGame/main.cpp",
   "output": "CMakeFiles/FinalProject.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build/enet-master",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  @CMakeFiles/enet.dir/includes_C.rsp -g   -Wno-error -o CMakeFiles\\enet.dir\\callbacks.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\enet-master\\callbacks.c",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/callbacks.c",
+  "output": "enet-master/CMakeFiles/enet.dir/callbacks.c.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build/enet-master",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  @CMakeFiles/enet.dir/includes_C.rsp -g   -Wno-error -o CMakeFiles\\enet.dir\\compress.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\enet-master\\compress.c",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/compress.c",
+  "output": "enet-master/CMakeFiles/enet.dir/compress.c.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build/enet-master",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  @CMakeFiles/enet.dir/includes_C.rsp -g   -Wno-error -o CMakeFiles\\enet.dir\\host.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\enet-master\\host.c",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/host.c",
+  "output": "enet-master/CMakeFiles/enet.dir/host.c.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build/enet-master",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  @CMakeFiles/enet.dir/includes_C.rsp -g   -Wno-error -o CMakeFiles\\enet.dir\\list.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\enet-master\\list.c",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/list.c",
+  "output": "enet-master/CMakeFiles/enet.dir/list.c.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build/enet-master",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  @CMakeFiles/enet.dir/includes_C.rsp -g   -Wno-error -o CMakeFiles\\enet.dir\\packet.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\enet-master\\packet.c",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/packet.c",
+  "output": "enet-master/CMakeFiles/enet.dir/packet.c.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build/enet-master",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  @CMakeFiles/enet.dir/includes_C.rsp -g   -Wno-error -o CMakeFiles\\enet.dir\\peer.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\enet-master\\peer.c",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/peer.c",
+  "output": "enet-master/CMakeFiles/enet.dir/peer.c.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build/enet-master",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  @CMakeFiles/enet.dir/includes_C.rsp -g   -Wno-error -o CMakeFiles\\enet.dir\\protocol.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\enet-master\\protocol.c",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/protocol.c",
+  "output": "enet-master/CMakeFiles/enet.dir/protocol.c.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build/enet-master",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  @CMakeFiles/enet.dir/includes_C.rsp -g   -Wno-error -o CMakeFiles\\enet.dir\\unix.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\enet-master\\unix.c",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/unix.c",
+  "output": "enet-master/CMakeFiles/enet.dir/unix.c.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build/enet-master",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  @CMakeFiles/enet.dir/includes_C.rsp -g   -Wno-error -o CMakeFiles\\enet.dir\\win32.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\enet-master\\win32.c",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/win32.c",
+  "output": "enet-master/CMakeFiles/enet.dir/win32.c.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build/enet-master",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/EnetTest.dir/includes_CXX.rsp -g -std=gnu++17   -Wno-error -o CMakeFiles\\EnetTest.dir\\test.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\enet-master\\test.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/test.cpp",
+  "output": "enet-master/CMakeFiles/EnetTest.dir/test.cpp.obj"
 }
 ]

@@ -1280,3 +1280,392 @@ events:
       Running the CXX compiler's linker: "C:/llvm-mingw-20240417-msvcrt-x86_64/bin/ld.lld" "-v"
       LLD 18.1.4 (compatible with GNU linkers)
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "enet-master/CMakeLists.txt:9 (check_function_exists)"
+    checks:
+      - "Looking for fcntl"
+    directories:
+      source: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-9zvvo3"
+      binary: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-9zvvo3"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/llvm-mingw-20240417-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "HAS_FCNTL"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-9zvvo3'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_13b3a/fast
+        C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_13b3a.dir\\build.make CMakeFiles/cmTC_13b3a.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-9zvvo3'
+        Building C object CMakeFiles/cmTC_13b3a.dir/CheckFunctionExists.c.obj
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe   -DCHECK_FUNCTION_EXISTS=fcntl -MD -MT CMakeFiles/cmTC_13b3a.dir/CheckFunctionExists.c.obj -MF CMakeFiles\\cmTC_13b3a.dir\\CheckFunctionExists.c.obj.d -o CMakeFiles\\cmTC_13b3a.dir\\CheckFunctionExists.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9zvvo3\\CheckFunctionExists.c
+        Linking C executable cmTC_13b3a.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_13b3a.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_13b3a.dir/objects.a
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_13b3a.dir/objects.a @CMakeFiles\\cmTC_13b3a.dir\\objects1.rsp
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  -DCHECK_FUNCTION_EXISTS=fcntl -Wl,--whole-archive CMakeFiles\\cmTC_13b3a.dir/objects.a -Wl,--no-whole-archive -o cmTC_13b3a.exe -Wl,--out-implib,libcmTC_13b3a.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_13b3a.dir\\linkLibs.rsp
+        ld.lld: error: undefined symbol: fcntl
+        >>> referenced by objects.a(CheckFunctionExists.c.obj):(main)
+        clang-18: error: linker command failed with exit code 1 (use -v to see invocation)
+        mingw32-make[1]: *** [CMakeFiles\\cmTC_13b3a.dir\\build.make:101: cmTC_13b3a.exe] Error 1
+        mingw32-make[1]: Leaving directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-9zvvo3'
+        mingw32-make: *** [Makefile:126: cmTC_13b3a/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "enet-master/CMakeLists.txt:10 (check_function_exists)"
+    checks:
+      - "Looking for poll"
+    directories:
+      source: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-gv4agh"
+      binary: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-gv4agh"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/llvm-mingw-20240417-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "HAS_POLL"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-gv4agh'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_8067b/fast
+        C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_8067b.dir\\build.make CMakeFiles/cmTC_8067b.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-gv4agh'
+        Building C object CMakeFiles/cmTC_8067b.dir/CheckFunctionExists.c.obj
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe   -DCHECK_FUNCTION_EXISTS=poll -MD -MT CMakeFiles/cmTC_8067b.dir/CheckFunctionExists.c.obj -MF CMakeFiles\\cmTC_8067b.dir\\CheckFunctionExists.c.obj.d -o CMakeFiles\\cmTC_8067b.dir\\CheckFunctionExists.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gv4agh\\CheckFunctionExists.c
+        Linking C executable cmTC_8067b.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_8067b.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_8067b.dir/objects.a
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_8067b.dir/objects.a @CMakeFiles\\cmTC_8067b.dir\\objects1.rsp
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  -DCHECK_FUNCTION_EXISTS=poll -Wl,--whole-archive CMakeFiles\\cmTC_8067b.dir/objects.a -Wl,--no-whole-archive -o cmTC_8067b.exe -Wl,--out-implib,libcmTC_8067b.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_8067b.dir\\linkLibs.rsp
+        ld.lld: error: undefined symbol: poll
+        >>> referenced by objects.a(CheckFunctionExists.c.obj):(main)
+        clang-18: error: linker command failed with exit code 1 (use -v to see invocation)
+        mingw32-make[1]: *** [CMakeFiles\\cmTC_8067b.dir\\build.make:101: cmTC_8067b.exe] Error 1
+        mingw32-make[1]: Leaving directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-gv4agh'
+        mingw32-make: *** [Makefile:126: cmTC_8067b/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "enet-master/CMakeLists.txt:11 (check_function_exists)"
+    checks:
+      - "Looking for getaddrinfo"
+    directories:
+      source: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-cf8pso"
+      binary: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-cf8pso"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/llvm-mingw-20240417-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "HAS_GETADDRINFO"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-cf8pso'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_48092/fast
+        C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_48092.dir\\build.make CMakeFiles/cmTC_48092.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-cf8pso'
+        Building C object CMakeFiles/cmTC_48092.dir/CheckFunctionExists.c.obj
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe   -DCHECK_FUNCTION_EXISTS=getaddrinfo -MD -MT CMakeFiles/cmTC_48092.dir/CheckFunctionExists.c.obj -MF CMakeFiles\\cmTC_48092.dir\\CheckFunctionExists.c.obj.d -o CMakeFiles\\cmTC_48092.dir\\CheckFunctionExists.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cf8pso\\CheckFunctionExists.c
+        Linking C executable cmTC_48092.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_48092.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_48092.dir/objects.a
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_48092.dir/objects.a @CMakeFiles\\cmTC_48092.dir\\objects1.rsp
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  -DCHECK_FUNCTION_EXISTS=getaddrinfo -Wl,--whole-archive CMakeFiles\\cmTC_48092.dir/objects.a -Wl,--no-whole-archive -o cmTC_48092.exe -Wl,--out-implib,libcmTC_48092.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_48092.dir\\linkLibs.rsp
+        ld.lld: error: undefined symbol: getaddrinfo
+        >>> referenced by objects.a(CheckFunctionExists.c.obj):(main)
+        clang-18: error: linker command failed with exit code 1 (use -v to see invocation)
+        mingw32-make[1]: *** [CMakeFiles\\cmTC_48092.dir\\build.make:101: cmTC_48092.exe] Error 1
+        mingw32-make[1]: Leaving directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-cf8pso'
+        mingw32-make: *** [Makefile:126: cmTC_48092/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "enet-master/CMakeLists.txt:12 (check_function_exists)"
+    checks:
+      - "Looking for getnameinfo"
+    directories:
+      source: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-kfyiye"
+      binary: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-kfyiye"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/llvm-mingw-20240417-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "HAS_GETNAMEINFO"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-kfyiye'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_a465a/fast
+        C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_a465a.dir\\build.make CMakeFiles/cmTC_a465a.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-kfyiye'
+        Building C object CMakeFiles/cmTC_a465a.dir/CheckFunctionExists.c.obj
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe   -DCHECK_FUNCTION_EXISTS=getnameinfo -MD -MT CMakeFiles/cmTC_a465a.dir/CheckFunctionExists.c.obj -MF CMakeFiles\\cmTC_a465a.dir\\CheckFunctionExists.c.obj.d -o CMakeFiles\\cmTC_a465a.dir\\CheckFunctionExists.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kfyiye\\CheckFunctionExists.c
+        Linking C executable cmTC_a465a.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_a465a.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_a465a.dir/objects.a
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_a465a.dir/objects.a @CMakeFiles\\cmTC_a465a.dir\\objects1.rsp
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  -DCHECK_FUNCTION_EXISTS=getnameinfo -Wl,--whole-archive CMakeFiles\\cmTC_a465a.dir/objects.a -Wl,--no-whole-archive -o cmTC_a465a.exe -Wl,--out-implib,libcmTC_a465a.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_a465a.dir\\linkLibs.rsp
+        ld.lld: error: undefined symbol: getnameinfo
+        >>> referenced by objects.a(CheckFunctionExists.c.obj):(main)
+        clang-18: error: linker command failed with exit code 1 (use -v to see invocation)
+        mingw32-make[1]: *** [CMakeFiles\\cmTC_a465a.dir\\build.make:101: cmTC_a465a.exe] Error 1
+        mingw32-make[1]: Leaving directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-kfyiye'
+        mingw32-make: *** [Makefile:126: cmTC_a465a/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "enet-master/CMakeLists.txt:13 (check_function_exists)"
+    checks:
+      - "Looking for gethostbyname_r"
+    directories:
+      source: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-iurxz5"
+      binary: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-iurxz5"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/llvm-mingw-20240417-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "HAS_GETHOSTBYNAME_R"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-iurxz5'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_344aa/fast
+        C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_344aa.dir\\build.make CMakeFiles/cmTC_344aa.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-iurxz5'
+        Building C object CMakeFiles/cmTC_344aa.dir/CheckFunctionExists.c.obj
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe   -DCHECK_FUNCTION_EXISTS=gethostbyname_r -MD -MT CMakeFiles/cmTC_344aa.dir/CheckFunctionExists.c.obj -MF CMakeFiles\\cmTC_344aa.dir\\CheckFunctionExists.c.obj.d -o CMakeFiles\\cmTC_344aa.dir\\CheckFunctionExists.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-iurxz5\\CheckFunctionExists.c
+        Linking C executable cmTC_344aa.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_344aa.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_344aa.dir/objects.a
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_344aa.dir/objects.a @CMakeFiles\\cmTC_344aa.dir\\objects1.rsp
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  -DCHECK_FUNCTION_EXISTS=gethostbyname_r -Wl,--whole-archive CMakeFiles\\cmTC_344aa.dir/objects.a -Wl,--no-whole-archive -o cmTC_344aa.exe -Wl,--out-implib,libcmTC_344aa.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_344aa.dir\\linkLibs.rsp
+        ld.lld: error: undefined symbol: gethostbyname_r
+        >>> referenced by objects.a(CheckFunctionExists.c.obj):(main)
+        clang-18: error: linker command failed with exit code 1 (use -v to see invocation)
+        mingw32-make[1]: *** [CMakeFiles\\cmTC_344aa.dir\\build.make:101: cmTC_344aa.exe] Error 1
+        mingw32-make[1]: Leaving directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-iurxz5'
+        mingw32-make: *** [Makefile:126: cmTC_344aa/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "enet-master/CMakeLists.txt:14 (check_function_exists)"
+    checks:
+      - "Looking for gethostbyaddr_r"
+    directories:
+      source: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-4r5m94"
+      binary: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-4r5m94"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/llvm-mingw-20240417-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "HAS_GETHOSTBYADDR_R"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-4r5m94'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_581da/fast
+        C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_581da.dir\\build.make CMakeFiles/cmTC_581da.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-4r5m94'
+        Building C object CMakeFiles/cmTC_581da.dir/CheckFunctionExists.c.obj
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe   -DCHECK_FUNCTION_EXISTS=gethostbyaddr_r -MD -MT CMakeFiles/cmTC_581da.dir/CheckFunctionExists.c.obj -MF CMakeFiles\\cmTC_581da.dir\\CheckFunctionExists.c.obj.d -o CMakeFiles\\cmTC_581da.dir\\CheckFunctionExists.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4r5m94\\CheckFunctionExists.c
+        Linking C executable cmTC_581da.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_581da.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_581da.dir/objects.a
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_581da.dir/objects.a @CMakeFiles\\cmTC_581da.dir\\objects1.rsp
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  -DCHECK_FUNCTION_EXISTS=gethostbyaddr_r -Wl,--whole-archive CMakeFiles\\cmTC_581da.dir/objects.a -Wl,--no-whole-archive -o cmTC_581da.exe -Wl,--out-implib,libcmTC_581da.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_581da.dir\\linkLibs.rsp
+        ld.lld: error: undefined symbol: gethostbyaddr_r
+        >>> referenced by objects.a(CheckFunctionExists.c.obj):(main)
+        clang-18: error: linker command failed with exit code 1 (use -v to see invocation)
+        mingw32-make[1]: *** [CMakeFiles\\cmTC_581da.dir\\build.make:101: cmTC_581da.exe] Error 1
+        mingw32-make[1]: Leaving directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-4r5m94'
+        mingw32-make: *** [Makefile:126: cmTC_581da/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "enet-master/CMakeLists.txt:15 (check_function_exists)"
+    checks:
+      - "Looking for inet_pton"
+    directories:
+      source: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-kdkqfg"
+      binary: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-kdkqfg"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/llvm-mingw-20240417-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "HAS_INET_PTON"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-kdkqfg'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_6d8bf/fast
+        C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_6d8bf.dir\\build.make CMakeFiles/cmTC_6d8bf.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-kdkqfg'
+        Building C object CMakeFiles/cmTC_6d8bf.dir/CheckFunctionExists.c.obj
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe   -DCHECK_FUNCTION_EXISTS=inet_pton -MD -MT CMakeFiles/cmTC_6d8bf.dir/CheckFunctionExists.c.obj -MF CMakeFiles\\cmTC_6d8bf.dir\\CheckFunctionExists.c.obj.d -o CMakeFiles\\cmTC_6d8bf.dir\\CheckFunctionExists.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kdkqfg\\CheckFunctionExists.c
+        Linking C executable cmTC_6d8bf.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_6d8bf.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_6d8bf.dir/objects.a
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_6d8bf.dir/objects.a @CMakeFiles\\cmTC_6d8bf.dir\\objects1.rsp
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  -DCHECK_FUNCTION_EXISTS=inet_pton -Wl,--whole-archive CMakeFiles\\cmTC_6d8bf.dir/objects.a -Wl,--no-whole-archive -o cmTC_6d8bf.exe -Wl,--out-implib,libcmTC_6d8bf.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_6d8bf.dir\\linkLibs.rsp
+        ld.lld: error: undefined symbol: inet_pton
+        >>> referenced by objects.a(CheckFunctionExists.c.obj):(main)
+        clang-18: error: linker command failed with exit code 1 (use -v to see invocation)
+        mingw32-make[1]: *** [CMakeFiles\\cmTC_6d8bf.dir\\build.make:101: cmTC_6d8bf.exe] Error 1
+        mingw32-make[1]: Leaving directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-kdkqfg'
+        mingw32-make: *** [Makefile:126: cmTC_6d8bf/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "enet-master/CMakeLists.txt:16 (check_function_exists)"
+    checks:
+      - "Looking for inet_ntop"
+    directories:
+      source: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-6xs2u2"
+      binary: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-6xs2u2"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/llvm-mingw-20240417-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "HAS_INET_NTOP"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-6xs2u2'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_2549f/fast
+        C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_2549f.dir\\build.make CMakeFiles/cmTC_2549f.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-6xs2u2'
+        Building C object CMakeFiles/cmTC_2549f.dir/CheckFunctionExists.c.obj
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe   -DCHECK_FUNCTION_EXISTS=inet_ntop -MD -MT CMakeFiles/cmTC_2549f.dir/CheckFunctionExists.c.obj -MF CMakeFiles\\cmTC_2549f.dir\\CheckFunctionExists.c.obj.d -o CMakeFiles\\cmTC_2549f.dir\\CheckFunctionExists.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6xs2u2\\CheckFunctionExists.c
+        Linking C executable cmTC_2549f.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_2549f.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_2549f.dir/objects.a
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_2549f.dir/objects.a @CMakeFiles\\cmTC_2549f.dir\\objects1.rsp
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe  -DCHECK_FUNCTION_EXISTS=inet_ntop -Wl,--whole-archive CMakeFiles\\cmTC_2549f.dir/objects.a -Wl,--no-whole-archive -o cmTC_2549f.exe -Wl,--out-implib,libcmTC_2549f.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_2549f.dir\\linkLibs.rsp
+        ld.lld: error: undefined symbol: inet_ntop
+        >>> referenced by objects.a(CheckFunctionExists.c.obj):(main)
+        clang-18: error: linker command failed with exit code 1 (use -v to see invocation)
+        mingw32-make[1]: *** [CMakeFiles\\cmTC_2549f.dir\\build.make:101: cmTC_2549f.exe] Error 1
+        mingw32-make[1]: Leaving directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-6xs2u2'
+        mingw32-make: *** [Makefile:126: cmTC_2549f/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CheckSourceCompiles.cmake:77 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CheckStructHasMember.cmake:77 (CHECK_SOURCE_COMPILES)"
+      - "enet-master/CMakeLists.txt:17 (check_struct_has_member)"
+    checks:
+      - "Performing Test HAS_MSGHDR_FLAGS"
+    directories:
+      source: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-b6qphq"
+      binary: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-b6qphq"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/llvm-mingw-20240417-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "HAS_MSGHDR_FLAGS"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-b6qphq'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_28ff1/fast
+        C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_28ff1.dir\\build.make CMakeFiles/cmTC_28ff1.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-b6qphq'
+        Building C object CMakeFiles/cmTC_28ff1.dir/src.c.obj
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe -DHAS_MSGHDR_FLAGS   -MD -MT CMakeFiles/cmTC_28ff1.dir/src.c.obj -MF CMakeFiles\\cmTC_28ff1.dir\\src.c.obj.d -o CMakeFiles\\cmTC_28ff1.dir\\src.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b6qphq\\src.c
+        C:\\Users\\annys\\Downloads\\FinalProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-b6qphq\\src.c:3:10: fatal error: 'sys/socket.h' file not found
+            3 | #include <sys/socket.h>
+              |          ^~~~~~~~~~~~~~
+        1 error generated.
+        mingw32-make[1]: *** [CMakeFiles\\cmTC_28ff1.dir\\build.make:78: CMakeFiles/cmTC_28ff1.dir/src.c.obj] Error 1
+        mingw32-make[1]: Leaving directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-b6qphq'
+        mingw32-make: *** [Makefile:126: cmTC_28ff1/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CheckTypeSize.cmake:146 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CheckTypeSize.cmake:271 (__check_type_size_impl)"
+      - "enet-master/CMakeLists.txt:19 (check_type_size)"
+    checks:
+      - "Check size of socklen_t"
+    directories:
+      source: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-17esm0"
+      binary: "C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-17esm0"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/llvm-mingw-20240417-msvcrt-x86_64/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "HAVE_HAS_SOCKLEN_T"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-17esm0'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe -f Makefile cmTC_86c0e/fast
+        C:/llvm-mingw-20240417-msvcrt-x86_64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_86c0e.dir\\build.make CMakeFiles/cmTC_86c0e.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-17esm0'
+        Building C object CMakeFiles/cmTC_86c0e.dir/HAS_SOCKLEN_T.c.obj
+        C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang.exe    -MD -MT CMakeFiles/cmTC_86c0e.dir/HAS_SOCKLEN_T.c.obj -MF CMakeFiles\\cmTC_86c0e.dir\\HAS_SOCKLEN_T.c.obj.d -o CMakeFiles\\cmTC_86c0e.dir\\HAS_SOCKLEN_T.c.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-17esm0\\HAS_SOCKLEN_T.c
+        C:\\Users\\annys\\Downloads\\FinalProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-17esm0\\HAS_SOCKLEN_T.c:2:10: fatal error: 'sys/socket.h' file not found
+            2 | #include "sys/socket.h"
+              |          ^~~~~~~~~~~~~~
+        1 error generated.
+        mingw32-make[1]: *** [CMakeFiles\\cmTC_86c0e.dir\\build.make:78: CMakeFiles/cmTC_86c0e.dir/HAS_SOCKLEN_T.c.obj] Error 1
+        mingw32-make[1]: Leaving directory 'C:/Users/annys/Downloads/FinalProject/build/CMakeFiles/CMakeScratch/TryCompile-17esm0'
+        mingw32-make: *** [Makefile:126: cmTC_86c0e/fast] Error 2
+        
+      exitCode: 2
+...

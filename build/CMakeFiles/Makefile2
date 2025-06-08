@@ -63,29 +63,48 @@ CMAKE_BINARY_DIR = C:\Users\annys\Downloads\FinalProject\build
 
 # The main recursive "all" target.
 all: CMakeFiles/FinalProject.dir/all
+all: enet-master/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: enet-master/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/FinalProject.dir/clean
+clean: enet-master/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory enet-master
+
+# Recursive "all" directory target.
+enet-master/all: enet-master/CMakeFiles/enet.dir/all
+enet-master/all: enet-master/CMakeFiles/EnetTest.dir/all
+.PHONY : enet-master/all
+
+# Recursive "preinstall" directory target.
+enet-master/preinstall:
+.PHONY : enet-master/preinstall
+
+# Recursive "clean" directory target.
+enet-master/clean: enet-master/CMakeFiles/enet.dir/clean
+enet-master/clean: enet-master/CMakeFiles/EnetTest.dir/clean
+.PHONY : enet-master/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/FinalProject.dir
 
 # All Build rule for target.
-CMakeFiles/FinalProject.dir/all:
+CMakeFiles/FinalProject.dir/all: enet-master/CMakeFiles/enet.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24 "Built target FinalProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28 "Built target FinalProject"
 .PHONY : CMakeFiles/FinalProject.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/FinalProject.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\annys\Downloads\FinalProject\build\CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\annys\Downloads\FinalProject\build\CMakeFiles 36
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/FinalProject.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\annys\Downloads\FinalProject\build\CMakeFiles 0
 .PHONY : CMakeFiles/FinalProject.dir/rule
@@ -98,6 +117,58 @@ FinalProject: CMakeFiles/FinalProject.dir/rule
 CMakeFiles/FinalProject.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/clean
 .PHONY : CMakeFiles/FinalProject.dir/clean
+
+#=============================================================================
+# Target rules for target enet-master/CMakeFiles/enet.dir
+
+# All Build rule for target.
+enet-master/CMakeFiles/enet.dir/all:
+	$(MAKE) $(MAKESILENT) -f enet-master\CMakeFiles\enet.dir\build.make enet-master/CMakeFiles/enet.dir/depend
+	$(MAKE) $(MAKESILENT) -f enet-master\CMakeFiles\enet.dir\build.make enet-master/CMakeFiles/enet.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=29,30,31,32,33,34,35,36,37,38 "Built target enet"
+.PHONY : enet-master/CMakeFiles/enet.dir/all
+
+# Build rule for subdir invocation for target.
+enet-master/CMakeFiles/enet.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\annys\Downloads\FinalProject\build\CMakeFiles 10
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 enet-master/CMakeFiles/enet.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\annys\Downloads\FinalProject\build\CMakeFiles 0
+.PHONY : enet-master/CMakeFiles/enet.dir/rule
+
+# Convenience name for target.
+enet: enet-master/CMakeFiles/enet.dir/rule
+.PHONY : enet
+
+# clean rule for target.
+enet-master/CMakeFiles/enet.dir/clean:
+	$(MAKE) $(MAKESILENT) -f enet-master\CMakeFiles\enet.dir\build.make enet-master/CMakeFiles/enet.dir/clean
+.PHONY : enet-master/CMakeFiles/enet.dir/clean
+
+#=============================================================================
+# Target rules for target enet-master/CMakeFiles/EnetTest.dir
+
+# All Build rule for target.
+enet-master/CMakeFiles/EnetTest.dir/all: enet-master/CMakeFiles/enet.dir/all
+	$(MAKE) $(MAKESILENT) -f enet-master\CMakeFiles\EnetTest.dir\build.make enet-master/CMakeFiles/EnetTest.dir/depend
+	$(MAKE) $(MAKESILENT) -f enet-master\CMakeFiles\EnetTest.dir\build.make enet-master/CMakeFiles/EnetTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=1,2 "Built target EnetTest"
+.PHONY : enet-master/CMakeFiles/EnetTest.dir/all
+
+# Build rule for subdir invocation for target.
+enet-master/CMakeFiles/EnetTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\annys\Downloads\FinalProject\build\CMakeFiles 12
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 enet-master/CMakeFiles/EnetTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\annys\Downloads\FinalProject\build\CMakeFiles 0
+.PHONY : enet-master/CMakeFiles/EnetTest.dir/rule
+
+# Convenience name for target.
+EnetTest: enet-master/CMakeFiles/EnetTest.dir/rule
+.PHONY : EnetTest
+
+# clean rule for target.
+enet-master/CMakeFiles/EnetTest.dir/clean:
+	$(MAKE) $(MAKESILENT) -f enet-master\CMakeFiles\EnetTest.dir\build.make enet-master/CMakeFiles/EnetTest.dir/clean
+.PHONY : enet-master/CMakeFiles/EnetTest.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

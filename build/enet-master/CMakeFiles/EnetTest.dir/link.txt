@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\EnetTest.dir/objects.a
+C:\llvm-mingw-20240417-msvcrt-x86_64\bin\llvm-ar.exe qc CMakeFiles\EnetTest.dir/objects.a @CMakeFiles\EnetTest.dir\objects1.rsp
+C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe -g -Wl,--whole-archive CMakeFiles\EnetTest.dir/objects.a -Wl,--no-whole-archive -o EnetTest.exe -Wl,--out-implib,libEnetTest.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\EnetTest.dir\linkLibs.rsp

@@ -18782,6 +18782,8 @@ CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj
 
 CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/dragen.cpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
@@ -19599,6 +19601,8 @@ CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj
 
 CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/master.cpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
@@ -20416,6 +20420,8 @@ CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj
 
 CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/ninja.cpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
@@ -21233,6 +21239,8 @@ CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj
 
 CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/shooter.cpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
@@ -22050,6 +22058,8 @@ CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj
 
 CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/slime.cpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
@@ -22867,6 +22877,8 @@ CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj
 
 CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/vikin.cpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp

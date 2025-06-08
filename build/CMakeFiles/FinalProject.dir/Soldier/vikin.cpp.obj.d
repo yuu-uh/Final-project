@@ -812,4 +812,6 @@ CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/allegro/include/allegro5/bitmap.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp
+  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Group.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp

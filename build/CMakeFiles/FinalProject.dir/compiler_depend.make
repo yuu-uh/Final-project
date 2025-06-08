@@ -18760,6 +18760,8 @@ CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj: C:/Users/annys/Downloads/Fi
   C:/llvm-mingw-20240417-msvcrt-x86_64/lib/clang/18/include/xtestintrin.h
 
 CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/dragen.cpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
@@ -19576,6 +19578,8 @@ CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj: C:/Users/annys/Downloads/Fin
   C:/llvm-mingw-20240417-msvcrt-x86_64/lib/clang/18/include/vadefs.h
 
 CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/master.cpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
@@ -20392,6 +20396,8 @@ CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj: C:/Users/annys/Downloads/Fin
   C:/llvm-mingw-20240417-msvcrt-x86_64/lib/clang/18/include/vadefs.h
 
 CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/ninja.cpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
@@ -21208,6 +21214,8 @@ CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj: C:/Users/annys/Downloads/Fina
   C:/llvm-mingw-20240417-msvcrt-x86_64/lib/clang/18/include/vadefs.h
 
 CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/shooter.cpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
@@ -22024,6 +22032,8 @@ CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj: C:/Users/annys/Downloads/Fi
   C:/llvm-mingw-20240417-msvcrt-x86_64/lib/clang/18/include/vadefs.h
 
 CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/slime.cpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
@@ -22840,6 +22850,8 @@ CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj: C:/Users/annys/Downloads/Fina
   C:/llvm-mingw-20240417-msvcrt-x86_64/lib/clang/18/include/vadefs.h
 
 CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/vikin.cpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \

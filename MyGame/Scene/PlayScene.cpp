@@ -320,7 +320,7 @@ void PlayScene::CreateNetworkSoldier(uint8_t playerId, uint8_t soldierType, int 
     soldier->Preview = false;
     soldier->Tint = al_map_rgba(255, 100, 100, 255);
     networkSoldiers[soldierId] = soldier;
-    SoldierGroup->AddNewObject(soldier);
+    EnemyGroup->AddNewObject(soldier);
 }
 
 uint8_t PlayScene::GetSoldierTypeId(const std::string& type) {

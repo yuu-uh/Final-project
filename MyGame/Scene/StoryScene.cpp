@@ -17,7 +17,7 @@ void StoryScene::Initialize() {
     int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
     textLabel = new Engine::Label("", "pirulen.ttf", 36, 70, h/2, 255,255,255,255, 0.0f,0.0f);
-    AddNewObject(textLabel);
+    //AddNewObject(textLabel);
     skipButton = new Engine::ImageButton("GUI/Skip.png","GUI/Skip.png", w-160, h-120, 80, 80);
     skipButton->SetOnClickCallback(std::bind(&StoryScene::TBOnClick, this, 0));
     AddNewControlObject(skipButton);
@@ -41,12 +41,12 @@ void StoryScene::Update(float deltaTime) {
             }
         }
     } else {
-        Engine::GameEngine::GetInstance().ChangeScene("map");
+        Engine::GameEngine::GetInstance().ChangeScene("personal");
     }
 }
 
 void StoryScene::Draw() const {
-    al_clear_to_color(al_map_rgb(0, 0, 0));
+    IScene::Draw();
     
     ALLEGRO_COLOR white = al_map_rgb(255,255,255);
     float x = textLabel->Position.x;

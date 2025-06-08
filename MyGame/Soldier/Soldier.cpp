@@ -38,7 +38,7 @@ Soldier::Soldier(std::string img, float x, float y, int dir, float radius, float
     direction = dir;
     state = walking;
     PlayScene* scene = getPlayScene();
-    enemyGroup = (direction == 1) ? scene->EnemyGroup:scene->SoldierGroup;
+    //enemyGroup = (direction == 1) ? scene->EnemyGroup:scene->SoldierGroup;
 }
 
 void Soldier::Hit(float damage) {

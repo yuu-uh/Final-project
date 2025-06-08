@@ -16,6 +16,7 @@
 #include "Engine/Resources.hpp"
 #include "Engine/LOG.hpp"
 #include "Engine/Collider.hpp"
+#include "Engine/NetWork.hpp"
 #include "Player/Player.hpp"
 #include "Items/Item.hpp"
 #include "Scene/MapScene.hpp"
@@ -64,20 +65,23 @@ void MapScene::Initialize() {
     Engine::Point startPos{ 216, 216 };      
     float moveSpeed = 200.0f;     
     player = new Player("mapScene/player1_front01.png", startPos, moveSpeed, 16, 16);
+    conPlayer  = new Player("mapScene/player1_front01.png", startPos, moveSpeed, 16, 16);
     AddNewObject(player);
+    AddNewObject(conPlayer);
+    auto& net = NetWork::Instance();
 
     ConstructUI();
 }
 void MapScene::Update(float deltaTime) {
     IScene::Update(deltaTime);
 
+    NetWork::Instance().Service(0);
+
     float screenW = Engine::GameEngine::GetInstance().GetScreenSize().x;
     float screenH = Engine::GameEngine::GetInstance().GetScreenSize().y;
-
     const float panelW = 320;              
     const float viewW  = screenW - panelW;  
     const float viewH  = screenH;           
-
     float targetX = player->Position.x - viewW / 2.0f;
     float targetY = player->Position.y - viewH / 2.0f;
 
@@ -90,7 +94,6 @@ void MapScene::Update(float deltaTime) {
 
         if (!item->item_picked() && Engine::Collider::IsCircleOverlap(
         item->Position, item->CollisionRadius, player->Position, player->CollisionRadius)) {
-         // Assuming Touch() is defined in Item.
             if (!item->item_picked()) {
                 item->Pick(); // or some value
             }
@@ -154,6 +157,7 @@ void MapScene::Draw() const {
 
     ItemGroup->Draw();
     player->Draw();
+    conPlayer->Draw();
 
     al_use_transform(&oldX);
     al_draw_filled_rectangle(screenW - panelW, 0, screenW, screenH, al_map_rgb(0, 0, 0));

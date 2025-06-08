@@ -911,7 +911,14 @@ CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Sprite.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/Soldier.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/ImageButton.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/MapScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/Soldier.hpp
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/ninja.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/master.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/dragen.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/shooter.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/slime.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/vikin.hpp

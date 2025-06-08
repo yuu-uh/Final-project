@@ -958,4 +958,5 @@ CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj: \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/u8path.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iostream \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/PlayScene.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/Soldier.hpp

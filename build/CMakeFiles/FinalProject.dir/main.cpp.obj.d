@@ -913,6 +913,7 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/Soldier.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/NetWork.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/enet.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/win32.h \

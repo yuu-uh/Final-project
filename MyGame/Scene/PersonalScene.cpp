@@ -145,53 +145,6 @@ void PersonalScene::HostGame() {
 }
 
 void PersonalScene::JoinGame() {
-    if (host) {
-        if (!net.StartHost(1234, 1)) {   // port maxClient 
-            Engine::LOG(Engine::INFO) << "啟動 Host 失敗";
-            return;
-        }
-    } 
-    else {
-        if (!net.ConnectToHost(_peerIp, 1234)) {
-            Engine::LOG(Engine::INFO) << "無法連線";
-            return;
-        }
-    }
-    ENetHost* server = net.GetHost(); 
-    ENetAddress addr;
-    enet_socket_get_address(server->socket, &addr);
-    char ipstr[25];
-    enet_address_get_host_ip(&addr, ipstr, sizeof(ipstr));
-    Engine::LOG(Engine::INFO) << "Host IP: "  << std::string(ipstr) << " Port: 1234";
-
-    net.SetReceiveCallback([this](const ENetEvent& ev) {
-        // 收到對方資料時，塞到 PlayScene 或某個全域玩家狀態裡
-        // e.g. PlayScene::Instance().OnRemoteState(ev.packet->data, ev.packet->dataLength);
-    });
-    Engine::GameEngine::GetInstance().ChangeScene("map");
-}
-// void PersonalScene::JoinGame(){
-//     auto& net = NetWork::Instance();
-//     if (!net.Init()) return;
-//     join_mode = true;
-//     std::string ip;
-//     std::cout << "Enter Host IP: ";
-//     std::cin  >> ip;
-//     int port;
-//     std::cout << "Enter Host Port: ";
-//     std::cin  >> port;
-
-//     if (!net.ConnectToHost(ip, static_cast<enet_uint16>(port))) {
-//         Engine::LOG(Engine::INFO) << "無法連線到 " << ip << ":" << port;
-//         return;
-//     }
-//     net.SetReceiveCallback([this](const ENetEvent& ev) {
-       
-//     });
-//     Engine::GameEngine::GetInstance().ChangeScene("map");
-// }
-
-void PersonalScene::JoinGame() {
     join_mode = true;
     focusedBox = IPEnter;
 }
@@ -200,16 +153,7 @@ void PersonalScene::ConfirmJoin() {
     auto& net = NetWork::Instance();
     net.myId = 1;
     if (!net.Init()) return;
-    std::string ip;
-    int p;
-    std::cout<<"IP:"; std::cin>>ip;
-    std::cout<<"Port:"; std::cin>>p;
-    if (!net.ConnectToHost(ip,(enet_uint16)p)) {
-        Engine::LOG(Engine::INFO)<<"Connect fail";
-
-    std::string ip = IPEnter->name;
-    int port = std::stoi(portEenter->name);
-
+    
     std::string ip = IPEnter->name;
     int port = std::stoi(portEenter->name);
 
@@ -222,10 +166,7 @@ void PersonalScene::ConfirmJoin() {
             Engine::GameEngine::GetInstance().ChangeScene("map");
     });
     waitConn = true;
-    }
 }
-
-
 
 void PersonalScene::ScoreOnClick() {
     Engine::GameEngine::GetInstance().ChangeScene("score");

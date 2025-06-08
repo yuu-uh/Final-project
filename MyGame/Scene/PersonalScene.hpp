@@ -28,8 +28,5 @@ public:
     void OnKeyDown(int keycode) override;
     void Draw() const override;
     void ConfirmJoin();
-    void OnKeyDown(int keycode) override;
-    void Draw() const override;
-    void ConfirmJoin();
 };
 #endif   // INC_2025_I2P2_TOWERDEFENSE_WITH_ANSWER_STARTSCENE_H

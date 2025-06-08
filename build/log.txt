@@ -9,6 +9,7 @@
 [INFO] Loaded Resource<image>: Resource/images/stage-select/floor.png scaled to 400x100
 [INFO] Loaded Resource<image>: Resource/images/stage-select/floor.png
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 48
+[INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 70
 [INFO] Game initialized
 [INFO] Game start event loop
 [INFO] Game Terminating...

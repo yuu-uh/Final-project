@@ -86,7 +86,7 @@ void Soldier::Update(float deltaTime){
     if(state != walking)
         return;
 
-    Position.x -= speed * deltaTime;
+    Position.x -= speed * direction *deltaTime;
     float_timer += deltaTime;
     Position.y += (std::sin(float_timer*4.0f) / 6); // oscillates ±5px
 

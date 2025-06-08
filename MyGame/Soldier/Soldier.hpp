@@ -31,6 +31,7 @@ protected:
 
 public:
     float reachEndTime;
+    int direction = -1;
     bool Enabled = true;
     bool Preview = false;
     Soldier(std::string img, float x, float y, float radius, float speed, float hp, float dmg);

@@ -323,9 +323,16 @@ void PlayScene::CreateNetworkSoldier(uint8_t playerId, uint8_t soldierType, int 
     soldier->Preview = false;
     
     // Different visual indicator for enemy soldiers (optional)
-    if (playerId != NetWork::Instance().myId) {
-        soldier->Tint = al_map_rgba(255, 100, 100, 255); // Slightly red tint for enemy
-    }
+    bool isEnemySoldier = (playerId != NetWork::Instance().myId);
+    
+    if (isEnemySoldier) {
+    soldier->direction = 1; // Move right to left for enemy
+    soldier->Tint = al_map_rgba(255, 100, 100, 255);
+    soldier->Rotation = 180;
+} else {
+    soldier->direction = -1; // Move left to right for your soldiers
+    soldier->Tint = al_map_rgba(255, 255, 255, 255);
+}
     
     // Store and add to scene
     networkSoldiers[soldierId] = soldier;

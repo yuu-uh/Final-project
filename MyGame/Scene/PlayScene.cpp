@@ -329,10 +329,10 @@ void PlayScene::CreateNetworkSoldier(uint8_t playerId, uint8_t soldierType, int 
     soldier->direction = 1; // Move right to left for enemy
     soldier->Tint = al_map_rgba(255, 100, 100, 255);
     soldier->Rotation = 180;
-} else {
+    } else {
     soldier->direction = -1; // Move left to right for your soldiers
     soldier->Tint = al_map_rgba(255, 255, 255, 255);
-}
+    }
     
     // Store and add to scene
     networkSoldiers[soldierId] = soldier;

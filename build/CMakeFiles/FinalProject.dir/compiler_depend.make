@@ -18668,8 +18668,8 @@ CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj: C:/Users/annys/Downloads/Fin
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/master.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/master.hpp \
   C:/allegro/include/allegro5/base.h \
   C:/allegro/include/allegro5/bitmap.h \
   C:/allegro/include/allegro5/color.h \

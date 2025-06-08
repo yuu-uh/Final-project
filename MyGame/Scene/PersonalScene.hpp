@@ -6,6 +6,8 @@
 #include "UI/Component/TextBox.hpp"
 #include "UI/Component/TextBox.hpp"
 #include "Engine/IScene.hpp"
+#include "Engine/Message.hpp"
+#include "Engine/Message.hpp"
 class PersonalScene final : public Engine::IScene {
 private:
     std::shared_ptr<ALLEGRO_FONT> font;

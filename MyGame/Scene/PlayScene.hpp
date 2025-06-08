@@ -10,6 +10,8 @@
 #include "Engine/Point.hpp"
 #include "Items/Item.hpp"
 #include "Soldier/Soldier.hpp"
+#include "Engine/Message.hpp"
+#include "Engine/NetWork.hpp"
 
 class Turret;
 namespace Engine {
@@ -37,7 +39,8 @@ private:
     std::vector<std::shared_ptr<Item>> worldItems;
     std::vector<std::string> inventoryImgs;
     std::vector<Item*> inventory;
-
+    std::unordered_map<uint32_t, Soldier*> networkSoldiers;  // Track soldiers by ID
+    uint32_t nextSoldierId;  // Counter for unique soldier IDs
 
 protected:
     int lives;
@@ -84,7 +87,11 @@ public:
     bool CheckSpaceValid(int x, int y);
     MapScene *getMapScene();
     std::unordered_map<std::string, std::pair<int, Engine::Label*>> LocalItemCount;
-
     // void ModifyReadMapTiles();
+    void SendSoldierPlacement(const std::string& type, int x, int y);
+    void HandleNetworkMessage(const ENetEvent& event);
+    void CreateNetworkSoldier(uint8_t playerId, uint8_t soldierType, int x, int y, uint32_t soldierId);
+    uint8_t GetSoldierTypeId(const std::string& type);
+    std::string GetSoldierTypeString(uint8_t typeId);
 };
 #endif   // PLAYSCENE_HPP

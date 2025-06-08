@@ -274,27 +274,35 @@ void MapScene::AddToInventory(Item* item, const std::string& type) {
     const int iconW = 100, iconH = 100;
     int cols = 320 / (iconW + pad);
 
-    if (inventoryCount.count(type)) {
-        auto &p = inventoryCount[type];
-        p.first++;
-        p.second->Text = "x" + std::to_string(p.first);
+    if(inventoryCount.count(type)){
+        inventoryCount[type].first += 1;
+        Engine::GameEngine::GetInstance().itemCount[type].first += 1;
+        int newCount = inventoryCount[type].first;
+        inventoryCount[type].second->Text = "x" + std::to_string(newCount);
+        Engine::GameEngine::GetInstance().itemCount[type].second->Text = "x" + std::to_string(newCount);
         return;
     }
 
-    int idx = inventoryCount.size();
-    int col = idx % cols, row = idx / cols;
+    int idx = (int)inventoryCount.size();  
+    int col = idx % cols;
+    int row = idx / cols;
     float x = panelX0 + pad + col * (iconW + pad);
     float y = panelY0 + pad + row * (iconH + pad);
 
-    auto icon = new Engine::Image(item->getBitmap(), x, y, iconW, iconH);
+
+    Engine::Image* icon = new Engine::Image(item->getBitmap(), x, y, iconW, iconH);
     UIInventoryGroup->AddNewObject(icon);
     inventoryIcons[type] = icon;
 
-    auto label = new Engine::Label("x1", "pirulen.ttf", 24,
-        x + iconW - 10, y + iconH - 10, 255,255,255,255,1,1);
-    UIInventoryGroup->AddNewObject(label);
+    // Add label for count
+    Engine::Label* countLabel = new Engine::Label("x1", "pirulen.ttf", 24,
+        x + iconW - 10, y + iconH - 10, 255, 255, 255, 255, 1.0, 1.0);
+    UIInventoryGroup->AddNewObject(countLabel);
 
-    inventoryCount[type] = {1, label};
+    // Add to map
+    inventoryCount[type] = std::make_pair(1, countLabel);
+    Engine::GameEngine::GetInstance().itemCount[type] = std::make_pair(1, countLabel);
+    Engine::GameEngine::GetInstance().pickedItems.push_back(type);
 }
 
 

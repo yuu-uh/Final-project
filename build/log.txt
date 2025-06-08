@@ -38,16 +38,23 @@
 [INFO] Loaded Resource<image>: Resource/images/mapScene/stone.png
 [INFO] Loaded Resource<image>: Resource/images/mapScene/master.png scaled to 100x100
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 24
-[INFO] Loaded Resource<image>: Resource/images/mapScene/ninja.png scaled to 100x100
-[INFO] Loaded Resource<image>: Resource/images/mapScene/slime.png scaled to 100x100
-[INFO] Loaded Resource<image>: Resource/images/mapScene/shooter.png scaled to 100x100
 [INFO] Loaded Resource<image>: Resource/images/mapScene/dragen.png scaled to 100x100
+[INFO] Loaded Resource<image>: Resource/images/mapScene/slime.png scaled to 100x100
+[INFO] Loaded Resource<image>: Resource/images/mapScene/ninja.png scaled to 100x100
+[INFO] Loaded Resource<image>: Resource/images/mapScene/shooter.png scaled to 100x100
 [INFO] Loaded Resource<image>: Resource/images/mapScene/vikin.png scaled to 100x100
 [INFO] Loaded Resource<image>: Resource/images/mapScene/item_empty.png scaled to 100x100
+[INFO] Loaded Resource<image>: Resource/images/mapScene/master.png
+[INFO] Loaded Resource<image>: Resource/images/mapScene/dragen.png
+[INFO] Loaded Resource<image>: Resource/images/mapScene/slime.png
+[INFO] Loaded Resource<image>: Resource/images/mapScene/ninja.png
+[INFO] Loaded Resource<image>: Resource/images/mapScene/shooter.png
+[INFO] Loaded Resource<image>: Resource/images/mapScene/vikin.png
 [INFO] Loaded Resource<image>: Resource/images/play/target.png
 [INFO] Changed to play scene
 [INFO] Loaded Resource<image>: Resource/images/mapScene/brick.png
 [INFO] Loaded Resource<image>: Resource/images/mapScene/roof.png
-[INFO] Loaded Resource<image>: Resource/images/mapScene/master.png scaled to 60x60
+[INFO] Loaded Resource<image>: Resource/images/mapScene/slime.png scaled to 60x60
+[INFO] Loaded Resource<image>: Resource/images/mapScene/dragen.png scaled to 60x60
 [INFO] Game Terminating...
 [INFO] stopped audio (bgm)

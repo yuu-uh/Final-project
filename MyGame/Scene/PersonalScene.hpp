@@ -4,6 +4,7 @@
 #include <allegro5/allegro_audio.h>
 #include <memory>
 #include "UI/Component/TextBox.hpp"
+#include "UI/Component/TextBox.hpp"
 #include "Engine/IScene.hpp"
 class PersonalScene final : public Engine::IScene {
 private:
@@ -24,6 +25,9 @@ public:
     void HostGame();
     void JoinGame();
     void ScoreOnClick();
+    void OnKeyDown(int keycode) override;
+    void Draw() const override;
+    void ConfirmJoin();
     void OnKeyDown(int keycode) override;
     void Draw() const override;
     void ConfirmJoin();

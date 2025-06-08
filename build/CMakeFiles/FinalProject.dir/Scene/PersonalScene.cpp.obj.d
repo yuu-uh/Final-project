@@ -1170,5 +1170,6 @@ CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Group.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Message.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/ImageButton.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Slider.hpp

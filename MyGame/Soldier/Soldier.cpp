@@ -34,6 +34,7 @@ void Soldier::die() {
 Soldier::Soldier(std::string img, float x, float y, float radius, float speed, float hp, float damage) : Engine::Sprite(img, x, y, 60, 60, 0, 0, 0, 10, 10), speed(speed), hp(hp), dmg(damage) {
     CollisionRadius = radius;
     reachEndTime = 0;
+    state = walking;
 }
 void Soldier::Hit(float damage) {
     hp -= damage;
@@ -82,7 +83,6 @@ void Soldier::UpdatePath(const std::vector<std::vector<int>> &mapDistance) {
 void Soldier::Update(float deltaTime){
     // Pre-calculate the velocity.
     //Sprite::Update(deltaTime);
-
     if(state != walking)
         return;
 
@@ -99,6 +99,9 @@ void Soldier::Update(float deltaTime){
     
 }
 void Soldier::Draw() const {
+    // if(Preview){
+    //     al_draw_filled_circle(Position.x, Position.y, CollisionRadius, al_map_rgba(0, 255, 0, 50));
+    // }
     Sprite::Draw();
     // if (PlayScene::DebugMode) {
     //     // Draw collision radius.

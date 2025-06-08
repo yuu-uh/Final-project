@@ -85,6 +85,19 @@ add_executable(FinalProject
     
     Soldier/Soldier.hpp
     Soldier/Soldier.cpp
+    Soldier/vikin.hpp
+    Soldier/vikin.cpp
+    Soldier/master.hpp
+    Soldier/master.cpp
+    Soldier/ninja.hpp
+    Soldier/ninja.cpp
+    Soldier/shooter.hpp
+    Soldier/shooter.cpp
+    Soldier/slime.hpp
+    Soldier/slime.cpp
+    Soldier/dragen.hpp
+    Soldier/dragen.cpp
+
     main.cpp
 )
 

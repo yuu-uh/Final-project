@@ -48,5 +48,6 @@
 [INFO] Changed to play scene
 [INFO] Loaded Resource<image>: Resource/images/mapScene/brick.png
 [INFO] Loaded Resource<image>: Resource/images/mapScene/roof.png
+[INFO] Loaded Resource<image>: Resource/images/mapScene/master.png scaled to 60x60
 [INFO] Game Terminating...
 [INFO] stopped audio (bgm)

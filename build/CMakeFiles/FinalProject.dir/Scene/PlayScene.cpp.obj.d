@@ -913,4 +913,5 @@ CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/MapScene.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/Soldier.hpp

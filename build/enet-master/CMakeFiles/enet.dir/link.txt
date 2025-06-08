@@ -1,0 +1,2 @@
+C:\llvm-mingw-20240417-msvcrt-x86_64\bin\llvm-ar.exe qc libenet.a CMakeFiles/enet.dir/callbacks.c.obj CMakeFiles/enet.dir/compress.c.obj CMakeFiles/enet.dir/host.c.obj CMakeFiles/enet.dir/list.c.obj CMakeFiles/enet.dir/packet.c.obj CMakeFiles/enet.dir/peer.c.obj CMakeFiles/enet.dir/protocol.c.obj CMakeFiles/enet.dir/unix.c.obj CMakeFiles/enet.dir/win32.c.obj
+C:\llvm-mingw-20240417-msvcrt-x86_64\bin\llvm-ranlib.exe libenet.a

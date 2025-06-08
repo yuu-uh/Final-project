@@ -7,8 +7,13 @@
 #include "Scene/PersonalScene.hpp"
 #include "Scene/MapScene.hpp"
 #include "Scene/PlayScene.hpp"
+#include "Engine/NetWork.hpp"
 
 int main(int argc, char **argv) {
+	if (!NetWork::Instance().Init()) {
+        return -1;
+    }
+
 	Engine::LOG::SetConfig(true);
 	Engine::GameEngine& game = Engine::GameEngine::GetInstance();
 

@@ -3,6 +3,9 @@ project(FinalProject)
 
 set(CMAKE_CXX_STANDARD 17)
 
+include_directories(${CMAKE_SOURCE_DIR}/enet-master/include)
+add_subdirectory(enet-master)
+
 include_directories(.)
 include_directories(Resource)
 
@@ -40,6 +43,8 @@ add_executable(FinalProject
     Engine/Resources.hpp
     Engine/Sprite.cpp
     Engine/Sprite.hpp
+    Engine/NetWork.cpp
+    Engine/NetWork.hpp
 
     Player/Player.cpp
     Player/Player.hpp
@@ -87,13 +92,27 @@ IF (WIN32)
     target_include_directories(FinalProject PUBLIC C:/allegro/include)
     target_link_directories(FinalProject PUBLIC C:/allegro/lib)
     target_compile_options(FinalProject PUBLIC ${ALLEGRO5_CFLAGS_OTHER})
-    target_link_libraries(FinalProject liballegro_monolith)
+    target_link_libraries(FinalProject
+    PRIVATE
+      liballegro_monolith
+      enet
+      ws2_32
+      winmm
+  )
 ELSE()
     find_package(PkgConfig)
     pkg_check_modules(ALLEGRO5 REQUIRED allegro-5 allegro_main-5 allegro_font-5 allegro_dialog-5 allegro_primitives-5 allegro_image-5 allegro_ttf-5 allegro_audio-5 allegro_acodec-5)
     target_include_directories(FinalProject PUBLIC lib)
     target_include_directories(FinalProject PUBLIC ${ALLEGRO5_INCLUDE_DIRS})
     target_compile_options(FinalProject PUBLIC ${ALLEGRO5_CFLAGS_OTHER})
-    target_link_libraries(FinalProject ${ALLEGRO5_LIBRARIES})
-    target_link_directories(FinalProject ${ALLEGRO5_LIBRARY_DIRS})
+    target_link_libraries(FinalProject PRIVATE ${ALLEGRO5_LIBRARIES}  )
 ENDIF()
+
+target_include_directories(FinalProject
+  PUBLIC
+    ${CMAKE_SOURCE_DIR}/enet-master/include
+)
+target_link_libraries(FinalProject
+  PRIVATE
+    enet
+)

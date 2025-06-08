@@ -84,8 +84,8 @@ void PersonalScene::Initialize() {
     btn->SetOnClickCallback(std::bind(&PersonalScene::ConfirmJoin, this));
     AddNewObject(new Engine::Label("Connect", "pirulen.ttf", 48, halfW, halfH+500, 255, 255, 255, 255, 0.5, 0.5));
 
-    IPEnter = new Engine::TextBox(halfW-350, halfH-100, 700, 100, 0.5, 0.5); 
-    portEenter = new Engine::TextBox(halfW-350, halfH+200, 700, 100, 0.5, 0.5); 
+    IPEnter = new Engine::TextBox(halfW-350, halfH-150, 700, 100, 0.5, 0.5); 
+    portEenter = new Engine::TextBox(halfW-350, halfH+150, 700, 100, 0.5, 0.5); 
     font = Engine::Resources::GetInstance().GetFont("pirulen.ttf", 48);
 }
 
@@ -110,21 +110,18 @@ void PersonalScene::Draw() const{
     int halfH = h / 2;
     if(join_mode){
         al_draw_filled_rectangle(0, 0, w, h, al_map_rgba(0, 0, 0, 200));
-        al_draw_text(font.get(), al_map_rgb(255, 255, 255), halfW, halfH-200, ALLEGRO_ALIGN_CENTER, "IP");
-        al_draw_text(font.get(), al_map_rgb(255, 255, 255), halfW, halfH+100, ALLEGRO_ALIGN_CENTER, "Port");
+        al_draw_text(font.get(), al_map_rgb(255, 255, 255), halfW, halfH-250, ALLEGRO_ALIGN_CENTER, "IP");
+        al_draw_text(font.get(), al_map_rgb(255, 255, 255), halfW, halfH+50, ALLEGRO_ALIGN_CENTER, "Port");
         IPEnter->Draw();
         portEenter->Draw();
     }
     if (hostMode) {
-        // dark translucent backdrop
         al_draw_filled_rectangle(0,0,w,h, al_map_rgba(0,0,0,200));
-        // draw the info
         ALLEGRO_FONT* f = font.get();
-        al_draw_text(f, al_map_rgb(255,255,255), halfW, halfH-20,
-                     ALLEGRO_ALIGN_CENTER, hostInfo.c_str());
-        al_draw_text(f, al_map_rgb(255,255,255), halfW, halfH+20,
-                     ALLEGRO_ALIGN_CENTER, "Waiting for client…");
-        return; // skip drawing the buttons underneath
+        al_draw_text(f, al_map_rgb(255,255,255), halfW, halfH-70, ALLEGRO_ALIGN_CENTER, hostIdInfo.c_str());
+        al_draw_text(f, al_map_rgb(255,255,255), halfW, halfH, ALLEGRO_ALIGN_CENTER, hostPortInfo.c_str());
+        al_draw_text(f, al_map_rgb(255,255,255), halfW, halfH+70, ALLEGRO_ALIGN_CENTER, "Waiting for client…");
+        return; 
     }
 }
 
@@ -169,8 +166,8 @@ void PersonalScene::HostGame() {
     });
     waitConn = true;
     hostMode = true;
-    hostInfo = "Your ID: " + std::to_string(net.myId)
-             + "   Port: " + std::to_string(1234);
+    hostIdInfo = "Your ID: " + ip;
+    hostPortInfo = "Port: " + std::to_string(1234);
 }
 
 void PersonalScene::JoinGame() {

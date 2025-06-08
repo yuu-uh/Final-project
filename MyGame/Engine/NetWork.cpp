@@ -48,13 +48,14 @@ bool NetWork::ConnectToHost(const std::string& host, enet_uint16 port) {
 
 void NetWork::Service(float timeoutMs) {
     if (!_host) return;
-    ENetEvent event;
-    while (enet_host_service(_host, &event, static_cast<enet_uint32>(timeoutMs)) > 0) {
-        if (_onReceive && event.type == ENET_EVENT_TYPE_RECEIVE) {
-            _onReceive(event);
+    ENetEvent e;
+    while (enet_host_service(_host, &e, static_cast<enet_uint32>(timeoutMs)) > 0) {
+        if (_onReceive) {
+           _onReceive(e);
         }
-    }
+  }
 }
+
 
 bool NetWork::Send(const void* data, size_t len, enet_uint8 channel, enet_uint32 flags) {
     if (!_peer && _role == Host && !_host->peers) return false;

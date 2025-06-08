@@ -12,13 +12,34 @@
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 70
 [INFO] Game initialized
 [INFO] Game start event loop
-[INFO] 192.168.101.233: 1234
+[INFO] 172.20.10.3: 1234
+[INFO] [Host] ENet event type = 1
+[INFO] [Host] CONNECT!
+[INFO] NetWork::isConnected() == true, go to mapScene
+[INFO] Loaded Resource<image>: Resource/images/mapScene/grass.png scaled to 64x64
+[INFO] Loaded Resource<image>: Resource/images/mapScene/stone.png scaled to 64x64
+[INFO] Loaded Resource<image>: Resource/images/mapScene/ninja.png scaled to 30x30
+[INFO] Loaded Resource<image>: Resource/images/mapScene/master.png scaled to 30x30
+[INFO] Loaded Resource<image>: Resource/images/mapScene/slime.png scaled to 30x30
+[INFO] Loaded Resource<image>: Resource/images/mapScene/vikin.png scaled to 30x30
+[INFO] Loaded Resource<image>: Resource/images/mapScene/dragen.png scaled to 30x30
+[INFO] Loaded Resource<image>: Resource/images/mapScene/shooter.png scaled to 30x30
+[INFO] Loaded Resource<image>: Resource/images/mapScene/player1_front01.png scaled to 60x60
+[INFO] start to load animations
+[INFO] animation loaded
+[INFO] start to load animations
+[INFO] animation loaded
+[INFO] Loaded Resource<image>: Resource/images/mapScene/item_empty.png scaled to 128x128
+[INFO] Changed to map scene
+[INFO] Loaded Resource<image>: Resource/images/mapScene/grass.png
+[INFO] Loaded Resource<image>: Resource/images/mapScene/stone.png
+[INFO] Loaded Resource<image>: Resource/images/mapScene/master.png scaled to 100x100
+[INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 24
+[INFO] Loaded Resource<image>: Resource/images/mapScene/master.png
+[INFO] Loaded Resource<image>: Resource/images/play/target.png
+[INFO] Changed to play scene
+[INFO] Loaded Resource<image>: Resource/images/mapScene/brick.png
+[INFO] Loaded Resource<image>: Resource/images/mapScene/roof.png
+[INFO] Loaded Resource<image>: Resource/images/mapScene/master.png scaled to 60x60
 [INFO] Game Terminating...
-[INFO] Game terminated
-[INFO] Game end
-[INFO] Destroyed Resource<image>: stage-select/floor.png?400x100
-[INFO] Destroyed Resource<image>: stage-select/floor.png
-[INFO] Destroyed Resource<image>: background/test.png?1600x832
-[INFO] Destroyed Resource<image>: icon.png
-[INFO] Destroyed Resource<font>: pirulen.ttf?48
-[INFO] Destroyed Resource<font>: pirulen.ttf?100
+[INFO] stopped audio (bgm)

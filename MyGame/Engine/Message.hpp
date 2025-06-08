@@ -42,7 +42,7 @@ struct PlaceSoldier{
   uint8_t  playerId;      // Which player placed the soldier
   uint8_t  soldierType;   // Type of soldier (0=ninja, 1=vikin, 2=master, etc.)
   uint8_t  x, y;          // Grid position
-  uint32_t soldierId;     // Unique ID for this soldier instance
+  uint32_t soldierId; // Unique ID for this soldier instance
 };
 
 struct RemoveSoldier {

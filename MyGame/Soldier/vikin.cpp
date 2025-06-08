@@ -2,8 +2,11 @@
 
 #include "vikin.hpp"
 
-Vikin::Vikin(int x, int y):
-Soldier("mapScene/vikin.png", x, y, 10, 50, 100, 10){};
+Vikin::Vikin(int x, int y, int dir):
+Soldier("mapScene/vikin.png", x, y, dir, 10, 50, 100, 10){
+    attackRadius = 50;
+    cooldown = 0.5f;
+};
 
 std::string Vikin::soldierName() const{
     return "vikin";

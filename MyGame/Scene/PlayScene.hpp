@@ -60,6 +60,7 @@ public:
     Group *BulletGroup;
     Group *TowerGroup;
     Group *SoldierGroup;
+    Group *EnemyGroup;
     Group *UIGroup;
     Group *ItemGroup;
     Group *UIInventoryGroup;
@@ -93,5 +94,6 @@ public:
     void CreateNetworkSoldier(uint8_t playerId, uint8_t soldierType, int x, int y, uint32_t soldierId);
     uint8_t GetSoldierTypeId(const std::string& type);
     std::string GetSoldierTypeString(uint8_t typeId);
+    Soldier* CreateSoldierByType(const std::string& typeName, int x, int y, int dir);
 };
 #endif   // PLAYSCENE_HPP

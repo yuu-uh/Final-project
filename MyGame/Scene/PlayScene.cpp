@@ -51,6 +51,7 @@ void PlayScene::Initialize() {
     AddNewObject(SoldierGroup = new Group());
     AddNewControlObject(UIGroup = new Group());
     AddNewControlObject(UIInventoryGroup = new Group());
+    AddNewObject(EnemyGroup = new Group());
     ReadMap();
 
     ConstructUI();
@@ -102,6 +103,7 @@ void PlayScene::Update(float deltaTime) {
         // To keep responding when paused.
         preview->Update(deltaTime);
     }
+    EnemyGroup->Update(deltaTime);
     SoldierGroup->Update(deltaTime);
     UIGroup->Update(deltaTime);
     UIInventoryGroup->Update(deltaTime);
@@ -161,6 +163,7 @@ void PlayScene::Draw() const {
     UIGroup->Draw();
     UIInventoryGroup->Draw();
     SoldierGroup->Draw();
+    EnemyGroup->Draw();
     if (MouseOnIcon) MouseOnIcon->Draw();  
 }
 void PlayScene::OnMouseDown(int button, int mx, int my) {
@@ -220,8 +223,6 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
         preview->Enabled = true;
         preview->Preview = false;
         preview->Tint = al_map_rgba(255, 255, 255, 255);
-        
-        preview->direction = (NetWork::Instance().myId == 0) ? 1 : -1;
 
         // Assign unique ID and store
         uint32_t soldierId = nextSoldierId++;
@@ -279,7 +280,7 @@ void PlayScene::HandleNetworkMessage(const ENetEvent& event) {
             if (event.packet->dataLength >= sizeof(PacketHeader) + sizeof(PlaceSoldier)) {
                 PlaceSoldier msg;
                 memcpy(&msg, event.packet->data + sizeof(PacketHeader), sizeof(PlaceSoldier));
-                
+                std::cout<<msg.playerId<<std::endl;
                 // Don't process our own messages
                 if (msg.playerId != NetWork::Instance().myId) {
                     CreateNetworkSoldier(msg.playerId, msg.soldierType, msg.x, msg.y, msg.soldierId);
@@ -306,45 +307,18 @@ void PlayScene::HandleNetworkMessage(const ENetEvent& event) {
 }
 
 void PlayScene::CreateNetworkSoldier(uint8_t playerId, uint8_t soldierType, int x, int y, uint32_t soldierId) {
-    Soldier* soldier = nullptr;
-    
-    switch (soldierType) {
-        case 0: soldier = new Ninja(0, 0); break;
-        case 1: soldier = new Vikin(0, 0); break;
-        case 2: soldier = new Master(0, 0); break;
-        case 3: soldier = new Shooter(0, 0); break;
-        case 4: soldier = new Slime(0, 0); break;
-        case 5: soldier = new Dragen(0, 0); break;
-        default: return;
-    }
-    
-    int realX = x;
+    int realX = PlayScene::MapWidth - 1 - x;
     int realY = y;
 
-    if (playerId != NetWork::Instance().myId) {
-        realX = PlayScene::MapWidth - 1 - x; // mirror horizontally
-    }
-    // Position the soldier
+    std::string typeName = GetSoldierTypeString(soldierType);
+    Soldier* soldier = CreateSoldierByType(typeName, realX, realY, -1);
+    if (!soldier) return;
+
     soldier->Position.x = realX * BlockSize + BlockSize / 2;
     soldier->Position.y = realY * BlockSize + BlockSize / 2;
     soldier->Enabled = true;
     soldier->Preview = false;
-    
-    // Different visual indicator for enemy soldiers (optional)
-    bool isEnemySoldier = (playerId != NetWork::Instance().myId);
-    
-    if (isEnemySoldier) {
-        soldier->direction = (playerId == 0) ? 1 : -1;
-        soldier->Tint = al_map_rgba(255, 100, 100, 255);
-        //soldier->Rotation = 180;
-        
-    } else {
-        soldier->direction = (playerId == 0) ? 1 : -1;
-        soldier->Tint = al_map_rgba(255, 255, 255, 255);
-        //soldier->Rotation = 0;
-    }
-    
-    // Store and add to scene
+    soldier->Tint = al_map_rgba(255, 100, 100, 255);
     networkSoldiers[soldierId] = soldier;
     SoldierGroup->AddNewObject(soldier);
 }
@@ -357,6 +331,23 @@ uint8_t PlayScene::GetSoldierTypeId(const std::string& type) {
     if (type == "slime") return 4;
     if (type == "dragen") return 5;
     return 0;
+}
+
+Soldier* PlayScene::CreateSoldierByType(const std::string& typeName, int x, int y, int dir) {
+    if (typeName == "ninja") {
+        return new Ninja(x, y, dir);
+    } else if (typeName == "vikin") {
+        return new Vikin(x, y, dir);
+    } else if (typeName == "master") {
+        return new Master(x, y, dir);
+    } else if (typeName == "shooter") {
+        return new Shooter(x, y, dir);
+    } else if (typeName == "slime") {
+        return new Slime(x, y, dir);
+    } else if (typeName == "dragen") {
+        return new Dragen(x, y, dir);
+    }
+    return nullptr; // Unknown type
 }
 
 std::string PlayScene::GetSoldierTypeString(uint8_t typeId) {
@@ -447,17 +438,17 @@ void PlayScene::UIBtnClicked(std::string type) {
         return;
 
     if(type == "ninja"){
-        next_preview = new Ninja(0, 0);
+        next_preview = new Ninja(0, 0, 1);
     }else if(type == "vikin"){
-        next_preview = new Vikin(0, 0);
+        next_preview = new Vikin(0, 0, 1);
     }else if(type == "master"){
-        next_preview = new Master(0, 0);
+        next_preview = new Master(0, 0, 1);
     }else if(type == "shooter"){
-        next_preview = new Shooter(0, 0);
+        next_preview = new Shooter(0, 0, 1);
     }else if(type == "slime"){
-        next_preview = new Slime(0, 0);
+        next_preview = new Slime(0, 0, 1);
     }else if(type == "dragen"){
-        next_preview  = new Dragen(0, 0);
+        next_preview  = new Dragen(0, 0, 1);
     }
     if(!next_preview) return;
 

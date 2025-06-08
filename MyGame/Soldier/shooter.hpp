@@ -11,7 +11,7 @@
 
 class Shooter : public Soldier {
 public:
-    Shooter(int x, int y);
+    Shooter(int x, int y, int dir);
     std::string soldierName() const override;
 };
 #endif   // ENEMY_HPP

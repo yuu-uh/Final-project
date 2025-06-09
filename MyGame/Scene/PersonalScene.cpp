@@ -205,7 +205,6 @@ void PersonalScene::ConfirmJoin() {
     net.SetReceiveCallback([this](const ENetEvent& e){
         if(e.type==ENET_EVENT_TYPE_CONNECT){
             join_mode = false;
-        if(e.type==ENET_EVENT_TYPE_CONNECT){
             PacketHeader hdr{ MSG_JOB_SELECT, sizeof(uint8_t) };
             uint8_t buf[sizeof(hdr)+1];
             std::memcpy(buf, &hdr, sizeof(hdr));
@@ -213,7 +212,6 @@ void PersonalScene::ConfirmJoin() {
             std::memcpy(buf + sizeof(hdr), &jobId, 1);
             NetWork::Instance().Send(buf, sizeof(buf), 0);
             Engine::GameEngine::GetInstance().ChangeScene("map");
-        }
         }            
     });
     waitConn = true;

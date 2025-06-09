@@ -76,8 +76,18 @@ void Soldier::Hit(float damage) {
 }
 
 void Soldier::Attack() {
+    PlayScene* scene = getPlayScene();
     if (target)
-        target->Hit(dmg); // Default: melee attack (sword)
+        target->Hit(dmg);
+    else{
+        if (direction == 1) {
+                    // Player's soldier attacking enemy castle
+            scene->SendCastleDamage(1);  // Send network message
+        } else {
+                    // Enemy soldier attacking player's castle
+            scene->Hit();  // Damage local player
+        }
+    } // Default: melee attack (sword)
 }
 
 void Soldier::Update(float deltaTime){
@@ -98,14 +108,7 @@ void Soldier::Update(float deltaTime){
             attackTimer -= deltaTime;
             if (attackTimer <= 0) {
                 attackTimer = cooldown;
-                
-                if (direction == 1) {
-                    // Player's soldier attacking enemy castle
-                    scene->SendCastleDamage(1);  // Send network message
-                } else {
-                    // Enemy soldier attacking player's castle
-                    scene->Hit();  // Damage local player
-                }
+                Attack();
             }
             return;
         }

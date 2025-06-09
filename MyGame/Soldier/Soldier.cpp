@@ -75,7 +75,10 @@ void Soldier::Hit(float damage) {
     }
 }
 
-
+void Soldier::Attack() {
+    if (target)
+        target->Hit(dmg); // Default: melee attack (sword)
+}
 
 void Soldier::Update(float deltaTime){
     if(Preview) return;
@@ -141,7 +144,7 @@ void Soldier::Update(float deltaTime){
             // Attack target
             attackTimer -= deltaTime;
             if (attackTimer <= 0) {
-                target->Hit(dmg);
+                Attack();
                 attackTimer = cooldown;
             }
         }

@@ -70,17 +70,17 @@ void ScoreBoardScene::Initialize(){
     displayRecord();
 
     Engine::ImageButton *btn;
-    btn = new Engine::ImageButton("stage-select/dirt.png", "stage-select/floor.png", halfW - 200, halfH / 2 + 400, 400, 100);
+    btn = new Engine::ImageButton("GUI/button1.png", "GUI/button1.png", halfW - 250, halfH / 2 + 400, 400, 100);
     btn->SetOnClickCallback(std::bind(&ScoreBoardScene::BackOnClick, this));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Back", "pirulen.ttf", 48, halfW, halfH / 2 + 450, 0, 0, 0, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("Back", "pirulen.ttf", 48, halfW, halfH / 2 + 450, 255, 255, 255, 255, 0.5, 0.5));
 
-    //btn = new Engine::ImageButton("GUI/Prev.png", "stage-select/floor.png", halfW - 700, halfH / 2 + 400, 100, 100);
+    btn = new Engine::ImageButton("GUI/skip1.png", "GUI/skip1.png", halfW - 400, halfH / 2 + 400, 100, 100);
     btn->SetOnClickCallback(std::bind(&ScoreBoardScene::PrevOnClick, this));
     AddNewControlObject(btn);
     //AddNewObject(new Engine::Label("Prev", "pirulen.ttf", 48, halfW-500, halfH / 2 + 450, 0, 0, 0, 255, 0.5, 0.5));
 
-    btn = new Engine::ImageButton("GUI/Skip.png", "stage-select/floor.png", halfW + 300, halfH / 2 + 400, 100, 100);
+    btn = new Engine::ImageButton("GUI/Skip.png", "GUI/Skip.png", halfW + 200, halfH / 2 + 400, 100, 100);
     btn->SetOnClickCallback(std::bind(&ScoreBoardScene::NextOnClick, this));
     AddNewControlObject(btn);
     //AddNewObject(new Engine::Label("Next", "pirulen.ttf", 48, halfW+500, halfH / 2 + 450, 0, 0, 0, 255, 0.5, 0.5));

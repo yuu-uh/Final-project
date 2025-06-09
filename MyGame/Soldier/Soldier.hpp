@@ -53,6 +53,6 @@ public:
     float getSpeed(){ return speed; }
     void setSpeed(float s){ speed = s; }
     virtual std::string soldierName() const = 0;
-    std::pair<int, int> GetClosetPath(int x, int y);
+    virtual void Attack();
 };
 #endif   // ENEMY_HPP

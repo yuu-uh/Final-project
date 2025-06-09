@@ -25,6 +25,7 @@ protected:
     virtual void OnCollision(Engine::Sprite *other);
 
 private:
+    Engine::Point lastPosition;
     bool isLocal;
     uint8_t action = 0;
     float animationTimer = 0.0f;

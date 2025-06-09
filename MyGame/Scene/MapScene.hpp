@@ -20,11 +20,6 @@ namespace Engine {
 
 class MapScene final : public Engine::IScene {
 private:
-    enum TileType {
-        TILE_DIRT,
-        TILE_FLOOR,
-        TILE_OCCUPIED,
-    };
     ALLEGRO_SAMPLE_ID bgmId;
     std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE> deathBGMInstance;
     float timer;
@@ -35,6 +30,11 @@ private:
     std::vector<Item*> allItems;
 
 public:
+    enum TileType {
+        TILE_DIRT,
+        TILE_FLOOR,
+        TILE_OCCUPIED,
+    };
     std::unordered_map<std::string, std::pair<int, Engine::Label*>> inventoryCount;
     std::unordered_map<std::string, Engine::Image*> inventoryIcons;
     std::vector<Engine::Image*> slotImage;

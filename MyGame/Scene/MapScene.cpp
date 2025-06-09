@@ -89,6 +89,9 @@ void MapScene::Initialize() {
             for (auto* it : allItems) {
                 if (it->id == pi->itemId && !it->item_picked()) {
                     it->Pick();
+                    if(pi->playerId == net.myId){
+                        AddToInventory(it, it->getType());
+                    }
                     break;
                 }
             }
@@ -131,14 +134,6 @@ void MapScene::Update(float dt) {
 
         if (!item->item_picked() && Engine::Collider::IsCircleOverlap(
             item->Position, item->CollisionRadius, player->Position, player->CollisionRadius)) {
-            item->Pick();
-            PacketHeader hdr{ MSG_PICK_ITEM, sizeof(PickItem) };
-            PickItem pi{ uint8_t(net.myId), uint8_t(item->id) };
-            uint8_t buf[sizeof(hdr)+sizeof(pi)];
-            std::memcpy(buf, &hdr, sizeof(hdr));
-            std::memcpy(buf+sizeof(hdr), &pi, sizeof(pi));
-            net.Send(buf, sizeof(buf), 0);
-            AddToInventory(item, item->getType());
         }
     }
 
@@ -235,12 +230,13 @@ void MapScene::ReadMap() {
     std::string filename = std::string("Resource/Map.txt");
     
     char c;
-    std::vector<bool> mapData;
+    std::vector<int> mapData;
     std::ifstream fin(filename);
     while (fin >> c) {
         switch (c) {
-            case '0': mapData.push_back(false); break;
-            case '1': mapData.push_back(true); break;
+            case '0': mapData.push_back(0); break;
+            case '1': mapData.push_back(1); break;
+            case '2': mapData.push_back(2); break;
             case '\n':
             case '\r':
                 if (static_cast<int>(mapData.size()) / MapWidth != 0)

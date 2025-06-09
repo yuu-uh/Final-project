@@ -63,6 +63,10 @@ void Player::Update(float deltaTime) {
         else
             OnCollision(nullptr);
     }
+    if (!isLocal) {
+        moving = !(Position.x == lastPosition.x && Position.y == lastPosition.y);
+    }
+    lastPosition = Position;
     if (moving && !animations[cur_dir].empty()) {
         animationTimer += deltaTime;
         if (animationTimer >= frameDuration) {
@@ -76,10 +80,12 @@ void Player::Update(float deltaTime) {
 }
 
 bool Player::CheckCollision(const Engine::Point &newPos) {
-    int gx = static_cast<int>(newPos.x) / MapScene::BlockSize;
-    int gy = static_cast<int>(newPos.y) / MapScene::BlockSize;
-    //return !playScene->CheckSpaceValid(gx, gy);
-    return false;
+    int gx = int(newPos.x) / MapScene::BlockSize;
+    int gy = int(newPos.y) / MapScene::BlockSize;
+    if (gx < 0 || gx >= MapScene::MapWidth ||
+        gy < 0 || gy >= MapScene::MapHeight) return true;
+    auto &ms = playScene->mapState;
+    return (ms[gy][gx] == MapScene::TILE_OCCUPIED);
 }
 
 void Player::Draw() const{

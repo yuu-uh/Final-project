@@ -895,6 +895,55 @@ CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj: \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/path_iterator.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/u8path.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/random \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/bernoulli_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/uniform_real_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/generate_canonical.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/binomial_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/cauchy_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/chi_squared_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/gamma_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/exponential_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/clamp_to_integral.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/default_random_engine.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/linear_congruential_engine.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/is_seed_sequence.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/discard_block_engine.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/discrete_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/numeric \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/accumulate.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/adjacent_difference.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/exclusive_scan.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/gcd_lcm.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/inclusive_scan.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/inner_product.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/iota.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/midpoint.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/partial_sum.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/pstl_reduce.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/reduce.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/saturation_arithmetic.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/transform_exclusive_scan.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/transform_inclusive_scan.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/extreme_value_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/fisher_f_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/geometric_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/negative_binomial_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/poisson_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/normal_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/independent_bits_engine.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/knuth_b.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/shuffle_order_engine.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/lognormal_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/mersenne_twister_engine.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/piecewise_constant_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/piecewise_linear_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/random_device.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/ranlux.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/subtract_with_carry_engine.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/seed_seq.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/student_t_distribution.h \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/weibull_distribution.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Message.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/AudioHelper.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/GameEngine.hpp \
@@ -903,6 +952,9 @@ CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj: \
   C:/allegro/include/allegro5/allegro_font.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/list \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Sprite.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Group.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp \
@@ -1164,10 +1216,11 @@ CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/protocol.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/list.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/callbacks.h \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Sprite.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/MapScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/PlayScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/Soldier.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/PersonalScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/TextBox.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/ImageButton.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Slider.hpp

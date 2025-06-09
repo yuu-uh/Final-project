@@ -6,17 +6,41 @@
 [INFO] Game begin
 [INFO] Loaded Resource<image>: Resource/images/background/test.png scaled to 1600x832
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 100
-[INFO] Loaded Resource<image>: Resource/images/GUI/button3.png scaled to 540x140
+[INFO] Loaded Resource<image>: Resource/images/GUI/button3.png scaled to 500x120
 [INFO] Loaded Resource<image>: Resource/images/GUI/button3.png
-[INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 42
-[INFO] Loaded Resource<image>: Resource/images/GUI/button1.png scaled to 540x140
+[INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 36
+[INFO] Loaded Resource<image>: Resource/images/GUI/button1.png scaled to 500x120
 [INFO] Loaded Resource<image>: Resource/images/GUI/button1.png
-[INFO] Loaded Resource<image>: Resource/images/GUI/button2.png scaled to 540x140
+[INFO] Loaded Resource<image>: Resource/images/GUI/button2.png scaled to 500x120
 [INFO] Loaded Resource<image>: Resource/images/GUI/button2.png
+[INFO] Loaded Resource<image>: Resource/images/GUI/player.png scaled to 516x568
+[INFO] Loaded Resource<image>: Resource/images/mapScene/Engineer.png scaled to 300x260
+[INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 32
+[INFO] Loaded Resource<image>: Resource/images/GUI/Skip.png scaled to 60x60
+[INFO] Loaded Resource<image>: Resource/images/GUI/Skip.png
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 70
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 48
 [INFO] Game initialized
 [INFO] Game start event loop
+[INFO] Game Terminating...
+[INFO] Game terminated
+[INFO] Game end
+[INFO] Destroyed Resource<image>: GUI/Skip.png
+[INFO] Destroyed Resource<image>: mapScene/Engineer.png?300x260
+[INFO] Destroyed Resource<image>: GUI/button2.png
+[INFO] Destroyed Resource<image>: GUI/player.png?516x568
+[INFO] Destroyed Resource<image>: GUI/button2.png?500x120
+[INFO] Destroyed Resource<image>: GUI/button1.png
+[INFO] Destroyed Resource<image>: GUI/button1.png?500x120
+[INFO] Destroyed Resource<image>: GUI/Skip.png?60x60
+[INFO] Destroyed Resource<image>: GUI/button3.png
+[INFO] Destroyed Resource<image>: GUI/button3.png?500x120
+[INFO] Destroyed Resource<image>: background/test.png?1600x832
+[INFO] Destroyed Resource<image>: icon.png
+[INFO] Destroyed Resource<font>: pirulen.ttf?32
+[INFO] Destroyed Resource<font>: pirulen.ttf?36
+[INFO] Destroyed Resource<font>: pirulen.ttf?48
+[INFO] Destroyed Resource<font>: pirulen.ttf?100
 [INFO] 192.168.108.78: 1234
 [INFO] [Host] ENet event type = 1
 [INFO] [Host] CONNECT!

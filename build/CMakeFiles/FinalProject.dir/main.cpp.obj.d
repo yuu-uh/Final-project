@@ -852,6 +852,9 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/pointer_to_unary_function.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__functional/unary_negate.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Point.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Sprite.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/LOG.hpp \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/fstream \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/filesystem \
@@ -908,11 +911,8 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PersonalScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/TextBox.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Message.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/MapScene.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Sprite.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/Soldier.hpp \

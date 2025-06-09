@@ -28,6 +28,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PersonalScene.cpp" "CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.cpp" "CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/Scene/ResultScene.cpp" "CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.obj.d"
+  "C:/Users/annys/Downloads/FinalProject/MyGame/Scene/SettingsScene.cpp" "CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/Scene/StoryScene.cpp" "CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.cpp" "CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/dragen.cpp" "CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj.d"

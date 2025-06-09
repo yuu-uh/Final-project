@@ -13,7 +13,8 @@ enum MessageType : uint8_t {
   MSG_CASTLE_DAMAGE,
   MSG_GAME_END,
   MSG_SOLDIER_UPDATE,     // New: For position/state updates
-  MSG_SOLDIER_ATTACK
+  MSG_SOLDIER_ATTACK,
+  MSG_JOB_SELECT
 };
 
 #pragma pack(push,1)

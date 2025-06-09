@@ -18,6 +18,8 @@
 #include "Point.hpp"
 #include "Resources.hpp"
 
+std::string Engine::GameEngine::job    = "";
+std::string Engine::GameEngine::conjob = "";
 namespace Engine {
     void GameEngine::initAllegro5() {
         if (!al_init()) throw Allegro5Exception("failed to initialize allegro");

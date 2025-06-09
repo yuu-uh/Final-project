@@ -72,7 +72,7 @@ public:
     void PickupItem(Item* item);
     void AddToInventory(Item* item, const std::string& itemType);
     std::vector<Item*> inventory;
-    // bool CheckSpaceValid(int x, int y);
+    bool CheckSpaceValid(int x, int y);
 };
 
 #endif   

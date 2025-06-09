@@ -37,13 +37,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 109,
+				"line" : 110,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 111,
+				"line" : 112,
 				"parent" : 0
 			},
 			{
@@ -67,7 +67,7 @@
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 108,
+				"line" : 109,
 				"parent" : 0
 			}
 		]
@@ -138,7 +138,7 @@
 				49,
 				51,
 				53,
-				56,
+				55,
 				58,
 				60,
 				62,
@@ -146,7 +146,8 @@
 				66,
 				68,
 				70,
-				71
+				72,
+				73
 			]
 		}
 	],
@@ -257,7 +258,7 @@
 				49,
 				51,
 				53,
-				56,
+				55,
 				58,
 				60,
 				62,
@@ -265,7 +266,8 @@
 				66,
 				68,
 				70,
-				71
+				72,
+				73
 			]
 		},
 		{
@@ -300,14 +302,15 @@
 				50,
 				52,
 				54,
-				55,
+				56,
 				57,
 				59,
 				61,
 				63,
 				65,
 				67,
-				69
+				69,
+				71
 			]
 		}
 	],
@@ -525,6 +528,17 @@
 		{
 			"backtrace" : 1,
 			"path" : "Scene/ResultScene.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Scene/SettingsScene.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Scene/SettingsScene.hpp",
 			"sourceGroupIndex" : 1
 		},
 		{

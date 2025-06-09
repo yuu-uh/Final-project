@@ -905,4 +905,6 @@ CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj: \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/u8path.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/AudioHelper.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/GameEngine.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Sprite.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Resources.hpp

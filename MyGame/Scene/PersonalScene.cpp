@@ -54,6 +54,7 @@ static std::string getLocalIP() {
 }
 #include "UI/Component/TextBox.hpp"
 
+const std::vector<std::string> PersonalScene::JobNames =  { "Engineer", "Mage", "Paladin", "Rogue" };
 void PersonalScene::Initialize() {
     int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
@@ -61,30 +62,46 @@ void PersonalScene::Initialize() {
     int halfH = h / 2;
     Engine::ImageButton* btn;
 
-    AddNewObject(new Engine::Image("background/test.png", 0,0,w,h));
-    AddNewObject(new Engine::Label("Mirror Duel","pirulen.ttf",100,halfW,halfH/3,255,255,255,255,0.5,0.5));
+    AddNewObject(new Engine::Image("background/test.png", 0, 0, w, h));
+    AddNewObject(new Engine::Label("Mirror Duel", "pirulen.ttf", 100, halfW - 50, 120, 255, 255, 255, 255, 0.5, 0.5));
 
-    btn = new Engine::ImageButton("GUI/button3.png","GUI/button3.png",halfW-280,halfH/2+60,540,140);
-    btn->SetOnClickCallback(std::bind(&PersonalScene::HostGame,this));
+    btn = new Engine::ImageButton("GUI/button3.png", "GUI/button3.png", halfW - 630, halfH / 2+10, 500, 120);
+    btn->SetOnClickCallback(std::bind(&PersonalScene::HostGame, this));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Host Game","pirulen.ttf",42,halfW+42,halfH/2+130,255,255,255,255,0.5,0.5));
+    AddNewObject(new Engine::Label("Host Game", "pirulen.ttf", 36, halfW - 310, halfH / 2 +70, 255, 255, 255, 255, 0.5, 0.5));
 
-    btn = new Engine::ImageButton("GUI/button1.png","GUI/button1.png",halfW-280,halfH/2+200,540,140);
-    btn->SetOnClickCallback(std::bind(&PersonalScene::JoinGame,this));
+    btn = new Engine::ImageButton("GUI/button1.png", "GUI/button1.png", halfW - 630, halfH / 2 + 160, 500, 120);
+    btn->SetOnClickCallback(std::bind(&PersonalScene::JoinGame, this));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Join Game","pirulen.ttf",42,halfW+42,halfH/2+270,255,255,255,255,0.5,0.5));
+    AddNewObject(new Engine::Label("Join Game", "pirulen.ttf", 36, halfW - 310, halfH / 2+220, 255, 255, 255, 255, 0.5, 0.5));
+
+    btn = new Engine::ImageButton("GUI/button2.png", "GUI/button2.png", halfW - 630, halfH / 2 + 290, 500, 120);
+    btn->SetOnClickCallback(std::bind(&PersonalScene::ScoreOnClick, this));
+    AddNewControlObject(btn);
+    AddNewObject(new Engine::Label("Score", "pirulen.ttf", 36, halfW - 310, halfH / 2 +350, 255, 255, 255, 255, 0.5, 0.5));
+
+    btn = new Engine::ImageButton("GUI/button2.png", "GUI/button2.png", halfW - 630, halfH / 2 +430, 500, 120);
+    btn->SetOnClickCallback(std::bind(&PersonalScene::SettingOnClick, this));
+    AddNewControlObject(btn);
+    AddNewObject(new Engine::Label("Setting", "pirulen.ttf", 36, halfW - 310, halfH / 2 +490, 255, 255, 255, 255, 0.5, 0.5));
+
+    AddNewObject(new Engine::Image("GUI/player.png", 800, 200, 516, 568));
     
-
-    btn = new Engine::ImageButton("GUI/button2.png","GUI/button2.png",halfW-280,halfH/2+340,540,140);
-    btn->SetOnClickCallback(std::bind(&PersonalScene::ScoreOnClick,this));
-    AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Score","pirulen.ttf",42,halfW+42,halfH/2+410,255,255,255,255,0.5,0.5));
-    
-    btn = new Engine::ImageButton("GUI/button2.png","GUI/button2.png",halfW-280,halfH/2+480,540,140);
-    btn->SetOnClickCallback(std::bind(&PersonalScene::SettingOnClick,this));
-    AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Setting","pirulen.ttf",42,halfW+42,halfH/2+560,255,255,255,255,0.5,0.5));
-
+    currentJobIndex = 0;
+    jobPreview = new Engine::Image("mapScene/"+ JobNames[currentJobIndex] +".png", 870, 370, 300,260);
+    AddNewObject(jobPreview);
+    jobLabel = new Engine::Label(JobNames[currentJobIndex], "pirulen.ttf", 32, 980, 700,255,255,255,255,0.5,0.5);
+    AddNewObject(jobLabel);
+    auto skip = new Engine::ImageButton("GUI/Skip.png","GUI/Skip.png",1120, 670, 60,60);
+    skip->SetOnClickCallback([this](){
+        currentJobIndex = (currentJobIndex + 1) % JobNames.size();
+        std::string newPath = "mapScene/" + JobNames[currentJobIndex] + ".png";
+        RemoveObject(jobPreview->GetObjectIterator());
+        jobPreview = new Engine::Image(newPath, 870, 370, 300,260);
+        AddNewObject(jobPreview);
+        jobLabel->Text = JobNames[currentJobIndex];
+    });
+    AddNewControlObject(skip);
 
     IPEnter = new Engine::TextBox(halfW-350, halfH-150, 700, 100, 0.5, 0.5); 
     portEenter = new Engine::TextBox(halfW-350, halfH+150, 700, 100, 0.5, 0.5); 
@@ -143,6 +160,7 @@ void PersonalScene::OnKeyDown(int keycode){
 }
 
 void PersonalScene::HostGame() {
+    Engine::GameEngine::job = JobNames[currentJobIndex];
     auto& net = NetWork::Instance();
     net.myId = 0;
     if (!net.Init()) return;
@@ -157,15 +175,7 @@ void PersonalScene::HostGame() {
     Engine::LOG(Engine::INFO) << "[Host] ENet event type = " << e.type;
     if (e.type == ENET_EVENT_TYPE_CONNECT) {
         Engine::LOG(Engine::INFO) << "[Host] CONNECT!";
-    }
-    else if (e.type == ENET_EVENT_TYPE_DISCONNECT) {
-        Engine::LOG(Engine::INFO) << "[Host] DISCONNECT!";
-    }
-    else if (e.type == ENET_EVENT_TYPE_RECEIVE) {
-        Engine::LOG(Engine::INFO) << "[Host] RECEIVE len=" << e.packet->dataLength;
-        enet_packet_destroy(e.packet);
-    }
-    });
+    }});
     waitConn = true;
     hostMode = true;
     hostIdInfo = "Your ID: " + ip;
@@ -173,6 +183,7 @@ void PersonalScene::HostGame() {
 }
 
 void PersonalScene::JoinGame() {
+    Engine::GameEngine::job = JobNames[currentJobIndex];
     join_mode = true;
     focusedBox = IPEnter;
 }
@@ -194,7 +205,15 @@ void PersonalScene::ConfirmJoin() {
     net.SetReceiveCallback([this](const ENetEvent& e){
         if(e.type==ENET_EVENT_TYPE_CONNECT){
             join_mode = false;
+        if(e.type==ENET_EVENT_TYPE_CONNECT){
+            PacketHeader hdr{ MSG_JOB_SELECT, sizeof(uint8_t) };
+            uint8_t buf[sizeof(hdr)+1];
+            std::memcpy(buf, &hdr, sizeof(hdr));
+            uint8_t jobId = static_cast<uint8_t>(currentJobIndex);
+            std::memcpy(buf + sizeof(hdr), &jobId, 1);
+            NetWork::Instance().Send(buf, sizeof(buf), 0);
             Engine::GameEngine::GetInstance().ChangeScene("map");
+        }
         }            
     });
     waitConn = true;
@@ -206,7 +225,6 @@ void PersonalScene::ScoreOnClick() {
 void PersonalScene::SettingOnClick() {
     Engine::GameEngine::GetInstance().ChangeScene("setting");
 }
-
 void PersonalScene::Terminate() {
     IScene::Terminate();
     waitConn = false;

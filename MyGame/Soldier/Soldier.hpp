@@ -13,7 +13,7 @@ class PlayScene;
 class Turret;
 
 enum State{
-    walking, attacking
+    walking, attacking, idle, dead
 };
 
 class Soldier : public Engine::Sprite {

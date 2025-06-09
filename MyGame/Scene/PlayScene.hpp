@@ -51,6 +51,17 @@ private:
         uint8_t player2Lives;
         uint8_t endReason;  // 0 = lives depleted, 1 = timeout
     };
+
+    float soldierUpdateTimer;
+    uint32_t gameStartTime;
+    
+    // New methods
+    void SendSoldierUpdates();
+    void SendSoldierUpdate(uint32_t soldierId, Soldier* soldier);
+    void SendSoldierAttack(uint32_t soldierId, uint8_t targetType, uint32_t targetId = 0);
+    void HandleSoldierUpdate(const SoldierUpdate& update);
+    void HandleSoldierAttack(const SoldierAttack& attack);
+    uint32_t GetGameTime() const;
 protected:
 
 public:

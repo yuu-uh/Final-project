@@ -60,6 +60,8 @@ void PlayScene::Initialize() {
 
     ConstructUI();
     lives = 10;
+    soldierUpdateTimer = 0.0f;
+    gameStartTime = al_get_time() * 1000;
 
     timer = 300.0f;
     countdownLabel = new Engine::Label("05:00", "pirulen.ttf", 48,

@@ -58,8 +58,8 @@ add_executable(FinalProject
     Scene/PersonalScene.hpp
     Scene/PlayScene.cpp
     Scene/PlayScene.hpp
-    # Scene/ResultScene.cpp
-    # Scene/ResultScene.hpp
+    Scene/ResultScene.cpp
+    Scene/ResultScene.hpp
     # Scene/ScoreBoardScene.cpp
     # Scene/ScoreBoardScene.hpp
     # Scene/SettingsScene.cpp
@@ -67,10 +67,10 @@ add_executable(FinalProject
     Scene/StoryScene.cpp
     Scene/StoryScene.hpp
 
-    # UI/Animation/DirtyEffect.cpp
-    # UI/Animation/DirtyEffect.hpp
-    # UI/Animation/ExplosionEffect.cpp
-    # UI/Animation/ExplosionEffect.hpp
+    UI/Animation/DirtyEffect.cpp
+    UI/Animation/DirtyEffect.hpp
+    UI/Animation/ExplosionEffect.cpp
+    UI/Animation/ExplosionEffect.hpp
 
     UI/Component/Image.cpp
     UI/Component/Image.hpp

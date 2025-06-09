@@ -8,6 +8,7 @@
 #include "Scene/MapScene.hpp"
 #include "Scene/PlayScene.hpp"
 #include "Scene/StoryScene.hpp"
+#include "Scene/ResultScene.hpp"
 #include "Engine/NetWork.hpp"
 
 int main(int argc, char **argv) {
@@ -22,7 +23,7 @@ int main(int argc, char **argv) {
 	game.AddNewScene("map", new MapScene());
 	game.AddNewScene("personal", new PersonalScene());
 	game.AddNewScene("play", new PlayScene());
-	// game.AddNewScene("result", new ResultScene());
+	game.AddNewScene("result", new ResultScene());
 	// game.AddNewScene("scoreboard", new ScoreBoardScene());
 	// game.AddNewScene("settings", new SettingsScene());
 	game.AddNewScene("story", new StoryScene());

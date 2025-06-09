@@ -18,12 +18,16 @@ enum State{
 
 class Soldier : public Engine::Sprite {
 protected:
+    bool AttackCastle = false;
+    int tileX, tileY;
+    int baseY;
     float attackRadius;
     float cooldown;
     float attackTimer = 0.0f;
     std::vector<Engine::Point> path;
     float speed;
     float hp;
+    float maxHp;
     float dmg;
     float float_timer;
     int money;
@@ -31,6 +35,7 @@ protected:
     virtual void die();
     State state;
     Soldier* target = nullptr;
+    Engine::Group* Enemy;
 
     
 
@@ -47,5 +52,6 @@ public:
     float getSpeed(){ return speed; }
     void setSpeed(float s){ speed = s; }
     virtual std::string soldierName() const = 0;
+    std::pair<int, int> GetClosetPath(int x, int y);
 };
 #endif   // ENEMY_HPP

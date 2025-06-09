@@ -14,6 +14,7 @@
 #include "Engine/NetWork.hpp"
 
 class Turret;
+
 namespace Engine {
     class Group;
     class Image;
@@ -33,7 +34,6 @@ private:
     float timer;
     Engine::Label* countdownLabel;
     Engine::Label* UILives;
-    std::vector<std::vector<int>> mapData;
     Engine::Image* MouseOnIcon = nullptr;
     int MouseIdx = -1;
     std::vector<std::shared_ptr<Item>> worldItems;
@@ -41,11 +41,23 @@ private:
     std::vector<Item*> inventory;
     std::unordered_map<uint32_t, Soldier*> networkSoldiers;  // Track soldiers by ID
     uint32_t nextSoldierId;  // Counter for unique soldier IDs
-
+    uint8_t opponentLives = 10;  // Track opponent's lives
+    bool gameEnded = false;      // Prevent multiple game end calls
+    
+    // Game result data for result scene
+    struct GameResultData {
+        uint8_t winnerId;
+        uint8_t player1Lives;
+        uint8_t player2Lives;
+        uint8_t endReason;  // 0 = lives depleted, 1 = timeout
+    };
 protected:
-    int lives;
 
 public:
+    static GameResultData lastGameResult; 
+    int lives;
+    std::vector<std::vector<int>> mapData;
+    std::vector<std::pair<int, int>> GoalTiles;
     static const std::vector<Engine::Point> directions;
     static const std::vector<std::string> itemImg;
     static const int MapWidth, MapHeight;
@@ -95,5 +107,11 @@ public:
     uint8_t GetSoldierTypeId(const std::string& type);
     std::string GetSoldierTypeString(uint8_t typeId);
     Soldier* CreateSoldierByType(const std::string& typeName, int x, int y, int dir);
+
+    // Network methods
+    void SendCastleDamage(int damage = 1);
+    void SendGameEnd(uint8_t winnerId, uint8_t reason);
+    void HandleCastleDamage(uint8_t attackingPlayerId, uint8_t damage);
+    void HandleGameEnd(const GameEnd& gameEnd);
 };
 #endif   // PLAYSCENE_HPP

@@ -1,7 +1,7 @@
 [INFO] Game Initializing...
 [INFO] Loaded Resource<image>: Resource/images/icon.png
 [INFO] Loaded window icon from: icon.png
-[INFO] There are total 2 supported mouse buttons
+[INFO] There are total 8 supported mouse buttons
 [INFO] Allegro5 initialized
 [INFO] Game begin
 [INFO] Loaded Resource<image>: Resource/images/background/test.png scaled to 1600x832
@@ -13,9 +13,6 @@
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 48
 [INFO] Game initialized
 [INFO] Game start event loop
-[INFO] 172.20.10.3: 1234
-[INFO] [Host] ENet event type = 1
-[INFO] [Host] CONNECT!
 [INFO] NetWork::isConnected() == true, go to mapScene
 [INFO] Loaded Resource<image>: Resource/images/mapScene/grass.png scaled to 64x64
 [INFO] Loaded Resource<image>: Resource/images/mapScene/stone.png scaled to 64x64
@@ -38,23 +35,23 @@
 [INFO] Loaded Resource<image>: Resource/images/mapScene/stone.png
 [INFO] Loaded Resource<image>: Resource/images/mapScene/master.png scaled to 100x100
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 24
-[INFO] Loaded Resource<image>: Resource/images/mapScene/dragen.png scaled to 100x100
-[INFO] Loaded Resource<image>: Resource/images/mapScene/slime.png scaled to 100x100
 [INFO] Loaded Resource<image>: Resource/images/mapScene/ninja.png scaled to 100x100
+[INFO] Loaded Resource<image>: Resource/images/mapScene/slime.png scaled to 100x100
 [INFO] Loaded Resource<image>: Resource/images/mapScene/shooter.png scaled to 100x100
+[INFO] Loaded Resource<image>: Resource/images/mapScene/dragen.png scaled to 100x100
 [INFO] Loaded Resource<image>: Resource/images/mapScene/vikin.png scaled to 100x100
 [INFO] Loaded Resource<image>: Resource/images/mapScene/item_empty.png scaled to 100x100
 [INFO] Loaded Resource<image>: Resource/images/mapScene/master.png
-[INFO] Loaded Resource<image>: Resource/images/mapScene/dragen.png
-[INFO] Loaded Resource<image>: Resource/images/mapScene/slime.png
 [INFO] Loaded Resource<image>: Resource/images/mapScene/ninja.png
+[INFO] Loaded Resource<image>: Resource/images/mapScene/slime.png
 [INFO] Loaded Resource<image>: Resource/images/mapScene/shooter.png
+[INFO] Loaded Resource<image>: Resource/images/mapScene/dragen.png
 [INFO] Loaded Resource<image>: Resource/images/mapScene/vikin.png
 [INFO] Loaded Resource<image>: Resource/images/play/target.png
 [INFO] Changed to play scene
 [INFO] Loaded Resource<image>: Resource/images/mapScene/brick.png
 [INFO] Loaded Resource<image>: Resource/images/mapScene/roof.png
-[INFO] Loaded Resource<image>: Resource/images/mapScene/slime.png scaled to 60x60
-[INFO] Loaded Resource<image>: Resource/images/mapScene/dragen.png scaled to 60x60
+[INFO] Loaded Resource<image>: Resource/images/mapScene/master.png scaled to 60x60
+[INFO] Loaded Resource<image>: Resource/images/mapScene/ninja.png scaled to 60x60
 [INFO] Game Terminating...
 [INFO] stopped audio (bgm)

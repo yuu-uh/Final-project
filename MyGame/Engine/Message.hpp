@@ -9,7 +9,9 @@ enum MessageType : uint8_t {
   MSG_PLAYER_STATE,
   MSG_GAME_RESULT,
   MSG_PLACE_SOLDIER,
-  MSG_REMOVE_SOLDIER
+  MSG_REMOVE_SOLDIER,
+  MSG_CASTLE_DAMAGE,
+  MSG_GAME_END
 };
 
 #pragma pack(push,1)
@@ -48,5 +50,17 @@ struct PlaceSoldier{
 struct RemoveSoldier {
   uint8_t  playerId;
   uint32_t soldierId;     // ID of soldier to remove
+};
+
+struct CastleDamage {
+    uint8_t  attackingPlayerId;  // Who is dealing damage
+    uint8_t  damage;             // Amount of damage (usually 1)
+};
+
+struct GameEnd {
+    uint8_t  winnerId;           // 0 = draw, 1 = player1, 2 = player2
+    uint8_t  player1Lives;
+    uint8_t  player2Lives;
+    uint8_t  reason;             // 0 = lives, 1 = timeout
 };
 #pragma pack(pop)

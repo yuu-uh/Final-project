@@ -14,7 +14,7 @@
 #include "Engine/LOG.hpp"
 #include "Scene/PlayScene.hpp"
 //#include "UI/Animation/DirtyEffect.hpp"
-//#include "UI/Animation/ExplosionEffect.hpp"
+#include "UI/Animation/ExplosionEffect.hpp"
 
 
 PlayScene *Soldier::getPlayScene() {
@@ -35,80 +35,144 @@ void Soldier::die() {
 Soldier::Soldier(std::string img, float x, float y, int dir, float radius, float speed, float hp, float damage) : Engine::Sprite(img, x, y, 60, 60, 0, 0, 0, 10, 10), speed(speed), hp(hp), dmg(damage) {
     CollisionRadius = radius;
     reachEndTime = 0;
+    maxHp =  hp;
     direction = dir;
     state = walking;
     PlayScene* scene = getPlayScene();
-    //enemyGroup = (direction == 1) ? scene->EnemyGroup:scene->SoldierGroup;
+    this->baseY = y;
+    Enemy = (direction == 1) ? scene->EnemyGroup:scene->SoldierGroup;
 }
 
 void Soldier::Hit(float damage) {
     hp -= damage;
+    getPlayScene()->EffectGroup->AddNewObject(new ExplosionEffect(Position.x, Position.y));
     if (hp <= 0) {
         die();
-        // Remove all turret's reference to target.
+        //AudioHelper::PlayAudio("explosion.wav");
+        PlayScene* scene = getPlayScene();
 
-        getPlayScene()->SoldierGroup->RemoveObject(objectIterator);
-        AudioHelper::PlayAudio("explosion.wav");
+        // Nullify all Soldiers targeting this one
+        for (auto& it : scene->SoldierGroup->GetObjects()) {
+            Soldier* soldier = dynamic_cast<Soldier*>(it);
+            if (soldier && soldier->target == this) {
+                soldier->target = nullptr;
+                soldier->state = walking;
+            }
+        }
+        for (auto& it : scene->EnemyGroup->GetObjects()) {
+            Soldier* soldier = dynamic_cast<Soldier*>(it);
+            if (soldier && soldier->target == this) {
+                soldier->target = nullptr;
+                soldier->state = walking;
+            }
+        }
+
+        if (direction == 1) {
+            scene->SoldierGroup->RemoveObject(objectIterator);  // Left-to-right → Player
+        } else {
+            scene->EnemyGroup->RemoveObject(objectIterator);    // Right-to-left → Enemy
+        }
     }
 }
-void Soldier::UpdatePath(const std::vector<std::vector<int>> &mapDistance) {
-    // int x = static_cast<int>(floor(Position.x / PlayScene::BlockSize));
-    // int y = static_cast<int>(floor(Position.y / PlayScene::BlockSize));
-    // if (x < 0) x = 0;
-    // if (x >= PlayScene::MapWidth) x = PlayScene::MapWidth - 1;
-    // if (y < 0) y = 0;
-    // if (y >= PlayScene::MapHeight) y = PlayScene::MapHeight - 1;
-    // Engine::Point pos(x, y);
-    // int num = mapDistance[y][x];
-    // if (num == -1) {
-    //     num = 0;
-    //     Engine::LOG(Engine::INFO) << "Enemy path finding error";
-    // }
-    // path = std::vector<Engine::Point>(num + 1);
-    // while (num != 0) {
-    //     std::vector<Engine::Point> nextHops;
-    //     for (auto &dir : PlayScene::directions) {
-    //         int x = pos.x + dir.x;
-    //         int y = pos.y + dir.y;
-    //         if (x < 0 || x >= PlayScene::MapWidth || y < 0 || y >= PlayScene::MapHeight || mapDistance[y][x] != num - 1)
-    //             continue;
-    //         nextHops.emplace_back(x, y);
-    //     }
-        
-    //     // Choose arbitrary one.
-    //     std::random_device dev;
-    //     std::mt19937 rng(dev());
-    //     std::uniform_int_distribution<std::mt19937::result_type> dist(0, nextHops.size() - 1);
-    //     pos = nextHops[dist(rng)];
-    //     path[num] = pos;
-    //     num--;
-    // }
-    //path[0] = PlayScene::EndGridPoint;
-}
+
+
+
 void Soldier::Update(float deltaTime){
-    Sprite::Update(deltaTime);
-
     if(state == walking){
-        Position.x -= speed * direction *deltaTime;
+        Sprite::Update(deltaTime);
+    }
+    if(Preview) return;
+    
+    PlayScene* scene = getPlayScene();
+    
+    if (!scene) return;
+
+    int tileX = floor(Position.x / scene->BlockSize);
+    int tileY = floor(Position.y / scene->BlockSize);
+    if (tileX >= 0 && tileX < scene->MapWidth && tileY >= 0 && tileY < scene->MapHeight) {
+        if (scene->mapData[tileY][tileX] == 4) {
+            // Attack the castle (or set a dummy target)
+            // Example: just stop moving and simulate attack cooldown
+            state = attacking;
+            target = nullptr;
+            attackTimer -= deltaTime;
+            if (attackTimer <= 0) {
+                attackTimer = cooldown;
+                
+                if (direction == 1) {
+                    // Player's soldier attacking enemy castle
+                    scene->SendCastleDamage(1);  // Send network message
+                } else {
+                    // Enemy soldier attacking player's castle
+                    scene->Hit();  // Damage local player
+                }
+            }
+            return;
+        }
+    }
+
+    // If currently walking and has no target, move forward
+    if (state == walking && !target) {
+        Position.x -= speed * direction * deltaTime;
         float_timer += deltaTime;
-        Position.y += (std::sin(float_timer*4.0f) / 6); // oscillates ±5px
+        int tmpY = Position.y;
+        Position.y = tmpY + (std::sin(float_timer * 4.0f) / 6); // vertical oscillation
+        Position.y = tmpY;
     }
-    
 
+    // Look for enemy if no target
+    if (!target) {
+        for (auto& it : Enemy->GetObjects()) {
+            Soldier* enemy = dynamic_cast<Soldier*>(it);
+            if (!enemy) continue;
+            Engine::Point diff = enemy->Position - Position;
+            if (diff.Magnitude() <= attackRadius) {
+                target = enemy;
+                state = attacking;
+                break;
+            }
+        }
+    }
 
-    // If off-screen or reached the opponent's base (x <= 0), remove soldier.
-    if (Position.x < 0) {
+    // If has a target
+    if (target) {
+        Engine::Point diff = target->Position - Position;
+        if (diff.Magnitude() > attackRadius || !target->Enabled) {
+            // Lost target
+            target = nullptr;
+            state = walking;
+        } else {
+            // Attack target
+            attackTimer -= deltaTime;
+            if (attackTimer <= 0) {
+                target->Hit(dmg);
+                attackTimer = cooldown;
+            }
+        }
+    }
+
+    // Check if off-screen
+    if (Position.x < 0 || Position.x >= scene->BlockSize * scene->MapWidth) {
         getPlayScene()->SoldierGroup->RemoveObject(objectIterator);
-        // You might also reduce player HP here if needed.
     }
-
-    
 }
+
+
 void Soldier::Draw() const {
     // if(Preview){
     //     al_draw_filled_circle(Position.x, Position.y, CollisionRadius, al_map_rgba(0, 255, 0, 50));
     // }
     Sprite::Draw();
+    if(Preview) return;
+    float barWidth = 40.0f;
+    float barHeight = 5.0f;
+    float hpPercentage = hp / maxHp;
+    float barX = Position.x;
+    float barY = Position.y;
+
+    al_draw_filled_rectangle(barX, barY, barX + barWidth, barY + barHeight, al_map_rgb(255, 0, 0));
+    al_draw_filled_rectangle(barX, barY, barX + barWidth * hpPercentage, barY + barHeight, al_map_rgb(0, 255, 0));
+    al_draw_rectangle(barX, barY, barX + barWidth, barY + barHeight, al_map_rgb(0, 0, 0), 1);
     // if (PlayScene::DebugMode) {
     //     // Draw collision radius.
     //     al_draw_circle(Position.x, Position.y, CollisionRadius, al_map_rgb(255, 0, 0), 2);

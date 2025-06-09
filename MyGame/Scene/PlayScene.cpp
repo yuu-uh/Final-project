@@ -21,6 +21,8 @@
 #include "Items/Item.hpp"
 #include "UI/Component/Label.hpp"
 #include "UI/Component/ImageButton.hpp"
+#include "UI/Animation/ExplosionEffect.hpp"
+#include "UI/Animation/DirtyEffect.hpp"
 #include "Scene/MapScene.hpp"
 #include "Soldier/Soldier.hpp"
 #include "Soldier/ninja.hpp"
@@ -32,6 +34,7 @@
 #include "Engine/Message.hpp"
 
 
+PlayScene::GameResultData PlayScene::lastGameResult = {0, 0, 0, 0};
 const std::vector<Engine::Point> PlayScene::directions = { Engine::Point(-1, 0), Engine::Point(0, -1), Engine::Point(1, 0), Engine::Point(0, 1) };
 const int PlayScene::MapWidth = 20, PlayScene::MapHeight = 13;
 const int PlayScene::BlockSize = 64;
@@ -47,6 +50,7 @@ void PlayScene::Initialize() {
     int halfH = h / 2;
     AddNewObject(TileMapGroup = new Group());
     AddNewObject(GroundEffectGroup = new Group());
+    AddNewObject(EffectGroup = new Group());
     AddNewObject(ItemGroup = new Group);
     AddNewObject(SoldierGroup = new Group());
     AddNewControlObject(UIGroup = new Group());
@@ -55,6 +59,7 @@ void PlayScene::Initialize() {
     ReadMap();
 
     ConstructUI();
+    lives = 10;
 
     timer = 300.0f;
     countdownLabel = new Engine::Label("05:00", "pirulen.ttf", 48,
@@ -64,7 +69,7 @@ void PlayScene::Initialize() {
 
     livelabel = new Engine::Label(
         std::string("Life ") + std::to_string(lives),
-        "pirulen.ttf", 48, 1400, 50, 255,255,255,255, 0.5,0.5);
+        "pirulen.ttf", 48, 1410, 50, 255,255,255,255, 0.5,0.5);
     UIGroup->AddNewObject(livelabel);
     
     imgTarget = new Engine::Image("play/target.png", 0, 0);
@@ -77,19 +82,39 @@ void PlayScene::Initialize() {
     );
 }
 void PlayScene::Terminate() {
-    AudioHelper::StopBGM(bgmId);
-    AudioHelper::StopSample(deathBGMInstance);
-    deathBGMInstance = std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE>();
+    NetWork::Instance().SetReceiveCallback(nullptr);
+    
+    // AudioHelper::StopBGM(bgmId);
+    // AudioHelper::StopSample(deathBGMInstance);
+    // deathBGMInstance = std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE>();
     IScene::Terminate();
 }
 void PlayScene::Update(float deltaTime) {
+    if(gameEnded) return;
+
     IScene::Update(deltaTime);
 
     NetWork::Instance().Service(0);
 
     timer -= deltaTime;
     if (timer <= 0) {
-        Engine::GameEngine::GetInstance().ChangeScene("log");
+        uint8_t winnerId = 0;  // Draw by default
+        if (lives > opponentLives) {
+            winnerId = NetWork::Instance().myId;
+        } else if (opponentLives > lives) {
+            winnerId = (NetWork::Instance().myId == 1) ? 2 : 1;
+        }
+        
+        SendGameEnd(winnerId, 1);  // 1 = ended due to timeout
+        
+        // Store result data
+        lastGameResult.winnerId = winnerId;
+        lastGameResult.player1Lives = (NetWork::Instance().myId == 1) ? lives : opponentLives;
+        lastGameResult.player2Lives = (NetWork::Instance().myId == 2) ? lives : opponentLives;
+        lastGameResult.endReason = 1;
+        
+        gameEnded = true;
+        Engine::GameEngine::GetInstance().ChangeScene("result");
         return;
     }
     int minutes = int(timer) / 60;
@@ -116,10 +141,14 @@ void PlayScene::ReadMap() {
     for (int y = 0; y < MapHeight; y++) {
         if (!std::getline(fin, line) || (int)line.size() < MapWidth)
             throw std::runtime_error("Map.txt 行长不够");
-        for (int x = 0; x < MapWidth; x++)
+        for (int x = 0; x < MapWidth; x++){
             mapData[y][x] = line[x] - '0';
+            if(mapData[y][x] == 4)
+                GoalTiles.emplace_back(x, y);
+        }
     }
 }
+
 void PlayScene::Draw() const {
     IScene::Draw();
     for (int y = 0; y < MapHeight; y++) {
@@ -130,6 +159,9 @@ void PlayScene::Draw() const {
             const char* path = nullptr;
             switch (mapData[y][x]){
             case 0:
+            case 4:
+            case 5:
+            case 6:
                 path = "mapScene/grass.png";
                 break;
             case 1:
@@ -166,6 +198,7 @@ void PlayScene::Draw() const {
     EnemyGroup->Draw();
     if (MouseOnIcon) MouseOnIcon->Draw();  
 }
+
 void PlayScene::OnMouseDown(int button, int mx, int my) {
     if ((button & 1) && !imgTarget->Visible && preview) {
         UIGroup->RemoveObject(preview->GetObjectIterator());
@@ -194,6 +227,7 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
         return;
     const int x = mx / BlockSize;
     const int y = my / BlockSize;
+    //if(mapData[y][x] != 5) return;
     if (button & 1) {
         if (!preview)
             return;
@@ -201,8 +235,6 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
         // Check if valid.
         bool valid = CheckSpaceValid(x, y);
         if (!valid) {
-            Engine::Sprite *sprite;
-            sprite->Rotation = 0;
             return;
         }
         
@@ -246,6 +278,7 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 }
 
 void PlayScene::SendSoldierPlacement(const std::string& type, int x, int y) {
+    if(gameEnded) return;
     if (!NetWork::Instance().isConnected()) return;
     
     PacketHeader header;
@@ -268,6 +301,7 @@ void PlayScene::SendSoldierPlacement(const std::string& type, int x, int y) {
 }
 
 void PlayScene::HandleNetworkMessage(const ENetEvent& event) {
+    if(gameEnded) return;
     if (event.type != ENET_EVENT_TYPE_RECEIVE) return;
     
     if (event.packet->dataLength < sizeof(PacketHeader)) return;
@@ -302,11 +336,28 @@ void PlayScene::HandleNetworkMessage(const ENetEvent& event) {
             }
             break;
         }
+        case MSG_CASTLE_DAMAGE: {
+            if (event.packet->dataLength >= sizeof(PacketHeader) + sizeof(CastleDamage)) {
+                CastleDamage msg;
+                memcpy(&msg, event.packet->data + sizeof(PacketHeader), sizeof(CastleDamage));
+                HandleCastleDamage(msg.attackingPlayerId, msg.damage);
+            }
+            break;
+        }
+        case MSG_GAME_END: {
+            if (event.packet->dataLength >= sizeof(PacketHeader) + sizeof(GameEnd)) {
+                GameEnd msg;
+                memcpy(&msg, event.packet->data + sizeof(PacketHeader), sizeof(GameEnd));
+                HandleGameEnd(msg);
+            }
+            break;
+        }
         // Handle other message types...
     }
 }
 
 void PlayScene::CreateNetworkSoldier(uint8_t playerId, uint8_t soldierType, int x, int y, uint32_t soldierId) {
+    if(gameEnded || !EnemyGroup) return;
     int realX = PlayScene::MapWidth - 1 - x;
     int realY = y;
 
@@ -362,10 +413,93 @@ std::string PlayScene::GetSoldierTypeString(uint8_t typeId) {
     }
 }
 
+void PlayScene::SendCastleDamage(int damage) {
+    if (!NetWork::Instance().isConnected() || gameEnded) return;
+    
+    PacketHeader header;
+    header.type = MSG_CASTLE_DAMAGE;
+    header.length = sizeof(PacketHeader) + sizeof(CastleDamage);
+    
+    CastleDamage msg;
+    msg.attackingPlayerId = NetWork::Instance().myId;
+    msg.damage = damage;
+    
+    std::vector<uint8_t> packet(header.length);
+    memcpy(packet.data(), &header, sizeof(PacketHeader));
+    memcpy(packet.data() + sizeof(PacketHeader), &msg, sizeof(CastleDamage));
+    
+    NetWork::Instance().Send(packet.data(), packet.size());
+}
+
+void PlayScene::SendGameEnd(uint8_t winnerId, uint8_t reason) {
+    if (!NetWork::Instance().isConnected()) return;
+    
+    PacketHeader header;
+    header.type = MSG_GAME_END;
+    header.length = sizeof(PacketHeader) + sizeof(GameEnd);
+    
+    GameEnd msg;
+    msg.winnerId = winnerId;
+    msg.player1Lives = (NetWork::Instance().myId == 1) ? lives : opponentLives;
+    msg.player2Lives = (NetWork::Instance().myId == 2) ? lives : opponentLives;
+    msg.reason = reason;
+    
+    std::vector<uint8_t> packet(header.length);
+    memcpy(packet.data(), &header, sizeof(PacketHeader));
+    memcpy(packet.data() + sizeof(PacketHeader), &msg, sizeof(GameEnd));
+    
+    NetWork::Instance().Send(packet.data(), packet.size());
+}
+
+void PlayScene::HandleCastleDamage(uint8_t attackingPlayerId, uint8_t damage) {
+    if (attackingPlayerId != NetWork::Instance().myId && !gameEnded) {
+        // Opponent's soldier damaged our castle
+        Hit();
+    }
+}
+
+void PlayScene::HandleGameEnd(const GameEnd& gameEnd) {
+    if (gameEnded) return;  // Already handled
+    
+    gameEnded = true;
+    
+    // Store the result data
+    lastGameResult.winnerId = gameEnd.winnerId;
+    lastGameResult.player1Lives = gameEnd.player1Lives;
+    lastGameResult.player2Lives = gameEnd.player2Lives;
+    lastGameResult.endReason = gameEnd.reason;
+    
+    // Update our local state with opponent's final lives
+    opponentLives = (NetWork::Instance().myId == 1) ? gameEnd.player2Lives : gameEnd.player1Lives;
+    
+    Engine::GameEngine::GetInstance().ChangeScene("result");
+}
+
 void PlayScene::Hit() {
+    // lives--;
+    // Engine::LOG(Engine::INFO)<<"lives: "<<lives;
+    // UILives->Text = std::string("Life ") + std::to_string(lives);
+    // if (lives <= 0) {
+    //     Engine::GameEngine::GetInstance().ChangeScene("result");
+    // }
+    if (gameEnded) return;  // Prevent multiple hits after game ends
+    
     lives--;
-    UILives->Text = std::string("Life ") + std::to_string(lives);
+    Engine::LOG(Engine::INFO) << "lives: " << lives;
+    livelabel->Text = std::string("Life ") + std::to_string(lives);
+    
     if (lives <= 0) {
+        // Game over - this player lost
+        uint8_t winnerId = (NetWork::Instance().myId == 1) ? 2 : 1;  // Opponent wins
+        SendGameEnd(winnerId, 0);  // 0 = ended due to lives
+        
+        // Store result data
+        lastGameResult.winnerId = winnerId;
+        lastGameResult.player1Lives = (NetWork::Instance().myId == 1) ? lives : opponentLives;
+        lastGameResult.player2Lives = (NetWork::Instance().myId == 2) ? lives : opponentLives;
+        lastGameResult.endReason = 0;
+        
+        gameEnded = true;
         Engine::GameEngine::GetInstance().ChangeScene("result");
     }
 }

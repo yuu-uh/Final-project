@@ -19,6 +19,14 @@ public:
     void Terminate() override;
     void Update(float deltaTime) override;
     void BackOnClick(int stage);
+    struct PlayerRenderInfo {
+        ALLEGRO_BITMAP* bitmap;
+        int x, y; // Draw position
+        bool isWinner;
+        std::string livesText;
+    };
+
+    std::vector<PlayerRenderInfo> renderPlayers;
 };
 
 #endif   // WINSCENE_HPP

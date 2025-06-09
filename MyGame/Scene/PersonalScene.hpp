@@ -21,6 +21,7 @@ private:
     bool hostMode   = false;     
     std::string hostIdInfo; 
     std::string hostPortInfo; 
+    ALLEGRO_BITMAP* backgroundImage = nullptr;
 
 public:
     explicit PersonalScene() = default;

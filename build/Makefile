@@ -655,6 +655,30 @@ Scene/PlayScene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.s
 .PHONY : Scene/PlayScene.cpp.s
 
+Scene/ResultScene.obj: Scene/ResultScene.cpp.obj
+.PHONY : Scene/ResultScene.obj
+
+# target to build an object file
+Scene/ResultScene.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.obj
+.PHONY : Scene/ResultScene.cpp.obj
+
+Scene/ResultScene.i: Scene/ResultScene.cpp.i
+.PHONY : Scene/ResultScene.i
+
+# target to preprocess a source file
+Scene/ResultScene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.i
+.PHONY : Scene/ResultScene.cpp.i
+
+Scene/ResultScene.s: Scene/ResultScene.cpp.s
+.PHONY : Scene/ResultScene.s
+
+# target to generate assembly for a file
+Scene/ResultScene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.s
+.PHONY : Scene/ResultScene.cpp.s
+
 Scene/StoryScene.obj: Scene/StoryScene.cpp.obj
 .PHONY : Scene/StoryScene.obj
 
@@ -846,6 +870,54 @@ Soldier/vikin.s: Soldier/vikin.cpp.s
 Soldier/vikin.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.s
 .PHONY : Soldier/vikin.cpp.s
+
+UI/Animation/DirtyEffect.obj: UI/Animation/DirtyEffect.cpp.obj
+.PHONY : UI/Animation/DirtyEffect.obj
+
+# target to build an object file
+UI/Animation/DirtyEffect.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj
+.PHONY : UI/Animation/DirtyEffect.cpp.obj
+
+UI/Animation/DirtyEffect.i: UI/Animation/DirtyEffect.cpp.i
+.PHONY : UI/Animation/DirtyEffect.i
+
+# target to preprocess a source file
+UI/Animation/DirtyEffect.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.i
+.PHONY : UI/Animation/DirtyEffect.cpp.i
+
+UI/Animation/DirtyEffect.s: UI/Animation/DirtyEffect.cpp.s
+.PHONY : UI/Animation/DirtyEffect.s
+
+# target to generate assembly for a file
+UI/Animation/DirtyEffect.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.s
+.PHONY : UI/Animation/DirtyEffect.cpp.s
+
+UI/Animation/ExplosionEffect.obj: UI/Animation/ExplosionEffect.cpp.obj
+.PHONY : UI/Animation/ExplosionEffect.obj
+
+# target to build an object file
+UI/Animation/ExplosionEffect.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj
+.PHONY : UI/Animation/ExplosionEffect.cpp.obj
+
+UI/Animation/ExplosionEffect.i: UI/Animation/ExplosionEffect.cpp.i
+.PHONY : UI/Animation/ExplosionEffect.i
+
+# target to preprocess a source file
+UI/Animation/ExplosionEffect.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.i
+.PHONY : UI/Animation/ExplosionEffect.cpp.i
+
+UI/Animation/ExplosionEffect.s: UI/Animation/ExplosionEffect.cpp.s
+.PHONY : UI/Animation/ExplosionEffect.s
+
+# target to generate assembly for a file
+UI/Animation/ExplosionEffect.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.s
+.PHONY : UI/Animation/ExplosionEffect.cpp.s
 
 UI/Component/Image.obj: UI/Component/Image.cpp.obj
 .PHONY : UI/Component/Image.obj
@@ -1063,6 +1135,9 @@ help:
 	@echo ... Scene/PlayScene.obj
 	@echo ... Scene/PlayScene.i
 	@echo ... Scene/PlayScene.s
+	@echo ... Scene/ResultScene.obj
+	@echo ... Scene/ResultScene.i
+	@echo ... Scene/ResultScene.s
 	@echo ... Scene/StoryScene.obj
 	@echo ... Scene/StoryScene.i
 	@echo ... Scene/StoryScene.s
@@ -1087,6 +1162,12 @@ help:
 	@echo ... Soldier/vikin.obj
 	@echo ... Soldier/vikin.i
 	@echo ... Soldier/vikin.s
+	@echo ... UI/Animation/DirtyEffect.obj
+	@echo ... UI/Animation/DirtyEffect.i
+	@echo ... UI/Animation/DirtyEffect.s
+	@echo ... UI/Animation/ExplosionEffect.obj
+	@echo ... UI/Animation/ExplosionEffect.i
+	@echo ... UI/Animation/ExplosionEffect.s
 	@echo ... UI/Component/Image.obj
 	@echo ... UI/Component/Image.i
 	@echo ... UI/Component/Image.s

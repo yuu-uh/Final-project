@@ -1169,6 +1169,8 @@ CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/list.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/callbacks.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/ImageButton.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Animation/ExplosionEffect.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Animation/DirtyEffect.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/MapScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/ninja.hpp \

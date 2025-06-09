@@ -62,8 +62,8 @@ add_executable(FinalProject
     Scene/ResultScene.hpp
     # Scene/ScoreBoardScene.cpp
     # Scene/ScoreBoardScene.hpp
-    # Scene/SettingsScene.cpp
-    # Scene/SettingsScene.hpp
+    Scene/SettingsScene.cpp
+    Scene/SettingsScene.hpp
     Scene/StoryScene.cpp
     Scene/StoryScene.hpp
 

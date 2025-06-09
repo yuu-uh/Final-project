@@ -192,14 +192,16 @@ void PersonalScene::ConfirmJoin() {
         return;
     }
     net.SetReceiveCallback([this](const ENetEvent& e){
-        if(e.type==ENET_EVENT_TYPE_CONNECT)
+        if(e.type==ENET_EVENT_TYPE_CONNECT){
+            join_mode = false;
             Engine::GameEngine::GetInstance().ChangeScene("map");
+        }            
     });
     waitConn = true;
 }
 
 void PersonalScene::ScoreOnClick() {
-    Engine::GameEngine::GetInstance().ChangeScene("score");
+    Engine::GameEngine::GetInstance().ChangeScene("scoreboard");
 }
 void PersonalScene::SettingOnClick() {
     Engine::GameEngine::GetInstance().ChangeScene("setting");

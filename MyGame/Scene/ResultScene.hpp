@@ -19,6 +19,7 @@ public:
     void Terminate() override;
     void Update(float deltaTime) override;
     void BackOnClick(int stage);
+    void SaveResult();
     struct PlayerRenderInfo {
         ALLEGRO_BITMAP* bitmap;
         int x, y; // Draw position

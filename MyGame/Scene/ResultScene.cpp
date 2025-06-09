@@ -1,6 +1,7 @@
 #include <functional>
 #include <string>
 #include <fstream>
+#include <sstream>
 #include <chrono>
 #include <ctime>
 #include <iomanip>
@@ -42,48 +43,60 @@ void ResultScene::Initialize() {
     int textY = halfH - 150;
     int imageY = textY + 80;
 
-    // auto createPlayerDisplay = [&](int playerId, int x, bool isWinner) {
-    //     auto p1 = PlayScene::player1;
-    //     auto p2 = PlayScene::player2;
+    AddNewObject(new Engine::Image("background/battleback8.png" ,0, 0, w, h));
 
 
-    //     std::string text = isWinner ? "WINNER" : "LOSER";
-    //     Engine::Label* label = new Engine::Label(
-    //         text, "pirulen.ttf", 36,
-    //         x, textY,
-    //         isWinner ? 255 : 180, isWinner ? 255 : 80, isWinner ? 0 : 0, 255,
-    //         0.5, 0.5
-    //     );
-    //     AddNewObject(label);
+    auto createPlayerDisplay = [&](int playerId, int x, bool isWinner) {
+        std::string str = "button";
+        std::string path = "GUI/"+str+".png";
+        Engine::Image* img = new Engine::Image(path, x-200, textY-50, 400, 100);
+        AddNewObject(img);
 
-    //     ALLEGRO_BITMAP* bmp = (playerId == 1) ? p1->animations.at("front").at(0)
-    //                                         : p2->animations.at("front").at(0);
+        std::string text = isWinner ? "WINNER" : "LOSER";
+        Engine::Label* label = new Engine::Label(
+            text, "pirulen.ttf", 48,
+            x, textY,
+            255, 255, 255, 255,
+            0.5, 0.5
+        );
+        AddNewObject(label);
 
-    //     renderPlayers.push_back(PlayerRenderInfo{
-    //         bmp,
-    //         x,
-    //         imageY,
-    //         isWinner,
-    //         "Lives: " + std::to_string((playerId == 1) ? result.player1Lives : result.player2Lives)
-    //     });
+        // Get image path instead of bitmap
+        std::string imgPath = (playerId == 1) ? "mapScene/Engineer_front01.png" : "mapScene/Engineer_front01.png";
 
-    //     Engine::Label* livesLabel = new Engine::Label(
-    //         renderPlayers.back().livesText, "pirulen.ttf", 20,
-    //         x, imageY + 140,
-    //         255, 255, 255, 255, 0.5, 0.5
-    //     );
-    //     AddNewObject(livesLabel);
-    // };
+        Engine::Image* playerImage = new Engine::Image(
+            imgPath,
+            x, imageY,
+            128, 128  // width and height (adjust if needed)
+        );
+        AddNewObject(playerImage);
 
-    // Left: Loser
-    // if (winner == 0) {
-    //     // Draw case, show both
-    //     createPlayerDisplay(1, leftX, false);
-    //     createPlayerDisplay(2, rightX, false);
-    // } else {
-    //     createPlayerDisplay(loser, leftX, false);
-    //     createPlayerDisplay(winner, rightX, true);
-    // }
+        // Update renderPlayers if needed to keep track of images
+        renderPlayers.push_back(PlayerRenderInfo{
+            nullptr, // no bitmap now
+            x,
+            imageY,
+            isWinner,
+            "Lives: " + std::to_string((playerId == 1) ? result.player1Lives : result.player2Lives)
+        });
+
+        Engine::Label* livesLabel = new Engine::Label(
+            renderPlayers.back().livesText, "pirulen.ttf", 48,
+            x, imageY + 140,
+            255, 255, 255, 255, 0.5, 0.5
+        );
+        AddNewObject(livesLabel);
+    };
+
+    
+    if (winner == 0) {
+        // Draw case, show both
+        createPlayerDisplay(1, leftX, false);
+        createPlayerDisplay(2, rightX, false);
+    } else {
+        createPlayerDisplay(loser, leftX, false);
+        createPlayerDisplay(winner, rightX, true);
+    }
 
     // Center result reason
     std::string reasonText = (result.endReason == 0) ? "Game ended: Lives depleted" : "Game ended: Time up";
@@ -103,7 +116,7 @@ void ResultScene::Initialize() {
     AddNewControlObject(btn);
     AddNewObject(new Engine::Label("Back", "pirulen.ttf", 36,
         halfW, h - 145, 255, 255, 255, 255, 0.5, 0.5));
-
+    SaveResult();
     Engine::LOG(Engine::INFO) << "finished initialize result scene";
 }
 
@@ -122,4 +135,29 @@ void ResultScene::Update(float deltaTime) {
 }
 void ResultScene::BackOnClick(int stage) {
     Engine::GameEngine::GetInstance().ChangeScene("personal");
+}
+
+std::string getDateTime(){
+    std::time_t now = std::time(nullptr);
+    std::tm* t = std::localtime(&now);
+
+    std::stringstream oss;
+    oss << std::put_time(t, "%Y/%m/%d");
+    return oss.str();
+}
+
+void ResultScene::SaveResult(){
+    int myId = NetWork::Instance().myId;
+    auto& result = PlayScene::lastGameResult;
+
+    bool isWinner = (result.winnerId == myId);
+    int livesLeft = (myId == 1) ? result.player1Lives : result.player2Lives;
+
+    std::ofstream ofs("Resource/ScoreBoard.txt", std::ios::app); // append mode
+    if (!ofs) {
+        Engine::LOG(Engine::ERROR) << "Failed to open player_results.txt for writing";
+        return;
+    }
+    ofs << (isWinner ? "Win" : "Lose") << " " << livesLeft<< " " << getDateTime() <<"\n";
+    ofs.close();
 }

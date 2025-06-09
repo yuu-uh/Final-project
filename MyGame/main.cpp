@@ -10,6 +10,7 @@
 #include "Scene/StoryScene.hpp"
 #include "Scene/ResultScene.hpp"
 #include "Engine/NetWork.hpp"
+#include "Scene/ScoreBoardScene.hpp"
 
 int main(int argc, char **argv) {
 	if (!NetWork::Instance().Init()) {
@@ -24,7 +25,7 @@ int main(int argc, char **argv) {
 	game.AddNewScene("personal", new PersonalScene());
 	game.AddNewScene("play", new PlayScene());
 	game.AddNewScene("result", new ResultScene());
-	// game.AddNewScene("scoreboard", new ScoreBoardScene());
+	game.AddNewScene("scoreboard", new ScoreBoardScene());
 	// game.AddNewScene("settings", new SettingsScene());
 	game.AddNewScene("story", new StoryScene());
 

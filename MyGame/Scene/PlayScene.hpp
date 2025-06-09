@@ -12,6 +12,7 @@
 #include "Soldier/Soldier.hpp"
 #include "Engine/Message.hpp"
 #include "Engine/NetWork.hpp"
+#include "Player/Player.hpp"
 
 class Turret;
 
@@ -65,6 +66,8 @@ private:
 protected:
 
 public:
+    static Player* player1;
+    static Player* player2;
     static GameResultData lastGameResult; 
     int lives;
     std::vector<std::vector<int>> mapData;

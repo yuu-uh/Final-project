@@ -17,6 +17,7 @@ public:
     std::unordered_map<std::string, std::vector<ALLEGRO_BITMAP*>> animations;
     uint8_t CurrentAction() const { return action; }
     void SetAction(uint8_t a);
+    std::string job;
 
 protected:
     float speed;

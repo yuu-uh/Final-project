@@ -66,6 +66,7 @@ add_executable(FinalProject
     Scene/SettingsScene.hpp
     Scene/StoryScene.cpp
     Scene/StoryScene.hpp
+    
 
     UI/Animation/DirtyEffect.cpp
     UI/Animation/DirtyEffect.hpp

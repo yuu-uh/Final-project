@@ -21,6 +21,7 @@
 #include "Player/Player.hpp"
 #include "Items/Item.hpp"
 #include "Scene/MapScene.hpp"
+#include "Scene/PlayScene.hpp"
 #include "UI/Component/ImageButton.hpp"
 #include "UI/Component/Label.hpp"
 #include "UI/Component/Slider.hpp"
@@ -150,6 +151,8 @@ void MapScene::Update(float dt) {
 
     timer -= dt;
     if (timer <= 0) {
+        PlayScene::player1 = this->player;
+        PlayScene::player2 = this->conPlayer;
         Engine::GameEngine::GetInstance().ChangeScene("play");
         return;
     }

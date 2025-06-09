@@ -7,6 +7,7 @@
 
 #include "Point.hpp"
 #include "UI/Component/Label.hpp"
+#include "Player/Player.hpp"
 
 
 /// <summary>
@@ -80,6 +81,8 @@ namespace Engine {
         void changeScene(const std::string &name);
 
     public:
+        Player* player;
+        Player* conPlayer;
         std::vector<std::string> pickedItems;
         std::unordered_map<std::string, std::pair<int, Engine::Label*>> itemCount;
         // Note: We'll ignore C++11's move constructor, move assignment operator in this project for simplicity.

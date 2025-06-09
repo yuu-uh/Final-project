@@ -41,6 +41,8 @@ const int PlayScene::BlockSize = 64;
 Engine::Point PlayScene::GetClientSize() {
     return Engine::Point(MapWidth * BlockSize, MapHeight * BlockSize);
 }
+Player* PlayScene::player1 = nullptr;
+Player* PlayScene::player2 = nullptr;
 
 const std::vector<std::string> PlayScene::itemImg = {"ninja", "master", "slime", "vikin", "dragen", "shooter", "magician"};
 void PlayScene::Initialize() {
@@ -89,6 +91,20 @@ void PlayScene::Terminate() {
     // AudioHelper::StopBGM(bgmId);
     // AudioHelper::StopSample(deathBGMInstance);
     // deathBGMInstance = std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE>();
+    networkSoldiers.clear();
+    worldItems.clear();
+    LocalItemCount.clear();
+    GoalTiles.clear();
+    
+    // Reset preview
+    if (preview) {
+        preview = nullptr;
+    }
+    
+    // Reset pointers
+    countdownLabel = nullptr;
+    livelabel = nullptr;
+    imgTarget = nullptr;
     IScene::Terminate();
 }
 void PlayScene::Update(float deltaTime) {
@@ -304,6 +320,7 @@ void PlayScene::SendSoldierPlacement(const std::string& type, int x, int y) {
 
 void PlayScene::HandleNetworkMessage(const ENetEvent& event) {
     if(gameEnded) return;
+    if(!EnemyGroup) return;
     if (event.type != ENET_EVENT_TYPE_RECEIVE) return;
     
     if (event.packet->dataLength < sizeof(PacketHeader)) return;
@@ -491,6 +508,7 @@ void PlayScene::Hit() {
     livelabel->Text = std::string("Life ") + std::to_string(lives);
     
     if (lives <= 0) {
+        gameEnded = true;
         // Game over - this player lost
         uint8_t winnerId = (NetWork::Instance().myId == 1) ? 2 : 1;  // Opponent wins
         SendGameEnd(winnerId, 0);  // 0 = ended due to lives
@@ -501,7 +519,6 @@ void PlayScene::Hit() {
         lastGameResult.player2Lives = (NetWork::Instance().myId == 2) ? lives : opponentLives;
         lastGameResult.endReason = 0;
         
-        gameEnded = true;
         Engine::GameEngine::GetInstance().ChangeScene("result");
     }
 }

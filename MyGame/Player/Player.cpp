@@ -11,7 +11,7 @@ void Player::LoadAnimations(){
     for (const auto& dir : directions) {
         std::vector<ALLEGRO_BITMAP*> frames;
         for (int i = 1; i <= 4; i++) {
-            std::string path = "Resource/images/mapScene/Engineer_" + dir + "0" + std::to_string(i) + ".png";
+            std::string path = "Resource/images/mapScene/" + Engine::GameEngine::job + "_" + dir + "0" + std::to_string(i) + ".png";
             ALLEGRO_BITMAP* bmp = al_load_bitmap(path.c_str());
             if (!bmp) {
                 Engine::LOG(Engine::INFO) << "Failed to load: " << path;

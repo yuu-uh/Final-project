@@ -54,4 +54,12 @@
 [INFO] Loaded Resource<image>: Resource/images/mapScene/master.png scaled to 60x60
 [INFO] Loaded Resource<image>: Resource/images/mapScene/ninja.png scaled to 60x60
 [INFO] Game Terminating...
-[INFO] stopped audio (bgm)
+[INFO] Game terminated
+[INFO] Game end
+[INFO] Destroyed Resource<image>: GUI/button.png?500x130
+[INFO] Destroyed Resource<image>: background/test.png?1600x832
+[INFO] Destroyed Resource<image>: GUI/button.png
+[INFO] Destroyed Resource<image>: icon.png
+[INFO] Destroyed Resource<font>: pirulen.ttf?46
+[INFO] Destroyed Resource<font>: pirulen.ttf?48
+[INFO] Destroyed Resource<font>: pirulen.ttf?100

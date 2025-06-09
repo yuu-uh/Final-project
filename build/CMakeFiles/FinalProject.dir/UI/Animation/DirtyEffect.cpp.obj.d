@@ -903,6 +903,7 @@ CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj: \
   C:/allegro/include/allegro5/platform/alwin.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
   C:/allegro/include/allegro5/allegro_font.h \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Group.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IScene.hpp \

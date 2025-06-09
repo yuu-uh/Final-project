@@ -71,9 +71,7 @@ void PlayScene::Initialize() {
     Engine::GameEngine::GetInstance().GetScreenSize().y - 40, 255, 255, 255, 255, 0.5, 0.5);
     UIGroup->AddNewObject(countdownLabel);
 
-    livelabel = new Engine::Label(
-        std::string("Life ") + std::to_string(lives),
-        "pirulen.ttf", 48, 1410, 50, 255,255,255,255, 0.5,0.5);
+    livelabel = new Engine::Label(std::string("Life ") + std::to_string(lives), "pirulen.ttf", 48, 1410, 50, 255,255,255,255, 0.5,0.5);
     UIGroup->AddNewObject(livelabel);
     
     imgTarget = new Engine::Image("play/target.png", 0, 0);
@@ -84,10 +82,10 @@ void PlayScene::Initialize() {
     NetWork::Instance().SetReceiveCallback(
         std::bind(&PlayScene::HandleNetworkMessage, this, std::placeholders::_1)
     );
+    UIGroup->AddNewObject(new Engine::Image("GUI/play.png",1275, 50,200,50));
 }
 void PlayScene::Terminate() {
     NetWork::Instance().SetReceiveCallback(nullptr);
-    
     // AudioHelper::StopBGM(bgmId);
     // AudioHelper::StopSample(deathBGMInstance);
     // deathBGMInstance = std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE>();
@@ -95,13 +93,9 @@ void PlayScene::Terminate() {
     worldItems.clear();
     LocalItemCount.clear();
     GoalTiles.clear();
+   
+    if (preview)  preview = nullptr;
     
-    // Reset preview
-    if (preview) {
-        preview = nullptr;
-    }
-    
-    // Reset pointers
     countdownLabel = nullptr;
     livelabel = nullptr;
     imgTarget = nullptr;

@@ -22,8 +22,13 @@ private:
     std::string hostIdInfo; 
     std::string hostPortInfo; 
     ALLEGRO_BITMAP* backgroundImage = nullptr;
+    int currentJobIndex;  
+    Engine::Image* jobPreview;  
+    Engine::Label* jobLabel;
 
 public:
+    enum class Job { Engineer, Mage, Paladin, Rogue };
+    static const std::vector<std::string> JobNames;
     explicit PersonalScene() = default;
     void Initialize() override;
     void Terminate() override;

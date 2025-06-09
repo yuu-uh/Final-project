@@ -2086,6 +2086,9 @@ CMakeFiles/FinalProject.dir/Engine/GameEngine.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/GameEngine.cpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Label.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Allegro5Exception.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/GameEngine.hpp
@@ -12196,6 +12199,8 @@ CMakeFiles/FinalProject.dir/Scene/LogScene.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Message.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/LogScene.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PersonalScene.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp
@@ -13123,10 +13128,14 @@ CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/MapScene.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PersonalScene.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/ImageButton.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Label.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Slider.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/TextBox.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/callbacks.h
  C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/enet.h
  C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/list.h
@@ -14344,6 +14353,8 @@ CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/NetWork.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PersonalScene.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/ImageButton.hpp
@@ -16703,11 +16714,13 @@ CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IScene.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/LOG.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Message.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/NetWork.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp
@@ -17553,6 +17566,7 @@ CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.obj
  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iomanip
  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/ios
  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iosfwd
+ C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iostream
  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/istream
  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iterator
  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/limits
@@ -17896,6 +17910,7 @@ CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/SettingsScene.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp
@@ -19018,6 +19033,8 @@ CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IScene.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/ImageButton.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Label.hpp
@@ -19936,6 +19953,7 @@ CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Animation/ExplosionEffect.hpp
@@ -26071,6 +26089,7 @@ CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp
@@ -27243,6 +27262,7 @@ CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp
@@ -29219,6 +29239,9 @@ CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp
+ C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Label.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp
  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/ImageButton.hpp

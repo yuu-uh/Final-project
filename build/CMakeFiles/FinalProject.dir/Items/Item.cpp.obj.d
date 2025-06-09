@@ -854,6 +854,7 @@ CMakeFiles/FinalProject.dir/Items/Item.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/GameEngine.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
   C:/allegro/include/allegro5/allegro_font.h \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/NetWork.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/enet.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/win32.h \
@@ -1114,5 +1115,4 @@ CMakeFiles/FinalProject.dir/Items/Item.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Group.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp

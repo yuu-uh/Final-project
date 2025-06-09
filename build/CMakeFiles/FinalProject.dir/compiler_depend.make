@@ -2082,6 +2082,9 @@ CMakeFiles/FinalProject.dir/Engine/Collider.cpp.obj: C:/Users/annys/Downloads/Fi
 CMakeFiles/FinalProject.dir/Engine/GameEngine.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Engine/GameEngine.cpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Label.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Allegro5Exception.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/GameEngine.hpp \
@@ -12180,6 +12183,8 @@ CMakeFiles/FinalProject.dir/Scene/LogScene.cpp.obj: C:/Users/annys/Downloads/Fin
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Message.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/LogScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PersonalScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
@@ -13106,10 +13111,14 @@ CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj: C:/Users/annys/Downloads/Fin
   C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/MapScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PersonalScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/ImageButton.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Label.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Slider.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/TextBox.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/callbacks.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/enet.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/list.h \
@@ -14326,6 +14335,8 @@ CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj: C:/Users/annys/Download
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/NetWork.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PersonalScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/ImageButton.hpp \
@@ -16683,11 +16694,13 @@ CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.obj: C:/Users/annys/Downloads/
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/LOG.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Message.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/NetWork.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
@@ -17533,6 +17546,7 @@ CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.obj: C:/Users/annys/Downloads/
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iomanip \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/ios \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iosfwd \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iostream \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/istream \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iterator \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/limits \
@@ -17875,6 +17889,7 @@ CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.obj: C:/Users/annys/Download
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/SettingsScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
@@ -18996,6 +19011,8 @@ CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj: C:/Users/annys/Downloads/F
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/ImageButton.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Label.hpp \
@@ -19913,6 +19930,7 @@ CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj: C:/Users/annys/Downloads/Fi
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Animation/ExplosionEffect.hpp \
@@ -26041,6 +26059,7 @@ CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj: C:/Users/annys/Dow
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
@@ -27212,6 +27231,7 @@ CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj: C:/Users/annys
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
@@ -29186,6 +29206,9 @@ CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj: C:/Users/annys/Dow
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Point.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Label.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/ImageButton.hpp \
@@ -34058,11 +34081,11 @@ C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__algorithm/ranges_move.h:
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__algorithm/max.h:
 
-C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp:
-
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__algorithm/min.h:
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__type_traits/make_32_64_or_128_bit.h:
+
+C:/Users/annys/Downloads/FinalProject/MyGame/Player/Player.hpp:
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/psdk_inc/_wsadata.h:
 
@@ -34508,9 +34531,9 @@ C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__algorithm/ranges_sample.h:
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/nb30.h:
 
-C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__bit/byteswap.h:
-
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/pshpack1.h:
+
+C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__bit/byteswap.h:
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__algorithm/ranges_search.h:
 
@@ -34810,15 +34833,15 @@ C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__atomic/contention_t.h:
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__string/char_traits.h:
 
+C:/llvm-mingw-20240417-msvcrt-x86_64/include/dlgs.h:
+
+C:/llvm-mingw-20240417-msvcrt-x86_64/include/pshpack4.h:
+
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__iterator/next.h:
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__atomic/kill_dependency.h:
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__system_error/error_category.h:
-
-C:/llvm-mingw-20240417-msvcrt-x86_64/include/pshpack4.h:
-
-C:/llvm-mingw-20240417-msvcrt-x86_64/include/dlgs.h:
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__atomic/memory_order.h:
 
@@ -35862,6 +35885,12 @@ C:/Users/annys/Downloads/FinalProject/MyGame/Engine/GameEngine.cpp:
 
 C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp:
 
+C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp:
+
+C:/llvm-mingw-20240417-msvcrt-x86_64/include/dde.h:
+
+C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp:
+
 C:/Users/annys/Downloads/FinalProject/MyGame/Engine/GameEngine.hpp:
 
 C:/allegro/include/allegro5/allegro_acodec.h:
@@ -35907,10 +35936,6 @@ C:/llvm-mingw-20240417-msvcrt-x86_64/include/bcrypt.h:
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/cguid.h:
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/combaseapi.h:
-
-C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Sprite.hpp:
-
-C:/llvm-mingw-20240417-msvcrt-x86_64/include/dde.h:
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/debugapi.h:
 
@@ -36208,8 +36233,6 @@ C:/llvm-mingw-20240417-msvcrt-x86_64/lib/clang/18/include/xtestintrin.h:
 
 C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Resources.cpp:
 
-C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp:
-
 C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.cpp:
 
 C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Message.hpp:
@@ -36229,6 +36252,14 @@ C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/TextBox.hpp:
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/sstream:
 
 C:/Users/annys/Downloads/FinalProject/MyGame/Scene/MapScene.cpp:
+
+C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp:
+
+C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/piecewise_constant_distribution.h:
+
+C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/normal_distribution.h:
+
+C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp:
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__numeric/accumulate.h:
 
@@ -36288,12 +36319,6 @@ C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/mersenne_twister_en
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/negative_binomial_distribution.h:
 
-C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp:
-
-C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/piecewise_constant_distribution.h:
-
-C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/normal_distribution.h:
-
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/poisson_distribution.h:
 
 C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__random/random_device.h:
@@ -36325,8 +36350,6 @@ C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/vikin.hpp:
 C:/Users/annys/Downloads/FinalProject/MyGame/UI/Animation/DirtyEffect.hpp:
 
 C:/Users/annys/Downloads/FinalProject/MyGame/UI/Animation/ExplosionEffect.hpp:
-
-C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp:
 
 C:/Users/annys/Downloads/FinalProject/MyGame/Scene/ResultScene.cpp:
 

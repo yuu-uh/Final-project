@@ -851,6 +851,9 @@ CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj: \
   C:/allegro/include/allegro5/allegro_font.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/list \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Sprite.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Resources.hpp \
   C:/allegro/include/allegro5/allegro_audio.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.hpp \

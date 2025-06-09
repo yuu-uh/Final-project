@@ -909,6 +909,7 @@ CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/GameEngine.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
   C:/allegro/include/allegro5/allegro_font.h \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/LOG.hpp \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/fstream \

@@ -853,6 +853,7 @@ CMakeFiles/FinalProject.dir/Player/Player.cpp.obj: \
   C:/allegro/include/allegro5/platform/alwin.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
   C:/allegro/include/allegro5/allegro_font.h \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Resources.hpp \
   C:/allegro/include/allegro5/allegro_audio.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/LOG.hpp \
@@ -908,6 +909,5 @@ CMakeFiles/FinalProject.dir/Player/Player.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Group.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp \
   C:/allegro/include/allegro5/allegro_image.h

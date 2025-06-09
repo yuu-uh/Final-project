@@ -23,6 +23,7 @@
 #include "Items/Item.hpp"
 #include "Scene/MapScene.hpp"
 #include "Scene/PlayScene.hpp"
+#include "Scene/PersonalScene.hpp"
 #include "UI/Component/ImageButton.hpp"
 #include "UI/Component/Label.hpp"
 #include "UI/Component/Slider.hpp"
@@ -75,8 +76,10 @@ void MapScene::Initialize() {
     Engine::Point startPos1{ 216, 216 };   
     Engine::Point startPos2{ 16, 16 };    
     float moveSpeed = 200.0f;     
-    player = new Player("mapScene/player1_front01.png", startPos1, moveSpeed, 16, 16, true);
-    conPlayer  = new Player("mapScene/player1_front01.png", startPos2, moveSpeed, 16, 16, false);
+    std::string path1 = "mapScene/" + Engine::GameEngine::job + "_front01.png";
+    std::string path2 = "mapScene/" + Engine::GameEngine::conjob + "_front01.png";
+    player = new Player(path1, startPos1, moveSpeed, 16, 16, true);
+    conPlayer  = new Player(path2, startPos2, moveSpeed, 16, 16, false);
     AddNewObject(player);
     AddNewObject(conPlayer);
 
@@ -103,10 +106,13 @@ void MapScene::Initialize() {
             }
             for (auto* it : allItems) {
                 if (it->id == pi->itemId && !it->item_picked()) {
-                    it->Pick();
-                    break;
+                    it->Pick(); break;
                 }
             }
+        }
+        else if (hdr->type == MSG_JOB_SELECT && hdr->length == sizeof(uint8_t)) {
+            uint8_t remoteJobId = *body;
+            Engine::GameEngine::conjob = PersonalScene::JobNames[remoteJobId];
         }
         enet_packet_destroy(ev.packet);
     }); 
@@ -169,8 +175,7 @@ void MapScene::Update(float dt) {
     int minutes = int(timer) / 60;
     int seconds = int(timer) % 60;
     std::ostringstream oss;
-    oss << std::setw(2) << std::setfill('0') << minutes
-        << ":" << std::setw(2) << std::setfill('0') << seconds;
+    oss << std::setw(2) << std::setfill('0') << minutes << ":" << std::setw(2) << std::setfill('0') << seconds;
     countdownLabel->Text = oss.str();
 }
 void MapScene::Terminate() {
@@ -285,11 +290,7 @@ void MapScene::ReadMap() {
 
             // 一次性把图元加入 TileMapGroup
             TileMapGroup->AddNewObject(
-                new Engine::Image(imgPath,
-                                  x * BlockSize,
-                                  y * BlockSize,
-                                  BlockSize,
-                                  BlockSize)
+                new Engine::Image(imgPath, x * BlockSize, y * BlockSize, BlockSize, BlockSize)
             );
         }
     }
@@ -304,10 +305,8 @@ void MapScene::AddToInventory(Item* item, const std::string& type) {
     int cols = 320 / (iconW + pad);
 
     if(Engine::GameEngine::GetInstance().itemCount.count(type)){
-        //inventoryCount[type].first += 1;
         Engine::GameEngine::GetInstance().itemCount[type].first += 1;
         int newCount = Engine::GameEngine::GetInstance().itemCount[type].first;
-        //inventoryCount[type].second->Text = "x" + std::to_string(newCount);
         Engine::GameEngine::GetInstance().itemCount[type].second->Text = "x" + std::to_string(newCount);
         return;
     }

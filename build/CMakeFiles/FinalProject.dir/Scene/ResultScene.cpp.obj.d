@@ -916,13 +916,14 @@ CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.obj: \
   C:/allegro/include/allegro5/allegro_font.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/list \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Sprite.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/PlayScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Group.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Sprite.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/Soldier.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Message.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/NetWork.hpp \
@@ -1180,4 +1181,6 @@ CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/list.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/callbacks.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/ImageButton.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/ResultScene.hpp
+  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/ResultScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/LOG.hpp \
+  C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iostream

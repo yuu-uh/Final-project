@@ -108,7 +108,6 @@ void Soldier::Update(float deltaTime){
         }
     }
 
-    // If currently walking and has no target, move forward
     if (state == walking && !target) {
         Position.x -= speed * direction * deltaTime;
         float_timer += deltaTime;

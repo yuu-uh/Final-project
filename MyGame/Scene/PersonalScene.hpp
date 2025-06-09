@@ -30,6 +30,7 @@ public:
     void HostGame();
     void JoinGame();
     void ScoreOnClick();
+    void SettingOnClick();
     void OnKeyDown(int keycode) override;
     void Draw() const override;
     void ConfirmJoin();

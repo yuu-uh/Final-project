@@ -364,7 +364,7 @@ void PlayScene::CreateNetworkSoldier(uint8_t playerId, uint8_t soldierType, int 
     int realY = y;
 
     std::string typeName = GetSoldierTypeString(soldierType);
-    Soldier* soldier = CreateSoldierByType(typeName, realX, realY, -1);
+    Soldier* soldier = CreateSoldierByType(typeName, realX, realY, -1, false);
     if (!soldier) return;
 
     soldier->Position.x = realX * BlockSize + BlockSize / 2;
@@ -386,19 +386,19 @@ uint8_t PlayScene::GetSoldierTypeId(const std::string& type) {
     return 0;
 }
 
-Soldier* PlayScene::CreateSoldierByType(const std::string& typeName, int x, int y, int dir) {
+Soldier* PlayScene::CreateSoldierByType(const std::string& typeName, int x, int y, int dir, bool isLocal) {
     if (typeName == "ninja") {
-        return new Ninja(x, y, dir);
+        return new Ninja(x, y, dir, isLocal);
     } else if (typeName == "vikin") {
-        return new Vikin(x, y, dir);
+        return new Vikin(x, y, dir, isLocal);
     } else if (typeName == "master") {
-        return new Master(x, y, dir);
+        return new Master(x, y, dir, isLocal);
     } else if (typeName == "shooter") {
-        return new Shooter(x, y, dir);
+        return new Shooter(x, y, dir, isLocal);
     } else if (typeName == "slime") {
-        return new Slime(x, y, dir);
+        return new Slime(x, y, dir, isLocal);
     } else if (typeName == "dragen") {
-        return new Dragen(x, y, dir);
+        return new Dragen(x, y, dir, isLocal);
     }
     return nullptr; // Unknown type
 }
@@ -574,17 +574,17 @@ void PlayScene::UIBtnClicked(std::string type) {
         return;
 
     if(type == "ninja"){
-        next_preview = new Ninja(0, 0, 1);
+        next_preview = new Ninja(0, 0, 1, true);
     }else if(type == "vikin"){
-        next_preview = new Vikin(0, 0, 1);
+        next_preview = new Vikin(0, 0, 1, true);
     }else if(type == "master"){
-        next_preview = new Master(0, 0, 1);
+        next_preview = new Master(0, 0, 1, true);
     }else if(type == "shooter"){
-        next_preview = new Shooter(0, 0, 1);
+        next_preview = new Shooter(0, 0, 1, true);
     }else if(type == "slime"){
-        next_preview = new Slime(0, 0, 1);
+        next_preview = new Slime(0, 0, 1, true);
     }else if(type == "dragen"){
-        next_preview  = new Dragen(0, 0, 1);
+        next_preview  = new Dragen(0, 0, 1, true);
     }
     if(!next_preview) return;
 

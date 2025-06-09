@@ -2,8 +2,8 @@
 
 #include "dragen.hpp"
 
-Dragen::Dragen(int x, int y, int dir):
-Soldier("mapScene/dragen.png", x, y, dir ,50, 50, 60, 10){
+Dragen::Dragen(int x, int y, int dir, bool isLocal):
+Soldier("mapScene/dragen.png", x, y, dir ,50, 50, 60, 10, true){
     attackRadius = 100;
     cooldown = 0.5f;
 };

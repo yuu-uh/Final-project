@@ -32,7 +32,7 @@ void Soldier::die() {
     }
 }
 
-Soldier::Soldier(std::string img, float x, float y, int dir, float radius, float speed, float hp, float damage) : Engine::Sprite(img, x, y, 60, 60, 0, 0, 0, 10, 10), speed(speed), hp(hp), dmg(damage) {
+Soldier::Soldier(std::string img, float x, float y, int dir, float radius, float speed, float hp, float damage, bool isLocal) : Engine::Sprite(img, x, y, 60, 60, 0, 0, 0, 10, 10), speed(speed), hp(hp), dmg(damage) {
     CollisionRadius = radius;
     reachEndTime = 0;
     maxHp =  hp;
@@ -78,9 +78,6 @@ void Soldier::Hit(float damage) {
 
 
 void Soldier::Update(float deltaTime){
-    if(state == walking){
-        Sprite::Update(deltaTime);
-    }
     if(Preview) return;
     
     PlayScene* scene = getPlayScene();

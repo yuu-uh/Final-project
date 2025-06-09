@@ -117,7 +117,7 @@ public:
     void CreateNetworkSoldier(uint8_t playerId, uint8_t soldierType, int x, int y, uint32_t soldierId);
     uint8_t GetSoldierTypeId(const std::string& type);
     std::string GetSoldierTypeString(uint8_t typeId);
-    Soldier* CreateSoldierByType(const std::string& typeName, int x, int y, int dir);
+    Soldier* CreateSoldierByType(const std::string& typeName, int x, int y, int dir, bool isLocal = true);
 
     // Network methods
     void SendCastleDamage(int damage = 1);

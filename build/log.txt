@@ -1,7 +1,7 @@
 [INFO] Game Initializing...
 [INFO] Loaded Resource<image>: Resource/images/icon.png
 [INFO] Loaded window icon from: icon.png
-[INFO] There are total 8 supported mouse buttons
+[INFO] There are total 2 supported mouse buttons
 [INFO] Allegro5 initialized
 [INFO] Game begin
 [INFO] Loaded Resource<image>: Resource/images/background/test.png scaled to 1600x832
@@ -13,6 +13,9 @@
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 48
 [INFO] Game initialized
 [INFO] Game start event loop
+[INFO] 172.20.10.3: 1234
+[INFO] [Host] ENet event type = 1
+[INFO] [Host] CONNECT!
 [INFO] NetWork::isConnected() == true, go to mapScene
 [INFO] Loaded Resource<image>: Resource/images/mapScene/grass.png scaled to 64x64
 [INFO] Loaded Resource<image>: Resource/images/mapScene/stone.png scaled to 64x64
@@ -49,17 +52,46 @@
 [INFO] Loaded Resource<image>: Resource/images/mapScene/vikin.png
 [INFO] Loaded Resource<image>: Resource/images/play/target.png
 [INFO] Changed to play scene
-[INFO] Loaded Resource<image>: Resource/images/mapScene/brick.png
 [INFO] Loaded Resource<image>: Resource/images/mapScene/roof.png
-[INFO] Loaded Resource<image>: Resource/images/mapScene/master.png scaled to 60x60
-[INFO] Loaded Resource<image>: Resource/images/mapScene/ninja.png scaled to 60x60
+[INFO] Loaded Resource<image>: Resource/images/mapScene/brick.png
 [INFO] Game Terminating...
 [INFO] Game terminated
 [INFO] Game end
-[INFO] Destroyed Resource<image>: GUI/button.png?500x130
+[INFO] Destroyed Resource<image>: play/target.png
+[INFO] Destroyed Resource<image>: mapScene/ninja.png
+[INFO] Destroyed Resource<image>: mapScene/master.png
+[INFO] Destroyed Resource<image>: mapScene/item_empty.png?100x100
+[INFO] Destroyed Resource<image>: mapScene/vikin.png?100x100
+[INFO] Destroyed Resource<image>: mapScene/grass.png
+[INFO] Destroyed Resource<image>: mapScene/shooter.png?30x30
+[INFO] Destroyed Resource<image>: mapScene/dragen.png?30x30
+[INFO] Destroyed Resource<image>: mapScene/slime.png?100x100
+[INFO] Destroyed Resource<image>: mapScene/master.png?30x30
+[INFO] Destroyed Resource<image>: mapScene/master.png?100x100
+[INFO] Destroyed Resource<image>: mapScene/vikin.png?30x30
+[INFO] Destroyed Resource<image>: mapScene/dragen.png
+[INFO] Destroyed Resource<image>: mapScene/shooter.png?100x100
+[INFO] Destroyed Resource<image>: mapScene/brick.png
 [INFO] Destroyed Resource<image>: background/test.png?1600x832
+[INFO] Destroyed Resource<image>: GUI/inventory.png?325x377
+[INFO] Destroyed Resource<image>: mapScene/player1_front01.png?60x60
+[INFO] Destroyed Resource<image>: mapScene/slime.png?30x30
+[INFO] Destroyed Resource<image>: mapScene/ninja.png?30x30
+[INFO] Destroyed Resource<image>: mapScene/roof.png
+[INFO] Destroyed Resource<image>: mapScene/ninja.png?100x100
+[INFO] Destroyed Resource<image>: mapScene/dragen.png?100x100
+[INFO] Destroyed Resource<image>: GUI/button.png?320x108
+[INFO] Destroyed Resource<image>: mapScene/shooter.png
+[INFO] Destroyed Resource<image>: GUI/frame.png?320x320
+[INFO] Destroyed Resource<image>: mapScene/stone.png
+[INFO] Destroyed Resource<image>: mapScene/vikin.png
+[INFO] Destroyed Resource<image>: mapScene/stone.png?64x64
+[INFO] Destroyed Resource<image>: mapScene/grass.png?64x64
+[INFO] Destroyed Resource<image>: mapScene/slime.png
+[INFO] Destroyed Resource<image>: GUI/button.png?500x130
 [INFO] Destroyed Resource<image>: GUI/button.png
 [INFO] Destroyed Resource<image>: icon.png
+[INFO] Destroyed Resource<font>: pirulen.ttf?24
 [INFO] Destroyed Resource<font>: pirulen.ttf?46
 [INFO] Destroyed Resource<font>: pirulen.ttf?48
 [INFO] Destroyed Resource<font>: pirulen.ttf?100

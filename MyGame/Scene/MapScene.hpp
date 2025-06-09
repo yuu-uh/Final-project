@@ -35,7 +35,7 @@ public:
         TILE_FLOOR,
         TILE_OCCUPIED,
     };
-    std::unordered_map<std::string, std::pair<int, Engine::Label*>> inventoryCount;
+    //std::unordered_map<std::string, std::pair<int, Engine::Label*>> inventoryCount;
     std::unordered_map<std::string, Engine::Image*> inventoryIcons;
     std::vector<Engine::Image*> slotImage;
     static const std::vector<Engine::Point> directions;

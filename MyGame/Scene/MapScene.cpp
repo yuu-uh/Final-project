@@ -86,12 +86,13 @@ void MapScene::Initialize() {
         }
         else if (hdr->type == MSG_PICK_ITEM && hdr->length == sizeof(PickItem)) {
             auto const* pi = reinterpret_cast<const PickItem*>(body);
+            if (pi->playerId == net.myId) {
+                enet_packet_destroy(ev.packet);
+                return;
+            }
             for (auto* it : allItems) {
                 if (it->id == pi->itemId && !it->item_picked()) {
                     it->Pick();
-                    if(pi->playerId == net.myId){
-                        AddToInventory(it, it->getType());
-                    }
                     break;
                 }
             }
@@ -134,6 +135,16 @@ void MapScene::Update(float dt) {
 
         if (!item->item_picked() && Engine::Collider::IsCircleOverlap(
             item->Position, item->CollisionRadius, player->Position, player->CollisionRadius)) {
+            item->Pick();
+
+            PacketHeader hdr{ MSG_PICK_ITEM, sizeof(PickItem) };
+            PickItem pi{ uint8_t(net.myId), uint8_t(item->id) };
+            uint8_t packet[sizeof(hdr)+sizeof(pi)];
+            std::memcpy(packet, &hdr, sizeof(hdr));
+            std::memcpy(packet + sizeof(hdr), &pi, sizeof(pi));
+            net.Send(packet, sizeof(packet), 0);
+
+            AddToInventory(item, item->getType());
         }
     }
 
@@ -270,21 +281,20 @@ void MapScene::AddToInventory(Item* item, const std::string& type) {
     const int iconW = 100, iconH = 100;
     int cols = 320 / (iconW + pad);
 
-    if(inventoryCount.count(type)){
-        inventoryCount[type].first += 1;
+    if(Engine::GameEngine::GetInstance().itemCount.count(type)){
+        //inventoryCount[type].first += 1;
         Engine::GameEngine::GetInstance().itemCount[type].first += 1;
-        int newCount = inventoryCount[type].first;
-        inventoryCount[type].second->Text = "x" + std::to_string(newCount);
+        int newCount = Engine::GameEngine::GetInstance().itemCount[type].first;
+        //inventoryCount[type].second->Text = "x" + std::to_string(newCount);
         Engine::GameEngine::GetInstance().itemCount[type].second->Text = "x" + std::to_string(newCount);
         return;
     }
 
-    int idx = (int)inventoryCount.size();  
+    int idx = (int)Engine::GameEngine::GetInstance().itemCount.size();  
     int col = idx % cols;
     int row = idx / cols;
     float x = panelX0 + pad + col * (iconW + pad);
     float y = panelY0 + pad + row * (iconH + pad);
-
 
     Engine::Image* icon = new Engine::Image(item->getBitmap(), x, y, iconW, iconH);
     UIInventoryGroup->AddNewObject(icon);
@@ -296,7 +306,7 @@ void MapScene::AddToInventory(Item* item, const std::string& type) {
     UIInventoryGroup->AddNewObject(countLabel);
 
     // Add to map
-    inventoryCount[type] = std::make_pair(1, countLabel);
+    //inventoryCount[type] = std::make_pair(1, countLabel);
     Engine::GameEngine::GetInstance().itemCount[type] = std::make_pair(1, countLabel);
     Engine::GameEngine::GetInstance().pickedItems.push_back(type);
 }

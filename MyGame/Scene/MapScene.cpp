@@ -116,6 +116,7 @@ void MapScene::Initialize() {
         }
         enet_packet_destroy(ev.packet);
     }); 
+    camX = camY = 0;
 }
 void MapScene::Update(float dt) {
     IScene::Update(dt);
@@ -273,7 +274,7 @@ void MapScene::ReadMap() {
             switch (c) {
                 case '0':
                     t = TILE_FLOOR;
-                    imgPath = "mapScene/stone.png";
+                    imgPath = "mapScene/Tile.png";
                     break;
                 case '1':
                     t = TILE_DIRT;
@@ -281,7 +282,7 @@ void MapScene::ReadMap() {
                     break;
                 case '2':
                     t = TILE_OCCUPIED;
-                    imgPath = "mapScene/Tile.png";
+                    imgPath = "mapScene/stone.png";
                     break;
                 default:
                     throw std::runtime_error(std::string("Map.txt 非法字符: ") + c);

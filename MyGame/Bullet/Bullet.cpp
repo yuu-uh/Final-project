@@ -1,5 +1,4 @@
 #include "Bullet.hpp"
-#include "Enemy/Enemy.hpp"
 #include "Engine/Collider.hpp"
 #include "Engine/GameEngine.hpp"
 #include "Engine/Group.hpp"

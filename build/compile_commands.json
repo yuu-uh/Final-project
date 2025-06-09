@@ -115,6 +115,12 @@
 },
 {
   "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Scene\\ScoreBoardScene.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Scene\\ScoreBoardScene.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Scene/ScoreBoardScene.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Scene/ScoreBoardScene.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
   "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Scene\\SettingsScene.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Scene\\SettingsScene.cpp",
   "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Scene/SettingsScene.cpp",
   "output": "CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.obj"

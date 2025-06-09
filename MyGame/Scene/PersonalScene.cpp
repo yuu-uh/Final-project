@@ -172,10 +172,26 @@ void PersonalScene::HostGame() {
     std::string ip = getLocalIP();
     Engine::LOG(Engine::INFO) << ip << ": " << 1234;
     net.SetReceiveCallback([this](const ENetEvent& e){
-    Engine::LOG(Engine::INFO) << "[Host] ENet event type = " << e.type;
-    if (e.type == ENET_EVENT_TYPE_CONNECT) {
-        Engine::LOG(Engine::INFO) << "[Host] CONNECT!";
-    }});
+        if(e.type==ENET_EVENT_TYPE_CONNECT){
+            join_mode = false;
+            PacketHeader hdr{ MSG_JOB_SELECT, sizeof(uint8_t) };
+            uint8_t buf[sizeof(hdr)+1];
+            std::memcpy(buf, &hdr, sizeof(hdr));
+            uint8_t jobId = static_cast<uint8_t>(currentJobIndex);
+            std::memcpy(buf + sizeof(hdr), &jobId, 1);
+            NetWork::Instance().Send(buf, sizeof(buf), 0);
+        }
+        else if (e.type == ENET_EVENT_TYPE_RECEIVE) {
+            PacketHeader hdr;
+            std::memcpy(&hdr, e.packet->data, sizeof(hdr));
+            if (hdr.type == MSG_JOB_SELECT) {
+                uint8_t clientJob = *(e.packet->data + sizeof(hdr));
+                Engine::GameEngine::conjob = PersonalScene::JobNames[clientJob];
+                Engine::GameEngine::GetInstance().ChangeScene("map");
+            }
+            enet_packet_destroy(e.packet);      
+        }
+    });
     waitConn = true;
     hostMode = true;
     hostIdInfo = "Your ID: " + ip;
@@ -211,8 +227,17 @@ void PersonalScene::ConfirmJoin() {
             uint8_t jobId = static_cast<uint8_t>(currentJobIndex);
             std::memcpy(buf + sizeof(hdr), &jobId, 1);
             NetWork::Instance().Send(buf, sizeof(buf), 0);
-            Engine::GameEngine::GetInstance().ChangeScene("map");
-        }            
+        }
+        else if (e.type == ENET_EVENT_TYPE_RECEIVE) {
+            PacketHeader hdr;
+            std::memcpy(&hdr, e.packet->data, sizeof(hdr));
+            if (hdr.type == MSG_JOB_SELECT) {
+                uint8_t clientJob = *(e.packet->data + sizeof(hdr));
+                Engine::GameEngine::conjob = PersonalScene::JobNames[clientJob];
+                Engine::GameEngine::GetInstance().ChangeScene("map");
+            }
+            enet_packet_destroy(e.packet);
+        }          
     });
     waitConn = true;
 }

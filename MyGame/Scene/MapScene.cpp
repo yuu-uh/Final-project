@@ -76,7 +76,7 @@ void MapScene::Initialize() {
     Engine::Point startPos1{ 216, 216 };   
     Engine::Point startPos2{ 16, 16 };    
     float moveSpeed = 200.0f;     
-    std::string path1 = "mapScene/" + Engine::GameEngine::job + "_front01.png";
+    std::string path1 = "mapScene/" + Engine::GameEngine::job + "_back01.png";
     std::string path2 = "mapScene/" + Engine::GameEngine::conjob + "_front01.png";
     player = new Player(path1, startPos1, moveSpeed, 16, 16, true);
     conPlayer  = new Player(path2, startPos2, moveSpeed, 16, 16, false);

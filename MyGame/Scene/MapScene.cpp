@@ -117,6 +117,7 @@ void MapScene::Initialize() {
         enet_packet_destroy(ev.packet);
     }); 
     camX = camY = 0;
+    bgmId = AudioHelper::PlayBGM("map.ogg");
 }
 void MapScene::Update(float dt) {
     IScene::Update(dt);

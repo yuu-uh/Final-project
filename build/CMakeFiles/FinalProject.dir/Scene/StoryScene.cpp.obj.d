@@ -799,9 +799,10 @@ CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Point.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/ImageButton.hpp \
-  C:/allegro/include/allegro5/bitmap.h \
-  C:/allegro/include/allegro5/color.h C:/allegro/include/allegro5/base.h \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/AudioHelper.hpp \
+  C:/allegro/include/allegro5/allegro_audio.h \
+  C:/allegro/include/allegro5/allegro.h \
+  C:/allegro/include/allegro5/base.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/sys/types.h \
   C:/allegro/include/allegro5/internal/alconfig.h \
   C:/allegro/include/allegro5/platform/alplatf.h \
@@ -814,11 +815,9 @@ CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj: \
   C:/llvm-mingw-20240417-msvcrt-x86_64/lib/clang/18/include/inttypes.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/inttypes.h \
   C:/allegro/include/allegro5/platform/astdbool.h \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
-  C:/allegro/include/allegro5/allegro_font.h \
-  C:/allegro/include/allegro5/allegro.h \
   C:/allegro/include/allegro5/altime.h \
+  C:/allegro/include/allegro5/bitmap.h \
+  C:/allegro/include/allegro5/color.h \
   C:/allegro/include/allegro5/bitmap_draw.h \
   C:/allegro/include/allegro5/bitmap_io.h \
   C:/allegro/include/allegro5/file.h C:/allegro/include/allegro5/path.h \
@@ -855,7 +854,8 @@ CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj: \
   C:/allegro/include/allegro5/timer.h C:/allegro/include/allegro5/tls.h \
   C:/allegro/include/allegro5/alcompat.h \
   C:/allegro/include/allegro5/platform/alwin.h \
-  C:/allegro/include/allegro5/allegro_audio.h \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/ImageButton.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/fstream \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/filesystem \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/copy_options.h \
@@ -903,8 +903,9 @@ CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj: \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/path_iterator.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/__filesystem/u8path.h \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/AudioHelper.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/GameEngine.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Label.hpp \
+  C:/allegro/include/allegro5/allegro_font.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Sprite.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Resources.hpp

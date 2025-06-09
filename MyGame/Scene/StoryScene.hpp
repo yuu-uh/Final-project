@@ -2,8 +2,9 @@
 #include <vector>
 #include <string>
 #include "Engine/IScene.hpp"
+#include "Engine/AudioHelper.hpp"
 #include "UI/Component/ImageButton.hpp"
-#include "UI/Component/Label.hpp"
+#include "UI/Component/Label.hpp
 
 class StoryScene : public Engine::IScene {
 public:
@@ -14,7 +15,7 @@ public:
 private:
     void advance_line();
     void TBOnClick(int);
-
+    ALLEGRO_SAMPLE_ID bgmId;
     std::vector<std::string> lines;
     std::string show_text;
     int cur_line = 0, text_idx = 0;

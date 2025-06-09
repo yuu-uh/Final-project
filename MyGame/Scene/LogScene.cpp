@@ -45,6 +45,7 @@ void LogScene::Initialize() {
     password.clear();
     passwordLabel = new Engine::Label("", "pirulen.ttf", 32, halfW+200, halfH * 3 / 2, 0, 0, 0, 255, 0.5, 0.5);
     AddNewObject(passwordLabel);
+    bgmId = AudioHelper::PlayBGM("others.ogg");
 }
 void LogScene::Terminate() {
     IScene::Terminate();

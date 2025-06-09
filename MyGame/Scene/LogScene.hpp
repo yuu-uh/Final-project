@@ -8,6 +8,7 @@
 
 class LogScene final : public Engine::IScene {
 private: 
+    ALLEGRO_SAMPLE_ID bgmId;
     Engine::Label* nameLabel;
     Engine::Label* passwordLabel;
     std::string name;

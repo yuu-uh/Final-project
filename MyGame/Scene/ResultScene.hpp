@@ -6,6 +6,7 @@
 
 class ResultScene final : public Engine::IScene {
 private:
+    ALLEGRO_SAMPLE_ID bgmId;
     float ticks;
     std::string playerName;        
     Engine::Label* nameLabel;

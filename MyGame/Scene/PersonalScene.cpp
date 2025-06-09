@@ -106,6 +106,7 @@ void PersonalScene::Initialize() {
     IPEnter = new Engine::TextBox(halfW-350, halfH-150, 700, 100, 0.5, 0.5); 
     portEenter = new Engine::TextBox(halfW-350, halfH+150, 700, 100, 0.5, 0.5); 
     font = Engine::Resources::GetInstance().GetFont("pirulen.ttf", 48);
+    bgmId = AudioHelper::PlayBGM("others.ogg");
 }
 
 void PersonalScene::Update(float dt) {
@@ -241,7 +242,6 @@ void PersonalScene::ConfirmJoin() {
     });
     waitConn = true;
 }
-
 void PersonalScene::ScoreOnClick() {
     Engine::GameEngine::GetInstance().ChangeScene("scoreboard");
 }

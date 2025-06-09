@@ -11,6 +11,7 @@
 #include "Engine/GameEngine.hpp"
 #include "Engine/Point.hpp"
 #include "Scene/PlayScene.hpp"
+#include "ResultScene.hpp"
 #include "UI/Component/Image.hpp"
 #include "UI/Component/ImageButton.hpp"
 #include "UI/Component/Label.hpp"
@@ -118,6 +119,7 @@ void ResultScene::Initialize() {
         halfW, h - 145, 255, 255, 255, 255, 0.5, 0.5));
     SaveResult();
     Engine::LOG(Engine::INFO) << "finished initialize result scene";
+    bgmId = AudioHelper::PlayBGM("others.ogg");
 }
 
 void ResultScene::Terminate() {

@@ -83,7 +83,10 @@ void PlayScene::Initialize() {
     NetWork::Instance().SetReceiveCallback(
         std::bind(&PlayScene::HandleNetworkMessage, this, std::placeholders::_1)
     );
-    UIGroup->AddNewObject(new Engine::Image("GUI/play.png",1275, 50,200,50));
+    UIGroup->AddNewObject(new Engine::Image("GUI/play.png",1275, 150,300,450));
+    std::string path = "mapScene/" + Engine::GameEngine::job + "_front01.png";
+    UIGroup->AddNewObject(new Engine::Image(path,1275, 100,100,100));
+    bgmId = AudioHelper::PlayBGM("play.ogg");
 }
 void PlayScene::Terminate() {
     NetWork::Instance().SetReceiveCallback(nullptr);

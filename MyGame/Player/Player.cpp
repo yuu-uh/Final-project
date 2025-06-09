@@ -13,6 +13,7 @@ void Player::LoadAnimations(){
         std::vector<ALLEGRO_BITMAP*> frames;
         for (int i = 1; i <= 4; i++) {
             std::string path = "Resource/images/mapScene/" + who + "_" + dir + "0" + std::to_string(i) + ".png";
+            std::string path = "Resource/images/mapScene/" + who + "_" + dir + "0" + std::to_string(i) + ".png";
             ALLEGRO_BITMAP* bmp = al_load_bitmap(path.c_str());
             if (!bmp) {
                 Engine::LOG(Engine::INFO) << "Failed to load: " << path;
@@ -81,15 +82,10 @@ void Player::Update(float deltaTime) {
 }
 
 bool Player::CheckCollision(const Engine::Point &newPos) {
-    float left   = newPos.x - CollisionRadius;
-    float right  = newPos.x + CollisionRadius;
-    float top    = newPos.y - CollisionRadius;
-    float bottom = newPos.y + CollisionRadius;
-
-    int gx0 = static_cast<int>(floor(left   / MapScene::BlockSize));
-    int gx1 = static_cast<int>(floor(right  / MapScene::BlockSize));
-    int gy0 = static_cast<int>(floor(top    / MapScene::BlockSize));
-    int gy1 = static_cast<int>(floor(bottom / MapScene::BlockSize));
+    int gx0 = newPos.x  / MapScene::BlockSize;
+    int gx1 = (newPos.x+MapScene::BlockSize-1) / MapScene::BlockSize;
+    int gy0 = newPos.y / MapScene::BlockSize;
+    int gy1 = (newPos.y+MapScene::BlockSize-1) / MapScene::BlockSize;
 
     if (gx0 < 0 || gy0 < 0 || gx1 >= MapScene::MapWidth || gy1 >= MapScene::MapHeight)
         return true;
@@ -97,8 +93,7 @@ bool Player::CheckCollision(const Engine::Point &newPos) {
     auto &ms = playScene->mapState;
     for (int gy = gy0; gy <= gy1; ++gy) {
         for (int gx = gx0; gx <= gx1; ++gx) {
-            if (ms[gy][gx] == MapScene::TILE_OCCUPIED)
-                return true;
+            if (ms[gy][gx] == MapScene::TILE_OCCUPIED) return true;
         }
     }
     return false;

@@ -33774,6 +33774,7 @@ CMakeFiles/FinalProject.dir/UI/Component/TextBox.cpp.obj: C:/Users/annys/Downloa
   C:/llvm-mingw-20240417-msvcrt-x86_64/lib/clang/18/include/vadefs.h
 
 CMakeFiles/FinalProject.dir/main.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/main.cpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Engine/AudioHelper.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Group.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IControl.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Engine/IObject.hpp \
@@ -33799,6 +33800,7 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: C:/Users/annys/Downloads/FinalProject/
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PlayScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/ResultScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/ScoreBoardScene.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/SettingsScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/StoryScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/callbacks.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/enet.h \

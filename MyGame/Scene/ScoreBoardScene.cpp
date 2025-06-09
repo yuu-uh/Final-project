@@ -87,7 +87,7 @@ void ScoreBoardScene::Initialize(){
     AddNewControlObject(btn);
     //AddNewObject(new Engine::Label("Next", "pirulen.ttf", 48, halfW+500, halfH / 2 + 450, 0, 0, 0, 255, 0.5, 0.5));
 
-    bgmInstance = AudioHelper::PlaySample("select.ogg", true, AudioHelper::BGMVolume);
+    bgmInstance = AudioHelper::PlaySample("others.ogg", true, AudioHelper::BGMVolume);
 }
 
 void ScoreBoardScene::Terminate() {

@@ -679,6 +679,30 @@ Scene/ResultScene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.s
 .PHONY : Scene/ResultScene.cpp.s
 
+Scene/SettingsScene.obj: Scene/SettingsScene.cpp.obj
+.PHONY : Scene/SettingsScene.obj
+
+# target to build an object file
+Scene/SettingsScene.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.obj
+.PHONY : Scene/SettingsScene.cpp.obj
+
+Scene/SettingsScene.i: Scene/SettingsScene.cpp.i
+.PHONY : Scene/SettingsScene.i
+
+# target to preprocess a source file
+Scene/SettingsScene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.i
+.PHONY : Scene/SettingsScene.cpp.i
+
+Scene/SettingsScene.s: Scene/SettingsScene.cpp.s
+.PHONY : Scene/SettingsScene.s
+
+# target to generate assembly for a file
+Scene/SettingsScene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.s
+.PHONY : Scene/SettingsScene.cpp.s
+
 Scene/StoryScene.obj: Scene/StoryScene.cpp.obj
 .PHONY : Scene/StoryScene.obj
 
@@ -1138,6 +1162,9 @@ help:
 	@echo ... Scene/ResultScene.obj
 	@echo ... Scene/ResultScene.i
 	@echo ... Scene/ResultScene.s
+	@echo ... Scene/SettingsScene.obj
+	@echo ... Scene/SettingsScene.i
+	@echo ... Scene/SettingsScene.s
 	@echo ... Scene/StoryScene.obj
 	@echo ... Scene/StoryScene.i
 	@echo ... Scene/StoryScene.s

@@ -353,11 +353,26 @@ CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.s"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\annys\Downloads\FinalProject\MyGame\Scene\ResultScene.cpp -o CMakeFiles\FinalProject.dir\Scene\ResultScene.cpp.s
 
+CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.obj: CMakeFiles/FinalProject.dir/flags.make
+CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
+CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Scene/SettingsScene.cpp
+CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.obj"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.obj -MF CMakeFiles\FinalProject.dir\Scene\SettingsScene.cpp.obj.d -o CMakeFiles\FinalProject.dir\Scene\SettingsScene.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Scene\SettingsScene.cpp
+
+CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.i"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\annys\Downloads\FinalProject\MyGame\Scene\SettingsScene.cpp > CMakeFiles\FinalProject.dir\Scene\SettingsScene.cpp.i
+
+CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.s"
+	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\annys\Downloads\FinalProject\MyGame\Scene\SettingsScene.cpp -o CMakeFiles\FinalProject.dir\Scene\SettingsScene.cpp.s
+
 CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj: CMakeFiles/FinalProject.dir/flags.make
 CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Scene/StoryScene.cpp
 CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj -MF CMakeFiles\FinalProject.dir\Scene\StoryScene.cpp.obj.d -o CMakeFiles\FinalProject.dir\Scene\StoryScene.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Scene\StoryScene.cpp
 
 CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.i: cmake_force
@@ -372,7 +387,7 @@ CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj: CMakeFiles/FinalPr
 CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/UI/Animation/DirtyEffect.cpp
 CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj -MF CMakeFiles\FinalProject.dir\UI\Animation\DirtyEffect.cpp.obj.d -o CMakeFiles\FinalProject.dir\UI\Animation\DirtyEffect.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\UI\Animation\DirtyEffect.cpp
 
 CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.i: cmake_force
@@ -387,7 +402,7 @@ CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj: CMakeFiles/Fin
 CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/UI/Animation/ExplosionEffect.cpp
 CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj -MF CMakeFiles\FinalProject.dir\UI\Animation\ExplosionEffect.cpp.obj.d -o CMakeFiles\FinalProject.dir\UI\Animation\ExplosionEffect.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\UI\Animation\ExplosionEffect.cpp
 
 CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.i: cmake_force
@@ -402,7 +417,7 @@ CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.obj: CMakeFiles/FinalProject.
 CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.cpp
 CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.obj -MF CMakeFiles\FinalProject.dir\UI\Component\Image.cpp.obj.d -o CMakeFiles\FinalProject.dir\UI\Component\Image.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\UI\Component\Image.cpp
 
 CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.i: cmake_force
@@ -417,7 +432,7 @@ CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj: CMakeFiles/FinalPr
 CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/ImageButton.cpp
 CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj -MF CMakeFiles\FinalProject.dir\UI\Component\ImageButton.cpp.obj.d -o CMakeFiles\FinalProject.dir\UI\Component\ImageButton.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\UI\Component\ImageButton.cpp
 
 CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.i: cmake_force
@@ -432,7 +447,7 @@ CMakeFiles/FinalProject.dir/UI/Component/Label.cpp.obj: CMakeFiles/FinalProject.
 CMakeFiles/FinalProject.dir/UI/Component/Label.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/UI/Component/Label.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Label.cpp
 CMakeFiles/FinalProject.dir/UI/Component/Label.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/FinalProject.dir/UI/Component/Label.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/FinalProject.dir/UI/Component/Label.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/UI/Component/Label.cpp.obj -MF CMakeFiles\FinalProject.dir\UI\Component\Label.cpp.obj.d -o CMakeFiles\FinalProject.dir\UI\Component\Label.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\UI\Component\Label.cpp
 
 CMakeFiles/FinalProject.dir/UI/Component/Label.cpp.i: cmake_force
@@ -447,7 +462,7 @@ CMakeFiles/FinalProject.dir/UI/Component/Slider.cpp.obj: CMakeFiles/FinalProject
 CMakeFiles/FinalProject.dir/UI/Component/Slider.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/UI/Component/Slider.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Slider.cpp
 CMakeFiles/FinalProject.dir/UI/Component/Slider.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/FinalProject.dir/UI/Component/Slider.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/FinalProject.dir/UI/Component/Slider.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/UI/Component/Slider.cpp.obj -MF CMakeFiles\FinalProject.dir\UI\Component\Slider.cpp.obj.d -o CMakeFiles\FinalProject.dir\UI\Component\Slider.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\UI\Component\Slider.cpp
 
 CMakeFiles/FinalProject.dir/UI/Component/Slider.cpp.i: cmake_force
@@ -462,7 +477,7 @@ CMakeFiles/FinalProject.dir/UI/Component/TextBox.cpp.obj: CMakeFiles/FinalProjec
 CMakeFiles/FinalProject.dir/UI/Component/TextBox.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/UI/Component/TextBox.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/TextBox.cpp
 CMakeFiles/FinalProject.dir/UI/Component/TextBox.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/FinalProject.dir/UI/Component/TextBox.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/FinalProject.dir/UI/Component/TextBox.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/UI/Component/TextBox.cpp.obj -MF CMakeFiles\FinalProject.dir\UI\Component\TextBox.cpp.obj.d -o CMakeFiles\FinalProject.dir\UI\Component\TextBox.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\UI\Component\TextBox.cpp
 
 CMakeFiles/FinalProject.dir/UI/Component/TextBox.cpp.i: cmake_force
@@ -477,7 +492,7 @@ CMakeFiles/FinalProject.dir/Items/Item.cpp.obj: CMakeFiles/FinalProject.dir/flag
 CMakeFiles/FinalProject.dir/Items/Item.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/Items/Item.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Items/Item.cpp
 CMakeFiles/FinalProject.dir/Items/Item.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/FinalProject.dir/Items/Item.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/FinalProject.dir/Items/Item.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Items/Item.cpp.obj -MF CMakeFiles\FinalProject.dir\Items\Item.cpp.obj.d -o CMakeFiles\FinalProject.dir\Items\Item.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Items\Item.cpp
 
 CMakeFiles/FinalProject.dir/Items/Item.cpp.i: cmake_force
@@ -492,7 +507,7 @@ CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj: CMakeFiles/FinalProject.dir
 CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.cpp
 CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj -MF CMakeFiles\FinalProject.dir\Soldier\Soldier.cpp.obj.d -o CMakeFiles\FinalProject.dir\Soldier\Soldier.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\Soldier.cpp
 
 CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.i: cmake_force
@@ -507,7 +522,7 @@ CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj: CMakeFiles/FinalProject.dir/f
 CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/vikin.cpp
 CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj -MF CMakeFiles\FinalProject.dir\Soldier\vikin.cpp.obj.d -o CMakeFiles\FinalProject.dir\Soldier\vikin.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\vikin.cpp
 
 CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.i: cmake_force
@@ -522,7 +537,7 @@ CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj: CMakeFiles/FinalProject.dir/
 CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/master.cpp
 CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Soldier/master.cpp.obj -MF CMakeFiles\FinalProject.dir\Soldier\master.cpp.obj.d -o CMakeFiles\FinalProject.dir\Soldier\master.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\master.cpp
 
 CMakeFiles/FinalProject.dir/Soldier/master.cpp.i: cmake_force
@@ -537,7 +552,7 @@ CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj: CMakeFiles/FinalProject.dir/f
 CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/ninja.cpp
 CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.obj -MF CMakeFiles\FinalProject.dir\Soldier\ninja.cpp.obj.d -o CMakeFiles\FinalProject.dir\Soldier\ninja.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\ninja.cpp
 
 CMakeFiles/FinalProject.dir/Soldier/ninja.cpp.i: cmake_force
@@ -552,7 +567,7 @@ CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj: CMakeFiles/FinalProject.dir
 CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/shooter.cpp
 CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj -MF CMakeFiles\FinalProject.dir\Soldier\shooter.cpp.obj.d -o CMakeFiles\FinalProject.dir\Soldier\shooter.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\shooter.cpp
 
 CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.i: cmake_force
@@ -567,7 +582,7 @@ CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj: CMakeFiles/FinalProject.dir/f
 CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/slime.cpp
 CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Soldier/slime.cpp.obj -MF CMakeFiles\FinalProject.dir\Soldier\slime.cpp.obj.d -o CMakeFiles\FinalProject.dir\Soldier\slime.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\slime.cpp
 
 CMakeFiles/FinalProject.dir/Soldier/slime.cpp.i: cmake_force
@@ -582,7 +597,7 @@ CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj: CMakeFiles/FinalProject.dir/
 CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/dragen.cpp
 CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.obj -MF CMakeFiles\FinalProject.dir\Soldier\dragen.cpp.obj.d -o CMakeFiles\FinalProject.dir\Soldier\dragen.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\Soldier\dragen.cpp
 
 CMakeFiles/FinalProject.dir/Soldier/dragen.cpp.i: cmake_force
@@ -597,7 +612,7 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: CMakeFiles/FinalProject.dir/flags.make
 CMakeFiles/FinalProject.dir/main.cpp.obj: CMakeFiles/FinalProject.dir/includes_CXX.rsp
 CMakeFiles/FinalProject.dir/main.cpp.obj: C:/Users/annys/Downloads/FinalProject/MyGame/main.cpp
 CMakeFiles/FinalProject.dir/main.cpp.obj: CMakeFiles/FinalProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/FinalProject.dir/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/FinalProject.dir/main.cpp.obj"
 	C:\llvm-mingw-20240417-msvcrt-x86_64\bin\clang++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FinalProject.dir/main.cpp.obj -MF CMakeFiles\FinalProject.dir\main.cpp.obj.d -o CMakeFiles\FinalProject.dir\main.cpp.obj -c C:\Users\annys\Downloads\FinalProject\MyGame\main.cpp
 
 CMakeFiles/FinalProject.dir/main.cpp.i: cmake_force
@@ -629,6 +644,7 @@ FinalProject_OBJECTS = \
 "CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj" \
 "CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.obj" \
 "CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.obj" \
+"CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.obj" \
 "CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj" \
 "CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj" \
 "CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj" \
@@ -669,6 +685,7 @@ FinalProject.exe: CMakeFiles/FinalProject.dir/Scene/MapScene.cpp.obj
 FinalProject.exe: CMakeFiles/FinalProject.dir/Scene/PersonalScene.cpp.obj
 FinalProject.exe: CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.obj
 FinalProject.exe: CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.obj
+FinalProject.exe: CMakeFiles/FinalProject.dir/Scene/SettingsScene.cpp.obj
 FinalProject.exe: CMakeFiles/FinalProject.dir/Scene/StoryScene.cpp.obj
 FinalProject.exe: CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj
 FinalProject.exe: CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj
@@ -692,7 +709,7 @@ FinalProject.exe: enet-master/libenet.a
 FinalProject.exe: CMakeFiles/FinalProject.dir/linkLibs.rsp
 FinalProject.exe: CMakeFiles/FinalProject.dir/objects1.rsp
 FinalProject.exe: CMakeFiles/FinalProject.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Linking CXX executable FinalProject.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\annys\Downloads\FinalProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Linking CXX executable FinalProject.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\FinalProject.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

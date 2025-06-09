@@ -8,6 +8,7 @@
 #include <sstream>
 #include <fstream>
 #include <iomanip>
+#include <random>
 
 #include "Engine/Message.hpp"
 #include "Engine/AudioHelper.hpp"
@@ -49,18 +50,27 @@ void MapScene::Initialize() {
     countdownLabel = new Engine::Label("03:00", "pirulen.ttf", 48, 1380, 730, 255, 255, 255, 255, 0.5, 0.5);
     UIGroup->AddNewObject(countdownLabel);
     
-    int nextId = 0;
-    for(int i=0; i<6; i++){
-        for(int j=0; j<5; j++){
-            int x = rand() % MapWidth;
-            int y = rand() % MapHeight;
-            std::string img = "mapScene/"+itemImg[i]+".png";
-            Item* item = new Item(img, x * BlockSize, y * BlockSize, itemImg[i]);
-            item->id = nextId++;
-            allItems.push_back(item);
-            ItemGroup->AddNewObject(item);
+    std::vector<std::pair<int,int>> freeCells;
+    freeCells.reserve(MapWidth * MapHeight);
+    for(int y=0; y<MapHeight; ++y){
+        for(int x=0; x<MapWidth; ++x){
+            if(mapState[y][x] != TILE_OCCUPIED)
+                freeCells.emplace_back(x,y);
         }
     }
+    std::mt19937 rng{ std::random_device{}() };
+    std::shuffle(freeCells.begin(), freeCells.end(), rng);
+    int nextId = 0;
+    int needed = std::min((int)freeCells.size(), 6*5);
+    for(int idx = 0; idx < needed; ++idx){
+        auto [x, y] = freeCells[idx];
+        std::string img = "mapScene/" + itemImg[idx/5] + ".png";  
+        Item* item = new Item(img, x * BlockSize, y * BlockSize, itemImg[idx/5]);
+        item->id = nextId++;
+        allItems.push_back(item);
+        ItemGroup->AddNewObject(item);
+    }
+
     Engine::Point startPos1{ 216, 216 };   
     Engine::Point startPos2{ 16, 16 };    
     float moveSpeed = 200.0f;     
@@ -183,20 +193,7 @@ void MapScene::Draw() const {
     int rowStart = std::max(0, int(camY / BlockSize));
     int colEnd   = std::min(MapWidth-1, int((camX + viewW) / BlockSize)+1);
     int rowEnd   = std::min(MapHeight-1, int((camY + viewH) / BlockSize)+1);
-    for(int row = rowStart; row <= rowEnd; ++row){
-        for(int col = colStart; col <= colEnd; ++col){
-            const char* path = (mapState[row][col]==TILE_FLOOR)
-                              ? "mapScene/stone.png" : "mapScene/grass.png";
-            ALLEGRO_BITMAP* bmp = Engine::Resources::GetInstance().GetBitmap(path).get();
-            al_draw_scaled_bitmap(
-                bmp, 0,0,
-                al_get_bitmap_width(bmp), al_get_bitmap_height(bmp),
-                col*BlockSize, row*BlockSize,
-                BlockSize, BlockSize,
-                0
-            );
-        }
-    }
+    TileMapGroup->Draw();
     ItemGroup->Draw();
     player->Draw();
     conPlayer->Draw();
@@ -217,8 +214,21 @@ void MapScene::Draw() const {
         for(int col=0; col<MapWidth; ++col){
             float cellW = miniW / MapWidth;
             float cellH = miniH / MapHeight;
-            ALLEGRO_COLOR c = (mapState[row][col]==TILE_FLOOR)
-                              ? al_map_rgb(146, 218, 226) : al_map_rgb(118, 166, 53);
+            ALLEGRO_COLOR c;
+            switch (mapState[row][col]) {
+                case TILE_FLOOR:
+                    c = al_map_rgb(146, 218, 226);
+                    break;
+                case TILE_DIRT:
+                    c = al_map_rgb(118, 166,  53);
+                    break;
+                case TILE_OCCUPIED:
+                    c = al_map_rgb(112, 128,  138);
+                    break;
+                default:
+                    c = al_map_rgb(100, 100, 100);
+                    break;
+            }
             al_draw_filled_rectangle(miniX + col*cellW, miniY + row*cellH,miniX + (col+1)*cellW, miniY + (row+1)*cellH,c);
         }
     }
@@ -238,37 +248,46 @@ void MapScene::OnKeyDown(int keyCode) {
     UIInventoryGroup->Draw();  
 }
 void MapScene::ReadMap() {
-    std::string filename = std::string("Resource/Map.txt");
-    
-    char c;
-    std::vector<int> mapData;
-    std::ifstream fin(filename);
-    while (fin >> c) {
-        switch (c) {
-            case '0': mapData.push_back(0); break;
-            case '1': mapData.push_back(1); break;
-            case '2': mapData.push_back(2); break;
-            case '\n':
-            case '\r':
-                if (static_cast<int>(mapData.size()) / MapWidth != 0)
-                    throw std::ios_base::failure("Map data is corrupted.");
-                break;
-            default: throw std::ios_base::failure("Map data is.");
-        }
-    }
-    fin.close();
+    std::ifstream fin("Resource/Map.txt");
+    if (!fin) throw std::runtime_error("无法打开 Resource/Map.txt");
 
-    if (static_cast<int>(mapData.size()) != MapWidth * MapHeight)
-        throw std::ios_base::failure("Map data.");
-    mapState = std::vector<std::vector<TileType>>(MapHeight, std::vector<TileType>(MapWidth));
-    for (int i = 0; i < MapHeight; i++) {
-        for (int j = 0; j < MapWidth; j++) {
-            const int num = mapData[i * MapWidth + j];
-            mapState[i][j] = num ? TILE_FLOOR : TILE_DIRT;
-            if (num)
-                TileMapGroup->AddNewObject(new Engine::Image("mapScene/stone.png", j * BlockSize, i * BlockSize, BlockSize, BlockSize));
-            else
-                TileMapGroup->AddNewObject(new Engine::Image("mapScene/grass.png", j * BlockSize, i * BlockSize, BlockSize, BlockSize));
+    std::string line;
+    mapState.assign(MapHeight, std::vector<TileType>(MapWidth));
+    TileMapGroup->Clear();  // 清空旧的
+
+    for (int y = 0; y < MapHeight; ++y) {
+        if (!std::getline(fin, line) || (int)line.size() < MapWidth)
+            throw std::runtime_error("Map.txt 第 " + std::to_string(y) + " 行长度不足");
+        for (int x = 0; x < MapWidth; ++x) {
+            char c = line[x];
+            TileType t;
+            const char* imgPath = nullptr;
+            switch (c) {
+                case '0':
+                    t = TILE_FLOOR;
+                    imgPath = "mapScene/stone.png";
+                    break;
+                case '1':
+                    t = TILE_DIRT;
+                    imgPath = "mapScene/grass.png";
+                    break;
+                case '2':
+                    t = TILE_OCCUPIED;
+                    imgPath = "mapScene/Tile.png";
+                    break;
+                default:
+                    throw std::runtime_error(std::string("Map.txt 非法字符: ") + c);
+            }
+            mapState[y][x] = t;
+
+            // 一次性把图元加入 TileMapGroup
+            TileMapGroup->AddNewObject(
+                new Engine::Image(imgPath,
+                                  x * BlockSize,
+                                  y * BlockSize,
+                                  BlockSize,
+                                  BlockSize)
+            );
         }
     }
 }
@@ -336,8 +355,7 @@ void MapScene::ConstructUI() {
 void MapScene::UIBtnClicked(int id) {
     
 }
-
-//bool MapScene::CheckSpaceValid(int x, int y) {
-//    return true;
-//}
-
+bool MapScene::CheckSpaceValid(int x, int y){
+    if(mapState[y][x] == TILE_OCCUPIED) return false;
+    return true;
+}

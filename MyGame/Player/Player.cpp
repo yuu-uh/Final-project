@@ -37,7 +37,7 @@ Player::Player(const std::string &imagePath, const Engine::Point &startPos, floa
     playScene = dynamic_cast<MapScene*>(
         Engine::GameEngine::GetInstance().GetScene("map")
     );
-    CollisionRadius = 50;
+    CollisionRadius = 25;
     Engine::LOG(Engine::INFO)<<"start to load animations";
     LoadAnimations();
 }
@@ -80,13 +80,29 @@ void Player::Update(float deltaTime) {
 }
 
 bool Player::CheckCollision(const Engine::Point &newPos) {
-    int gx = int(newPos.x) / MapScene::BlockSize;
-    int gy = int(newPos.y) / MapScene::BlockSize;
-    if (gx < 0 || gx >= MapScene::MapWidth ||
-        gy < 0 || gy >= MapScene::MapHeight) return true;
+    float left   = newPos.x - CollisionRadius;
+    float right  = newPos.x + CollisionRadius;
+    float top    = newPos.y - CollisionRadius;
+    float bottom = newPos.y + CollisionRadius;
+
+    int gx0 = static_cast<int>(floor(left   / MapScene::BlockSize));
+    int gx1 = static_cast<int>(floor(right  / MapScene::BlockSize));
+    int gy0 = static_cast<int>(floor(top    / MapScene::BlockSize));
+    int gy1 = static_cast<int>(floor(bottom / MapScene::BlockSize));
+
+    if (gx0 < 0 || gy0 < 0 || gx1 >= MapScene::MapWidth || gy1 >= MapScene::MapHeight)
+        return true;
+
     auto &ms = playScene->mapState;
-    return (ms[gy][gx] == MapScene::TILE_OCCUPIED);
+    for (int gy = gy0; gy <= gy1; ++gy) {
+        for (int gx = gx0; gx <= gx1; ++gx) {
+            if (ms[gy][gx] == MapScene::TILE_OCCUPIED)
+                return true;
+        }
+    }
+    return false;
 }
+
 
 void Player::Draw() const{
     if (!animations.empty() && !animations.at(cur_dir).empty() && animations.at(cur_dir).at(0)) {

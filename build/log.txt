@@ -5,14 +5,15 @@
 [INFO] Allegro5 initialized
 [INFO] Game begin
 [INFO] Loaded Resource<image>: Resource/images/background/test.png scaled to 1600x832
-[INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 100
-[INFO] Loaded Resource<image>: Resource/images/GUI/button3.png scaled to 540x140
+[INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 80
+[INFO] Loaded Resource<image>: Resource/images/GUI/button3.png scaled to 500x120
 [INFO] Loaded Resource<image>: Resource/images/GUI/button3.png
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 42
-[INFO] Loaded Resource<image>: Resource/images/GUI/button1.png scaled to 540x140
+[INFO] Loaded Resource<image>: Resource/images/GUI/button1.png scaled to 500x120
 [INFO] Loaded Resource<image>: Resource/images/GUI/button1.png
-[INFO] Loaded Resource<image>: Resource/images/GUI/button2.png scaled to 540x140
+[INFO] Loaded Resource<image>: Resource/images/GUI/button2.png scaled to 500x120
 [INFO] Loaded Resource<image>: Resource/images/GUI/button2.png
+[INFO] Loaded Resource<image>: Resource/images/GUI/player.png scaled to 516x568
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 70
 [INFO] Loaded Resource<font>: Resource/fonts/pirulen.ttf with size 48
 [INFO] Game initialized
@@ -20,14 +21,15 @@
 [INFO] Game Terminating...
 [INFO] Game terminated
 [INFO] Game end
-[INFO] Destroyed Resource<image>: GUI/button1.png?540x140
-[INFO] Destroyed Resource<image>: GUI/button3.png
-[INFO] Destroyed Resource<image>: GUI/button2.png?540x140
+[INFO] Destroyed Resource<image>: GUI/player.png?516x568
+[INFO] Destroyed Resource<image>: GUI/button2.png?500x120
 [INFO] Destroyed Resource<image>: GUI/button1.png
-[INFO] Destroyed Resource<image>: GUI/button3.png?540x140
+[INFO] Destroyed Resource<image>: GUI/button1.png?500x120
+[INFO] Destroyed Resource<image>: GUI/button3.png
+[INFO] Destroyed Resource<image>: GUI/button3.png?500x120
 [INFO] Destroyed Resource<image>: background/test.png?1600x832
 [INFO] Destroyed Resource<image>: GUI/button2.png
 [INFO] Destroyed Resource<image>: icon.png
-[INFO] Destroyed Resource<font>: pirulen.ttf?42
 [INFO] Destroyed Resource<font>: pirulen.ttf?48
-[INFO] Destroyed Resource<font>: pirulen.ttf?100
+[INFO] Destroyed Resource<font>: pirulen.ttf?42
+[INFO] Destroyed Resource<font>: pirulen.ttf?80

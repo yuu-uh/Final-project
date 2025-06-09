@@ -61,30 +61,30 @@ void PersonalScene::Initialize() {
     int halfH = h / 2;
     Engine::ImageButton* btn;
 
-    AddNewObject(new Engine::Image("background/test.png", 0,0,w,h));
-    AddNewObject(new Engine::Label("Mirror Duel","pirulen.ttf",100,halfW,halfH/3,255,255,255,255,0.5,0.5));
+    AddNewObject(new Engine::Image("background/test.png", 0, 0, w, h));
+    AddNewObject(new Engine::Label("Mirror Duel", "pirulen.ttf", 100, halfW - 50, 120, 255, 255, 255, 255, 0.5, 0.5));
 
-    btn = new Engine::ImageButton("GUI/button3.png","GUI/button3.png",halfW-280,halfH/2+60,540,140);
-    btn->SetOnClickCallback(std::bind(&PersonalScene::HostGame,this));
+    btn = new Engine::ImageButton("GUI/button3.png", "GUI/button3.png", halfW - 630, halfH / 2 + 40, 500, 120);
+    btn->SetOnClickCallback(std::bind(&PersonalScene::HostGame, this));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Host Game","pirulen.ttf",42,halfW+42,halfH/2+130,255,255,255,255,0.5,0.5));
+    AddNewObject(new Engine::Label("Host Game", "pirulen.ttf", 42, halfW - 260, halfH / 2 + 110, 255, 255, 255, 255, 0.5, 0.5));
 
-    btn = new Engine::ImageButton("GUI/button1.png","GUI/button1.png",halfW-280,halfH/2+200,540,140);
-    btn->SetOnClickCallback(std::bind(&PersonalScene::JoinGame,this));
+    btn = new Engine::ImageButton("GUI/button1.png", "GUI/button1.png", halfW - 630, halfH / 2 + 180, 500, 120);
+    btn->SetOnClickCallback(std::bind(&PersonalScene::JoinGame, this));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Join Game","pirulen.ttf",42,halfW+42,halfH/2+270,255,255,255,255,0.5,0.5));
-    
+    AddNewObject(new Engine::Label("Join Game", "pirulen.ttf", 42, halfW - 260, halfH / 2 + 250, 255, 255, 255, 255, 0.5, 0.5));
 
-    btn = new Engine::ImageButton("GUI/button2.png","GUI/button2.png",halfW-280,halfH/2+340,540,140);
-    btn->SetOnClickCallback(std::bind(&PersonalScene::ScoreOnClick,this));
+    btn = new Engine::ImageButton("GUI/button2.png", "GUI/button2.png", halfW - 630, halfH / 2 + 320, 500, 120);
+    btn->SetOnClickCallback(std::bind(&PersonalScene::ScoreOnClick, this));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Score","pirulen.ttf",42,halfW+42,halfH/2+410,255,255,255,255,0.5,0.5));
-    
-    btn = new Engine::ImageButton("GUI/button2.png","GUI/button2.png",halfW-280,halfH/2+480,540,140);
-    btn->SetOnClickCallback(std::bind(&PersonalScene::SettingOnClick,this));
-    AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Setting","pirulen.ttf",42,halfW+42,halfH/2+560,255,255,255,255,0.5,0.5));
+    AddNewObject(new Engine::Label("Score", "pirulen.ttf", 42, halfW - 260, halfH / 2 + 390, 255, 255, 255, 255, 0.5, 0.5));
 
+    btn = new Engine::ImageButton("GUI/button2.png", "GUI/button2.png", halfW - 630, halfH / 2 + 460, 500, 120);
+    btn->SetOnClickCallback(std::bind(&PersonalScene::SettingOnClick, this));
+    AddNewControlObject(btn);
+    AddNewObject(new Engine::Label("Setting", "pirulen.ttf", 42, halfW - 260, halfH / 2 + 540, 255, 255, 255, 255, 0.5, 0.5));
+
+    AddNewObject(new Engine::Image("GUI/player.png", 800, 250, 516, 568));
 
     IPEnter = new Engine::TextBox(halfW-350, halfH-150, 700, 100, 0.5, 0.5); 
     portEenter = new Engine::TextBox(halfW-350, halfH+150, 700, 100, 0.5, 0.5); 

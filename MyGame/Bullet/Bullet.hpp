@@ -3,10 +3,10 @@
 #include <string>
 
 #include "Engine/Sprite.hpp"
+#include "Soldier/Soldier.hpp"
 
-class Enemy;
+class Soldier;
 class PlayScene;
-class Turret;
 namespace Engine {
     struct Point;
 }   // namespace Engine
@@ -15,13 +15,13 @@ class Bullet : public Engine::Sprite {
 protected:
     float speed;
     float damage;
-    Turret *parent;
+    Soldier *parent;
     PlayScene *getPlayScene();
-    virtual void OnExplode(Enemy *enemy);
+    virtual void OnExplode(Soldier *enemy);
 
 public:
-    Enemy *Target = nullptr;
-    explicit Bullet(std::string img, float speed, float damage, Engine::Point position, Engine::Point forwardDirection, float rotation, Turret *parent);
+    Soldier *Target = nullptr;
+    explicit Bullet(std::string img, float speed, float damage, Engine::Point position, Engine::Point forwardDirection, float rotation, Soldier *parent);
     void Update(float deltaTime) override;
 };
 #endif   // BULLET_HPP

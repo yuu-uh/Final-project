@@ -50,7 +50,7 @@ private:
         uint8_t winnerId;
         uint8_t player1Lives;
         uint8_t player2Lives;
-        uint8_t endReason;  // 0 = lives depleted, 1 = timeout
+        uint8_t endReason;  // 0 = lives depleted, 1 = timeout   
     };
 
     float soldierUpdateTimer;

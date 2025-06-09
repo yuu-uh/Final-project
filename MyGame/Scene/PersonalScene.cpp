@@ -116,7 +116,7 @@ void PersonalScene::Update(float dt) {
         if (net.isConnected()) {
             hostMode = false;
             Engine::LOG(Engine::INFO) << "NetWork::isConnected() == true, go to mapScene";
-            Engine::GameEngine::GetInstance().ChangeScene("map");
+            //Engine::GameEngine::GetInstance().ChangeScene("map");
         }
     }
 }

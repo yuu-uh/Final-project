@@ -11,9 +11,9 @@
 PlayScene *Bullet::getPlayScene() {
     return dynamic_cast<PlayScene *>(Engine::GameEngine::GetInstance().GetActiveScene());
 }
-void Bullet::OnExplode(Enemy *enemy) {
+void Bullet::OnExplode(Soldier *enemy) {
 }
-Bullet::Bullet(std::string img, float speed, float damage, Engine::Point position, Engine::Point forwardDirection, float rotation, Turret *parent) : Sprite(img, position.x, position.y), speed(speed), damage(damage), parent(parent) {
+Bullet::Bullet(std::string img, float speed, float damage, Engine::Point position, Engine::Point forwardDirection, float rotation, Soldier *parent) : Sprite(img, position.x, position.y), speed(speed), damage(damage), parent(parent) {
     Velocity = forwardDirection.Normalize() * speed;
     Rotation = rotation;
     CollisionRadius = 4;
@@ -23,8 +23,8 @@ void Bullet::Update(float deltaTime) {
     PlayScene *scene = getPlayScene();
     // Can be improved by Spatial Hash, Quad Tree, ...
     // However simply loop through all enemies is enough for this program.
-    for (auto &it : scene->EnemyGroup->GetObjects()) {
-        Enemy *enemy = dynamic_cast<Enemy *>(it);
+    for (auto &it : parent->Enemy->GetObjects()) {
+        Soldier *enemy = dynamic_cast<Soldier *>(it);
         if (!enemy->Visible)
             continue;
         if (Engine::Collider::IsCircleOverlap(Position, CollisionRadius, enemy->Position, enemy->CollisionRadius)) {

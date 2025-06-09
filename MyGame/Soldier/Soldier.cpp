@@ -77,10 +77,12 @@ void Soldier::Hit(float damage) {
 
 void Soldier::Attack() {
     PlayScene* scene = getPlayScene();
-    if (target)
+    if (target){
+        CreateWeapon();
         target->Hit(dmg);
-    else{
+    }else{
         if (direction == 1) {
+            CreateWeapon();
                     // Player's soldier attacking enemy castle
             scene->SendCastleDamage(1);  // Send network message
         } else {

@@ -13,5 +13,6 @@ class Dragen : public Soldier {
 public:
     Dragen(int x, int y, int dir, bool isLocal);
     std::string soldierName() const override;
+    void CreateWeapon() override;
 };
 #endif   // ENEMY_HPP

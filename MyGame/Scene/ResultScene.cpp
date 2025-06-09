@@ -62,7 +62,7 @@ void ResultScene::Initialize() {
         AddNewObject(label);
 
         // Get image path instead of bitmap
-        std::string imgPath = (playerId == 1) ? "mapScene/Engineer_front01.png" : "mapScene/Engineer_front01.png";
+        std::string imgPath = (playerId == 1) ? "mapScene/"+Engine::GameEngine::job+"_front01.png" : "mapScene/"+Engine::GameEngine::conjob+"_front01.png";
 
         Engine::Image* playerImage = new Engine::Image(
             imgPath,

@@ -35,11 +35,11 @@ protected:
     virtual void die();
     State state;
     Soldier* target = nullptr;
-    Engine::Group* Enemy;
-
+    virtual void CreateWeapon() = 0;
     
 
 public:
+    Engine::Group* Enemy;
     bool isLocal;  
     float reachEndTime;
     int direction = 1;
@@ -53,6 +53,6 @@ public:
     float getSpeed(){ return speed; }
     void setSpeed(float s){ speed = s; }
     virtual std::string soldierName() const = 0;
-    virtual void Attack();
+    void Attack();
 };
 #endif   // ENEMY_HPP

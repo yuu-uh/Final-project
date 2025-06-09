@@ -58,6 +58,7 @@ void PlayScene::Initialize() {
     AddNewControlObject(UIGroup = new Group());
     AddNewControlObject(UIInventoryGroup = new Group());
     AddNewObject(EnemyGroup = new Group());
+    AddNewObject(BulletGroup = new Group());
     ReadMap();
 
     ConstructUI();
@@ -144,6 +145,7 @@ void PlayScene::Update(float deltaTime) {
     SoldierGroup->Update(deltaTime);
     UIGroup->Update(deltaTime);
     UIInventoryGroup->Update(deltaTime);
+    BulletGroup->Update(deltaTime);
 }
 
 void PlayScene::ReadMap() {
@@ -208,6 +210,7 @@ void PlayScene::Draw() const {
     UIInventoryGroup->Draw();
     SoldierGroup->Draw();
     EnemyGroup->Draw();
+    BulletGroup->Draw();
     if (MouseOnIcon) MouseOnIcon->Draw();  
 }
 
@@ -239,7 +242,6 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
         return;
     const int x = mx / BlockSize;
     const int y = my / BlockSize;
-    //if(mapData[y][x] != 5) return;
     if (button & 1) {
         if (!preview)
             return;
@@ -247,6 +249,9 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
         // Check if valid.
         bool valid = CheckSpaceValid(x, y);
         if (!valid) {
+            Engine::Sprite *sprite;
+            GroundEffectGroup->AddNewObject(sprite = new DirtyEffect("play/target-invalid.png", 1, x * BlockSize + BlockSize / 2, y * BlockSize + BlockSize / 2));
+            sprite->Rotation = 0;
             return;
         }
         
@@ -613,5 +618,6 @@ void PlayScene::UIBtnClicked(std::string type) {
 bool PlayScene::CheckSpaceValid(int x, int y) {
     if (x < 0 || x >= MapWidth || y < 0 || y >= MapHeight)
         return false;
+    if(mapData[y][x] == 4 || mapData[y][x] != 5) return false;
     return true;
 }

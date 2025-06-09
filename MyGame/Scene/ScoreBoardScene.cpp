@@ -53,6 +53,7 @@ void ScoreBoardScene::displayRecord(){
     for(int i=start; i<end; i++){
         Record& cur = playerList[i];
         std::string info = cur.state+" "+std::to_string(cur.lives);
+        //RecordGroup->AddNewObject(new Engine::Image("GUI/.png",  halfW-150, 200+(i-start)*70, 400, 200));
         RecordGroup->AddNewObject(new Engine::Label(info, "pirulen.ttf", 50, halfW-150, 200+(i-start)*70, 255, 255, 255, 255, 0.5, 0.5));
         RecordGroup->AddNewObject(new Engine::Label(cur.datetime, "pirulen.ttf", 30, halfW+400, 200+(i-start)*70, 255, 255, 255, 255, 0.5, 0.5));
     }
@@ -65,6 +66,7 @@ void ScoreBoardScene::Initialize(){
     int halfW = w / 2;
     int halfH = h / 2;
     cur_page = 0;
+    AddNewObject(new Engine::Image("background/battleback8.png", 0, 0, w, h));
     AddNewObject(RecordGroup = new Group());
     AddNewObject(new Engine::Label("Scoreboard", "pirulen.ttf", 80, halfW, 100, 255, 255, 255, 255, 0.5, 0.5));
     displayRecord();

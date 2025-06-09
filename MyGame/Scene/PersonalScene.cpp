@@ -73,6 +73,7 @@ void PersonalScene::Initialize() {
     btn->SetOnClickCallback(std::bind(&PersonalScene::JoinGame,this));
     AddNewControlObject(btn);
     AddNewObject(new Engine::Label("Join Game","pirulen.ttf",42,halfW+42,halfH/2+270,255,255,255,255,0.5,0.5));
+    
 
     btn = new Engine::ImageButton("GUI/button2.png","GUI/button2.png",halfW-280,halfH/2+340,540,140);
     btn->SetOnClickCallback(std::bind(&PersonalScene::ScoreOnClick,this));

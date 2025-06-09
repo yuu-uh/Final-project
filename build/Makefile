@@ -679,6 +679,30 @@ Scene/ResultScene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/ResultScene.cpp.s
 .PHONY : Scene/ResultScene.cpp.s
 
+Scene/ScoreBoardScene.obj: Scene/ScoreBoardScene.cpp.obj
+.PHONY : Scene/ScoreBoardScene.obj
+
+# target to build an object file
+Scene/ScoreBoardScene.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/ScoreBoardScene.cpp.obj
+.PHONY : Scene/ScoreBoardScene.cpp.obj
+
+Scene/ScoreBoardScene.i: Scene/ScoreBoardScene.cpp.i
+.PHONY : Scene/ScoreBoardScene.i
+
+# target to preprocess a source file
+Scene/ScoreBoardScene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/ScoreBoardScene.cpp.i
+.PHONY : Scene/ScoreBoardScene.cpp.i
+
+Scene/ScoreBoardScene.s: Scene/ScoreBoardScene.cpp.s
+.PHONY : Scene/ScoreBoardScene.s
+
+# target to generate assembly for a file
+Scene/ScoreBoardScene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Scene/ScoreBoardScene.cpp.s
+.PHONY : Scene/ScoreBoardScene.cpp.s
+
 Scene/SettingsScene.obj: Scene/SettingsScene.cpp.obj
 .PHONY : Scene/SettingsScene.obj
 
@@ -1162,6 +1186,9 @@ help:
 	@echo ... Scene/ResultScene.obj
 	@echo ... Scene/ResultScene.i
 	@echo ... Scene/ResultScene.s
+	@echo ... Scene/ScoreBoardScene.obj
+	@echo ... Scene/ScoreBoardScene.i
+	@echo ... Scene/ScoreBoardScene.s
 	@echo ... Scene/SettingsScene.obj
 	@echo ... Scene/SettingsScene.i
 	@echo ... Scene/SettingsScene.s

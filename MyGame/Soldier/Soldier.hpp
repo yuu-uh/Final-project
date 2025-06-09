@@ -40,11 +40,12 @@ protected:
     
 
 public:
+    bool isLocal;  
     float reachEndTime;
     int direction = 1;
     bool Enabled = true;
     bool Preview = false;
-    Soldier(std::string img, float x, float y, int dir, float radius, float speed, float hp, float dmg);
+    Soldier(std::string img, float x, float y, int dir, float radius, float speed, float hp, float dmg, bool isLocal);
     void Hit(float damage);
     void UpdatePath(const std::vector<std::vector<int>> &mapDistance);
     virtual void Update(float deltaTime) override;

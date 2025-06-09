@@ -11,7 +11,7 @@
 
 class Master : public Soldier {
 public:
-    Master(int x, int y, int dir);
+    Master(int x, int y, int dir, bool isLocal);
     std::string soldierName() const override;
 };
 #endif   // ENEMY_HPP

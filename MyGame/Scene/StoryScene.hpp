@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include "Engine/IScene.hpp"
-#include "Engine/AudioHelper.hpp"
+#include <allegro5/allegro_audio.h>
 #include "UI/Component/ImageButton.hpp"
 #include "UI/Component/Label.hpp
 

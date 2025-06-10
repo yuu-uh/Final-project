@@ -49,7 +49,7 @@ void MapScene::Initialize() {
     UIGroup->AddNewObject(new Engine::Image("GUI/inventory.png",1275, 320,325,377));
     UIGroup->AddNewObject(new Engine::Image("GUI/button.png",1275, 700, 320, 108));
     timer = 30.0f;
-    countdownLabel = new Engine::Label("03:00", "pirulen.ttf", 48, 1380, 730, 255, 255, 255, 255, 0.5, 0.5);
+    countdownLabel = new Engine::Label("00:30", "pirulen.ttf", 48, 1400, 750, 255, 255, 255, 255, 0.5, 0.5);
     UIGroup->AddNewObject(countdownLabel);
     
     std::vector<std::pair<int,int>> freeCells;

@@ -48,6 +48,7 @@ void SettingsScene::Initialize() {
     AddNewObject(new Engine::Label(ls, "pirulen.ttf", 36, halfW, halfH/2, 255, 255, 255, 255, 0.5, 0.5));
     AddNewObject(new Engine::Label(ms, "pirulen.ttf", 36, halfW, halfH/2+50, 255, 255, 255, 255, 0.5, 0.5));
 }
+
 void SettingsScene::Terminate() {
     AudioHelper::StopSample(bgmInstance);
     bgmInstance = std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE>();

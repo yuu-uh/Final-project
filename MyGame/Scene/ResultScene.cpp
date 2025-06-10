@@ -48,7 +48,7 @@ void ResultScene::Initialize() {
 
 
     auto createPlayerDisplay = [&](int playerId, int x, bool isWinner) {
-        std::string str = "button";
+        std::string str = isWinner ? "win" : "lose";
         std::string path = "GUI/"+str+".png";
         Engine::Image* img = new Engine::Image(path, x-200, textY-50, 400, 100);
         AddNewObject(img);

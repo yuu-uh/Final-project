@@ -1,6 +1,18 @@
 [
 {
   "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Bullet\\Bullet.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Bullet\\Bullet.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Bullet/Bullet.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Bullet/Bullet.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Bullet\\FireBullet.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Bullet\\FireBullet.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Bullet/FireBullet.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Bullet/FireBullet.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
   "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Engine\\Allegro5Exception.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Engine\\Allegro5Exception.cpp",
   "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Allegro5Exception.cpp",
   "output": "CMakeFiles/FinalProject.dir/Engine/Allegro5Exception.cpp.obj"

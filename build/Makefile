@@ -199,6 +199,54 @@ EnetTest/fast:
 	$(MAKE) $(MAKESILENT) -f enet-master\CMakeFiles\EnetTest.dir\build.make enet-master/CMakeFiles/EnetTest.dir/build
 .PHONY : EnetTest/fast
 
+Bullet/Bullet.obj: Bullet/Bullet.cpp.obj
+.PHONY : Bullet/Bullet.obj
+
+# target to build an object file
+Bullet/Bullet.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/Bullet.cpp.obj
+.PHONY : Bullet/Bullet.cpp.obj
+
+Bullet/Bullet.i: Bullet/Bullet.cpp.i
+.PHONY : Bullet/Bullet.i
+
+# target to preprocess a source file
+Bullet/Bullet.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/Bullet.cpp.i
+.PHONY : Bullet/Bullet.cpp.i
+
+Bullet/Bullet.s: Bullet/Bullet.cpp.s
+.PHONY : Bullet/Bullet.s
+
+# target to generate assembly for a file
+Bullet/Bullet.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/Bullet.cpp.s
+.PHONY : Bullet/Bullet.cpp.s
+
+Bullet/FireBullet.obj: Bullet/FireBullet.cpp.obj
+.PHONY : Bullet/FireBullet.obj
+
+# target to build an object file
+Bullet/FireBullet.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/FireBullet.cpp.obj
+.PHONY : Bullet/FireBullet.cpp.obj
+
+Bullet/FireBullet.i: Bullet/FireBullet.cpp.i
+.PHONY : Bullet/FireBullet.i
+
+# target to preprocess a source file
+Bullet/FireBullet.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/FireBullet.cpp.i
+.PHONY : Bullet/FireBullet.cpp.i
+
+Bullet/FireBullet.s: Bullet/FireBullet.cpp.s
+.PHONY : Bullet/FireBullet.s
+
+# target to generate assembly for a file
+Bullet/FireBullet.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/FireBullet.cpp.s
+.PHONY : Bullet/FireBullet.cpp.s
+
 Engine/Allegro5Exception.obj: Engine/Allegro5Exception.cpp.obj
 .PHONY : Engine/Allegro5Exception.obj
 
@@ -1126,6 +1174,12 @@ help:
 	@echo ... EnetTest
 	@echo ... FinalProject
 	@echo ... enet
+	@echo ... Bullet/Bullet.obj
+	@echo ... Bullet/Bullet.i
+	@echo ... Bullet/Bullet.s
+	@echo ... Bullet/FireBullet.obj
+	@echo ... Bullet/FireBullet.i
+	@echo ... Bullet/FireBullet.s
 	@echo ... Engine/Allegro5Exception.obj
 	@echo ... Engine/Allegro5Exception.i
 	@echo ... Engine/Allegro5Exception.s

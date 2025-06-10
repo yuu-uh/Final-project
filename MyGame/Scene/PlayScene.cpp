@@ -83,9 +83,9 @@ void PlayScene::Initialize() {
     NetWork::Instance().SetReceiveCallback(
         std::bind(&PlayScene::HandleNetworkMessage, this, std::placeholders::_1)
     );
-    UIGroup->AddNewObject(new Engine::Image("GUI/play.png",1275, 150,300,450));
+    UIGroup->AddNewObject(new Engine::Image("GUI/play.png",1280, 100,300,100));
     std::string path = "mapScene/" + Engine::GameEngine::job + "_front01.png";
-    UIGroup->AddNewObject(new Engine::Image(path,1275, 100,100,100));
+    UIGroup->AddNewObject(new Engine::Image(path,1275, 100,60,60));
     bgmId = AudioHelper::PlayBGM("play.ogg");
 }
 void PlayScene::Terminate() {
@@ -168,6 +168,7 @@ void PlayScene::ReadMap() {
 
 void PlayScene::Draw() const {
     IScene::Draw();
+    UIGroup->AddNewObject(new Engine::Image("GUI/inventory.png",1275, 320,325,377));
     for (int y = 0; y < MapHeight; y++) {
         for (int x = 0; x < MapWidth; x++) {
             // const char* path = mapData[y][x]
@@ -373,7 +374,6 @@ void PlayScene::HandleNetworkMessage(const ENetEvent& event) {
             }
             break;
         }
-        // Handle other message types...
     }
 }
 
@@ -526,20 +526,10 @@ void PlayScene::Hit() {
 }
 
 void PlayScene::ConstructUI() {
-    int panelX0 = 1300, panelY0 = 320;
-    const int pad     = 30;
-    const int iconW   = 100, iconH = 100;
-    const int cols    = 320 / (iconW + pad);
-    for (int idx = 0; idx < 6; ++idx) {
-        int col = idx % cols;
-        int row = idx / cols;
-        float x = panelX0 + pad + col * (iconW + pad);
-        float y = panelY0 + pad + row * (iconH + pad);
-        UIInventoryGroup->AddNewObject(
-            new Engine::Image("mapScene/item_empty.png", x, y, iconW, iconH)
-        );
-    }
-
+    int panelX0 = 1285, panelY0 = 480;
+    const int pad     = 10;
+    const int iconW   = 80, iconH = 80;
+    const int cols    = 3;
     auto &picked = Engine::GameEngine::GetInstance().pickedItems;
     for (size_t i = 0; i < picked.size() && i < 6; ++i) {
         int col = i % cols;
@@ -549,10 +539,9 @@ void PlayScene::ConstructUI() {
 
         std::string path = "mapScene/" + picked[i] + ".png";
         UIInventoryGroup->AddNewObject(
-            new Engine::Image(path, x, y, 100, 100)
+            new Engine::Image(path, x, y, 70, 70)
         );
     }
-
     Engine::ImageButton* btn;
     for (size_t i = 0; i < picked.size() && i < 6; ++i) {
         int col = i % cols;
@@ -561,7 +550,7 @@ void PlayScene::ConstructUI() {
         float y = panelY0 + pad + row * (iconH + pad);
 
         std::string path = "mapScene/" + picked[i] + ".png";
-        btn = new Engine::ImageButton(path, path, x, y, 100, 100);
+        btn = new Engine::ImageButton(path, path, x, y, 70, 70);
         btn->SetOnClickCallback(std::bind(&PlayScene::UIBtnClicked, this, picked[i]));
         UIGroup->AddNewControlObject(btn);
     }

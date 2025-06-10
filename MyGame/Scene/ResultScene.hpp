@@ -10,7 +10,6 @@ private:
     float ticks;
     std::string playerName;        
     Engine::Label* nameLabel;
-    ALLEGRO_SAMPLE_ID bgmId;
     int score;
     Group* UIGroup;
 

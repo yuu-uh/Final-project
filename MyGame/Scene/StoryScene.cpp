@@ -11,7 +11,7 @@
 
 void StoryScene::Initialize() {
     cur_line = text_idx = 0; text_timer = auto_timer = 0.f; show_text.clear();
-    char_interval = 0.1f;  
+    char_interval = 0.05f;  
     std::ifstream infile("Resource/Story.txt"); std::string line;
     while (std::getline(infile, line)) lines.push_back(line);
     int w = Engine::GameEngine::GetInstance().GetScreenSize().x;

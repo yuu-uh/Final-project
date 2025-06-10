@@ -24,6 +24,7 @@ private:
     int cur_page;
     const int page_size = 5; 
     Group* RecordGroup;
+    ALLEGRO_SAMPLE_ID bgmId;
 
     void loadRecord();
     void saveRecord();

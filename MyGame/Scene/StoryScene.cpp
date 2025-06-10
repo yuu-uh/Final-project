@@ -23,30 +23,9 @@ void StoryScene::Initialize() {
     skipButton->SetOnClickCallback(std::bind(&StoryScene::TBOnClick, this, 0));
     AddNewControlObject(skipButton);
     curBG = "background/battleback8.png";
-    bgmId = AudioHelper::PlayBGM("others.ogg");
+    bgmInstance = AudioHelper::PlaySample("others.ogg", true, AudioHelper::BGMVolume);
 }
 
-// void StoryScene::Update(float deltaTime) {
-//     if (cur_line < (int)lines.size()) {
-//         if (text_idx < (int)lines[cur_line].size()) {
-//             text_timer += deltaTime;
-//             if (text_timer >= char_interval) {
-//                 show_text.push_back(lines[cur_line][text_idx++]);
-//                 textLabel->SetText(show_text);
-//                 text_timer -= char_interval;
-//             }
-//         } else {
-//             cur_line++;
-//             if (cur_line < (int)lines.size()) {
-//                 show_text.clear();
-//                 text_idx = 0;
-//                 textLabel->SetText("");
-//             }
-//         }
-//     } else {
-//         Engine::GameEngine::GetInstance().ChangeScene("personal");
-//     }
-// }
 
 void StoryScene::Update(float deltaTime) {
     if (cur_line < (int)lines.size()) {
@@ -74,6 +53,7 @@ void StoryScene::Update(float deltaTime) {
                     textLabel->SetText("");
                     lineDone = false;
                 } else {
+                    AudioHelper::StopBGM(bgmId);
                     Engine::GameEngine::GetInstance().ChangeScene("personal");
                 }
             }
@@ -139,6 +119,7 @@ void StoryScene::Draw() const {
 
 void StoryScene::Terminate() {
     IScene::Terminate();
+    AudioHelper::StopBGM(bgmId);
 }
 
 void StoryScene::advance_line() {

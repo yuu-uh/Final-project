@@ -89,12 +89,12 @@ void PlayScene::Initialize() {
     );
     UIGroup->AddNewObject(new Engine::Image("GUI/play.png",1280,80,320,230));
     std::string path = "mapScene/" + Engine::GameEngine::job + "_front01.png";
-    UIGroup->AddNewObject(new Engine::Image(path,1290,200,60,60));
+    UIGroup->AddNewObject(new Engine::Image(path,1300,215,60,60));
     bgmId = AudioHelper::PlayBGM("play.ogg");
 }
 void PlayScene::Terminate() {
     NetWork::Instance().SetReceiveCallback(nullptr);
-    // AudioHelper::StopBGM(bgmId);
+    AudioHelper::StopBGM(bgmId);
     // AudioHelper::StopSample(deathBGMInstance);
     // deathBGMInstance = std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE>();
     networkSoldiers.clear();
@@ -545,6 +545,7 @@ void PlayScene::HandleCastleDamage(uint8_t attackingPlayerId, uint8_t damage) {
             Hit();
     //}
 }
+void PlayScene::HandleGameEnd(const GameEnd& gameEnd) {
 void PlayScene::HandleGameEnd(const GameEnd& gameEnd) {
     if (gameEnded) return;
     gameEnded = true;

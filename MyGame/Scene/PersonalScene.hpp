@@ -11,6 +11,7 @@
 class PersonalScene final : public Engine::IScene {
 private:
     ALLEGRO_SAMPLE_ID bgmId;
+    std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE> bgmInstance;
     std::shared_ptr<ALLEGRO_FONT> font;
     bool host = false;
     bool waitConn = false;

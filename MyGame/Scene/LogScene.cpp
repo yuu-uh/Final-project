@@ -45,10 +45,12 @@ void LogScene::Initialize() {
     password.clear();
     passwordLabel = new Engine::Label("", "pirulen.ttf", 32, halfW+200, halfH * 3 / 2, 0, 0, 0, 255, 0.5, 0.5);
     AddNewObject(passwordLabel);
-    bgmId = AudioHelper::PlayBGM("others.ogg");
+    bgmInstance = AudioHelper::PlaySample("others.ogg", true, AudioHelper::BGMVolume);
 }
 void LogScene::Terminate() {
     IScene::Terminate();
+    AudioHelper::StopSample(bgmInstance);
+    bgmInstance = std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE>();
 }
 
 void LogScene::OnKeyDown(int keyCode) {

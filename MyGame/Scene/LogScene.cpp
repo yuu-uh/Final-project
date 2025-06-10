@@ -105,6 +105,7 @@ void LogScene::OnKeyDown(int keyCode) {
                 up.level = level;
             }
 
+            
             Engine::GameEngine::GetInstance().SetCurrentUser(up);
             Engine::GameEngine::GetInstance().ChangeScene("story");
             return;  

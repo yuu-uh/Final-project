@@ -94,6 +94,7 @@ void ScoreBoardScene::Terminate() {
     IScene::Terminate();
 }
 
+
 void ScoreBoardScene::BackOnClick(){
     Engine::GameEngine::GetInstance().ChangeScene("personal");
 }

@@ -19,6 +19,7 @@ void SettingsScene::Initialize() {
     int halfW = w / 2;
     int halfH = h / 2;
     Engine::ImageButton *btn;
+
     
     
     AddNewObject(new Engine::Image("background/test.png" ,0, 0, w, h));

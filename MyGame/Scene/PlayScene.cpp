@@ -652,6 +652,7 @@ void PlayScene::UIBtnClicked(std::string type) {
     }else if(type == "dragen"){
         next_preview  = new Dragen(0, 0, 1, true);
     }
+    
     if(!next_preview) return;
 
     if(preview)

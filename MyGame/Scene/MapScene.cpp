@@ -335,3 +335,4 @@ bool MapScene::CheckSpaceValid(int x, int y){
     if(mapState[y][x] == TILE_OCCUPIED) return false;
     return true;
 }
+

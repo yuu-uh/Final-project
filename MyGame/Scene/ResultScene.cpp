@@ -63,6 +63,8 @@ void ResultScene::Initialize() {
         );
         AddNewObject(label);
 
+
+        
         // Get image path instead of bitmap
         bool isMyPlayer = (playerId == NetWork::Instance().myId + 1);
         std::string imgPath = isMyPlayer ? 

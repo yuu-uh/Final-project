@@ -120,17 +120,17 @@ void PlayScene::Update(float deltaTime) {
     if (timer <= 0) {
         uint8_t winnerId = 0;  // Draw by default
         if (lives > opponentLives) {
-            winnerId = NetWork::Instance().myId;
+            winnerId = NetWork::Instance().myId + 1;
         } else if (opponentLives > lives) {
-            winnerId = (NetWork::Instance().myId == 1) ? 2 : 1;
+            winnerId = (NetWork::Instance().myId == 0) ? 2 : 1;
         }
         
         SendGameEnd(winnerId, 1);  // 1 = ended due to timeout
         
         // Store result data
         lastGameResult.winnerId = winnerId;
-        lastGameResult.player1Lives = (NetWork::Instance().myId == 1) ? lives : opponentLives;
-        lastGameResult.player2Lives = (NetWork::Instance().myId == 2) ? lives : opponentLives;
+        lastGameResult.player1Lives = (NetWork::Instance().myId == 0) ? lives : opponentLives;
+        lastGameResult.player2Lives = (NetWork::Instance().myId == 1) ? lives : opponentLives;
         lastGameResult.endReason = 1;
         
         gameEnded = true;
@@ -518,7 +518,7 @@ void PlayScene::SendGameEnd(uint8_t winnerId, uint8_t reason) {
     
     GameEnd msg;
     msg.winnerId = winnerId;
-    if (NetWork::Instance().myId == 1) {
+    if (NetWork::Instance().myId == 0) {
         msg.player1Lives = lives;
         msg.player2Lives = opponentLives;
     } else {
@@ -542,6 +542,16 @@ void PlayScene::HandleCastleDamage(uint8_t attackingPlayerId, uint8_t damage) {
 void PlayScene::HandleGameEnd(const GameEnd& msg) {
     if (gameEnded) return;
     gameEnded = true;
+    
+    // Store the result data
+    lastGameResult.winnerId = gameEnd.winnerId;
+    lastGameResult.player1Lives = gameEnd.player1Lives;
+    lastGameResult.player2Lives = gameEnd.player2Lives;
+    lastGameResult.endReason = gameEnd.reason;
+    
+    // Update our local state with opponent's final lives
+    opponentLives = (NetWork::Instance().myId == 0) ? gameEnd.player2Lives : gameEnd.player1Lives;
+    
     lastGameResult.winnerId    = msg.winnerId;
     lastGameResult.player1Lives = msg.player1Lives;
     lastGameResult.player2Lives = msg.player2Lives;
@@ -559,9 +569,18 @@ void PlayScene::Hit() {
     lives--;
     if (lives <= 0) {
         gameEnded = true;
-        uint8_t winnerId = (NetWork::Instance().myId == 1) ? 2 : 1;
-        SendGameEnd(winnerId, 0);
-    }   
+        // Game over - this player lost
+        uint8_t winnerId = (NetWork::Instance().myId == 0) ? 2 : 1;  // Opponent wins
+        SendGameEnd(winnerId, 0);  // 0 = ended due to lives
+        
+        // Store result data
+        lastGameResult.winnerId = winnerId;
+        lastGameResult.player1Lives = (NetWork::Instance().myId == 0) ? lives : opponentLives;
+        lastGameResult.player2Lives = (NetWork::Instance().myId == 1) ? lives : opponentLives;
+        lastGameResult.endReason = 0;
+        
+        Engine::GameEngine::GetInstance().ChangeScene("result");
+    }
 }
 
 void PlayScene::ConstructUI() {

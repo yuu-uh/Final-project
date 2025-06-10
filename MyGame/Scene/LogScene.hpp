@@ -9,6 +9,7 @@
 
 class LogScene final : public Engine::IScene {
 private: 
+    std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE> bgmInstance;
     ALLEGRO_SAMPLE_ID bgmId;
     Engine::Label* nameLabel;
     Engine::Label* passwordLabel;

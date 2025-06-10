@@ -45,7 +45,7 @@ void Plane::Update(float deltaTime) {
             if (timeTicks >= timeSpanLight) {
                 bmp = shockwave;
                 stage++;
-                AudioHelper::PlayAudio("shockwave.ogg");
+        
                 break;
             }
             scaleExp = ((timeSpanLight + timeSpanShockwave - timeTicks) * log2(minScale) + timeTicks * log2(maxScale)) / (timeSpanLight + timeSpanShockwave);

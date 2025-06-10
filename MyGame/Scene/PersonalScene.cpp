@@ -106,7 +106,7 @@ void PersonalScene::Initialize() {
     IPEnter = new Engine::TextBox(halfW-350, halfH-150, 700, 100, 0.5, 0.5); 
     portEenter = new Engine::TextBox(halfW-350, halfH+150, 700, 100, 0.5, 0.5); 
     font = Engine::Resources::GetInstance().GetFont("pirulen.ttf", 48);
-    bgmId = AudioHelper::PlayBGM("others.ogg");
+    bgmInstance = AudioHelper::PlaySample("others.ogg", true, AudioHelper::BGMVolume);
 }
 
 void PersonalScene::Update(float dt) {
@@ -117,7 +117,7 @@ void PersonalScene::Update(float dt) {
         if (net.isConnected()) {
             hostMode = false;
             Engine::LOG(Engine::INFO) << "NetWork::isConnected() == true, go to mapScene";
-            //Engine::GameEngine::GetInstance().ChangeScene("map");
+            Terminate();
         }
     }
 }
@@ -188,6 +188,7 @@ void PersonalScene::HostGame() {
             if (hdr.type == MSG_JOB_SELECT) {
                 uint8_t clientJob = *(e.packet->data + sizeof(hdr));
                 Engine::GameEngine::conjob = PersonalScene::JobNames[clientJob];
+                Terminate();
                 Engine::GameEngine::GetInstance().ChangeScene("map");
             }
             enet_packet_destroy(e.packet);      
@@ -235,6 +236,7 @@ void PersonalScene::ConfirmJoin() {
             if (hdr.type == MSG_JOB_SELECT) {
                 uint8_t clientJob = *(e.packet->data + sizeof(hdr));
                 Engine::GameEngine::conjob = PersonalScene::JobNames[clientJob];
+                Terminate();
                 Engine::GameEngine::GetInstance().ChangeScene("map");
             }
             enet_packet_destroy(e.packet);
@@ -251,5 +253,6 @@ void PersonalScene::SettingOnClick() {
 void PersonalScene::Terminate() {
     IScene::Terminate();
     waitConn = false;
-    AudioHelper::StopBGM(bgmId);
+    AudioHelper::StopSample(bgmInstance);
+    bgmInstance = std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE>();
 }

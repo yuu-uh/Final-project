@@ -89,12 +89,12 @@ void PlayScene::Initialize() {
     );
     UIGroup->AddNewObject(new Engine::Image("GUI/play.png",1280,80,320,230));
     std::string path = "mapScene/" + Engine::GameEngine::job + "_front01.png";
-    UIGroup->AddNewObject(new Engine::Image(path,1290,200,60,60));
+    UIGroup->AddNewObject(new Engine::Image(path,1300,215,60,60));
     bgmId = AudioHelper::PlayBGM("play.ogg");
 }
 void PlayScene::Terminate() {
     NetWork::Instance().SetReceiveCallback(nullptr);
-    // AudioHelper::StopBGM(bgmId);
+    AudioHelper::StopBGM(bgmId);
     // AudioHelper::StopSample(deathBGMInstance);
     // deathBGMInstance = std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE>();
     networkSoldiers.clear();
@@ -539,7 +539,7 @@ void PlayScene::HandleCastleDamage(uint8_t attackingPlayerId, uint8_t damage) {
             Hit();
     }
 }
-void PlayScene::HandleGameEnd(const GameEnd& msg) {
+void PlayScene::HandleGameEnd(const GameEnd& gameEnd) {
     if (gameEnded) return;
     gameEnded = true;
     
@@ -551,18 +551,6 @@ void PlayScene::HandleGameEnd(const GameEnd& msg) {
     
     // Update our local state with opponent's final lives
     opponentLives = (NetWork::Instance().myId == 0) ? gameEnd.player2Lives : gameEnd.player1Lives;
-    
-    lastGameResult.winnerId    = msg.winnerId;
-    lastGameResult.player1Lives = msg.player1Lives;
-    lastGameResult.player2Lives = msg.player2Lives;
-    lastGameResult.endReason    = msg.reason;
-    if (NetWork::Instance().myId == 1) {
-        lives         = msg.player1Lives;
-        opponentLives = msg.player2Lives;
-    } else {
-        lives         = msg.player2Lives;
-        opponentLives = msg.player1Lives;
-    }
     Engine::GameEngine::GetInstance().ChangeScene("result");
 }
 void PlayScene::Hit() {

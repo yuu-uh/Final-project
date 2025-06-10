@@ -120,24 +120,23 @@ void ResultScene::Initialize() {
     AddNewObject(new Engine::Label("Back", "pirulen.ttf", 36, halfW+10, h - 145, 255, 255, 255, 255, 0.5, 0.5));
     SaveResult();
     Engine::LOG(Engine::INFO) << "finished initialize result scene";
-    bgmId = AudioHelper::PlayBGM("others.ogg");
 
     if(winner == NetWork::Instance().myId + 1){
         Engine::GameEngine::UserProfile &u = Engine::GameEngine::GetInstance().GetCurrentUser();
         u.money += result.player1Lives;
     }
+    bgmId = AudioHelper::PlayBGM("others.ogg");
 }
 
 void ResultScene::Terminate() {
     IScene::Terminate();
-    //AudioHelper::StopBGM(bgmId);
+    AudioHelper::StopBGM(bgmId);
 }
 void ResultScene::Update(float deltaTime) {
     ticks += deltaTime;
     // if (ticks > 4 && ticks < 100 &&
     //     dynamic_cast<PlayScene *>(Engine::GameEngine::GetInstance().GetScene("play"))->MapId == 2) {
     //     ticks = 100;
-    //     //bgmId = AudioHelper::PlayBGM("happy.ogg");
     // }
     IScene::Update(deltaTime);
 }

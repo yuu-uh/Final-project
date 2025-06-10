@@ -86,8 +86,6 @@ void ScoreBoardScene::Initialize(){
     btn->SetOnClickCallback(std::bind(&ScoreBoardScene::NextOnClick, this));
     AddNewControlObject(btn);
     //AddNewObject(new Engine::Label("Next", "pirulen.ttf", 48, halfW+500, halfH / 2 + 450, 0, 0, 0, 255, 0.5, 0.5));
-
-    bgmInstance = AudioHelper::PlaySample("others.ogg", true, AudioHelper::BGMVolume);
 }
 
 void ScoreBoardScene::Terminate() {

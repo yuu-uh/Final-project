@@ -20,6 +20,7 @@ private:
         {4, "background/battleback5.png"}
     };
     std::string curBG = "";
+    std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE> bgmInstance;
     float pauseTimer = 0.0f;
     float pauseDuration = 1.0f;
     bool lineDone = false;

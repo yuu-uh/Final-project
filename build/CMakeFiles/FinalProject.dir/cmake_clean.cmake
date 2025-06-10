@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/FinalProject.dir/Bullet/Bullet.cpp.obj"
+  "CMakeFiles/FinalProject.dir/Bullet/Bullet.cpp.obj.d"
+  "CMakeFiles/FinalProject.dir/Bullet/FireBullet.cpp.obj"
+  "CMakeFiles/FinalProject.dir/Bullet/FireBullet.cpp.obj.d"
   "CMakeFiles/FinalProject.dir/Engine/Allegro5Exception.cpp.obj"
   "CMakeFiles/FinalProject.dir/Engine/Allegro5Exception.cpp.obj.d"
   "CMakeFiles/FinalProject.dir/Engine/AudioHelper.cpp.obj"

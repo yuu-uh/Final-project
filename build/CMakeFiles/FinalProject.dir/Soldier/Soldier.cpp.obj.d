@@ -901,9 +901,10 @@ CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/Image.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IObject.hpp \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/list \
-  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/Soldier.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Group.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/Soldier.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/AudioHelper.hpp \
   C:/allegro/include/allegro5/allegro_audio.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/GameEngine.hpp \
@@ -962,7 +963,6 @@ CMakeFiles/FinalProject.dir/Soldier/Soldier.cpp.obj: \
   C:/llvm-mingw-20240417-msvcrt-x86_64/include/c++/v1/iostream \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Scene/PlayScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/Soldier.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Message.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/NetWork.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/enet.h \

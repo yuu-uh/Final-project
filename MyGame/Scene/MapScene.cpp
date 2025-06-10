@@ -113,6 +113,8 @@ void MapScene::Initialize() {
         else if (hdr->type == MSG_JOB_SELECT && hdr->length == sizeof(uint8_t)) {
             uint8_t remoteJobId = *body;
             Engine::GameEngine::conjob = PersonalScene::JobNames[remoteJobId];
+            conPlayer->LoadAnimations();
+            conPlayer->SetAction(0);
         }
         enet_packet_destroy(ev.packet);
     }); 
@@ -123,7 +125,12 @@ void MapScene::Update(float dt) {
     IScene::Update(dt);
     auto& net = NetWork::Instance();
     net.Service(0);
-
+    static bool remoteAnimLoaded = false;
+    if (!remoteAnimLoaded && !Engine::GameEngine::conjob.empty()) {
+        conPlayer->LoadAnimations();
+        conPlayer->SetAction(0);
+        remoteAnimLoaded = true;
+    }
     PlayerState ps;
     ps.playerId = net.myId;        
     ps.x        = player->Position.x;
@@ -150,19 +157,17 @@ void MapScene::Update(float dt) {
     camY = std::clamp(targetY, 0.0f, MapHeight*BlockSize - viewH);
     for (auto& it : ItemGroup->GetObjects()) {
         auto item = dynamic_cast<Item*>(it);
-        if (!item) continue; // Skip if not an Item
+        if (!item) continue; 
 
         if (!item->item_picked() && Engine::Collider::IsCircleOverlap(
             item->Position, item->CollisionRadius, player->Position, player->CollisionRadius)) {
             item->Pick();
-
             PacketHeader hdr{ MSG_PICK_ITEM, sizeof(PickItem) };
             PickItem pi{ uint8_t(net.myId), uint8_t(item->id) };
             uint8_t packet[sizeof(hdr)+sizeof(pi)];
             std::memcpy(packet, &hdr, sizeof(hdr));
             std::memcpy(packet + sizeof(hdr), &pi, sizeof(pi));
             net.Send(packet, sizeof(packet), 0);
-
             AddToInventory(item, item->getType());
         }
     }
@@ -182,6 +187,7 @@ void MapScene::Update(float dt) {
 }
 void MapScene::Terminate() {
     IScene::Terminate();
+    AudioHelper::StopBGM(bgmId);
 }
 void MapScene::Draw() const {
     IScene::Draw();
@@ -259,11 +265,9 @@ void MapScene::OnKeyDown(int keyCode) {
 }
 void MapScene::ReadMap() {
     std::ifstream fin("Resource/Map.txt");
-    if (!fin) throw std::runtime_error("无法打开 Resource/Map.txt");
-
     std::string line;
     mapState.assign(MapHeight, std::vector<TileType>(MapWidth));
-    TileMapGroup->Clear();  // 清空旧的
+    TileMapGroup->Clear();  
 
     for (int y = 0; y < MapHeight; ++y) {
         if (!std::getline(fin, line) || (int)line.size() < MapWidth)
@@ -275,7 +279,7 @@ void MapScene::ReadMap() {
             switch (c) {
                 case '0':
                     t = TILE_FLOOR;
-                    imgPath = "mapScene/Tile.png";
+                    imgPath = "mapScene/stone.png";
                     break;
                 case '1':
                     t = TILE_DIRT;
@@ -283,14 +287,13 @@ void MapScene::ReadMap() {
                     break;
                 case '2':
                     t = TILE_OCCUPIED;
-                    imgPath = "mapScene/stone.png";
+                    imgPath = "mapScene/Tile.png";
                     break;
                 default:
                     throw std::runtime_error(std::string("Map.txt 非法字符: ") + c);
             }
             mapState[y][x] = t;
 
-            // 一次性把图元加入 TileMapGroup
             TileMapGroup->AddNewObject(
                 new Engine::Image(imgPath, x * BlockSize, y * BlockSize, BlockSize, BlockSize)
             );
@@ -302,62 +305,32 @@ void MapScene::PickupItem(Item* item) {
  }
 void MapScene::AddToInventory(Item* item, const std::string& type) {
     inventory.push_back(item);
-    const int panelX0 = 1300, panelY0 = 320, pad = 30;
-    const int iconW = 100, iconH = 100;
-    int cols = 320 / (iconW + pad);
-
     if(Engine::GameEngine::GetInstance().itemCount.count(type)){
         Engine::GameEngine::GetInstance().itemCount[type].first += 1;
         int newCount = Engine::GameEngine::GetInstance().itemCount[type].first;
         Engine::GameEngine::GetInstance().itemCount[type].second->Text = "x" + std::to_string(newCount);
         return;
     }
-
-    int idx = (int)Engine::GameEngine::GetInstance().itemCount.size();  
+    const int invX    = 1285; const int invY    = 470;
+    const int pad     = 10;   const int iconW   = 70;    const int iconH   = 70; 
+    const int cols    = 3;
+    int idx = (int)Engine::GameEngine::GetInstance().itemCount.size();
     int col = idx % cols;
-    int row = idx / cols;
-    float x = panelX0 + pad + col * (iconW + pad);
-    float y = panelY0 + pad + row * (iconH + pad);
+    int row = idx / cols; 
+    float x = invX + pad + col * (iconW + pad);
+    float y = invY + pad + row * (iconH + pad);
 
     Engine::Image* icon = new Engine::Image(item->getBitmap(), x, y, iconW, iconH);
     UIInventoryGroup->AddNewObject(icon);
     inventoryIcons[type] = icon;
 
     // Add label for count
-    Engine::Label* countLabel = new Engine::Label("x1", "pirulen.ttf", 24,
-        x + iconW - 10, y + iconH - 10, 255, 255, 255, 255, 1.0, 1.0);
+    Engine::Label* countLabel = new Engine::Label("x1", "pirulen.ttf", 24, x + iconW - 10, y + iconH - 10, 255, 255, 255, 255, 1.0, 1.0);
     UIInventoryGroup->AddNewObject(countLabel);
 
     // Add to map
-    //inventoryCount[type] = std::make_pair(1, countLabel);
     Engine::GameEngine::GetInstance().itemCount[type] = std::make_pair(1, countLabel);
     Engine::GameEngine::GetInstance().pickedItems.push_back(type);
-}
-
-
-void MapScene::ConstructUI() {
-    const int panelX0 = 1300;
-    const int panelY0 = 320;
-    const int pad     = 8;
-    const int iconW   = 128, iconH = 128;
-    const int cols    = (320) / (iconW + pad);
-
-    for (int idx = 0; idx < 6; idx++) {
-        int col = idx % cols;
-        int row = idx / cols;
-        float x = panelX0 + pad + col * (iconW + pad);
-        float y = panelY0 + pad + row * (iconH + pad);
-        auto empty = new Engine::Image(
-        "mapScene/item_empty.png",
-        x, y,
-        iconW, iconH
-        );
-        UIInventoryGroup->AddNewObject(empty);
-        slotImage.push_back(empty);
-    }
-}
-void MapScene::UIBtnClicked(int id) {
-    
 }
 bool MapScene::CheckSpaceValid(int x, int y){
     if(mapState[y][x] == TILE_OCCUPIED) return false;

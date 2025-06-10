@@ -18,6 +18,7 @@ public:
     uint8_t CurrentAction() const { return action; }
     void SetAction(uint8_t a);
     std::string job;
+    void LoadAnimations();
 
 protected:
     float speed;
@@ -36,7 +37,6 @@ private:
     bool moving = false;
     bool CheckCollision(const Engine::Point &newPos);
     Engine::Point ReadInput();
-    void LoadAnimations();
 };
 
 #endif // PLAYER_HPP

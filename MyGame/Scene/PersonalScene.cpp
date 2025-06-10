@@ -68,22 +68,22 @@ void PersonalScene::Initialize() {
     btn = new Engine::ImageButton("GUI/button3.png", "GUI/button3.png", halfW - 630, halfH / 2+10, 500, 120);
     btn->SetOnClickCallback(std::bind(&PersonalScene::HostGame, this));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Host Game", "pirulen.ttf", 36, halfW - 310, halfH / 2 +70, 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("Host Game", "pirulen.ttf", 36, halfW -320, halfH / 2 +70, 255, 255, 255, 255, 0.5, 0.5));
 
     btn = new Engine::ImageButton("GUI/button1.png", "GUI/button1.png", halfW - 630, halfH / 2 + 160, 500, 120);
     btn->SetOnClickCallback(std::bind(&PersonalScene::JoinGame, this));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Join Game", "pirulen.ttf", 36, halfW - 310, halfH / 2+220, 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("Join Game", "pirulen.ttf", 36, halfW -320, halfH / 2+220, 255, 255, 255, 255, 0.5, 0.5));
 
     btn = new Engine::ImageButton("GUI/button2.png", "GUI/button2.png", halfW - 630, halfH / 2 + 290, 500, 120);
     btn->SetOnClickCallback(std::bind(&PersonalScene::ScoreOnClick, this));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Score", "pirulen.ttf", 36, halfW - 310, halfH / 2 +350, 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("Score", "pirulen.ttf", 36, halfW - 320, halfH / 2 +350, 255, 255, 255, 255, 0.5, 0.5));
 
     btn = new Engine::ImageButton("GUI/button2.png", "GUI/button2.png", halfW - 630, halfH / 2 +430, 500, 120);
     btn->SetOnClickCallback(std::bind(&PersonalScene::SettingOnClick, this));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Setting", "pirulen.ttf", 36, halfW - 310, halfH / 2 +490, 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("Setting", "pirulen.ttf", 36, halfW - 320, halfH / 2 +490, 255, 255, 255, 255, 0.5, 0.5));
 
     AddNewObject(new Engine::Image("GUI/player.png", 800, 200, 516, 568));
     
@@ -251,4 +251,5 @@ void PersonalScene::SettingOnClick() {
 void PersonalScene::Terminate() {
     IScene::Terminate();
     waitConn = false;
+    AudioHelper::StopBGM(bgmId);
 }

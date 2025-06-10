@@ -219,6 +219,8 @@ void PlayScene::ReadMap() {
             if(mapData[y][x] == 4)
                 GoalTiles.emplace_back(x, y);
             if(mapData[y][x] == 6){
+                // float tileCenterX = x * BlockSize + BlockSize / 2;
+                // float tileCenterY = y * BlockSize + BlockSize / 2;
                 castlePos.emplace_back(x, y);
             }
         }
@@ -230,6 +232,9 @@ void PlayScene::Draw() const {
     UIGroup->AddNewObject(new Engine::Image("GUI/inventory.png",1275, 320,325,377));
     for (int y = 0; y < MapHeight; y++) {
         for (int x = 0; x < MapWidth; x++) {
+            // const char* path = mapData[y][x]
+            //     ? "mapScene/stone.png"
+            //     : "mapScene/grass.png";
             const char* path = nullptr;
             switch (mapData[y][x]){
             case 0:
@@ -494,6 +499,7 @@ std::string PlayScene::GetSoldierTypeString(uint8_t typeId) {
 
 void PlayScene::SendCastleDamage(int damage) {
     if (!NetWork::Instance().isConnected() || gameEnded) return;
+    opponentLives -= damage;
     PacketHeader header;
     header.type = MSG_CASTLE_DAMAGE;
     header.length = sizeof(PacketHeader) + sizeof(CastleDamage);
@@ -535,11 +541,11 @@ void PlayScene::SendGameEnd(uint8_t winnerId, uint8_t reason) {
 }
 void PlayScene::HandleCastleDamage(uint8_t attackingPlayerId, uint8_t damage) {
     if (gameEnded) return;
-    if (attackingPlayerId != NetWork::Instance().myId) {
+    //if (attackingPlayerId != NetWork::Instance().myId) {
             Hit();
-    }
+    //}
 }
-void PlayScene::HandleGameEnd(const GameEnd& msg) {
+void PlayScene::HandleGameEnd(const GameEnd& gameEnd) {
     if (gameEnded) return;
     gameEnded = true;
     
@@ -552,21 +558,15 @@ void PlayScene::HandleGameEnd(const GameEnd& msg) {
     // Update our local state with opponent's final lives
     opponentLives = (NetWork::Instance().myId == 0) ? gameEnd.player2Lives : gameEnd.player1Lives;
     
-    lastGameResult.winnerId    = msg.winnerId;
-    lastGameResult.player1Lives = msg.player1Lives;
-    lastGameResult.player2Lives = msg.player2Lives;
-    lastGameResult.endReason    = msg.reason;
-    if (NetWork::Instance().myId == 1) {
-        lives         = msg.player1Lives;
-        opponentLives = msg.player2Lives;
-    } else {
-        lives         = msg.player2Lives;
-        opponentLives = msg.player1Lives;
-    }
     Engine::GameEngine::GetInstance().ChangeScene("result");
 }
 void PlayScene::Hit() {
+    if (gameEnded) return;  // Prevent multiple hits after game ends
+    
     lives--;
+    Engine::LOG(Engine::INFO) << "lives: " << lives;
+    livelabel->Text = std::string("Life ") + std::to_string(lives);
+    
     if (lives <= 0) {
         gameEnded = true;
         // Game over - this player lost

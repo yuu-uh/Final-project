@@ -204,6 +204,7 @@ void PlayScene::Update(float deltaTime) {
     UIGroup->Update(deltaTime);
     UIInventoryGroup->Update(deltaTime);
     BulletGroup->Update(deltaTime);
+    GroundEffectGroup->Update(deltaTime);
 }
 
 void PlayScene::ReadMap() {
@@ -276,6 +277,7 @@ void PlayScene::Draw() const {
     SoldierGroup->Draw();
     EnemyGroup->Draw();
     BulletGroup->Draw();
+    GroundEffectGroup->Draw();
     if (MouseOnIcon) MouseOnIcon->Draw();  
 }
 

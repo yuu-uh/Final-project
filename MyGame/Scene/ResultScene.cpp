@@ -85,7 +85,7 @@ void ResultScene::Initialize() {
 
         Engine::Label* livesLabel = new Engine::Label(
             renderPlayers.back().livesText, "pirulen.ttf", 48,
-            x, imageY + 140,
+            x, imageY + 150,
             255, 255, 255, 255, 0.5, 0.5
         );
         AddNewObject(livesLabel);
@@ -118,7 +118,7 @@ void ResultScene::Initialize() {
     btn->SetOnClickCallback(std::bind(&ResultScene::BackOnClick, this, 1));
     AddNewControlObject(btn);
     AddNewObject(new Engine::Label("Back", "pirulen.ttf", 36,
-        halfW, h - 145, 255, 255, 255, 255, 0.5, 0.5));
+        halfW+10, h - 145, 255, 255, 255, 255, 0.5, 0.5));
     SaveResult();
     Engine::LOG(Engine::INFO) << "finished initialize result scene";
     bgmId = AudioHelper::PlayBGM("others.ogg");
@@ -157,7 +157,7 @@ void ResultScene::SaveResult(){
     bool isWinner = (result.winnerId == myId);
     int livesLeft = (myId == 1) ? result.player1Lives : result.player2Lives;
 
-    std::ofstream ofs("Resource/ScoreBoard.txt", std::ios::app); // append mode
+    std::ofstream ofs("C:/Final-project-main/Final-project/MyGame/Resource/ScoreBoard.txt", std::ios::app); // append mode
     if (!ofs) {
         Engine::LOG(Engine::ERROR) << "Failed to open player_results.txt for writing";
         return;

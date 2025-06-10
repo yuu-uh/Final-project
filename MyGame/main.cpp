@@ -14,6 +14,9 @@ int main(int argc, char **argv) {
 	if (!NetWork::Instance().Init()) {
         return -1;
     }
+#ifdef _WIN32
+	SetProcessDPIAware();	
+#endif
 
 	Engine::LOG::SetConfig(true);
 	Engine::GameEngine& game = Engine::GameEngine::GetInstance();

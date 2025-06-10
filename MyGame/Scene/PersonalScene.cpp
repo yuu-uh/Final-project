@@ -200,6 +200,7 @@ void PersonalScene::HostGame() {
 }
 
 
+
 void PersonalScene::JoinGame() {
     Engine::GameEngine::job = JobNames[currentJobIndex];
     join_mode = true;

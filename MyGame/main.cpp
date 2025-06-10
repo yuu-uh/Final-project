@@ -27,6 +27,6 @@ int main(int argc, char **argv) {
 	game.AddNewScene("setting", new SettingsScene());
 	game.AddNewScene("story", new StoryScene());
 
-	game.Start("personal", 60, 1600, 832);
+	game.Start("story", 60, 1600, 832);
 	return 0;
 }

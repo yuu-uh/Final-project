@@ -67,7 +67,7 @@ void ResultScene::Initialize() {
 
         Engine::Image* playerImage = new Engine::Image(
             imgPath,
-            x, imageY,
+            x-100, imageY,
             128, 128  // width and height (adjust if needed)
         );
         AddNewObject(playerImage);
@@ -78,7 +78,9 @@ void ResultScene::Initialize() {
             x,
             imageY,
             isWinner,
-            "Lives: " + std::to_string((playerId == 1) ? result.player1Lives : result.player2Lives)
+            "Lives: " + std::to_string(
+                (playerId == myId) ? result.player1Lives : result.player2Lives
+            )
         });
 
         Engine::Label* livesLabel = new Engine::Label(

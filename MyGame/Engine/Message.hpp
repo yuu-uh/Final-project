@@ -82,4 +82,9 @@ struct SoldierAttack {
     uint32_t targetId;           // If attacking another soldier (0 for castle)
     uint32_t timestamp;          // When attack started
 };
+
+struct LifeUpdate {
+    uint8_t playerId;
+    uint8_t currentLives;
+};
 #pragma pack(pop)

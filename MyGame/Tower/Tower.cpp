@@ -21,5 +21,5 @@ void Tower::CreateBullet() {
     // Change bullet position to the front of the gun barrel.
     getPlayScene()->BulletGroup->AddNewObject(new FireBullet(Position + normalized * 36 - normal * 6, diff, rotation, this));
     getPlayScene()->BulletGroup->AddNewObject(new FireBullet(Position + normalized * 36 + normal * 6, diff, rotation, this));
-    AudioHelper::PlayAudio("explosion.wav");
+    //AudioHelper::PlayAudio("explosion.wav");
 }

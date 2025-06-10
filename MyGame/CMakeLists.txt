@@ -20,6 +20,16 @@ add_executable(FinalProject
     Bullet/Bullet.hpp
     Bullet/FireBullet.cpp
     Bullet/FireBullet.hpp
+    Bullet/rock.cpp
+    Bullet/rock.hpp
+    Bullet/Sword.cpp
+    Bullet/Sword.hpp
+    Bullet/Arrow.cpp
+    Bullet/Arrow.hpp
+    Bullet/Knife.cpp
+    Bullet/Knife.hpp
+    Bullet/LaserBullet.cpp
+    Bullet/LaserBullet.hpp
 
     Engine/Allegro5Exception.cpp
     Engine/Allegro5Exception.hpp
@@ -48,6 +58,8 @@ add_executable(FinalProject
     Engine/Message.hpp
     Engine/NetWork.cpp
     Engine/NetWork.hpp
+    #Engine/PathHelper.cpp
+    #Engine/PathHelper.hpp
 
     Player/Player.cpp
     Player/Player.hpp
@@ -74,6 +86,8 @@ add_executable(FinalProject
     UI/Animation/DirtyEffect.hpp
     UI/Animation/ExplosionEffect.cpp
     UI/Animation/ExplosionEffect.hpp
+    UI/Animation/UpgradeEffect.cpp
+    UI/Animation/UpgradeEffect.hpp
 
     UI/Component/Image.cpp
     UI/Component/Image.hpp

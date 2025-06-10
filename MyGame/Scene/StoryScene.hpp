@@ -4,7 +4,7 @@
 #include "Engine/IScene.hpp"
 #include <allegro5/allegro_audio.h>
 #include "UI/Component/ImageButton.hpp"
-#include "UI/Component/Label.hpp
+#include "UI/Component/Label.hpp"
 
 class StoryScene : public Engine::IScene {
 public:
@@ -13,6 +13,16 @@ public:
     void Draw() const override;
     void Terminate() override;
 private:
+    Engine::Image* background;
+    std::vector<std::pair<int, std::string>> bgChange = {
+        {0, "background/battleback8.png"},
+        {2, "background/battleback1.png"},
+        {4, "background/battleback5.png"}
+    };
+    std::string curBG = "";
+    float pauseTimer = 0.0f;
+    float pauseDuration = 1.0f;
+    bool lineDone = false;
     void advance_line();
     void TBOnClick(int);
     ALLEGRO_SAMPLE_ID bgmId;

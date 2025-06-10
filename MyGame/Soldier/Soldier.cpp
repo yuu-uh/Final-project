@@ -15,6 +15,7 @@
 #include "Scene/PlayScene.hpp"
 //#include "UI/Animation/DirtyEffect.hpp"
 #include "UI/Animation/ExplosionEffect.hpp"
+#include "UI/Animation/UpgradeEffect.hpp"
 
 
 PlayScene *Soldier::getPlayScene() {
@@ -34,6 +35,7 @@ void Soldier::die() {
 
 Soldier::Soldier(std::string img, float x, float y, int dir, float radius, float speed, float hp, float damage, bool isLocal) : Engine::Sprite(img, x, y, 60, 60, 0, 0, 0, 10, 10), speed(speed), hp(hp), dmg(damage) {
     CollisionRadius = radius;
+    this->img = img;
     reachEndTime = 0;
     maxHp =  hp;
     direction = dir;
@@ -45,7 +47,6 @@ Soldier::Soldier(std::string img, float x, float y, int dir, float radius, float
 
 void Soldier::Hit(float damage) {
     hp -= damage;
-    getPlayScene()->EffectGroup->AddNewObject(new ExplosionEffect(Position.x, Position.y));
     if (hp <= 0) {
         die();
         //AudioHelper::PlayAudio("explosion.wav");
@@ -112,6 +113,13 @@ void Soldier::Update(float deltaTime){
                 attackTimer = cooldown;
                 Attack();
             }
+            dmgRate += deltaTime;
+            castleTimer += deltaTime;
+            if(castleTimer >= 3.0f){
+                castleTimer = 0;
+                this->Hit(3*dmgRate);
+                getPlayScene()->EffectGroup->AddNewObject(new UpgradeEffect(Position.x, Position.y));
+            }
             return;
         }
     }
@@ -166,7 +174,14 @@ void Soldier::Draw() const {
     // if(Preview){
     //     al_draw_filled_circle(Position.x, Position.y, CollisionRadius, al_map_rgba(0, 255, 0, 50));
     // }
-    Sprite::Draw();
+    if (flip) {
+        ALLEGRO_BITMAP* bitmap = al_load_bitmap(img.c_str());
+        al_draw_scaled_bitmap(bmp.get(), 0, 0, GetBitmapWidth(), GetBitmapHeight(),
+                              Position.x - Anchor.x * GetBitmapWidth(), Position.y - Anchor.y * GetBitmapHeight(),
+                              Size.x, Size.y, 1);
+    } else {
+        Sprite::Draw();
+    }
     if(Preview) return;
     float barWidth = 40.0f;
     float barHeight = 5.0f;

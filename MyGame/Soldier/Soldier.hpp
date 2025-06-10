@@ -36,9 +36,11 @@ protected:
     State state;
     Soldier* target = nullptr;
     virtual void CreateWeapon() = 0;
+    std::string img;
     
 
 public:
+    bool flip = false;
     Engine::Group* Enemy;
     bool isLocal;  
     float reachEndTime;
@@ -54,5 +56,7 @@ public:
     void setSpeed(float s){ speed = s; }
     virtual std::string soldierName() const = 0;
     void Attack();
+    float castleTimer = 0.0f;
+    float dmgRate = 0.0f;
 };
 #endif   // ENEMY_HPP

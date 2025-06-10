@@ -42,7 +42,7 @@ private:
     std::vector<Item*> inventory;
     std::unordered_map<uint32_t, Soldier*> networkSoldiers;  // Track soldiers by ID
     uint32_t nextSoldierId;  // Counter for unique soldier IDs
-    uint8_t opponentLives = 10;  // Track opponent's lives
+    uint8_t opponentLives;  // Track opponent's lives
     bool gameEnded = false;      // Prevent multiple game end calls
     
     // Game result data for result scene
@@ -66,6 +66,7 @@ private:
 protected:
 
 public:
+    std::vector<Engine::Point> castlePos;
     static Player* player1;
     static Player* player2;
     static GameResultData lastGameResult; 

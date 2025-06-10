@@ -3,6 +3,7 @@
 #include "Engine/IScene.hpp"
 #include "Engine/Group.hpp"
 #include <allegro5/allegro_audio.h>
+#include "UI/Component/Label.hpp"
 
 class ResultScene final : public Engine::IScene {
 private:
@@ -10,7 +11,6 @@ private:
     float ticks;
     std::string playerName;        
     Engine::Label* nameLabel;
-    ALLEGRO_SAMPLE_ID bgmId;
     int score;
     Group* UIGroup;
 

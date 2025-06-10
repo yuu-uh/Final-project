@@ -29,8 +29,8 @@ void LogScene::Initialize() {
     AddNewObject(new Engine::Image("background/test.png" ,0, 0, w, h));
 
     Engine::ImageButton *btn;
-    AddNewObject(new Engine::Label("Log in to start", "pirulen.ttf", 100, halfW, halfH / 3 + 50, 255, 255, 255, 255, 0.5, 0.5));
-
+    AddNewObject(new Engine::Label("Mirror Duel", "pirulen.ttf", 100, halfW, halfH / 3 + 50, 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("log in to start", "pirulen.ttf", 48, halfW, halfH - 100, 255, 255, 255, 255, 0.5, 0.5));
     btn = new Engine::ImageButton("stage-select/floor.png", "stage-select/floor.png", halfW, halfH/2+200, 400, 100);
     AddNewControlObject(btn);
     AddNewObject(new Engine::Label("Name", "pirulen.ttf", 48, halfW-310, halfH/2+250, 255, 255, 255, 255, 0.5, 0.5));

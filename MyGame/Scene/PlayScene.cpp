@@ -32,6 +32,9 @@
 #include "Soldier/slime.hpp"
 #include "Soldier/vikin.hpp"
 #include "Engine/Message.hpp"
+#include "Bullet/LaserBullet.hpp"
+#include "Bullet/FireBullet.hpp"
+#include "UI/Animation/UpgradeEffect.hpp"
 
 
 PlayScene::GameResultData PlayScene::lastGameResult = {0, 0, 0, 0};
@@ -62,7 +65,8 @@ void PlayScene::Initialize() {
     ReadMap();
 
     ConstructUI();
-    lives = 10;
+    lives = 100;
+    opponentLives = 100;
     soldierUpdateTimer = 0.0f;
     gameStartTime = al_get_time() * 1000;
 
@@ -133,6 +137,57 @@ void PlayScene::Update(float deltaTime) {
         Engine::GameEngine::GetInstance().ChangeScene("result");
         return;
     }
+    const float attackRadius = 150;
+    const float damage = 5;
+    const float attackCooldown = 2.0f;
+
+    static float castleTimer = 0;
+    castleTimer += deltaTime;
+
+    if (castleTimer >= attackCooldown) {
+        // for (auto& cPos : castlePos) {
+        //     //Engine::Point center(cPos.x * BlockSize + BlockSize / 2, cPos.y * BlockSize + BlockSize / 2);
+            
+        //     // Create a copy of objects to avoid iterator invalidation
+        //     auto objects = EnemyGroup->GetObjects();
+        //     std::vector<Soldier*> enemiesInRange;
+            
+        //     // First pass: collect enemies in range
+        //     for (auto& obj : objects) {
+        //         Soldier* enemy = dynamic_cast<Soldier*>(obj);
+        //         if (!enemy || !enemy->Visible) continue;
+                
+        //         float distance = (enemy->Position - cPos).Magnitude();
+        //         if (distance <= attackRadius) {
+        //             enemiesInRange.push_back(enemy);
+        //         }
+        //     }
+            
+        //     // Second pass: attack enemies (safe from iterator invalidation)
+        //     for (Soldier* enemy : enemiesInRange) {
+        //         if (!enemy || !enemy->Visible) continue; // Double-check validity
+                
+        //         // Calculate direction vector
+        //         Engine::Point diff = enemy->Position - cPos;
+        //         float magnitude = diff.Magnitude();
+                
+        //         // Skip if too close to avoid division by zero
+        //         if (magnitude < 0.001f) continue;
+                
+        //         Engine::Point normalized = diff / magnitude; // Manual normalization to avoid potential issues
+        //         float rotation = atan2(normalized.y, normalized.x);
+        //         Engine::Point normal = Engine::Point(-normalized.y, normalized.x);
+                
+        //         // Create bullet
+        //         BulletGroup->AddNewObject(
+        //             new LaserBullet(cPos + normalized * 36 - normal * 6, diff, rotation)
+        //         );
+                
+        //         // Damage enemy last (might destroy it)
+        //         enemy->Hit(damage);
+        //     }
+        // }
+    }
     int minutes = int(timer) / 60;
     int seconds = int(timer) % 60;
     std::ostringstream oss;
@@ -162,6 +217,11 @@ void PlayScene::ReadMap() {
             mapData[y][x] = line[x] - '0';
             if(mapData[y][x] == 4)
                 GoalTiles.emplace_back(x, y);
+            if(mapData[y][x] == 6){
+                // float tileCenterX = x * BlockSize + BlockSize / 2;
+                // float tileCenterY = y * BlockSize + BlockSize / 2;
+                castlePos.emplace_back(x, y);
+            }
         }
     }
 }
@@ -178,7 +238,6 @@ void PlayScene::Draw() const {
             case 0:
             case 4:
             case 5:
-            case 6:
                 path = "mapScene/grass.png";
                 break;
             case 1:
@@ -190,6 +249,8 @@ void PlayScene::Draw() const {
             case 3:
                 path = "mapScene/roof.png";
                 break;
+            case 6:
+                path = "mapScene/turret-6.png";
             default:
                 break;
             }
@@ -385,9 +446,9 @@ void PlayScene::CreateNetworkSoldier(uint8_t playerId, uint8_t soldierType, int 
     std::string typeName = GetSoldierTypeString(soldierType);
     Soldier* soldier = CreateSoldierByType(typeName, realX, realY, -1, false);
     if (!soldier) return;
-
     soldier->Position.x = realX * BlockSize + BlockSize / 2;
     soldier->Position.y = realY * BlockSize + BlockSize / 2;
+    soldier->flip = true;
     soldier->Enabled = true;
     soldier->Preview = false;
     soldier->Tint = al_map_rgba(255, 100, 100, 255);
@@ -436,7 +497,7 @@ std::string PlayScene::GetSoldierTypeString(uint8_t typeId) {
 
 void PlayScene::SendCastleDamage(int damage) {
     if (!NetWork::Instance().isConnected() || gameEnded) return;
-    
+    opponentLives -= damage;
     PacketHeader header;
     header.type = MSG_CASTLE_DAMAGE;
     header.length = sizeof(PacketHeader) + sizeof(CastleDamage);
@@ -461,8 +522,13 @@ void PlayScene::SendGameEnd(uint8_t winnerId, uint8_t reason) {
     
     GameEnd msg;
     msg.winnerId = winnerId;
-    msg.player1Lives = (NetWork::Instance().myId == 1) ? lives : opponentLives;
-    msg.player2Lives = (NetWork::Instance().myId == 2) ? lives : opponentLives;
+    if (NetWork::Instance().myId == 1) {
+        msg.player1Lives = lives;
+        msg.player2Lives = opponentLives;
+    } else {
+        msg.player1Lives = opponentLives;
+        msg.player2Lives = lives;
+    }
     msg.reason = reason;
     
     std::vector<uint8_t> packet(header.length);

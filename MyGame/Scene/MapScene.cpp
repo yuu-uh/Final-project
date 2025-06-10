@@ -120,7 +120,7 @@ void MapScene::Initialize() {
         enet_packet_destroy(ev.packet);
     }); 
     camX = camY = 0;
-    bgmId = AudioHelper::PlayBGM("map.ogg");
+    //bgmId = AudioHelper::PlayBGM("map.ogg");
 }
 void MapScene::Update(float dt) {
     IScene::Update(dt);
@@ -188,7 +188,7 @@ void MapScene::Update(float dt) {
 }
 void MapScene::Terminate() {
     IScene::Terminate();
-    AudioHelper::StopBGM(bgmId);
+    //AudioHelper::StopBGM(bgmId);
 }
 void MapScene::Draw() const {
     IScene::Draw();

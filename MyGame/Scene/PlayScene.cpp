@@ -541,10 +541,8 @@ void PlayScene::SendGameEnd(uint8_t winnerId, uint8_t reason) {
 }
 
 void PlayScene::HandleCastleDamage(uint8_t attackingPlayerId, uint8_t damage) {
-    if (attackingPlayerId != NetWork::Instance().myId && !gameEnded) {
-        // Opponent's soldier damaged our castle
-        Hit();
-    }
+    if (gameEnded) return;
+    Hit();
 }
 
 void PlayScene::HandleGameEnd(const GameEnd& gameEnd) {

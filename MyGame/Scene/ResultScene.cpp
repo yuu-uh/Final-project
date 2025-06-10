@@ -104,21 +104,17 @@ void ResultScene::Initialize() {
     // Center result reason
     std::string reasonText = (result.endReason == 0) ? "Game ended: Lives depleted" : "Game ended: Time up";
     Engine::Label* reasonLabel = new Engine::Label(
-        reasonText, "pirulen.ttf", 20,
-        halfW, halfH + 100,
-        200, 200, 200, 255, 0.5, 0.5
+        reasonText, "pirulen.ttf", 20, halfW, halfH + 100, 200, 200, 200, 255, 0.5, 0.5
     );
     AddNewObject(reasonLabel);
 
-    // === CENTERED BACK BUTTON ===
     Engine::ImageButton* btn = new Engine::ImageButton(
         "GUI/button2.png", "GUI/button2.png",
         halfW - 135, h - 180, 270, 70
     );
     btn->SetOnClickCallback(std::bind(&ResultScene::BackOnClick, this, 1));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("Back", "pirulen.ttf", 36,
-        halfW+10, h - 145, 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("Back", "pirulen.ttf", 36, halfW+10, h - 145, 255, 255, 255, 255, 0.5, 0.5));
     SaveResult();
     Engine::LOG(Engine::INFO) << "finished initialize result scene";
     bgmId = AudioHelper::PlayBGM("others.ogg");

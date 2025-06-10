@@ -909,8 +909,8 @@ CMakeFiles/FinalProject.dir/main.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Group.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/IControl.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PersonalScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Component/TextBox.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/Scene/PersonalScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Engine/Message.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/Scene/MapScene.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Items/Item.hpp \

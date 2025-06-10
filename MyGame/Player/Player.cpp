@@ -38,7 +38,7 @@ Player::Player(const std::string &imagePath, const Engine::Point &startPos, floa
     playScene = dynamic_cast<MapScene*>(
         Engine::GameEngine::GetInstance().GetScene("map")
     );
-    CollisionRadius = 25;
+    CollisionRadius = 50;
     Engine::LOG(Engine::INFO)<<"start to load animations";
     LoadAnimations();
 }

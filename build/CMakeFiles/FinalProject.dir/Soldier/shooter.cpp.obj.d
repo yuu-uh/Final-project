@@ -1114,5 +1114,5 @@ CMakeFiles/FinalProject.dir/Soldier/shooter.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/list.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/enet-master/include/enet/callbacks.h \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Player/Player.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Bullet/FireBullet.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Bullet/Arrow.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Bullet/Bullet.hpp

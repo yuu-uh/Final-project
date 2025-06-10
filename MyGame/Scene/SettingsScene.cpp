@@ -40,6 +40,14 @@ void SettingsScene::Initialize() {
     bgmInstance = AudioHelper::PlaySample("others.ogg", true, AudioHelper::BGMVolume);
     sliderBGM->SetValue(AudioHelper::BGMVolume);
     sliderSFX->SetValue(AudioHelper::SFXVolume);
+    
+    Engine::GameEngine::UserProfile &u = Engine::GameEngine::GetInstance().GetCurrentUser();
+    std::string us = "Hello " + u.name;
+    std::string ls = "level: " + std::to_string(u.level);
+    std::string ms = "money: " + std::to_string(u.money);
+    AddNewObject(new Engine::Label(us, "pirulen.ttf", 36, halfW, halfH/2-50, 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label(ls, "pirulen.ttf", 36, halfW, halfH/2, 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label(ms, "pirulen.ttf", 36, halfW, halfH/2+50, 255, 255, 255, 255, 0.5, 0.5));
 }
 void SettingsScene::Terminate() {
     AudioHelper::StopSample(bgmInstance);

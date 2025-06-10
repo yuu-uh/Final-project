@@ -60,7 +60,8 @@ void MapScene::Initialize() {
                 freeCells.emplace_back(x,y);
         }
     }
-    std::mt19937 rng{ std::random_device{}() };
+    const uint32_t FIXED_SEED = 20250610;
+    std::mt19937 rng{ FIXED_SEED };
     std::shuffle(freeCells.begin(), freeCells.end(), rng);
     int nextId = 0;
     int needed = std::min((int)freeCells.size(), 6*5);
@@ -324,11 +325,9 @@ void MapScene::AddToInventory(Item* item, const std::string& type) {
     UIInventoryGroup->AddNewObject(icon);
     inventoryIcons[type] = icon;
 
-    // Add label for count
     Engine::Label* countLabel = new Engine::Label("x1", "pirulen.ttf", 24, x + iconW - 10, y + iconH - 10, 255, 255, 255, 255, 1.0, 1.0);
     UIInventoryGroup->AddNewObject(countLabel);
 
-    // Add to map
     Engine::GameEngine::GetInstance().itemCount[type] = std::make_pair(1, countLabel);
     Engine::GameEngine::GetInstance().pickedItems.push_back(type);
 }

@@ -199,6 +199,30 @@ EnetTest/fast:
 	$(MAKE) $(MAKESILENT) -f enet-master\CMakeFiles\EnetTest.dir\build.make enet-master/CMakeFiles/EnetTest.dir/build
 .PHONY : EnetTest/fast
 
+Bullet/Arrow.obj: Bullet/Arrow.cpp.obj
+.PHONY : Bullet/Arrow.obj
+
+# target to build an object file
+Bullet/Arrow.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/Arrow.cpp.obj
+.PHONY : Bullet/Arrow.cpp.obj
+
+Bullet/Arrow.i: Bullet/Arrow.cpp.i
+.PHONY : Bullet/Arrow.i
+
+# target to preprocess a source file
+Bullet/Arrow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/Arrow.cpp.i
+.PHONY : Bullet/Arrow.cpp.i
+
+Bullet/Arrow.s: Bullet/Arrow.cpp.s
+.PHONY : Bullet/Arrow.s
+
+# target to generate assembly for a file
+Bullet/Arrow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/Arrow.cpp.s
+.PHONY : Bullet/Arrow.cpp.s
+
 Bullet/Bullet.obj: Bullet/Bullet.cpp.obj
 .PHONY : Bullet/Bullet.obj
 
@@ -246,6 +270,102 @@ Bullet/FireBullet.s: Bullet/FireBullet.cpp.s
 Bullet/FireBullet.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/FireBullet.cpp.s
 .PHONY : Bullet/FireBullet.cpp.s
+
+Bullet/Knife.obj: Bullet/Knife.cpp.obj
+.PHONY : Bullet/Knife.obj
+
+# target to build an object file
+Bullet/Knife.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/Knife.cpp.obj
+.PHONY : Bullet/Knife.cpp.obj
+
+Bullet/Knife.i: Bullet/Knife.cpp.i
+.PHONY : Bullet/Knife.i
+
+# target to preprocess a source file
+Bullet/Knife.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/Knife.cpp.i
+.PHONY : Bullet/Knife.cpp.i
+
+Bullet/Knife.s: Bullet/Knife.cpp.s
+.PHONY : Bullet/Knife.s
+
+# target to generate assembly for a file
+Bullet/Knife.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/Knife.cpp.s
+.PHONY : Bullet/Knife.cpp.s
+
+Bullet/LaserBullet.obj: Bullet/LaserBullet.cpp.obj
+.PHONY : Bullet/LaserBullet.obj
+
+# target to build an object file
+Bullet/LaserBullet.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/LaserBullet.cpp.obj
+.PHONY : Bullet/LaserBullet.cpp.obj
+
+Bullet/LaserBullet.i: Bullet/LaserBullet.cpp.i
+.PHONY : Bullet/LaserBullet.i
+
+# target to preprocess a source file
+Bullet/LaserBullet.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/LaserBullet.cpp.i
+.PHONY : Bullet/LaserBullet.cpp.i
+
+Bullet/LaserBullet.s: Bullet/LaserBullet.cpp.s
+.PHONY : Bullet/LaserBullet.s
+
+# target to generate assembly for a file
+Bullet/LaserBullet.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/LaserBullet.cpp.s
+.PHONY : Bullet/LaserBullet.cpp.s
+
+Bullet/Sword.obj: Bullet/Sword.cpp.obj
+.PHONY : Bullet/Sword.obj
+
+# target to build an object file
+Bullet/Sword.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/Sword.cpp.obj
+.PHONY : Bullet/Sword.cpp.obj
+
+Bullet/Sword.i: Bullet/Sword.cpp.i
+.PHONY : Bullet/Sword.i
+
+# target to preprocess a source file
+Bullet/Sword.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/Sword.cpp.i
+.PHONY : Bullet/Sword.cpp.i
+
+Bullet/Sword.s: Bullet/Sword.cpp.s
+.PHONY : Bullet/Sword.s
+
+# target to generate assembly for a file
+Bullet/Sword.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/Sword.cpp.s
+.PHONY : Bullet/Sword.cpp.s
+
+Bullet/rock.obj: Bullet/rock.cpp.obj
+.PHONY : Bullet/rock.obj
+
+# target to build an object file
+Bullet/rock.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/rock.cpp.obj
+.PHONY : Bullet/rock.cpp.obj
+
+Bullet/rock.i: Bullet/rock.cpp.i
+.PHONY : Bullet/rock.i
+
+# target to preprocess a source file
+Bullet/rock.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/rock.cpp.i
+.PHONY : Bullet/rock.cpp.i
+
+Bullet/rock.s: Bullet/rock.cpp.s
+.PHONY : Bullet/rock.s
+
+# target to generate assembly for a file
+Bullet/rock.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/Bullet/rock.cpp.s
+.PHONY : Bullet/rock.cpp.s
 
 Engine/Allegro5Exception.obj: Engine/Allegro5Exception.cpp.obj
 .PHONY : Engine/Allegro5Exception.obj
@@ -1015,6 +1135,30 @@ UI/Animation/ExplosionEffect.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.s
 .PHONY : UI/Animation/ExplosionEffect.cpp.s
 
+UI/Animation/UpgradeEffect.obj: UI/Animation/UpgradeEffect.cpp.obj
+.PHONY : UI/Animation/UpgradeEffect.obj
+
+# target to build an object file
+UI/Animation/UpgradeEffect.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/UI/Animation/UpgradeEffect.cpp.obj
+.PHONY : UI/Animation/UpgradeEffect.cpp.obj
+
+UI/Animation/UpgradeEffect.i: UI/Animation/UpgradeEffect.cpp.i
+.PHONY : UI/Animation/UpgradeEffect.i
+
+# target to preprocess a source file
+UI/Animation/UpgradeEffect.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/UI/Animation/UpgradeEffect.cpp.i
+.PHONY : UI/Animation/UpgradeEffect.cpp.i
+
+UI/Animation/UpgradeEffect.s: UI/Animation/UpgradeEffect.cpp.s
+.PHONY : UI/Animation/UpgradeEffect.s
+
+# target to generate assembly for a file
+UI/Animation/UpgradeEffect.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FinalProject.dir\build.make CMakeFiles/FinalProject.dir/UI/Animation/UpgradeEffect.cpp.s
+.PHONY : UI/Animation/UpgradeEffect.cpp.s
+
 UI/Component/Image.obj: UI/Component/Image.cpp.obj
 .PHONY : UI/Component/Image.obj
 
@@ -1174,12 +1318,27 @@ help:
 	@echo ... EnetTest
 	@echo ... FinalProject
 	@echo ... enet
+	@echo ... Bullet/Arrow.obj
+	@echo ... Bullet/Arrow.i
+	@echo ... Bullet/Arrow.s
 	@echo ... Bullet/Bullet.obj
 	@echo ... Bullet/Bullet.i
 	@echo ... Bullet/Bullet.s
 	@echo ... Bullet/FireBullet.obj
 	@echo ... Bullet/FireBullet.i
 	@echo ... Bullet/FireBullet.s
+	@echo ... Bullet/Knife.obj
+	@echo ... Bullet/Knife.i
+	@echo ... Bullet/Knife.s
+	@echo ... Bullet/LaserBullet.obj
+	@echo ... Bullet/LaserBullet.i
+	@echo ... Bullet/LaserBullet.s
+	@echo ... Bullet/Sword.obj
+	@echo ... Bullet/Sword.i
+	@echo ... Bullet/Sword.s
+	@echo ... Bullet/rock.obj
+	@echo ... Bullet/rock.i
+	@echo ... Bullet/rock.s
 	@echo ... Engine/Allegro5Exception.obj
 	@echo ... Engine/Allegro5Exception.i
 	@echo ... Engine/Allegro5Exception.s
@@ -1276,6 +1435,9 @@ help:
 	@echo ... UI/Animation/ExplosionEffect.obj
 	@echo ... UI/Animation/ExplosionEffect.i
 	@echo ... UI/Animation/ExplosionEffect.s
+	@echo ... UI/Animation/UpgradeEffect.obj
+	@echo ... UI/Animation/UpgradeEffect.i
+	@echo ... UI/Animation/UpgradeEffect.s
 	@echo ... UI/Component/Image.obj
 	@echo ... UI/Component/Image.i
 	@echo ... UI/Component/Image.s

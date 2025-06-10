@@ -1178,4 +1178,8 @@ CMakeFiles/FinalProject.dir/Scene/PlayScene.cpp.obj: \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/dragen.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/shooter.hpp \
   C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/slime.hpp \
-  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/vikin.hpp
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Soldier/vikin.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Bullet/LaserBullet.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Bullet/Bullet.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./Bullet/FireBullet.hpp \
+  C:/Users/annys/Downloads/FinalProject/MyGame/./UI/Animation/UpgradeEffect.hpp

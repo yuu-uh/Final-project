@@ -13,6 +13,36 @@
 },
 {
   "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Bullet\\rock.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Bullet\\rock.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Bullet/rock.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Bullet/rock.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Bullet\\Sword.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Bullet\\Sword.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Bullet/Sword.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Bullet/Sword.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Bullet\\Arrow.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Bullet\\Arrow.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Bullet/Arrow.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Bullet/Arrow.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Bullet\\Knife.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Bullet\\Knife.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Bullet/Knife.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Bullet/Knife.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Bullet\\LaserBullet.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Bullet\\LaserBullet.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Bullet/LaserBullet.cpp",
+  "output": "CMakeFiles/FinalProject.dir/Bullet/LaserBullet.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
   "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\Engine\\Allegro5Exception.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\Engine\\Allegro5Exception.cpp",
   "file": "C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Allegro5Exception.cpp",
   "output": "CMakeFiles/FinalProject.dir/Engine/Allegro5Exception.cpp.obj"
@@ -154,6 +184,12 @@
   "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\UI\\Animation\\ExplosionEffect.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\UI\\Animation\\ExplosionEffect.cpp",
   "file": "C:/Users/annys/Downloads/FinalProject/MyGame/UI/Animation/ExplosionEffect.cpp",
   "output": "CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj"
+},
+{
+  "directory": "C:/Users/annys/Downloads/FinalProject/build",
+  "command": "C:\\llvm-mingw-20240417-msvcrt-x86_64\\bin\\clang++.exe  @CMakeFiles/FinalProject.dir/includes_CXX.rsp -g -o CMakeFiles\\FinalProject.dir\\UI\\Animation\\UpgradeEffect.cpp.obj -c C:\\Users\\annys\\Downloads\\FinalProject\\MyGame\\UI\\Animation\\UpgradeEffect.cpp",
+  "file": "C:/Users/annys/Downloads/FinalProject/MyGame/UI/Animation/UpgradeEffect.cpp",
+  "output": "CMakeFiles/FinalProject.dir/UI/Animation/UpgradeEffect.cpp.obj"
 },
 {
   "directory": "C:/Users/annys/Downloads/FinalProject/build",

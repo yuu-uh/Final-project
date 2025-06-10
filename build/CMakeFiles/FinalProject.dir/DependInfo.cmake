@@ -8,8 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/annys/Downloads/FinalProject/MyGame/Bullet/Arrow.cpp" "CMakeFiles/FinalProject.dir/Bullet/Arrow.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Bullet/Arrow.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/Bullet/Bullet.cpp" "CMakeFiles/FinalProject.dir/Bullet/Bullet.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Bullet/Bullet.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/Bullet/FireBullet.cpp" "CMakeFiles/FinalProject.dir/Bullet/FireBullet.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Bullet/FireBullet.cpp.obj.d"
+  "C:/Users/annys/Downloads/FinalProject/MyGame/Bullet/Knife.cpp" "CMakeFiles/FinalProject.dir/Bullet/Knife.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Bullet/Knife.cpp.obj.d"
+  "C:/Users/annys/Downloads/FinalProject/MyGame/Bullet/LaserBullet.cpp" "CMakeFiles/FinalProject.dir/Bullet/LaserBullet.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Bullet/LaserBullet.cpp.obj.d"
+  "C:/Users/annys/Downloads/FinalProject/MyGame/Bullet/Sword.cpp" "CMakeFiles/FinalProject.dir/Bullet/Sword.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Bullet/Sword.cpp.obj.d"
+  "C:/Users/annys/Downloads/FinalProject/MyGame/Bullet/rock.cpp" "CMakeFiles/FinalProject.dir/Bullet/rock.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Bullet/rock.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Allegro5Exception.cpp" "CMakeFiles/FinalProject.dir/Engine/Allegro5Exception.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Engine/Allegro5Exception.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/Engine/AudioHelper.cpp" "CMakeFiles/FinalProject.dir/Engine/AudioHelper.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Engine/AudioHelper.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/Engine/Collider.cpp" "CMakeFiles/FinalProject.dir/Engine/Collider.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Engine/Collider.cpp.obj.d"
@@ -42,6 +47,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/annys/Downloads/FinalProject/MyGame/Soldier/vikin.cpp" "CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/Soldier/vikin.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/UI/Animation/DirtyEffect.cpp" "CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/UI/Animation/DirtyEffect.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/UI/Animation/ExplosionEffect.cpp" "CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/UI/Animation/ExplosionEffect.cpp.obj.d"
+  "C:/Users/annys/Downloads/FinalProject/MyGame/UI/Animation/UpgradeEffect.cpp" "CMakeFiles/FinalProject.dir/UI/Animation/UpgradeEffect.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/UI/Animation/UpgradeEffect.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Image.cpp" "CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/UI/Component/Image.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/ImageButton.cpp" "CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/UI/Component/ImageButton.cpp.obj.d"
   "C:/Users/annys/Downloads/FinalProject/MyGame/UI/Component/Label.cpp" "CMakeFiles/FinalProject.dir/UI/Component/Label.cpp.obj" "gcc" "CMakeFiles/FinalProject.dir/UI/Component/Label.cpp.obj.d"

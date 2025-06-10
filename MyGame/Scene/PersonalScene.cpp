@@ -199,6 +199,7 @@ void PersonalScene::HostGame() {
     hostPortInfo = "Port: " + std::to_string(1234);
 }
 
+
 void PersonalScene::JoinGame() {
     Engine::GameEngine::job = JobNames[currentJobIndex];
     join_mode = true;

@@ -546,7 +546,6 @@ void PlayScene::HandleCastleDamage(uint8_t attackingPlayerId, uint8_t damage) {
     //}
 }
 void PlayScene::HandleGameEnd(const GameEnd& gameEnd) {
-void PlayScene::HandleGameEnd(const GameEnd& gameEnd) {
     if (gameEnded) return;
     gameEnded = true;
     

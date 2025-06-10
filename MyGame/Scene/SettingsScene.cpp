@@ -36,6 +36,7 @@ void SettingsScene::Initialize() {
     sliderSFX->SetOnValueChangedCallback(std::bind(&SettingsScene::SFXSlideOnValueChanged, this, std::placeholders::_1));
     AddNewControlObject(sliderSFX);
     AddNewObject(new Engine::Label("SFX: ", "pirulen.ttf", 32, 40 + halfW - 60 - 95, halfH + 50, 255, 255, 255, 255, 0.5, 0.5));
+    bgmInstance = AudioHelper::PlaySample("others.ogg", true, AudioHelper::BGMVolume);
     // Not safe if release resource while playing, however we only free while change scene, so it's fine.
     sliderBGM->SetValue(AudioHelper::BGMVolume);
     sliderSFX->SetValue(AudioHelper::SFXVolume);
@@ -48,9 +49,6 @@ void SettingsScene::Initialize() {
     AddNewObject(new Engine::Label(ls, "pirulen.ttf", 36, halfW, halfH/2, 255, 255, 255, 255, 0.5, 0.5));
     AddNewObject(new Engine::Label(ms, "pirulen.ttf", 36, halfW, halfH/2+50, 255, 255, 255, 255, 0.5, 0.5));
 }
-
-
-
 void SettingsScene::Terminate() {
     AudioHelper::StopSample(bgmInstance);
     bgmInstance = std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE>();

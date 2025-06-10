@@ -18,7 +18,7 @@
 #include "ResultScene.hpp"
 #include "Engine/NetWork.hpp"
 #include "Engine/LOG.hpp"
-
+#include "Scene/PlayScene.hpp"
 // In your ResultScene.cpp, you can access the game results:
 
 void ResultScene::Initialize() {
@@ -28,11 +28,12 @@ void ResultScene::Initialize() {
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
     int halfW = w / 2;
     int halfH = h / 2;
+    
 
     auto& result = PlayScene::lastGameResult;
     Engine::LOG(Engine::INFO) << "initialize result scene";
 
-    int myId = NetWork::Instance().myId;
+    int myId = NetWork::Instance().myId + 1;
     int opponentId = 3 - myId;
 
     int winner = result.winnerId;
@@ -79,7 +80,9 @@ void ResultScene::Initialize() {
             imageY,
             isWinner,
             "Lives: " + std::to_string(
-                (playerId == myId) ? result.player1Lives : result.player2Lives
+                (playerId == NetWork::Instance().myId + 1) ? 
+                    ((NetWork::Instance().myId == 0) ? result.player1Lives : result.player2Lives) :
+                    ((NetWork::Instance().myId == 0) ? result.player2Lives : result.player1Lives)
             )
         });
 
@@ -122,6 +125,11 @@ void ResultScene::Initialize() {
     SaveResult();
     Engine::LOG(Engine::INFO) << "finished initialize result scene";
     bgmId = AudioHelper::PlayBGM("others.ogg");
+
+    if(winner == NetWork::Instance().myId + 1){
+        Engine::GameEngine::UserProfile &u = Engine::GameEngine::GetInstance().GetCurrentUser();
+        u.money += result.player1Lives;
+    }
 }
 
 void ResultScene::Terminate() {
@@ -151,13 +159,13 @@ std::string getDateTime(){
 }
 
 void ResultScene::SaveResult(){
-    int myId = NetWork::Instance().myId;
+    int myId = NetWork::Instance().myId + 1;
     auto& result = PlayScene::lastGameResult;
 
     bool isWinner = (result.winnerId == myId);
     int livesLeft = (myId == 1) ? result.player1Lives : result.player2Lives;
 
-    std::ofstream ofs("C:/Final-project-main/Final-project/MyGame/Resource/ScoreBoard.txt", std::ios::app); // append mode
+    std::ofstream ofs("Resource/ScoreBoard.txt", std::ios::app); // append mode
     if (!ofs) {
         Engine::LOG(Engine::ERROR) << "Failed to open player_results.txt for writing";
         return;

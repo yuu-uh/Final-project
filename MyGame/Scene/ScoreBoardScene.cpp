@@ -19,7 +19,7 @@
 
 void ScoreBoardScene::loadRecord(){
     playerList.clear();
-    std::ifstream fin("C:/Final-project-main/Final-project/MyGame/Resource/ScoreBoard.txt");
+    std::ifstream fin("Resource/ScoreBoard.txt");
     Engine::LOG(Engine::INFO)<<"file loaded";
 
     std::string line;
@@ -34,7 +34,7 @@ void ScoreBoardScene::loadRecord(){
 }
 
 void ScoreBoardScene::saveRecord(){
-    std::ofstream fout("C:/Final-project-main/Final-project/MyGame/Resource/ScoreBoard.txt");
+    std::ofstream fout("Resource/ScoreBoard.txt");
     for(auto& p: playerList){
         fout<<p.state<<" "<<p.lives<<" "<<p.datetime<<std::endl;
     }
